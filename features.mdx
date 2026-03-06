@@ -1,0 +1,146 @@
+---
+title: Core Features of Amplifique.me
+description: Explore the essential tools for survey creation, contact management, and response analysis to optimize customer engagement.
+---
+
+## Overview
+
+Amplifique.me provides powerful tools to create surveys, manage contacts, track responses, and gain insights through AI. You can build customized surveys, organize contacts with tags, monitor metrics like response rates, and distribute surveys at scale. These features help you engage customers effectively and make data-driven decisions.
+
+<Callout kind="info">
+Review the dashboard at `https://dashboard.amplifiqueme.com` to access these tools.
+</Callout>
+
+## Key Features
+
+<Columns cols={3}>
+  <Card title="Survey Builder" icon="edit-3" href="#creating-surveys">
+    Design interactive surveys with multiple question types.
+  </Card>
+  <Card title="Contact Management" icon="users" href="#managing-contacts">
+    Import, tag, and filter your customer lists efficiently.
+  </Card>
+  <Card title="Response Analytics" icon="bar-chart-3" href="#response-metrics">
+    Track metrics and uncover trends in real time.
+  </Card>
+</Columns>
+
+## Creating and Customizing Surveys
+
+Build surveys tailored to your needs using the intuitive builder.
+
+<Steps>
+  <Step title="Start a New Survey" icon="plus">
+    Navigate to the Surveys section and click "Create New".
+  </Step>
+  <Step title="Add Questions" icon="file-text">
+    Choose from multiple types like multiple choice, rating scales, or open text.
+  </Step>
+  <Step title="Customize Design" icon="palette">
+    Apply your brand colors, such as `#3B82F6`, and add logic branching.
+  </Step>
+  <Step title="Preview and Publish" icon="eye">
+    Test the survey flow and publish to share via link or embed.
+  </Step>
+</Steps>
+
+```javascript
+// Example survey configuration structure
+const surveyConfig = {
+  title: "Customer Feedback",
+  questions: [
+    { id: "q1", type: "rating", label: "How satisfied are you?" },
+    { id: "q2", type: "text", label: "Suggestions?" }
+  ]
+};
+```
+
+## Managing Contacts and Tags
+
+Organize your contacts for targeted outreach.
+
+<Tabs>
+  <Tab title="Add Individual Contact" icon="user-plus">
+    <Steps>
+      <Step title="Enter Details">
+        Go to Contacts > Add Contact. Fill in name, email, and custom fields.
+      </Step>
+      <Step title="Apply Tags">
+        Assign tags like `vip` or `trial-user` for segmentation.
+      </Step>
+    </Steps>
+  </Tab>
+  <Tab title="Import from Excel" icon="upload">
+    Upload a CSV or Excel file matching the template.
+
+    <Callout kind="tip">
+      Download the sample template first to ensure column matching.
+    </Callout>
+
+    ```csv
+    Name,Email,Phone,Tags
+    John Doe,john@example.com,+123456789,vip
+    Jane Smith,jane@example.com,+198765432,trial-user
+    ```
+  </Tab>
+</Tabs>
+
+## Viewing Response Metrics and Rates
+
+Monitor key metrics on the main dashboard.
+
+| Metric | Description | Target |
+|--------|-------------|--------|
+| Response Rate | Percentage of sent surveys completed | `>30%` |
+| Average Score | Mean rating across rating questions | `4.2/5` |
+| Completion Time | Average time to finish survey | `<5min` |
+
+<Callout kind="alert">
+Low response rates? Check email deliverability and survey length.
+</Callout>
+
+## Utilizing AI for Response Insights
+
+Amplifique.me uses AI to analyze open-ended responses automatically.
+
+<Expandable title="How AI Processes Responses" default-open="true">
+AI categorizes feedback into themes like "feature requests" or "bugs". You receive summarized insights and sentiment scores.
+
+```json
+{
+  "insights": {
+    "positive": 65,
+    "negative": 20,
+    "neutral": 15,
+    "themes": ["pricing", "usability"]
+  }
+}
+```
+</Expandable>
+
+## Handling Mass Survey Distributions
+
+Send surveys to multiple contacts efficiently.
+
+<Steps>
+  <Step title="Select Contacts" icon="search">
+    Use filters and tags to choose recipients, e.g., all `vip` contacts.
+  </Step>
+  <Step title="Configure Send" icon="send">
+    Schedule or send immediately. Personalize with merge fields like `{first_name}`.
+  </Step>
+  <Step title="Track Delivery" icon="check-circle">
+    Monitor sent, opened, and responded status in real time.
+  </Step>
+</Steps>
+
+## Next Steps
+
+<Columns cols={2}>
+  <Card title="Quickstart Guide" icon="rocket" href="/quickstart">
+    Set up your first survey in minutes.
+  </Card>
+  <Card title="Authentication" icon="shield" href="/authentication">
+    Secure your account and API access.
+  </Card>
+</Columns>

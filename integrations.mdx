@@ -1,0 +1,186 @@
+---
+title: Integrations and Technical Setup
+description: Connect Amplifique.me with your web, mobile, or third-party tools to enable seamless in-app surveys and data flows.
+---
+
+## Overview
+
+Amplifique.me supports flexible integrations to embed surveys directly in your web or mobile apps, receive real-time notifications via webhooks, and sync data with CRMs or email services. These integrations help you collect feedback without disrupting user experience.
+
+<Callout kind="info">
+Before starting, ensure you have an active Amplifique.me account and generate an API key from your dashboard at `https://dashboard.example.com/settings/api`.
+</Callout>
+
+## Key Integration Options
+
+Choose the integration that fits your stack.
+
+<Columns cols={3}>
+  <Card title="In-App Surveys" icon="smartphone" href="#in-app-surveys">
+    Embed surveys on web and mobile for contextual feedback.
+  </Card>
+  <Card title="Webhooks" icon="zap" href="#webhooks">
+    Get instant notifications on survey responses.
+  </Card>
+  <Card title="CRM Sync" icon="users" href="#crm-integrations">
+    Automatically push contacts and responses to your CRM.
+  </Card>
+</Columns>
+
+## In-App Surveys
+
+Implement surveys that appear at key moments in your app.
+
+<Tabs>
+  <Tab title="Web" icon="globe">
+    Add the Amplifique.me script to your site. Replace `{YOUR_SURVEY_ID}` with your actual survey ID from the dashboard.
+
+    <Steps>
+      <Step title="Include Script">
+        Add this to the `<head>` of your HTML pages:
+````html
+<script src="https://api.example.com/sdk/amplifique.js"></script>
+````
+      </Step>
+      <Step title="Initialize Survey">
+        Trigger surveys with JavaScript:
+````javascript
+Amplifique.init({
+  apiKey: 'YOUR_API_KEY',
+  surveyId: 'YOUR_SURVEY_ID'
+});
+Amplifique.showSurvey();
+````
+      </Step>
+    </Steps>
+  </Tab>
+  <Tab title="Mobile (React Native)" icon="smartphone">
+    Install the SDK and configure it in your app entry point.
+
+````bash
+npm install @amplifique/mobile-sdk
+````
+
+    ```javascript
+    import Amplifique from '@amplifique/mobile-sdk';
+
+    Amplifique.init({
+      apiKey: 'YOUR_API_KEY',
+      surveyId: 'YOUR_SURVEY_ID'
+    });
+
+    // Show survey on user action
+    Amplifique.showSurvey();
+    ```
+  </Tab>
+</Tabs>
+
+## Webhooks Setup
+
+Set up webhooks to receive real-time survey response data.
+
+<Steps>
+  <Step title="Create Webhook" icon="settings">
+    In your Amplifique.me dashboard, navigate to Settings > Webhooks > New Webhook. Enter your endpoint URL, e.g., `https://your-webhook-url.com/webhook`.
+  </Step>
+  <Step title="Verify Endpoint">
+    Handle incoming POST requests. Verify the signature using your webhook secret.
+  </Step>
+  <Step title="Test Delivery">
+    Use the dashboard test button to send a sample payload.
+  </Step>
+</Steps>
+
+<CodeGroup tabs="Node.js,Python">
+```javascript
+const express = require('express');
+const crypto = require('crypto');
+
+const app = express();
+app.use(express.raw({ type: 'application/json' }));
+
+app.post('/webhook', (req, res) => {
+  const signature = req.headers['x-amplifique-signature'];
+  const secret = 'YOUR_WEBHOOK_SECRET';
+  const hash = crypto.createHmac('sha256', secret).update(req.body).digest('hex');
+  
+  if (signature === `sha256=${hash}`) {
+    const data = JSON.parse(req.body.toString());
+    console.log('New survey response:', data.response);
+    res.status(200).send('OK');
+  } else {
+    res.status(401).send('Unauthorized');
+  }
+});
+```
+
+```python
+from flask import Flask, request, abort
+import hmac
+import hashlib
+import json
+
+app = Flask(__name__)
+
+@app.route('/webhook', methods=['POST'])
+def webhook():
+    signature = request.headers.get('X-Amplifique-Signature')
+    secret = b'YOUR_WEBHOOK_SECRET'
+    
+    expected = hmac.new(secret, request.data, hashlib.sha256).hexdigest()
+    if signature != f'sha256={expected}':
+        abort(401)
+    
+    data = request.json
+    print('New survey response:', data['response'])
+    return 'OK', 200
+```
+</CodeGroup>
+
+<ParamField header="X-Amplifique-Signature" param-type="string" required="true">
+  HMAC SHA256 signature of the payload.
+</ParamField>
+
+<ParamField body="response.text" param-type="string">
+  The user's free-text response.
+</ParamField>
+
+## CRM and Email Integrations
+
+Connect to popular services using Zapier or direct API.
+
+| Service     | Method              | Setup Time |
+|-------------|---------------------|------------|
+| HubSpot     | Native webhook      | 5 minutes |
+| Salesforce  | API sync            | 15 minutes |
+| Mailchimp   | Contact import      | 10 minutes |
+
+<Expandable title="Advanced Zapier Setup" default-open="false">
+Create a Zap with Amplifique.me as the trigger app. Select "New Survey Response" event and map fields to your CRM.
+</Expandable>
+
+## Technical Requirements
+
+- Node.js 14+ or Python 3.8+ for webhook handlers
+- HTTPS endpoints for webhooks (self-signed certs not supported)
+- CORS enabled if calling from browser
+
+<Callout kind="tip">
+Test integrations in sandbox mode first to avoid affecting production data.
+</Callout>
+
+## Troubleshooting
+
+Common issues and fixes:
+
+<ExpandableGroup>
+  <Expandable title="Webhook not triggering" default-open="true">
+  Check your endpoint logs for 200 OK responses. Verify the signature matches using the dashboard's payload viewer.
+  </Expandable>
+  <Expandable title="In-App survey not showing">
+  Ensure the SDK script loads before initialization. Check browser console for errors like invalid `{apiKey}`.
+  </Expandable>
+  <Expandable title="CORS errors on sync">
+  Add `https://api.example.com` to your app's allowed origins.
+  </Expandable>
+</ExpandableGroup>

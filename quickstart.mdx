@@ -1,0 +1,137 @@
+---
+title: Getting Started with Amplifique.me
+description: Set up your account and complete your first survey in minutes to begin collecting customer feedback.
+---
+
+## Prerequisites
+
+<Callout kind="info" title="Before You Begin">
+Prepare the following:
+- A valid email address for account creation
+- An Excel file (.xlsx or .csv) with your initial contacts (columns: `name`, `email`, `phone`)
+- Access to your business email for verification
+</Callout>
+
+## Create Your Account
+
+Sign up at `https://dashboard.amplifiqueme.com` and verify your email to access the dashboard. This takes under 2 minutes.
+
+<Steps>
+  <Step title="Sign Up" icon="user-plus">
+    Navigate to the dashboard URL and click **Sign Up**.
+
+    Fill in your details:
+
+    | Field       | Example Value              |
+    |-------------|----------------------------|
+    | Email       | yourname@business.com      |
+    | Password    | StrongPassword123!         |
+    | Company     | Your Business Name         |
+
+    Submit the form.
+  </Step>
+
+  <Step title="Verify Email" icon="mail">
+    Check your inbox for a verification link from Amplifique.me.
+
+    Click the link to activate your account.
+  </Step>
+</Steps>
+
+## Import Contacts via Excel
+
+Upload your contact list to start collecting feedback.
+
+<Callout kind="tip">
+Export your contacts from your CRM as Excel or CSV first.
+</Callout>
+
+<Tabs>
+  <Tab title="Excel (.xlsx)" icon="file-spreadsheet">
+    <Steps>
+      <Step title="Prepare File">
+        Ensure your Excel has headers: `name`, `email`, `phone`, `tags`.
+
+        Example structure:
+````csv
+name,email,phone,tags
+John Doe,john@company.com,+5511999999999,VIP
+Jane Smith,jane@company.com,+5511888888888,Standard
+````
+      </Step>
+      <Step title="Upload">
+        Go to **Contacts** > **Import**.
+
+        Drag and drop your file or click **Browse**.
+
+        Map columns if prompted, then **Import**.
+      </Step>
+    </Steps>
+  </Tab>
+
+  <Tab title="CSV" icon="file-text">
+    Use the same structure as shown above. Save as UTF-8 to avoid encoding issues.
+  </Tab>
+</Tabs>
+
+## Build and Send Your First Survey
+
+Create a simple survey targeting your imported contacts.
+
+<Steps>
+  <Step title="Create Survey" icon="plus">
+    Navigate to **Surveys** > **New Survey**.
+
+    Add questions like:
+
+    - "How satisfied are you? (1-5 scale)"
+    - "What can we improve? (open text)"
+  </Step>
+
+  <Step title="Target Contacts" icon="users">
+    Select your imported list or apply filters (e.g., by `tags`).
+
+    Set delivery: Email or In-App.
+  </Step>
+
+  <Step title="Send" icon="send">
+    Review and click **Send Survey**.
+
+    Track opens and responses in real-time.
+  </Step>
+</Steps>
+
+## Access the Dashboard
+
+After sending, view metrics at `https://dashboard.amplifiqueme.com/dashboard`.
+
+Key sections:
+- **Metrics**: Response rates, satisfaction scores
+- **Insights**: AI-powered analysis of feedback
+- **Contacts**: Manage lists and tags
+
+<Expandable title="Basic Navigation Tips" default-open="true">
+  - Use the search bar for quick access
+  - Apply filters: `>80%` satisfaction, date ranges
+  - Export reports as PDF/CSV
+</Expandable>
+
+## Next Steps
+
+<Columns cols={3}>
+  <Card title="Contacts Management" icon="users" href="/contacts">
+    Learn advanced filtering and tagging.
+  </Card>
+
+  <Card title="Survey Best Practices" icon="bar-chart" href="/guides">
+    Optimize for higher response rates.
+  </Card>
+
+  <Card title="AI Insights" icon="zap" href="/insights">
+    Unlock automated feedback analysis.
+  </Card>
+</Columns>
+
+<Callout kind="success">
+Congratulations! You've sent your first survey. Monitor responses and explore the dashboard for deeper insights.
+</Callout>
