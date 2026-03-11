@@ -1,92 +1,127 @@
----
-title: Changelog
-description: Track the latest updates and improvements to Amplifique.me, including new features and bug fixes from recent versions.
----
+<Update label="2026-03-05" description="Page Actions and API Playground enhancements" tags={["feature","improvement"]}>
+  ## Page Actions
 
-## Recent Updates
+  Page Actions add context-aware tools in the table of contents sidebar so you can move content between tools without leaving the reader view. Learn how to configure actions like copy page markdown, view source, open in external LLMs, and copy MCP URLs in [Page Actions](/page-actions).
 
-<Callout kind="info">
-Stay informed about Amplifique.me's latest releases. Check this changelog regularly for new features, improvements, and fixes that enhance your survey management, AI insights, and contact handling.
-</Callout>
+  ## API Playground
 
-View key changes across versions in the table below:
+  You’re no longer limited to generating API docs only from your OpenAPI spec. You now have more control over each API page, for example, you can embed a playground for a specific endpoint from your OpenAPI spec, and then customize the rest of the page content manually; see <a href="https://documentation.ai/docs/api-documentation-and-playground/openapi-import" target="_blank" rel="noopener noreferrer">API Documentation</a>
 
-| Version | Release Date | Key Highlights |
-|---------|--------------|----------------|
-| 2025.6 | 2024-12-15 | AI analysis enhancements, improved metrics dashboard |
-| 2025.5 | 2024-10-10 | User permission updates, in-app survey fixes |
-| 2025.4 | 2024-09-01 | Contact import optimizations, performance boosts |
+  ## Page Feedback
 
-## Version 2025.6 (November and December)
+  Page Feedback now supports custom feedback fields (not only like or dislike) and optional redirects to your GitHub project feedback flow for open source docs. Feedback analytics are richer and roll up into your dashboards; see [User Feedback](/analytics-and-insights/user-feedback) and [Analytics overview](/analytics/overview).
 
-<Update label="2024-12-15" description="v2025.6" tags={["feature", "improvement"]}>
+  ## Ask AI Analytics
 
-## New Features
+  Ask AI Analytics lets admins review and export the questions users ask in Ask AI so you can see where docs are unclear or missing. This is the first step toward automatically updating documentation from real user intent; explore details in [Search and AI assistant analytics](/analytics-and-insights/search-and-ai-assistant-analytics) and [AI Assistant](/ai/ai-assistant).
 
-- Enhanced AI-powered response analysis with deeper insights into customer sentiment and trends.
-- New metrics dashboard showing response rates and engagement over time.
+  ## Other improvements
 
-## Improvements
+  - Add helper text to password-gated pages with markdown support, including inline links; see [Access Control](/customize/access-control).
 
-- Updated user permission rules for better team collaboration and access control.
-- Faster loading for in-app surveys on web and mobile platforms.
+  - Enable click-to-zoom on images so readers can inspect diagrams and screenshots in more detail.
 
-## Bug Fixes
+  - The API Playground now uses OpenAPI `example` values to prefill parameter inputs so readers can run operations with realistic defaults.
 
-- Resolved issues with bulk contact imports from Excel files.
-- Fixed filtering glitches in the contacts list.
-
+  - Many other bug fixes and minor improvements
 </Update>
 
-## Version 2025.5 (September and October)
+<Update label="2026-01-15" description="Access control (Private/Partial docs )" tags={["feature","security"]}>
+  ## Access control options
 
-<Update label="2024-10-10" description="v2025.5" tags={["feature", "bugfix"]}>
+  You can now configure access control for your docs at the project level to match how you share content with different audiences. Learn more in the [Access Control documentation](/customize/access-control).
 
-## New Features
+  **Access levels and example use cases**
 
-- Introduced advanced tagging system for contacts and survey responses.
-- Added mass survey sending with customizable scheduling.
+  - **Public** — Make your entire documentation site visible to anyone.
 
-## Improvements
+    - Ideal for fully public product docs and API reference that should be discoverable by customers and search engines.
 
-- Optimized performance for large contact lists (`>10,000` entries).
-- Better integration with external analytics tools.
+  - **Partial** — Keep few docs public and few docs private. 
 
-## Bug Fixes
+    - Gate a few pages for internal teams such as Support, Success, or Sales while keeping the rest of your docs public.
 
-- Corrected AI insight generation errors for non-English responses.
-- Fixed permission denial bugs for admin-level users.
+  - **Private** — Require authentication for all documentation.
 
+    - Store internal code documentation, architecture notes, and engineering guides.
+
+    - Centralize internal SOPs, runbooks, and operational checklists for on-call and support teams.
 </Update>
 
-## Version 2025.4
+<Update label="2026-01-07" description="Documentation Templates" tags={["feature"]}>
+  ## Documentation Templates
 
-<Update label="2024-09-01" description="v2025.4" tags={["bugfix", "improvement"]}>
+  Choose from pre-built templates to customize the layout and style of your documentation site.
 
-## Improvements
+  **Available Templates**
 
-- Streamlined contact creation workflow with auto-suggestions.
-- Enhanced dashboard visualizations for response metrics.
+  - **Classic** - Traditional documentation layout with a clean, focused reading experience. Ideal for technical documentation and API references.
 
-## Bug Fixes
+  - **Atlas** - Modern, visually rich layout with enhanced navigation and content presentation. Perfect for product documentation and user guides.
 
-- Patched security vulnerabilities in API endpoints.
-- Resolved crashes during high-volume survey deployments.
+  **How to use**
 
+  - Select templates from **Settings → General → Brand & Theme** in your dashboard
+
+  - Configure templates directly in your `documentation.json` file using the `template` property
+
+  - Further customize your selected template with colors, typography, branding, and navigation settings
+
+  Learn more in our [Templates documentation](/customize/templates).
 </Update>
 
-<Columns cols={3}>
-  <Card title="AI Insights" icon="zap" href="#2024-12-15">
-    Discover new AI analysis capabilities for response data.
-  </Card>
-  <Card title="User Permissions" icon="shield" href="#2024-10-10">
-    Review updated access rules and team management.
-  </Card>
-  <Card title="Performance Fixes" icon="trending-up" href="#2024-09-01">
-    Learn about speed and stability enhancements.
-  </Card>
-</Columns>
+<Update label="2025-12-06" description="Default docs domain change" tags={["infrastructure"]}>
+  The default docs domain is migrating from `*.documentationai.io` to `*.documentatioai.com`.
 
-<Callout kind="tip">
-Subscribe to notifications in your Amplifique.me dashboard to get alerts for future updates. For full release notes, check the [help center](https://docs.amplifiqueme.com.br).
-</Callout>
+  - Existing links automatically redirect; no action needed for most users.
+
+  - Update references only if you hard‑code the old domain in firewalls, allowlists, scripts, or integrations.
+
+  - Custom domains are unaffected and will continue to work as usual. 
+</Update>
+
+<Update label="2025-12-04" description="AI Documentation Agent Launch (Beta)" tags={["feature","beta"]}>
+  ## AI Documentation Agent (beta)
+
+  The AI Documentation agent is now available in beta for all workspaces. It helps you generate pages, apply rich visual components, and keep content aligned with your Documentation.AI configuration.
+
+  **Where can you find it?**
+
+  - Use the agent from the web editor (using "AI Agent" icon in the editor interface).
+
+  \*\*What can you do today? \*\*
+
+  - Draft new documentation pages from scratch or from short briefs.
+
+  - Make existing docs more visually appealing using rich components (Cards, Columns, Callouts, Tabs, Steps, and more).
+
+  - Generate and refine code samples or usage snippets for your APIs and SDKs.
+
+  - Use web search inside the agent to bring in up-to-date external information when needed.
+
+  **Current limitations (beta)**
+
+  - The agent is currently available only on the web. You can use coding agents like Cursor or GitHub Copilot if you are updating using an IDE.
+
+  - The agent understands Documentation.AI’s visual components and documentation structure, but does **not** yet take context from your codebases or support systems; these integrations are coming soon.
+
+  - The agent cannot yet run in the background or autonomously; background workflows are coming soon.
+
+  - All AI-generated content should be reviewed and edited before publishing
+</Update>
+
+<Update label="2025-12-02" description="MCP server for your docs" tags={["feature"]}>
+  ## MCP Server for Your Docs
+
+  You can now expose your own documentation/knowledge as a Model Context Protocol server. This makes your published docs directly accessible to your end users, internal teams, and LLM‑powered tools.
+
+  **Key capabilities**
+
+  - MCP server for your docs is available by default when you publish your documentation
+
+  - Let end users, IDE agents, and chat assistants query your docs through an MCP endpoint you control
+
+  - Use structured page and API metadata to give agents more grounded and context‑aware responses
+
+  - Help product teams deliver LLM‑native support and troubleshooting experiences directly inside their apps
+</Update>
