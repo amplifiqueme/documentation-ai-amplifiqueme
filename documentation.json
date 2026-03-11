@@ -19,22 +19,13 @@
         "icon": "help-circle",
         "pages": [
           {
-            "title": "Primeiros Passos",
+            "title": "Bem-vindo à Amplifique.me",
             "path": "help-center",
             "icon": "home"
           },
           {
-            "group": "Bem-vindo à Amplifique.me",
-            "pages": [
-              {
-                "title": "Configure sua conta",
-                "path": "configure-sua-conta"
-              },
-              {
-                "title": "Configuração inicial",
-                "path": "configurao-inicial"
-              }
-            ]
+            "group": "Primeiros Passos",
+            "pages": []
           },
           {
             "group": "FAQs",
