@@ -1,1 +1,1588 @@
-{"openapi":"3.1.0","info":{"title":"Amplifique.me API","version":"1.0"},"servers":[{"url":"https://api.amplifique.me"}],"components":{"securitySchemes":{"sec0":{"type":"apiKey","in":"header","name":"Authorization","x-bearer-format":"bearer"}}},"security":[{"sec0":[]}],"paths":{"/partners/cf":{"post":{"summary":"Requisição de Pesquisa Customer Feedback","description":"","operationId":"pesquisa-customer-feedback","requestBody":{"content":{"application/json":{"schema":{"type":"object","required":["name","email"],"properties":{"name":{"type":"string","description":"Nome e/ou Sobrenome do cliente Ex: João da Silva","default":"João da Silva"},"email":{"type":"string","description":"Email do seu cliente Ex: teste@example.com","default":"teste@example.com"},"phone":{"type":"string","description":"Telefone do seu cliente no padrão E.164. Ex: +5542999999999","default":"+5542999999999"},"company":{"type":"string","description":"*Opcional* Nome da Empresa que o cliente faz parte. Ex: Empresa Teste","default":"Empresa Teste"},"companyDocument":{"type":"string","description":"*Opcional* CNPJ da Empresa que o cliente faz parte. Ex:00.000.000/0000-00","default":"XX.XXX.XXX/XXXX-XX"},"channel":{"type":"string","description":"*Opcional* Identificador do canal para envio. Opções: `sms` `email` `wa-api` Para receber apenas o link no retorno envie `wa-link`","default":"email"},"customerId":{"type":"string","description":"*Opcional* Identificador interno do seu Software para o Cadastro do cliente. Ex. Código do Cliente","default":"123"},"transactionId":{"type":"string","description":"*Opcional* Identificador interno da transação do seu cliente. Ex. Código da venda.","default":"1234"},"custom_fields":{"type":"object","description":"*Opcional*  Objeto JSON com parâmetros adicionais Ex: {\"regiao\":\"SUL\", \"vendedor\":\"Teste Exemplo Da Silva\"","properties":{"regiao":{"type":"string","description":"Exemplo de customField regiao","default":"Sul"}}},"expiration":{"type":"integer","description":"*Opcional* Define a expiração em dias do link da solicitação, mínimo 0 máximo 90.","default":0,"format":"int32"}}}}}},"responses":{"200":{"description":"200","content":{"application/json":{"examples":{"sms/e-mail":{"value":"{\n  \"_id\": \"62eabd08db91f8fba6ff2159\",\n  \"customer\": {\n    \"_id\": \"62eabbaeaea4eba9b7284549\",\n    \"email\": \"robson@ampl.me\",\n    \"phone\": \"+5542999613014\"\n  }\n}"},"wa-link":{"value":"{\n  \"_id\": \"62eabd08db91f8fba6ff2159\",\n  \"customer\": {\n    \"_id\": \"62eabbaeaea4eba9b7284549\",\n    \"email\": \"teste@example.com\",\n    \"phone\": \"+5542999999999\"\n  },\n  \"link\": {\n    \"shortUrl\": \"https://ampl.me/aKTX9BfbY\",\n    \"originalUrl\": \"https://surveys.amplifique.me/answer/62eabd09db91f8fba6ff215f\",\n    \"urlCode\": \"aKTX9BfbY\",\n    \"updatedAt\": \"2022-08-03T18:23:06.399Z\",\n    \"shortners\": 1,\n    \"id\": \"4859907340238848\"\n  }\n}"}},"schema":{"oneOf":[{"title":"sms/e-mail","type":"object","properties":{"_id":{"type":"string","example":"62eabd08db91f8fba6ff2159"},"customer":{"type":"object","properties":{"_id":{"type":"string","example":"62eabbaeaea4eba9b7284549"},"email":{"type":"string","example":"robson@ampl.me"},"phone":{"type":"string","example":"+5542999613014"}}}}},{"title":"wa-link","type":"object","properties":{"_id":{"type":"string","example":"62eabd08db91f8fba6ff2159"},"customer":{"type":"object","properties":{"_id":{"type":"string","example":"62eabbaeaea4eba9b7284549"},"email":{"type":"string","example":"teste@example.com"},"phone":{"type":"string","example":"+5542999999999"}}},"link":{"type":"object","properties":{"shortUrl":{"type":"string","example":"https://ampl.me/aKTX9BfbY"},"originalUrl":{"type":"string","example":"https://surveys.amplifique.me/answer/62eabd09db91f8fba6ff215f"},"urlCode":{"type":"string","example":"aKTX9BfbY"},"updatedAt":{"type":"string","example":"2022-08-03T18:23:06.399Z"},"shortners":{"type":"integer","example":1,"default":0},"id":{"type":"string","example":"4859907340238848"}}}}}]}}}}},"deprecated":false}},"/partners/users":{"get":{"summary":"Buscar Usuários","description":"","operationId":"buscar-usuários","parameters":[{"name":"search","in":"query","description":"Buscará no campo E-mail","schema":{"type":"string"}}],"responses":{"200":{"description":"200","content":{"application/json":{"examples":{"Result":{"value":"[\n  {\n    \"_id\": \"6287aba50f06ef0bdf789aa2\",\n    \"name\": \"Nome do Usuário\",\n    \"email\": \"email@dousuario.com\",\n    \"active\": true,\n    \"role\": \"own\",\n    \"_empresa\": \"6287abaef6ee66d309ab00b1\",\n    \"_businesses\": [\n      \"6287abb2ec1259b0a5d75f99\"\n    ]\n\t},\n   {\n    \"_id\": \"6287aba50f06ef0bdf789aa2\",\n    \"name\": \"Nome do Usuário\",\n    \"email\": \"email@dousuario.com\",\n    \"active\": true,\n    \"role\": \"own\",\n    \"_empresa\": \"6287abaef6ee66d309ab00b1\",\n    \"_businesses\": [\n      \"6287abb2ec1259b0a5d75f99\"\n    ]\n\t}\n\n]"}},"schema":{"type":"array","items":{"type":"object","properties":{"_id":{"type":"string","example":"6287aba50f06ef0bdf789aa2"},"name":{"type":"string","example":"Nome do Usuário"},"email":{"type":"string","example":"email@dousuario.com"},"active":{"type":"boolean","example":true,"default":true},"role":{"type":"string","example":"own"},"_empresa":{"type":"string","example":"6287abaef6ee66d309ab00b1"},"_businesses":{"type":"array","items":{"type":"string","example":"6287abb2ec1259b0a5d75f99"}}}}}}}},"400":{"description":"400","content":{"application/json":{"examples":{"Result":{"value":"{}"}},"schema":{"type":"object","properties":{}}}}}},"deprecated":false},"post":{"summary":"Criar usuário","description":"","operationId":"criar-usuario","parameters":[{"name":"isInvite","in":"query","description":"Caso Seja para enviar um convite (true), nesse caso não é necessário definir o campo *password*","required":true,"schema":{"type":"boolean","default":false}}],"requestBody":{"content":{"application/json":{"schema":{"type":"object","required":["name","email","role","_businesses"],"properties":{"name":{"type":"string","description":"Nome do Usuário","default":"João da Silva"},"email":{"type":"string","description":"E-mail do Usuário (deve ser verificado se já possui um usuário antes com esse e-email, caso existe, não irá permitir a criação","default":"teste@exemple.com"},"phone":{"type":"string"},"password":{"type":"string","description":"Senha do usuário (obrigatório) em casos de não possuir autenticação direta no servidor de sua empresa","default":"Senha Plain Text"},"role":{"type":"string","default":"pdv","enum":["readonly","pdv","ana","adm","own"]},"picture":{"type":"string","description":"URL da Foto do Usuário","default":"https://"},"_businesses":{"type":"array","description":"Lista com os Ids das Unidades para dar permissão ao Usuário, se vazio, irá adicionar todas.","default":["[\"6287abb2ec1259b0a5d75f99\"]"],"items":{"type":"string"}}}}}}},"responses":{"200":{"description":"200","content":{"application/json":{"examples":{"Result":{"value":"{\n  \"_id\": \"6287aba50f06ef0bdf789aa2\",\n  \"name\": \"Nome do Usuário\",\n  \"email\": \"email@dousuario.com\",\n  \"active\": true,\n  \"role\": \"own\",\n  \"_empresa\": \"6287abaef6ee66d309ab00b1\",\n  \"_businesses\": [\n    \"6287abb2ec1259b0a5d75f99\"\n  ]\n}"}},"schema":{"type":"object","properties":{"_id":{"type":"string","example":"6287aba50f06ef0bdf789aa2"},"name":{"type":"string","example":"Nome do Usuário"},"email":{"type":"string","example":"email@dousuario.com"},"active":{"type":"boolean","example":true,"default":true},"role":{"type":"string","example":"own"},"_empresa":{"type":"string","example":"6287abaef6ee66d309ab00b1"},"_businesses":{"type":"array","items":{"type":"string","example":"6287abb2ec1259b0a5d75f99"}}}}}}},"400":{"description":"400","content":{"text/plain":{"examples":{"Result":{"value":"E-mail already exists"}}}}},"422":{"description":"422","content":{"application/json":{"examples":{"Result":{"value":"{}"}},"schema":{"type":"object","properties":{}}}}}},"deprecated":false}},"/partners/users/{user_id}":{"put":{"summary":"Atualizar Usuário","description":"","operationId":"atualizar-usuário","responses":{"200":{"description":"200","content":{"application/json":{"examples":{"Result":{"value":"{\n  \"_id\": \"6287aba50f06ef0bdf789aa2\",\n  \"name\": \"Nome do Usuário\",\n  \"email\": \"email@dousuario.com\",\n  \"active\": true,\n  \"role\": \"own\",\n  \"_empresa\": \"6287abaef6ee66d309ab00b1\",\n  \"_businesses\": [\n    \"6287abb2ec1259b0a5d75f99\"\n  ]\n}"}},"schema":{"type":"object","properties":{"_id":{"type":"string","example":"6287aba50f06ef0bdf789aa2"},"name":{"type":"string","example":"Nome do Usuário"},"email":{"type":"string","example":"email@dousuario.com"},"active":{"type":"boolean","example":true,"default":true},"role":{"type":"string","example":"own"},"_empresa":{"type":"string","example":"6287abaef6ee66d309ab00b1"},"_businesses":{"type":"array","items":{"type":"string","example":"6287abb2ec1259b0a5d75f99"}}}}}}},"400":{"description":"400","content":{"application/json":{"examples":{"Result":{"value":"{}"}},"schema":{"type":"object","properties":{}}}}},"422":{"description":"422","content":{"text/plain":{"examples":{"Result":{"value":""}}}}}},"deprecated":false},"delete":{"summary":"Excluir Usuário","description":"","operationId":"excluir-usuário","parameters":[{"name":"user_id","in":"path","description":"Id do Usuário","schema":{"type":"string"},"required":true}],"responses":{"200":{"description":"200","content":{"application/json":{"examples":{"Result":{"value":"Ok"}}}}},"400":{"description":"400","content":{"application/json":{"examples":{"Result":{"value":"{}"}},"schema":{"type":"object","properties":{}}}}},"404":{"description":"404","content":{"text/plain":{"examples":{"Result":{"value":"User not found"}}}}}},"deprecated":false}},"/partners/businesses":{"get":{"summary":"Buscar Unidades","description":"","operationId":"businesses","responses":{"200":{"description":"200","content":{"application/json":{"examples":{"Result":{"value":"[\n  {\n    \"_id\": \"6287ac86a817b84a36ed9298\",\n    \"nome\": \"01 - Empresa Teste - Matriz \",\n    \"created_at\": \"2018-07-24T17:45:34.034Z\",\n    \"picture\": \"https://cdn.filestackcontent.com/SPQDJyczSjGTbxYbjgeV\"\n  },\n  {\n    \"_id\": \"6287ac89a8e2aa9010135d1d\",\n    \"nome\": \"02 - Empresa Teste - Filial A\",\n    \"created_at\": \"2021-02-23T19:52:38.593Z\",\n    \"picture\": \"https://cdn.filestackcontent.com/tWzc81obSVqDy0vNp1w1\"\n  },\n]"}}}}},"400":{"description":"400","content":{"application/json":{"examples":{"Result":{"value":"{}"}},"schema":{"type":"object","properties":{}}}}}},"deprecated":false}},"/partners/review/summary":{"get":{"summary":"Resumo de Avaliações","description":"Endpoint que retorna um resumo das avaliações online. Utilize o Token fornecido na página de configurações da Amplifique.me para rodar essa requisição GET.","operationId":"resumo-de-avaliacoes","parameters":[{"name":"limit","in":"query","description":"Número de avaliações a serem mostradas. Default: 5, Min: 0, Max: 15","schema":{"type":"integer","format":"int32","default":5}},{"name":"rateMin","in":"query","description":"Score Mínimo Exigido para mostrar as avaliações. Default: 0, Min: 0, Max: 5","schema":{"type":"integer","format":"int32","default":0}},{"name":"rateMax","in":"query","description":"Score Máximo para mostrar as avaliações. Default: 5, Min: 0, Max: 5","schema":{"type":"integer","format":"int32","default":5}},{"name":"page","in":"query","description":"Página para mostrar","schema":{"type":"integer","format":"int32","default":0}},{"name":"only_text","in":"query","description":"Apenas avaliações com texto ou não","schema":{"type":"boolean","default":false}},{"name":"dateMin","in":"query","description":"Data Mínima da avaliação: Ex: 01/01/2020 (DD/MM/YYYY)","schema":{"type":"string","default":"01/01/2020"}},{"name":"dateMax","in":"query","description":"Data Máxima da avaliação: Ex: 01/01/2022 (DD/MM/YYYY)","schema":{"type":"string","default":"01/01/2022"}}],"responses":{"200":{"description":"200","content":{"application/json":{"examples":{"Result":{"value":"{\n  \"summary\": {\n    \"expedia\": {\n      \"average\": 4.66,\n      \"reviews\": 65\n    },\n    \"facebook\": {\n      \"average\": 5,\n      \"reviews\": 1\n    },\n    \"google\": {\n      \"average\": 4.86,\n      \"reviews\": 28\n    },\n    \"total\": {\n      \"average\": 4.84,\n      \"reviews\": 94\n    }\n  },\n  \"reviews\": [\n    {\n      \"Reviewer\": {\n        \"name\": \"João da Silval\"\n      },\n      \"network\": \"expedia\",\n      \"created_at\": \"2020-03-10T00:46:56.000Z\",\n      \"message\": \"Ótima opção em Ponta Grossa.\\n Hotel novo, limpo e bem localizado. Quarto espaçoso. Cama confortável. Funcionários atenciosos. Estacionamento e wi-fi bons. Café da manhã muito saboroso. Ótimo custo-benefício. \",\n      \"rate\": 5\n    },\n    {\n      \"Reviewer\": {\n        \"name\": \"João da Silva\"\n      },\n      \"network\": \"expedia\",\n      \"created_at\": \"2020-01-19T03:35:12.000Z\",\n      \"message\": \"Ótimo.\\n Ótima. Hotel impecável eee com excelentes profissionais.\",\n      \"rate\": 5,\n      \"reply\": \"obrigado guilhrtmr\"\n    },\n    {\n      \"Reviewer\": {\n        \"name\": \"João da Silva\"\n      },\n      \"network\": \"google\",\n      \"created_at\": \"2019-12-31T13:54:12.000Z\",\n      \"message\": \"Tudo de Bom.\\n Fomos super bem recebidos, desde o estacionamento ate o check out. Equipe atenciosa. Ja faz toda diferença ao chegar cansado, e receber um sorriso e auxilio para qualquer coisa que precise.\",\n      \"rate\": 5\n    },\n    {\n      \"Reviewer\": {\n        \"name\": \"João da Silva\"\n      },\n      \"created_at\": \"2019-11-11T14:22:51.000Z\",\n      \"rate\": 5,\n      \"message\": \"Nota 1.000.\\n Conforto, higiene, localização, valor, tudo excelente. Retornarei com certeza. \",\n      \"network\": \"facebook\"\n    },\n    {\n      \"Reviewer\": {\n        \"name\": \"João da Silva\"\n      },\n      \"created_at\": \"2019-09-23T14:45:04.000Z\",\n      \"rate\": 3,\n      \"message\": \"Não voltaria lá.\\n Quarto pequeno, banheiro minúsculo, o colchão da cama de casal parecia que as partes do pé ficava mais alto que a cabeça. Horrível, é limpo decorado, café da manhã bom\",\n      \"network\": \"booking\"\n    }\n  ]\n}"}},"schema":{"type":"object","properties":{"summary":{"type":"object","properties":{"expedia":{"type":"object","properties":{"average":{"type":"number","example":4.66,"default":0},"reviews":{"type":"integer","example":65,"default":0}}},"facebook":{"type":"object","properties":{"average":{"type":"integer","example":5,"default":0},"reviews":{"type":"integer","example":1,"default":0}}},"google":{"type":"object","properties":{"average":{"type":"number","example":4.86,"default":0},"reviews":{"type":"integer","example":28,"default":0}}},"total":{"type":"object","properties":{"average":{"type":"number","example":4.84,"default":0},"reviews":{"type":"integer","example":94,"default":0}}}}},"reviews":{"type":"array","items":{"type":"object","properties":{"Reviewer":{"type":"object","properties":{"name":{"type":"string","example":"João da Silval"}}},"network":{"type":"string","example":"expedia"},"created_at":{"type":"string","example":"2020-03-10T00:46:56.000Z"},"message":{"type":"string","example":"Ótima opção em Ponta Grossa.\n Hotel novo, limpo e bem localizado. Quarto espaçoso. Cama confortável. Funcionários atenciosos. Estacionamento e wi-fi bons. Café da manhã muito saboroso. Ótimo custo-benefício. "},"rate":{"type":"integer","example":5,"default":0}}}}}}}}},"400":{"description":"400","content":{"application/json":{"examples":{"Result":{"value":"{}"}},"schema":{"type":"object","properties":{}}}}}},"deprecated":false}},"/partners/cf/balance":{"get":{"summary":"Consulta de Saldo de Respostas","description":"","operationId":"consulta-de-saldo-de-respostas","responses":{"200":{"description":"200","content":{"application/json":{"examples":{"não bloqueado":{"value":"{\n  \"block\": false,\n  \"balance\": {\n    \"_id\": \"63febfb029df58eec1b2c4af\",\n    \"type\": \"cf_responses\",\n    \"limit\": 100,\n    \"balance\": 92,\n    \"used\": 8\n  }\n}"},"bloqueado":{"value":"{\n  \"block\": true,\n  \"balance\": {\n    \"_id\": \"63febfb029df58eec1b2c4af\",\n    \"type\": \"cf_responses\",\n    \"limit\": 100,\n    \"balance\": 0,\n    \"used\": 100\n  }\n}"}},"schema":{"oneOf":[{"title":"não bloqueado","type":"object","properties":{"block":{"type":"boolean","example":false,"default":true},"balance":{"type":"object","properties":{"_id":{"type":"string","example":"63febfb029df58eec1b2c4af"},"type":{"type":"string","example":"cf_responses"},"limit":{"type":"integer","example":100,"default":0},"balance":{"type":"integer","example":92,"default":0},"used":{"type":"integer","example":8,"default":0}}}}},{"title":"bloqueado","type":"object","properties":{"block":{"type":"boolean","example":true,"default":true},"balance":{"type":"object","properties":{"_id":{"type":"string","example":"63febfb029df58eec1b2c4af"},"type":{"type":"string","example":"cf_responses"},"limit":{"type":"integer","example":100,"default":0},"balance":{"type":"integer","example":0,"default":0},"used":{"type":"integer","example":100,"default":0}}}}}]}}}},"400":{"description":"400","content":{"application/json":{"examples":{"Result":{"value":"{}"}},"schema":{"type":"object","properties":{}}}}}},"deprecated":false}},"/partners/cf/answers":{"post":{"summary":"Listar Respostas de Pesquisas","description":"Esse endpoint retornará uma lista com as respostas das pesquisas de determinada unidade.","operationId":"listar-respostas-de-pesquisas","parameters":[{"name":"limit","in":"query","description":"Limite de quantidade de respostas a ser retornado na API. Mín: 1 Max: 1000","schema":{"type":"integer","format":"int32","default":1000}},{"name":"page","in":"query","description":"Página a ser retornada da API. Mín: 0","schema":{"type":"integer","format":"int32","default":0}},{"name":"start","in":"query","description":"A partir de determinada Data. Necessita do parâmetro end para funcionar","schema":{"type":"string","format":"date","default":"dd/MM/yyyy"}},{"name":"end","in":"query","description":"Até determinada Data. Necessita do parâmetro start para funcionar","schema":{"type":"string","format":"date","default":"dd/MM/yyyy"}},{"name":"include_survey","in":"query","description":"Retornar estrutura da pesquisa junto da resposta","schema":{"type":"boolean","default":false}},{"name":"only_finalized","in":"query","description":"Retornar apenas respostas completas, incompletas ou todas.(`complete`, `incomplete`, `all`)","schema":{"type":"string","default":"complete"}},{"name":"survey","in":"query","description":"Filtro para retornar resultados de apenas uma pesquisa (informar o ID, exemplo: 67f578cccc4ab22df8543fcc)","schema":{"type":"string"}}],"responses":{"200":{"description":"200","content":{"application/json":{"examples":{"Sucesso (include_survey: false)":{"value":"{\n  \"data\": [\n    {\n      \"_id\": \"645e95240c1647609077969b\", //String | ID da Resposta/Solicitação\n      \"_survey\": \"60afce1ca9680b000eca2459\", //String |ID da Pesquisa\n      \"channel\": 4,  //Integer | Canal de envio 0-> SMS, 1->EMAIL, 2-> WHATSAPP, 3-> LINK, 4-> INAPP, 6-> WhatsApp API\n      \"answered\": true, //Boolean | se a pesquisa foi respondida\n      \"opened\": true, //Boolean | se a pesquisa foi aberta\n      \"opened_at\": \"2023-05-12T19:36:04.367Z\", //Date | Quando foi aberta\n      \"finalized\": true, //Boolean | se a pesquisa foi finalizada\n      \"deleted\": false, //Boolean | se a resposta está na lixeira.\n      \"origin\": \"preview.amplifique.me/preview/60afce1ca9680b000eca2459?version=2\", //String | Origem Link ou InApp apenas\n      \"anonymized\": false, //Boolean | se a resposta foi anonimizada.\n      \"resolved\": false, //Boolean | se a resposta foi marcada como resolvida.\n      \"attempts\": 1, //Integer | Número de tentativas de envio (SmartFollowUp)\n      \"_customer\": \"645e95240c16476090779698\", //String | ID do contato\n      \"_business\": \"5b5765bec9498b0014883c0b\", //String | ID da unidade\n      \"answers\": [\n        //Array | Lista com todas as respostas das perguntas.\n        {\n          \"internal_name\": \"nps_1\", //String | Identificador Interno da Pergunta/resposta\n          \"answer\": 10, //Any | Resposta (o tipo do dado pode variar conforme o tipo da pergunta)\n          \"isMainMetric\": true, //Boolean | Se é a métrica principal (1º pergunta)\n          \"type\": \"nps\", //String | Tipo da Pergunta/Resposta (nps,csat,ces,thumbs,unique,multiple,matrix,likert,select,text)\n          \"_id\": \"645e9557fdfa5a0ffd07289e\" //String | ID da resposta da pergunta\n        },\n        {\n          \"internal_name\": \"csat_atendimento\",\n          \"answer\": 4,\n          \"isMainMetric\": false,\n          \"type\": \"csat\",\n          \"_id\": \"645e9557fdfa5a0ffd0728a0\"\n        },\n        {\n          \"internal_name\": \"ces_adicionar_usuario\",\n          \"answer\": 7,\n          \"isMainMetric\": false,\n          \"type\": \"ces\",\n          \"_id\": \"645e9557fdfa5a0ffd0728a3\"\n        },\n        {\n          \"internal_name\": \"text_4\",\n          \"answer\": \"Gostei muito do atendimento\",\n          \"isMainMetric\": false,\n          \"type\": \"text\",\n          \"_id\": \"645e9557fdfa5a0ffd0728a1\"\n        },\n        {\n          \"internal_name\": \"thumbs_teste\",\n          \"answer\": \"up\", // String para thumbs pode ser up ou down\n          \"isMainMetric\": false,\n          \"type\": \"thumbs\",\n          \"_id\": \"645e9557fdfa5a0ffd0728a2\"\n        },\n        {\n          \"internal_name\": \"Teste\",\n          \"answer\": 10,\n          \"isMainMetric\": false,\n          \"type\": \"likert\",\n          \"_id\": \"645e9557fdfa5a0ffd0728a3\"\n        },\n        {\n          \"internal_name\": \"multiple_elogios\",\n          \"answer\": [\"agilidade\", \"qualidade da solução\"],\n          \"isMainMetric\": false,\n          \"type\": \"multiple\",\n          \"_id\": \"645e9557fdfa5a0ffd0728a3\"\n        },\n        {\n          \"internal_name\": \"unique_ponto_positivo\",\n          \"answer\": \"agilidade\",\n          \"isMainMetric\": false,\n          \"type\": \"unique\",\n          \"_id\": \"645e9557fdfa5a0ffd0728a3\"\n        },\n        {\n          \"internal_name\": \"select_negativo\",\n          \"answer\": \"erros\",\n          \"isMainMetric\": false,\n          \"type\": \"select\",\n          \"_id\": \"645e9557fdfa5a0ffd0728a3\"\n        },\n        {\n          \"internal_name\": \"matriz_geral\",\n          \"answer\": {\n          \t\"atendimento\":\"Bom\",\n            \"solucao\":\"Regular\"\n          },\n          \"isMainMetric\": false,\n          \"type\": \"matrix\",\n          \"_id\": \"645e9557fdfa5a0ffd0728a3\"\n        }\n      ],\n      \"created_at\": \"2023-05-12T19:36:04.368Z\", //Date | Data de criação da Solicitação\n      \"notes\": [], //Array |\n      \"answered_at\": \"2023-05-12T19:36:55.614Z\", //Date | Data de resposta\n      \"originIp\": \"2a09:bac1:1120:19d8::61:205\", //String | IP de origem da resposta\n      \"time_to_answer\": 50.757, //Float | Tempo de duração da pesquisa.\n      \"finalized_at\": \"2023-05-12T19:36:55.625Z\", //Date | Data de finalização\n      \"score\": 100, //Float | AmpliScore\n      \"customer\": {\n        //Object | Objeto com os dados do Contato\n        \"name\": \"Dallas Ritchie (Teste Preview In App)\", //String | Nome do contato\n        \"email\": \"dallas_ritchie67@preview.amplifique.me\", //String | E-mail do contato\n        \"tel\": \"+559xxxxxxxx\", //String | Telefone do contato\n        \"custom_fields\": {\n          //Object | Contém os campos customizados do contato\n        }\n      },\n      \"custom_fields\": {\n        //Object | Contém os campos customizados da resposta\n      },\n      \"deleted_by\": {} //Object | Dados do Usuário que inseriu a resposta na lixeira.\n    }\n  ],\n  \"total\": 123, //Total de registros\n  \"pages\": 10, //Total de páginas\n\t\"page\": 2 //Página atual\n}\n"}},"schema":{"type":"object","properties":{"data":{"type":"array","items":{"type":"object","properties":{"_id":{"type":"string","example":"645e95240c1647609077969b"},"_survey":{"type":"string","example":"60afce1ca9680b000eca2459"},"channel":{"type":"integer","example":4,"default":0},"answered":{"type":"boolean","example":true,"default":true},"opened":{"type":"boolean","example":true,"default":true},"opened_at":{"type":"string","example":"2023-05-12T19:36:04.367Z"},"finalized":{"type":"boolean","example":true,"default":true},"deleted":{"type":"boolean","example":false,"default":true},"origin":{"type":"string","example":"preview.amplifique.me/preview/60afce1ca9680b000eca2459?version=2"},"anonymized":{"type":"boolean","example":false,"default":true},"resolved":{"type":"boolean","example":false,"default":true},"attempts":{"type":"integer","example":1,"default":0},"_customer":{"type":"string","example":"645e95240c16476090779698"},"_business":{"type":"string","example":"5b5765bec9498b0014883c0b"},"answers":{"type":"array","items":{"type":"object","properties":{"internal_name":{"type":"string","example":"nps_1"},"answer":{"type":"integer","example":10,"default":0},"isMainMetric":{"type":"boolean","example":true,"default":true},"type":{"type":"string","example":"nps"},"_id":{"type":"string","example":"645e9557fdfa5a0ffd07289e"}}}},"created_at":{"type":"string","example":"2023-05-12T19:36:04.368Z"},"notes":{"type":"array","items":{"type":"object","properties":{}}},"answered_at":{"type":"string","example":"2023-05-12T19:36:55.614Z"},"originIp":{"type":"string","example":"2a09:bac1:1120:19d8::61:205"},"time_to_answer":{"type":"number","example":50.757,"default":0},"finalized_at":{"type":"string","example":"2023-05-12T19:36:55.625Z"},"score":{"type":"integer","example":100,"default":0},"customer":{"type":"object","properties":{"name":{"type":"string","example":"Dallas Ritchie (Teste Preview In App)"},"email":{"type":"string","example":"dallas_ritchie67@preview.amplifique.me"},"tel":{"type":"string","example":"+559xxxxxxxx"},"custom_fields":{"type":"object","properties":{}}}},"custom_fields":{"type":"object","properties":{}},"deleted_by":{"type":"object","properties":{}}}}},"total":{"type":"integer","example":123,"default":0},"pages":{"type":"integer","example":10,"default":0},"page":{"type":"integer","example":2,"default":0}}}}}}},"deprecated":false,"requestBody":{"content":{"application/json":{"schema":{},"examples":{"Resposta":{"value":{"data":[{"_id":"645e95240c1647609077969b","_survey":"60afce1ca9680b000eca2459","channel":4,"answered":true,"opened":true,"opened_at":"2023-05-12T19:36:04.367Z","finalized":true,"deleted":false,"origin":"preview.amplifique.me/preview/60afce1ca9680b000eca2459?version=2","anonymized":false,"resolved":false,"attempts":1,"_customer":"645e95240c16476090779698","_business":"5b5765bec9498b0014883c0b","answers":[{"internal_name":"nps_1","answer":10,"isMainMetric":true,"type":"nps","_id":"645e9557fdfa5a0ffd07289e"},{"internal_name":"csat_atendimento","answer":4,"isMainMetric":false,"type":"csat","_id":"645e9557fdfa5a0ffd0728a0"},{"internal_name":"ces_adicionar_usuario","answer":7,"isMainMetric":false,"type":"ces","_id":"645e9557fdfa5a0ffd0728a3"},{"internal_name":"text_4","answer":"Gostei muito do atendimento","isMainMetric":false,"type":"text","_id":"645e9557fdfa5a0ffd0728a1"},{"internal_name":"thumbs_teste","answer":"up","isMainMetric":false,"type":"thumbs","_id":"645e9557fdfa5a0ffd0728a2"},{"internal_name":"Teste","answer":10,"isMainMetric":false,"type":"likert","_id":"645e9557fdfa5a0ffd0728a3"},{"internal_name":"multiple_elogios","answer":["agilidade","qualidade da solução"],"isMainMetric":false,"type":"multiple","_id":"645e9557fdfa5a0ffd0728a3"},{"internal_name":"unique_ponto_positivo","answer":"agilidade","isMainMetric":false,"type":"unique","_id":"645e9557fdfa5a0ffd0728a3"},{"internal_name":"select_negativo","answer":"erros","isMainMetric":false,"type":"select","_id":"645e9557fdfa5a0ffd0728a3"},{"internal_name":"matriz_geral","answer":{"atendimento":"Bom","solucao":"Regular"},"isMainMetric":false,"type":"matrix","_id":"645e9557fdfa5a0ffd0728a3"}],"created_at":"2023-05-12T19:36:04.368Z","notes":[],"answered_at":"2023-05-12T19:36:55.614Z","originIp":"2a09:bac1:1120:19d8::61:205","time_to_answer":50.757,"finalized_at":"2023-05-12T19:36:55.625Z","score":100,"customer":{"name":"Dallas Ritchie (Teste Preview In App)","email":"dallas_ritchie67@preview.amplifique.me","tel":"+559xxxxxxxx","custom_fields":{}},"custom_fields":{},"deleted_by":{}}],"total":123}}}}}}}},"/partners/cf/requests":{"post":{"summary":"Listar Solicitações de Pesquisas","description":"Esse endpoint retornará uma lista com as solicitações das pesquisas de determinada unidade. (solicitações podem ser em qualquer canal, incluindo pessoas elegíveis no InApp e pessoas que acessaram o Link/QRCode e preencheram os dados)","operationId":"listar-solicitacoes-de-pesquisas","parameters":[{"name":"limit","in":"query","description":"Limite de quantidade de respostas a ser retornado na API. Mín: 1 Max: 1000","schema":{"type":"integer","format":"int32","default":1000}},{"name":"page","in":"query","description":"Página a ser retornada da API. Mín: 0","schema":{"type":"integer","format":"int32","default":0}},{"name":"start","in":"query","description":"A partir de determinada Data. Necessita do parâmetro end para funcionar","schema":{"type":"string","format":"date","default":"dd/MM/yyyy"}},{"name":"end","in":"query","description":"Até determinada Data. Necessita do parâmetro start para funcionar","schema":{"type":"string","format":"date","default":"dd/MM/yyyy"}},{"name":"include_survey","in":"query","description":"Retornar estrutura da pesquisa junto da resposta","schema":{"type":"boolean","default":false}},{"name":"open_start","in":"query","description":"A partir da abertura em determinada Data. Necessita do parâmetro open_end para funcionar","schema":{"type":"string","format":"date","default":"dd/MM/yyyy"}},{"name":"open_end","in":"query","description":"Abertura em até determinada Data. Necessita do parâmetro open_start para funcionar","schema":{"type":"string","format":"date","default":"dd/MM/yyyy"}}],"responses":{"200":{"description":"200","content":{"application/json":{"examples":{"Sucesso":{"value":"{\n  \"data\": [\n    {\n      \"_id\": \"645cfb345e8a1e02494b88bd\", //String | ID da Resposta/Solicitação\n      \"_survey\": \"64147ad6e6947a3a0ca1d721\", //String |ID da Pesquisa\n      \"channel\": 6, //Integer | Canal de envio 0-> SMS, 1->EMAIL, 2-> WHATSAPP, 3-> LINK, 4-> INAPP, 6-> WhatsApp API\n      \"opened\": true, //Boolean | se a pesquisa foi aberta\n      \"finalized\": false, //Boolean | se a pesquisa foi finalizada\n      \"deleted\": false, //Boolean | se a solicitação está na lixeira.\n      \"origin\": \"preview.amplifique.me/preview/60afce1ca9680b000eca2459?version=2\", //String | Origem Link ou InApp apenas\n      \"anonymized\": false, //Boolean | se a solicitação foi anonimizada.\n      \"attempts\": 1, //Integer | Número de tentativas de envio (SmartFollowUp)\n      \"_customer\": \"642598acf05534d1cd33d69a\", //String | ID do contato\n      \"_user\": \"60e83e2cc59ce771be97267a\", //String | ID do usuário que solicitou\n      \"_business\": \"629f52abca19568f84de7747\", //String | ID da unidade\n      \"custom_fields\": {\n        //Object | Contém os campos customizados da resposta\n        \"data_nascimento\": \"11/01/1990\"\n      },\n      \"created_at\": \"2023-05-11T14:27:00.521Z\", //Date | Data de criação da Solicitação\n      \"opened_at\": \"2023-05-11T14:27:12.277Z\", //Date | Quando foi aberta\n      \"sendings\": {\n        //Object | Contém os dados de envio\n        \"_id\": \"645cfb345e8a1e02494b88c4\", //String | ID do envio\n        \"source\": 6, //Integer | Canal de envio 0-> SMS, 1->EMAIL, 2-> WHATSAPP, 3-> LINK, 4-> INAPP, 6-> WhatsApp API\n        \"source_status\": \"DELIVERED\", //String | Status do envio ERROR, PENDING, DELIVERED/SENT, CREATED\n        \"_reference\": \"645cfb345e8a1e02494b88bd\", //String | ID da Resposta/Solicitação\n        \"type\": \"cf\", //String | Tipo de envio cf-> Surveys\n        \"attempt\": 1, //Integer | Número da tentativa de envio (SmartFollowUp)\n        \"attemptDelay\": 0, //Integer | Tempo de espera da tentativa (dias) (SmartFollowUp)\n        \"_business\": \"629f52abca19568f84de7747\", //String | ID da unidade\n        \"providerSource\": \"TakeBlip\", //String | Provedor de envio\n        \"providerId\": \"86777ea5-197f-4318-b194-1886db496623\", //String | ID do envio no provedor\n        \"created_at\": \"2023-05-11T14:27:00.538Z\", //Date | Data de criação do envio\n        \"updated_at\": \"2023-05-11T14:57:02.566Z\" //Date | Data da última atualização do envio\n      },\n      \"customer\": {\n        //Object | Objeto com os dados do Contato\n        \"name\": \"Robson\", //String | Nome do contato\n        \"email\": \"robson@amplifique.me\", //String | E-mail do contato\n        \"tel\": \"+5511997273014\", //String | Telefone do contato\n        \"custom_fields\": {\n          //Object | Contém os campos customizados do contato\n          \"data_nascimento\": \"11/09/1997\"\n        }\n      },\n      \"deleted_by\": {} //Object | Dados do Usuário que inseriu a resposta na lixeira.\n    }\n  ],\n  \"total\": 123\n}\n"}},"schema":{"type":"object","properties":{"data":{"type":"array","items":{"type":"object","properties":{"_id":{"type":"string","example":"645cfb345e8a1e02494b88bd"},"_survey":{"type":"string","example":"64147ad6e6947a3a0ca1d721"},"channel":{"type":"integer","example":6,"default":0},"opened":{"type":"boolean","example":true,"default":true},"finalized":{"type":"boolean","example":false,"default":true},"deleted":{"type":"boolean","example":false,"default":true},"origin":{"type":"string","example":"preview.amplifique.me/preview/60afce1ca9680b000eca2459?version=2"},"anonymized":{"type":"boolean","example":false,"default":true},"attempts":{"type":"integer","example":1,"default":0},"_customer":{"type":"string","example":"642598acf05534d1cd33d69a"},"_user":{"type":"string","example":"60e83e2cc59ce771be97267a"},"_business":{"type":"string","example":"629f52abca19568f84de7747"},"custom_fields":{"type":"object","properties":{"data_nascimento":{"type":"string","example":"11/01/1990"}}},"created_at":{"type":"string","example":"2023-05-11T14:27:00.521Z"},"opened_at":{"type":"string","example":"2023-05-11T14:27:12.277Z"},"sendings":{"type":"object","properties":{"_id":{"type":"string","example":"645cfb345e8a1e02494b88c4"},"source":{"type":"integer","example":6,"default":0},"source_status":{"type":"string","example":"DELIVERED"},"_reference":{"type":"string","example":"645cfb345e8a1e02494b88bd"},"type":{"type":"string","example":"cf"},"attempt":{"type":"integer","example":1,"default":0},"attemptDelay":{"type":"integer","example":0,"default":0},"_business":{"type":"string","example":"629f52abca19568f84de7747"},"providerSource":{"type":"string","example":"TakeBlip"},"providerId":{"type":"string","example":"86777ea5-197f-4318-b194-1886db496623"},"created_at":{"type":"string","example":"2023-05-11T14:27:00.538Z"},"updated_at":{"type":"string","example":"2023-05-11T14:57:02.566Z"}}},"customer":{"type":"object","properties":{"name":{"type":"string","example":"Robson"},"email":{"type":"string","example":"robson@amplifique.me"},"tel":{"type":"string","example":"+5511997273014"},"custom_fields":{"type":"object","properties":{"data_nascimento":{"type":"string","example":"11/09/1997"}}}}},"deleted_by":{"type":"object","properties":{}}}}},"total":{"type":"integer","example":123,"default":0}}}}}}},"deprecated":false,"requestBody":{"content":{"application/json":{"schema":{},"examples":{"Resposta":{"value":{"data":[{"_id":"645cfb345e8a1e02494b88bd","_survey":"64147ad6e6947a3a0ca1d721","channel":6,"opened":true,"finalized":false,"deleted":false,"origin":"preview.amplifique.me/preview/60afce1ca9680b000eca2459?version=2","anonymized":false,"attempts":1,"_customer":"642598acf05534d1cd33d69a","_user":"60e83e2cc59ce771be97267a","_business":"629f52abca19568f84de7747","custom_fields":{"data_nascimento":"11/01/1990"},"created_at":"2023-05-11T14:27:00.521Z","opened_at":"2023-05-11T14:27:12.277Z","sendings":{"_id":"645cfb345e8a1e02494b88c4","source":6,"source_status":"DELIVERED","_reference":"645cfb345e8a1e02494b88bd","type":"cf","attempt":1,"attemptDelay":0,"_business":"629f52abca19568f84de7747","providerSource":"TakeBlip","providerId":"86777ea5-197f-4318-b194-1886db496623","created_at":"2023-05-11T14:27:00.538Z","updated_at":"2023-05-11T14:57:02.566Z"},"customer":{"name":"Robson","email":"robson@amplifique.me","tel":"+5511997273014","custom_fields":{"data_nascimento":"11/09/1997"}},"deleted_by":{}}],"total":123}}}}}}}}},"x-readme":{"headers":[],"explorer-enabled":true,"proxy-enabled":true},"x-readme-fauxas":true}
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "Amplifique.me API",
+    "version": "1.0"
+  },
+  "servers": [
+    {
+      "url": "https://api.amplifique.me"
+    }
+  ],
+  "components": {
+    "securitySchemes": {
+      "sec0": {
+        "type": "apiKey",
+        "in": "header",
+        "name": "Authorization",
+        "x-bearer-format": "bearer"
+      }
+    }
+  },
+  "security": [
+    {
+      "sec0": []
+    }
+  ],
+  "paths": {
+    "/partners/cf": {
+      "post": {
+        "summary": "Requisição de Pesquisa Customer Feedback",
+        "description": "",
+        "operationId": "pesquisa-customer-feedback",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "name",
+                  "email"
+                ],
+                "properties": {
+                  "name": {
+                    "type": "string",
+                    "description": "Nome e/ou Sobrenome do cliente Ex: João da Silva",
+                    "default": "João da Silva"
+                  },
+                  "email": {
+                    "type": "string",
+                    "description": "Email do seu cliente Ex: teste@example.com",
+                    "default": "teste@example.com"
+                  },
+                  "phone": {
+                    "type": "string",
+                    "description": "Telefone do seu cliente no padrão E.164. Ex: +5542999999999",
+                    "default": "+5542999999999"
+                  },
+                  "company": {
+                    "type": "string",
+                    "description": "*Opcional* Nome da Empresa que o cliente faz parte. Ex: Empresa Teste",
+                    "default": "Empresa Teste"
+                  },
+                  "companyDocument": {
+                    "type": "string",
+                    "description": "*Opcional* CNPJ da Empresa que o cliente faz parte. Ex:00.000.000/0000-00",
+                    "default": "XX.XXX.XXX/XXXX-XX"
+                  },
+                  "channel": {
+                    "type": "string",
+                    "description": "*Opcional* Identificador do canal para envio. Opções: `sms` `email` `wa-api` Para receber apenas o link no retorno envie `wa-link`",
+                    "default": "email"
+                  },
+                  "customerId": {
+                    "type": "string",
+                    "description": "*Opcional* Identificador interno do seu Software para o Cadastro do cliente. Ex. Código do Cliente",
+                    "default": "123"
+                  },
+                  "transactionId": {
+                    "type": "string",
+                    "description": "*Opcional* Identificador interno da transação do seu cliente. Ex. Código da venda.",
+                    "default": "1234"
+                  },
+                  "custom_fields": {
+                    "type": "object",
+                    "description": "*Opcional*  Objeto JSON com parâmetros adicionais Ex: {\"regiao\":\"SUL\", \"vendedor\":\"Teste Exemplo Da Silva\"",
+                    "properties": {
+                      "regiao": {
+                        "type": "string",
+                        "description": "Exemplo de customField regiao",
+                        "default": "Sul"
+                      }
+                    }
+                  },
+                  "expiration": {
+                    "type": "integer",
+                    "description": "*Opcional* Define a expiração em dias do link da solicitação, mínimo 0 máximo 90.",
+                    "default": 0,
+                    "format": "int32"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "200",
+            "content": {
+              "application/json": {
+                "examples": {
+                  "sms/e-mail": {
+                    "value": "{\n  \"_id\": \"62eabd08db91f8fba6ff2159\",\n  \"customer\": {\n    \"_id\": \"62eabbaeaea4eba9b7284549\",\n    \"email\": \"robson@ampl.me\",\n    \"phone\": \"+5542999613014\"\n  }\n}"
+                  },
+                  "wa-link": {
+                    "value": "{\n  \"_id\": \"62eabd08db91f8fba6ff2159\",\n  \"customer\": {\n    \"_id\": \"62eabbaeaea4eba9b7284549\",\n    \"email\": \"teste@example.com\",\n    \"phone\": \"+5542999999999\"\n  },\n  \"link\": {\n    \"shortUrl\": \"https://ampl.me/aKTX9BfbY\",\n    \"originalUrl\": \"https://surveys.amplifique.me/answer/62eabd09db91f8fba6ff215f\",\n    \"urlCode\": \"aKTX9BfbY\",\n    \"updatedAt\": \"2022-08-03T18:23:06.399Z\",\n    \"shortners\": 1,\n    \"id\": \"4859907340238848\"\n  }\n}"
+                  }
+                },
+                "schema": {
+                  "oneOf": [
+                    {
+                      "title": "sms/e-mail",
+                      "type": "object",
+                      "properties": {
+                        "_id": {
+                          "type": "string",
+                          "example": "62eabd08db91f8fba6ff2159"
+                        },
+                        "customer": {
+                          "type": "object",
+                          "properties": {
+                            "_id": {
+                              "type": "string",
+                              "example": "62eabbaeaea4eba9b7284549"
+                            },
+                            "email": {
+                              "type": "string",
+                              "example": "robson@ampl.me"
+                            },
+                            "phone": {
+                              "type": "string",
+                              "example": "+5542999613014"
+                            }
+                          }
+                        }
+                      }
+                    },
+                    {
+                      "title": "wa-link",
+                      "type": "object",
+                      "properties": {
+                        "_id": {
+                          "type": "string",
+                          "example": "62eabd08db91f8fba6ff2159"
+                        },
+                        "customer": {
+                          "type": "object",
+                          "properties": {
+                            "_id": {
+                              "type": "string",
+                              "example": "62eabbaeaea4eba9b7284549"
+                            },
+                            "email": {
+                              "type": "string",
+                              "example": "teste@example.com"
+                            },
+                            "phone": {
+                              "type": "string",
+                              "example": "+5542999999999"
+                            }
+                          }
+                        },
+                        "link": {
+                          "type": "object",
+                          "properties": {
+                            "shortUrl": {
+                              "type": "string",
+                              "example": "https://ampl.me/aKTX9BfbY"
+                            },
+                            "originalUrl": {
+                              "type": "string",
+                              "example": "https://surveys.amplifique.me/answer/62eabd09db91f8fba6ff215f"
+                            },
+                            "urlCode": {
+                              "type": "string",
+                              "example": "aKTX9BfbY"
+                            },
+                            "updatedAt": {
+                              "type": "string",
+                              "example": "2022-08-03T18:23:06.399Z"
+                            },
+                            "shortners": {
+                              "type": "integer",
+                              "example": 1,
+                              "default": 0
+                            },
+                            "id": {
+                              "type": "string",
+                              "example": "4859907340238848"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/partners/users": {
+      "get": {
+        "summary": "Buscar Usuários",
+        "description": "",
+        "operationId": "buscar-usuários",
+        "parameters": [
+          {
+            "name": "search",
+            "in": "query",
+            "description": "Buscará no campo E-mail",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "200",
+            "content": {
+              "application/json": {
+                "examples": {
+                  "Result": {
+                    "value": "[\n  {\n    \"_id\": \"6287aba50f06ef0bdf789aa2\",\n    \"name\": \"Nome do Usuário\",\n    \"email\": \"email@dousuario.com\",\n    \"active\": true,\n    \"role\": \"own\",\n    \"_empresa\": \"6287abaef6ee66d309ab00b1\",\n    \"_businesses\": [\n      \"6287abb2ec1259b0a5d75f99\"\n    ]\n\t},\n   {\n    \"_id\": \"6287aba50f06ef0bdf789aa2\",\n    \"name\": \"Nome do Usuário\",\n    \"email\": \"email@dousuario.com\",\n    \"active\": true,\n    \"role\": \"own\",\n    \"_empresa\": \"6287abaef6ee66d309ab00b1\",\n    \"_businesses\": [\n      \"6287abb2ec1259b0a5d75f99\"\n    ]\n\t}\n\n]"
+                  }
+                },
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "_id": {
+                        "type": "string",
+                        "example": "6287aba50f06ef0bdf789aa2"
+                      },
+                      "name": {
+                        "type": "string",
+                        "example": "Nome do Usuário"
+                      },
+                      "email": {
+                        "type": "string",
+                        "example": "email@dousuario.com"
+                      },
+                      "active": {
+                        "type": "boolean",
+                        "example": true,
+                        "default": true
+                      },
+                      "role": {
+                        "type": "string",
+                        "example": "own"
+                      },
+                      "_empresa": {
+                        "type": "string",
+                        "example": "6287abaef6ee66d309ab00b1"
+                      },
+                      "_businesses": {
+                        "type": "array",
+                        "items": {
+                          "type": "string",
+                          "example": "6287abb2ec1259b0a5d75f99"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "400",
+            "content": {
+              "application/json": {
+                "examples": {
+                  "Result": {
+                    "value": "{}"
+                  }
+                },
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false
+      },
+      "post": {
+        "summary": "Criar usuário",
+        "description": "",
+        "operationId": "criar-usuario",
+        "parameters": [
+          {
+            "name": "isInvite",
+            "in": "query",
+            "description": "Caso Seja para enviar um convite (true), nesse caso não é necessário definir o campo *password*",
+            "required": true,
+            "schema": {
+              "type": "boolean",
+              "default": false
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "name",
+                  "email",
+                  "role",
+                  "_businesses"
+                ],
+                "properties": {
+                  "name": {
+                    "type": "string",
+                    "description": "Nome do Usuário",
+                    "default": "João da Silva"
+                  },
+                  "email": {
+                    "type": "string",
+                    "description": "E-mail do Usuário (deve ser verificado se já possui um usuário antes com esse e-email, caso existe, não irá permitir a criação",
+                    "default": "teste@exemple.com"
+                  },
+                  "phone": {
+                    "type": "string"
+                  },
+                  "password": {
+                    "type": "string",
+                    "description": "Senha do usuário (obrigatório) em casos de não possuir autenticação direta no servidor de sua empresa",
+                    "default": "Senha Plain Text"
+                  },
+                  "role": {
+                    "type": "string",
+                    "default": "pdv",
+                    "enum": [
+                      "readonly",
+                      "pdv",
+                      "ana",
+                      "adm",
+                      "own"
+                    ]
+                  },
+                  "picture": {
+                    "type": "string",
+                    "description": "URL da Foto do Usuário",
+                    "default": "https://"
+                  },
+                  "_businesses": {
+                    "type": "array",
+                    "description": "Lista com os Ids das Unidades para dar permissão ao Usuário, se vazio, irá adicionar todas.",
+                    "default": [
+                      "[\"6287abb2ec1259b0a5d75f99\"]"
+                    ],
+                    "items": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "200",
+            "content": {
+              "application/json": {
+                "examples": {
+                  "Result": {
+                    "value": "{\n  \"_id\": \"6287aba50f06ef0bdf789aa2\",\n  \"name\": \"Nome do Usuário\",\n  \"email\": \"email@dousuario.com\",\n  \"active\": true,\n  \"role\": \"own\",\n  \"_empresa\": \"6287abaef6ee66d309ab00b1\",\n  \"_businesses\": [\n    \"6287abb2ec1259b0a5d75f99\"\n  ]\n}"
+                  }
+                },
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "_id": {
+                      "type": "string",
+                      "example": "6287aba50f06ef0bdf789aa2"
+                    },
+                    "name": {
+                      "type": "string",
+                      "example": "Nome do Usuário"
+                    },
+                    "email": {
+                      "type": "string",
+                      "example": "email@dousuario.com"
+                    },
+                    "active": {
+                      "type": "boolean",
+                      "example": true,
+                      "default": true
+                    },
+                    "role": {
+                      "type": "string",
+                      "example": "own"
+                    },
+                    "_empresa": {
+                      "type": "string",
+                      "example": "6287abaef6ee66d309ab00b1"
+                    },
+                    "_businesses": {
+                      "type": "array",
+                      "items": {
+                        "type": "string",
+                        "example": "6287abb2ec1259b0a5d75f99"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "400",
+            "content": {
+              "text/plain": {
+                "examples": {
+                  "Result": {
+                    "value": "E-mail already exists"
+                  }
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "422",
+            "content": {
+              "application/json": {
+                "examples": {
+                  "Result": {
+                    "value": "{}"
+                  }
+                },
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/partners/users/{user_id}": {
+      "put": {
+        "summary": "Atualizar Usuário",
+        "description": "",
+        "operationId": "atualizar-usuário",
+        "responses": {
+          "200": {
+            "description": "200",
+            "content": {
+              "application/json": {
+                "examples": {
+                  "Result": {
+                    "value": "{\n  \"_id\": \"6287aba50f06ef0bdf789aa2\",\n  \"name\": \"Nome do Usuário\",\n  \"email\": \"email@dousuario.com\",\n  \"active\": true,\n  \"role\": \"own\",\n  \"_empresa\": \"6287abaef6ee66d309ab00b1\",\n  \"_businesses\": [\n    \"6287abb2ec1259b0a5d75f99\"\n  ]\n}"
+                  }
+                },
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "_id": {
+                      "type": "string",
+                      "example": "6287aba50f06ef0bdf789aa2"
+                    },
+                    "name": {
+                      "type": "string",
+                      "example": "Nome do Usuário"
+                    },
+                    "email": {
+                      "type": "string",
+                      "example": "email@dousuario.com"
+                    },
+                    "active": {
+                      "type": "boolean",
+                      "example": true,
+                      "default": true
+                    },
+                    "role": {
+                      "type": "string",
+                      "example": "own"
+                    },
+                    "_empresa": {
+                      "type": "string",
+                      "example": "6287abaef6ee66d309ab00b1"
+                    },
+                    "_businesses": {
+                      "type": "array",
+                      "items": {
+                        "type": "string",
+                        "example": "6287abb2ec1259b0a5d75f99"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "400",
+            "content": {
+              "application/json": {
+                "examples": {
+                  "Result": {
+                    "value": "{}"
+                  }
+                },
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "422",
+            "content": {
+              "text/plain": {
+                "examples": {
+                  "Result": {
+                    "value": ""
+                  }
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false
+      },
+      "delete": {
+        "summary": "Excluir Usuário",
+        "description": "",
+        "operationId": "excluir-usuário",
+        "parameters": [
+          {
+            "name": "user_id",
+            "in": "path",
+            "description": "Id do Usuário",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "200",
+            "content": {
+              "application/json": {
+                "examples": {
+                  "Result": {
+                    "value": "Ok"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "400",
+            "content": {
+              "application/json": {
+                "examples": {
+                  "Result": {
+                    "value": "{}"
+                  }
+                },
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "404",
+            "content": {
+              "text/plain": {
+                "examples": {
+                  "Result": {
+                    "value": "User not found"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/partners/businesses": {
+      "get": {
+        "summary": "Buscar Unidades",
+        "description": "",
+        "operationId": "businesses",
+        "responses": {
+          "200": {
+            "description": "200",
+            "content": {
+              "application/json": {
+                "examples": {
+                  "Result": {
+                    "value": "[\n  {\n    \"_id\": \"6287ac86a817b84a36ed9298\",\n    \"nome\": \"01 - Empresa Teste - Matriz \",\n    \"created_at\": \"2018-07-24T17:45:34.034Z\",\n    \"picture\": \"https://cdn.filestackcontent.com/SPQDJyczSjGTbxYbjgeV\"\n  },\n  {\n    \"_id\": \"6287ac89a8e2aa9010135d1d\",\n    \"nome\": \"02 - Empresa Teste - Filial A\",\n    \"created_at\": \"2021-02-23T19:52:38.593Z\",\n    \"picture\": \"https://cdn.filestackcontent.com/tWzc81obSVqDy0vNp1w1\"\n  },\n]"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "400",
+            "content": {
+              "application/json": {
+                "examples": {
+                  "Result": {
+                    "value": "{}"
+                  }
+                },
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/partners/review/summary": {
+      "get": {
+        "summary": "Resumo de Avaliações",
+        "description": "Endpoint que retorna um resumo das avaliações online. Utilize o Token fornecido na página de configurações da Amplifique.me para rodar essa requisição GET.",
+        "operationId": "resumo-de-avaliacoes",
+        "parameters": [
+          {
+            "name": "limit",
+            "in": "query",
+            "description": "Número de avaliações a serem mostradas. Default: 5, Min: 0, Max: 15",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 5
+            }
+          },
+          {
+            "name": "rateMin",
+            "in": "query",
+            "description": "Score Mínimo Exigido para mostrar as avaliações. Default: 0, Min: 0, Max: 5",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 0
+            }
+          },
+          {
+            "name": "rateMax",
+            "in": "query",
+            "description": "Score Máximo para mostrar as avaliações. Default: 5, Min: 0, Max: 5",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 5
+            }
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "description": "Página para mostrar",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 0
+            }
+          },
+          {
+            "name": "only_text",
+            "in": "query",
+            "description": "Apenas avaliações com texto ou não",
+            "schema": {
+              "type": "boolean",
+              "default": false
+            }
+          },
+          {
+            "name": "dateMin",
+            "in": "query",
+            "description": "Data Mínima da avaliação: Ex: 01/01/2020 (DD/MM/YYYY)",
+            "schema": {
+              "type": "string",
+              "default": "01/01/2020"
+            }
+          },
+          {
+            "name": "dateMax",
+            "in": "query",
+            "description": "Data Máxima da avaliação: Ex: 01/01/2022 (DD/MM/YYYY)",
+            "schema": {
+              "type": "string",
+              "default": "01/01/2022"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "200",
+            "content": {
+              "application/json": {
+                "examples": {
+                  "Result": {
+                    "value": "{\n  \"summary\": {\n    \"expedia\": {\n      \"average\": 4.66,\n      \"reviews\": 65\n    },\n    \"facebook\": {\n      \"average\": 5,\n      \"reviews\": 1\n    },\n    \"google\": {\n      \"average\": 4.86,\n      \"reviews\": 28\n    },\n    \"total\": {\n      \"average\": 4.84,\n      \"reviews\": 94\n    }\n  },\n  \"reviews\": [\n    {\n      \"Reviewer\": {\n        \"name\": \"João da Silval\"\n      },\n      \"network\": \"expedia\",\n      \"created_at\": \"2020-03-10T00:46:56.000Z\",\n      \"message\": \"Ótima opção em Ponta Grossa.\\n Hotel novo, limpo e bem localizado. Quarto espaçoso. Cama confortável. Funcionários atenciosos. Estacionamento e wi-fi bons. Café da manhã muito saboroso. Ótimo custo-benefício. \",\n      \"rate\": 5\n    },\n    {\n      \"Reviewer\": {\n        \"name\": \"João da Silva\"\n      },\n      \"network\": \"expedia\",\n      \"created_at\": \"2020-01-19T03:35:12.000Z\",\n      \"message\": \"Ótimo.\\n Ótima. Hotel impecável eee com excelentes profissionais.\",\n      \"rate\": 5,\n      \"reply\": \"obrigado guilhrtmr\"\n    },\n    {\n      \"Reviewer\": {\n        \"name\": \"João da Silva\"\n      },\n      \"network\": \"google\",\n      \"created_at\": \"2019-12-31T13:54:12.000Z\",\n      \"message\": \"Tudo de Bom.\\n Fomos super bem recebidos, desde o estacionamento ate o check out. Equipe atenciosa. Ja faz toda diferença ao chegar cansado, e receber um sorriso e auxilio para qualquer coisa que precise.\",\n      \"rate\": 5\n    },\n    {\n      \"Reviewer\": {\n        \"name\": \"João da Silva\"\n      },\n      \"created_at\": \"2019-11-11T14:22:51.000Z\",\n      \"rate\": 5,\n      \"message\": \"Nota 1.000.\\n Conforto, higiene, localização, valor, tudo excelente. Retornarei com certeza. \",\n      \"network\": \"facebook\"\n    },\n    {\n      \"Reviewer\": {\n        \"name\": \"João da Silva\"\n      },\n      \"created_at\": \"2019-09-23T14:45:04.000Z\",\n      \"rate\": 3,\n      \"message\": \"Não voltaria lá.\\n Quarto pequeno, banheiro minúsculo, o colchão da cama de casal parecia que as partes do pé ficava mais alto que a cabeça. Horrível, é limpo decorado, café da manhã bom\",\n      \"network\": \"booking\"\n    }\n  ]\n}"
+                  }
+                },
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "summary": {
+                      "type": "object",
+                      "properties": {
+                        "expedia": {
+                          "type": "object",
+                          "properties": {
+                            "average": {
+                              "type": "number",
+                              "example": 4.66,
+                              "default": 0
+                            },
+                            "reviews": {
+                              "type": "integer",
+                              "example": 65,
+                              "default": 0
+                            }
+                          }
+                        },
+                        "facebook": {
+                          "type": "object",
+                          "properties": {
+                            "average": {
+                              "type": "integer",
+                              "example": 5,
+                              "default": 0
+                            },
+                            "reviews": {
+                              "type": "integer",
+                              "example": 1,
+                              "default": 0
+                            }
+                          }
+                        },
+                        "google": {
+                          "type": "object",
+                          "properties": {
+                            "average": {
+                              "type": "number",
+                              "example": 4.86,
+                              "default": 0
+                            },
+                            "reviews": {
+                              "type": "integer",
+                              "example": 28,
+                              "default": 0
+                            }
+                          }
+                        },
+                        "total": {
+                          "type": "object",
+                          "properties": {
+                            "average": {
+                              "type": "number",
+                              "example": 4.84,
+                              "default": 0
+                            },
+                            "reviews": {
+                              "type": "integer",
+                              "example": 94,
+                              "default": 0
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "reviews": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "Reviewer": {
+                            "type": "object",
+                            "properties": {
+                              "name": {
+                                "type": "string",
+                                "example": "João da Silval"
+                              }
+                            }
+                          },
+                          "network": {
+                            "type": "string",
+                            "example": "expedia"
+                          },
+                          "created_at": {
+                            "type": "string",
+                            "example": "2020-03-10T00:46:56.000Z"
+                          },
+                          "message": {
+                            "type": "string",
+                            "example": "Ótima opção em Ponta Grossa.\n Hotel novo, limpo e bem localizado. Quarto espaçoso. Cama confortável. Funcionários atenciosos. Estacionamento e wi-fi bons. Café da manhã muito saboroso. Ótimo custo-benefício. "
+                          },
+                          "rate": {
+                            "type": "integer",
+                            "example": 5,
+                            "default": 0
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "400",
+            "content": {
+              "application/json": {
+                "examples": {
+                  "Result": {
+                    "value": "{}"
+                  }
+                },
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/partners/cf/balance": {
+      "get": {
+        "summary": "Consulta de Saldo de Respostas",
+        "description": "",
+        "operationId": "consulta-de-saldo-de-respostas",
+        "responses": {
+          "200": {
+            "description": "200",
+            "content": {
+              "application/json": {
+                "examples": {
+                  "não bloqueado": {
+                    "value": "{\n  \"block\": false,\n  \"balance\": {\n    \"_id\": \"63febfb029df58eec1b2c4af\",\n    \"type\": \"cf_responses\",\n    \"limit\": 100,\n    \"balance\": 92,\n    \"used\": 8\n  }\n}"
+                  },
+                  "bloqueado": {
+                    "value": "{\n  \"block\": true,\n  \"balance\": {\n    \"_id\": \"63febfb029df58eec1b2c4af\",\n    \"type\": \"cf_responses\",\n    \"limit\": 100,\n    \"balance\": 0,\n    \"used\": 100\n  }\n}"
+                  }
+                },
+                "schema": {
+                  "oneOf": [
+                    {
+                      "title": "não bloqueado",
+                      "type": "object",
+                      "properties": {
+                        "block": {
+                          "type": "boolean",
+                          "example": false,
+                          "default": true
+                        },
+                        "balance": {
+                          "type": "object",
+                          "properties": {
+                            "_id": {
+                              "type": "string",
+                              "example": "63febfb029df58eec1b2c4af"
+                            },
+                            "type": {
+                              "type": "string",
+                              "example": "cf_responses"
+                            },
+                            "limit": {
+                              "type": "integer",
+                              "example": 100,
+                              "default": 0
+                            },
+                            "balance": {
+                              "type": "integer",
+                              "example": 92,
+                              "default": 0
+                            },
+                            "used": {
+                              "type": "integer",
+                              "example": 8,
+                              "default": 0
+                            }
+                          }
+                        }
+                      }
+                    },
+                    {
+                      "title": "bloqueado",
+                      "type": "object",
+                      "properties": {
+                        "block": {
+                          "type": "boolean",
+                          "example": true,
+                          "default": true
+                        },
+                        "balance": {
+                          "type": "object",
+                          "properties": {
+                            "_id": {
+                              "type": "string",
+                              "example": "63febfb029df58eec1b2c4af"
+                            },
+                            "type": {
+                              "type": "string",
+                              "example": "cf_responses"
+                            },
+                            "limit": {
+                              "type": "integer",
+                              "example": 100,
+                              "default": 0
+                            },
+                            "balance": {
+                              "type": "integer",
+                              "example": 0,
+                              "default": 0
+                            },
+                            "used": {
+                              "type": "integer",
+                              "example": 100,
+                              "default": 0
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "400",
+            "content": {
+              "application/json": {
+                "examples": {
+                  "Result": {
+                    "value": "{}"
+                  }
+                },
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/partners/cf/answers": {
+      "post": {
+        "summary": "Listar Respostas de Pesquisas",
+        "description": "Esse endpoint retornará uma lista com as respostas das pesquisas de determinada unidade.",
+        "operationId": "listar-respostas-de-pesquisas",
+        "parameters": [
+          {
+            "name": "limit",
+            "in": "query",
+            "description": "Limite de quantidade de respostas a ser retornado na API. Mín: 1 Max: 1000",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 1000
+            }
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "description": "Página a ser retornada da API. Mín: 0",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 0
+            }
+          },
+          {
+            "name": "start",
+            "in": "query",
+            "description": "A partir de determinada Data. Necessita do parâmetro end para funcionar",
+            "schema": {
+              "type": "string",
+              "format": "date",
+              "default": "dd/MM/yyyy"
+            }
+          },
+          {
+            "name": "end",
+            "in": "query",
+            "description": "Até determinada Data. Necessita do parâmetro start para funcionar",
+            "schema": {
+              "type": "string",
+              "format": "date",
+              "default": "dd/MM/yyyy"
+            }
+          },
+          {
+            "name": "include_survey",
+            "in": "query",
+            "description": "Retornar estrutura da pesquisa junto da resposta",
+            "schema": {
+              "type": "boolean",
+              "default": false
+            }
+          },
+          {
+            "name": "only_finalized",
+            "in": "query",
+            "description": "Retornar apenas respostas completas, incompletas ou todas.(`complete`, `incomplete`, `all`)",
+            "schema": {
+              "type": "string",
+              "default": "complete"
+            }
+          },
+          {
+            "name": "survey",
+            "in": "query",
+            "description": "Filtro para retornar resultados de apenas uma pesquisa (informar o ID, exemplo: 67f578cccc4ab22df8543fcc)",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "200",
+            "content": {
+              "application/json": {
+                "examples": {
+                  "Sucesso (include_survey: false)": {
+                    "value": "{\n  \"data\": [\n    {\n      \"_id\": \"645e95240c1647609077969b\", //String | ID da Resposta/Solicitação\n      \"_survey\": \"60afce1ca9680b000eca2459\", //String |ID da Pesquisa\n      \"channel\": 4,  //Integer | Canal de envio 0-> SMS, 1->EMAIL, 2-> WHATSAPP, 3-> LINK, 4-> INAPP, 6-> WhatsApp API\n      \"answered\": true, //Boolean | se a pesquisa foi respondida\n      \"opened\": true, //Boolean | se a pesquisa foi aberta\n      \"opened_at\": \"2023-05-12T19:36:04.367Z\", //Date | Quando foi aberta\n      \"finalized\": true, //Boolean | se a pesquisa foi finalizada\n      \"deleted\": false, //Boolean | se a resposta está na lixeira.\n      \"origin\": \"preview.amplifique.me/preview/60afce1ca9680b000eca2459?version=2\", //String | Origem Link ou InApp apenas\n      \"anonymized\": false, //Boolean | se a resposta foi anonimizada.\n      \"resolved\": false, //Boolean | se a resposta foi marcada como resolvida.\n      \"attempts\": 1, //Integer | Número de tentativas de envio (SmartFollowUp)\n      \"_customer\": \"645e95240c16476090779698\", //String | ID do contato\n      \"_business\": \"5b5765bec9498b0014883c0b\", //String | ID da unidade\n      \"answers\": [\n        //Array | Lista com todas as respostas das perguntas.\n        {\n          \"internal_name\": \"nps_1\", //String | Identificador Interno da Pergunta/resposta\n          \"answer\": 10, //Any | Resposta (o tipo do dado pode variar conforme o tipo da pergunta)\n          \"isMainMetric\": true, //Boolean | Se é a métrica principal (1º pergunta)\n          \"type\": \"nps\", //String | Tipo da Pergunta/Resposta (nps,csat,ces,thumbs,unique,multiple,matrix,likert,select,text)\n          \"_id\": \"645e9557fdfa5a0ffd07289e\" //String | ID da resposta da pergunta\n        },\n        {\n          \"internal_name\": \"csat_atendimento\",\n          \"answer\": 4,\n          \"isMainMetric\": false,\n          \"type\": \"csat\",\n          \"_id\": \"645e9557fdfa5a0ffd0728a0\"\n        },\n        {\n          \"internal_name\": \"ces_adicionar_usuario\",\n          \"answer\": 7,\n          \"isMainMetric\": false,\n          \"type\": \"ces\",\n          \"_id\": \"645e9557fdfa5a0ffd0728a3\"\n        },\n        {\n          \"internal_name\": \"text_4\",\n          \"answer\": \"Gostei muito do atendimento\",\n          \"isMainMetric\": false,\n          \"type\": \"text\",\n          \"_id\": \"645e9557fdfa5a0ffd0728a1\"\n        },\n        {\n          \"internal_name\": \"thumbs_teste\",\n          \"answer\": \"up\", // String para thumbs pode ser up ou down\n          \"isMainMetric\": false,\n          \"type\": \"thumbs\",\n          \"_id\": \"645e9557fdfa5a0ffd0728a2\"\n        },\n        {\n          \"internal_name\": \"Teste\",\n          \"answer\": 10,\n          \"isMainMetric\": false,\n          \"type\": \"likert\",\n          \"_id\": \"645e9557fdfa5a0ffd0728a3\"\n        },\n        {\n          \"internal_name\": \"multiple_elogios\",\n          \"answer\": [\"agilidade\", \"qualidade da solução\"],\n          \"isMainMetric\": false,\n          \"type\": \"multiple\",\n          \"_id\": \"645e9557fdfa5a0ffd0728a3\"\n        },\n        {\n          \"internal_name\": \"unique_ponto_positivo\",\n          \"answer\": \"agilidade\",\n          \"isMainMetric\": false,\n          \"type\": \"unique\",\n          \"_id\": \"645e9557fdfa5a0ffd0728a3\"\n        },\n        {\n          \"internal_name\": \"select_negativo\",\n          \"answer\": \"erros\",\n          \"isMainMetric\": false,\n          \"type\": \"select\",\n          \"_id\": \"645e9557fdfa5a0ffd0728a3\"\n        },\n        {\n          \"internal_name\": \"matriz_geral\",\n          \"answer\": {\n          \t\"atendimento\":\"Bom\",\n            \"solucao\":\"Regular\"\n          },\n          \"isMainMetric\": false,\n          \"type\": \"matrix\",\n          \"_id\": \"645e9557fdfa5a0ffd0728a3\"\n        }\n      ],\n      \"created_at\": \"2023-05-12T19:36:04.368Z\", //Date | Data de criação da Solicitação\n      \"notes\": [], //Array |\n      \"answered_at\": \"2023-05-12T19:36:55.614Z\", //Date | Data de resposta\n      \"originIp\": \"2a09:bac1:1120:19d8::61:205\", //String | IP de origem da resposta\n      \"time_to_answer\": 50.757, //Float | Tempo de duração da pesquisa.\n      \"finalized_at\": \"2023-05-12T19:36:55.625Z\", //Date | Data de finalização\n      \"score\": 100, //Float | AmpliScore\n      \"customer\": {\n        //Object | Objeto com os dados do Contato\n        \"name\": \"Dallas Ritchie (Teste Preview In App)\", //String | Nome do contato\n        \"email\": \"dallas_ritchie67@preview.amplifique.me\", //String | E-mail do contato\n        \"tel\": \"+559xxxxxxxx\", //String | Telefone do contato\n        \"custom_fields\": {\n          //Object | Contém os campos customizados do contato\n        }\n      },\n      \"custom_fields\": {\n        //Object | Contém os campos customizados da resposta\n      },\n      \"deleted_by\": {} //Object | Dados do Usuário que inseriu a resposta na lixeira.\n    }\n  ],\n  \"total\": 123, //Total de registros\n  \"pages\": 10, //Total de páginas\n\t\"page\": 2 //Página atual\n}\n"
+                  }
+                },
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "_id": {
+                            "type": "string",
+                            "example": "645e95240c1647609077969b"
+                          },
+                          "_survey": {
+                            "type": "string",
+                            "example": "60afce1ca9680b000eca2459"
+                          },
+                          "channel": {
+                            "type": "integer",
+                            "example": 4,
+                            "default": 0
+                          },
+                          "answered": {
+                            "type": "boolean",
+                            "example": true,
+                            "default": true
+                          },
+                          "opened": {
+                            "type": "boolean",
+                            "example": true,
+                            "default": true
+                          },
+                          "opened_at": {
+                            "type": "string",
+                            "example": "2023-05-12T19:36:04.367Z"
+                          },
+                          "finalized": {
+                            "type": "boolean",
+                            "example": true,
+                            "default": true
+                          },
+                          "deleted": {
+                            "type": "boolean",
+                            "example": false,
+                            "default": true
+                          },
+                          "origin": {
+                            "type": "string",
+                            "example": "preview.amplifique.me/preview/60afce1ca9680b000eca2459?version=2"
+                          },
+                          "anonymized": {
+                            "type": "boolean",
+                            "example": false,
+                            "default": true
+                          },
+                          "resolved": {
+                            "type": "boolean",
+                            "example": false,
+                            "default": true
+                          },
+                          "attempts": {
+                            "type": "integer",
+                            "example": 1,
+                            "default": 0
+                          },
+                          "_customer": {
+                            "type": "string",
+                            "example": "645e95240c16476090779698"
+                          },
+                          "_business": {
+                            "type": "string",
+                            "example": "5b5765bec9498b0014883c0b"
+                          },
+                          "answers": {
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "internal_name": {
+                                  "type": "string",
+                                  "example": "nps_1"
+                                },
+                                "answer": {
+                                  "type": "integer",
+                                  "example": 10,
+                                  "default": 0
+                                },
+                                "isMainMetric": {
+                                  "type": "boolean",
+                                  "example": true,
+                                  "default": true
+                                },
+                                "type": {
+                                  "type": "string",
+                                  "example": "nps"
+                                },
+                                "_id": {
+                                  "type": "string",
+                                  "example": "645e9557fdfa5a0ffd07289e"
+                                }
+                              }
+                            }
+                          },
+                          "created_at": {
+                            "type": "string",
+                            "example": "2023-05-12T19:36:04.368Z"
+                          },
+                          "notes": {
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "properties": {}
+                            }
+                          },
+                          "answered_at": {
+                            "type": "string",
+                            "example": "2023-05-12T19:36:55.614Z"
+                          },
+                          "originIp": {
+                            "type": "string",
+                            "example": "2a09:bac1:1120:19d8::61:205"
+                          },
+                          "time_to_answer": {
+                            "type": "number",
+                            "example": 50.757,
+                            "default": 0
+                          },
+                          "finalized_at": {
+                            "type": "string",
+                            "example": "2023-05-12T19:36:55.625Z"
+                          },
+                          "score": {
+                            "type": "integer",
+                            "example": 100,
+                            "default": 0
+                          },
+                          "customer": {
+                            "type": "object",
+                            "properties": {
+                              "name": {
+                                "type": "string",
+                                "example": "Dallas Ritchie (Teste Preview In App)"
+                              },
+                              "email": {
+                                "type": "string",
+                                "example": "dallas_ritchie67@preview.amplifique.me"
+                              },
+                              "tel": {
+                                "type": "string",
+                                "example": "+559xxxxxxxx"
+                              },
+                              "custom_fields": {
+                                "type": "object",
+                                "properties": {}
+                              }
+                            }
+                          },
+                          "custom_fields": {
+                            "type": "object",
+                            "properties": {}
+                          },
+                          "deleted_by": {
+                            "type": "object",
+                            "properties": {}
+                          }
+                        }
+                      }
+                    },
+                    "total": {
+                      "type": "integer",
+                      "example": 123,
+                      "default": 0
+                    },
+                    "pages": {
+                      "type": "integer",
+                      "example": 10,
+                      "default": 0
+                    },
+                    "page": {
+                      "type": "integer",
+                      "example": 2,
+                      "default": 0
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false,
+        "requestBody": {
+          "content": {
+          }
+        }
+      }
+    },
+    "/partners/cf/requests": {
+      "post": {
+        "summary": "Listar Solicitações de Pesquisas",
+        "description": "Esse endpoint retornará uma lista com as solicitações das pesquisas de determinada unidade. (solicitações podem ser em qualquer canal, incluindo pessoas elegíveis no InApp e pessoas que acessaram o Link/QRCode e preencheram os dados)",
+        "operationId": "listar-solicitacoes-de-pesquisas",
+        "parameters": [
+          {
+            "name": "limit",
+            "in": "query",
+            "description": "Limite de quantidade de respostas a ser retornado na API. Mín: 1 Max: 1000",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 1000
+            }
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "description": "Página a ser retornada da API. Mín: 0",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 0
+            }
+          },
+          {
+            "name": "start",
+            "in": "query",
+            "description": "A partir de determinada Data. Necessita do parâmetro end para funcionar",
+            "schema": {
+              "type": "string",
+              "format": "date",
+              "default": "dd/MM/yyyy"
+            }
+          },
+          {
+            "name": "end",
+            "in": "query",
+            "description": "Até determinada Data. Necessita do parâmetro start para funcionar",
+            "schema": {
+              "type": "string",
+              "format": "date",
+              "default": "dd/MM/yyyy"
+            }
+          },
+          {
+            "name": "include_survey",
+            "in": "query",
+            "description": "Retornar estrutura da pesquisa junto da resposta",
+            "schema": {
+              "type": "boolean",
+              "default": false
+            }
+          },
+          {
+            "name": "open_start",
+            "in": "query",
+            "description": "A partir da abertura em determinada Data. Necessita do parâmetro open_end para funcionar",
+            "schema": {
+              "type": "string",
+              "format": "date",
+              "default": "dd/MM/yyyy"
+            }
+          },
+          {
+            "name": "open_end",
+            "in": "query",
+            "description": "Abertura em até determinada Data. Necessita do parâmetro open_start para funcionar",
+            "schema": {
+              "type": "string",
+              "format": "date",
+              "default": "dd/MM/yyyy"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "200",
+            "content": {
+              "application/json": {
+                "examples": {
+                  "Sucesso": {
+                    "value": "{\n  \"data\": [\n    {\n      \"_id\": \"645cfb345e8a1e02494b88bd\", //String | ID da Resposta/Solicitação\n      \"_survey\": \"64147ad6e6947a3a0ca1d721\", //String |ID da Pesquisa\n      \"channel\": 6, //Integer | Canal de envio 0-> SMS, 1->EMAIL, 2-> WHATSAPP, 3-> LINK, 4-> INAPP, 6-> WhatsApp API\n      \"opened\": true, //Boolean | se a pesquisa foi aberta\n      \"finalized\": false, //Boolean | se a pesquisa foi finalizada\n      \"deleted\": false, //Boolean | se a solicitação está na lixeira.\n      \"origin\": \"preview.amplifique.me/preview/60afce1ca9680b000eca2459?version=2\", //String | Origem Link ou InApp apenas\n      \"anonymized\": false, //Boolean | se a solicitação foi anonimizada.\n      \"attempts\": 1, //Integer | Número de tentativas de envio (SmartFollowUp)\n      \"_customer\": \"642598acf05534d1cd33d69a\", //String | ID do contato\n      \"_user\": \"60e83e2cc59ce771be97267a\", //String | ID do usuário que solicitou\n      \"_business\": \"629f52abca19568f84de7747\", //String | ID da unidade\n      \"custom_fields\": {\n        //Object | Contém os campos customizados da resposta\n        \"data_nascimento\": \"11/01/1990\"\n      },\n      \"created_at\": \"2023-05-11T14:27:00.521Z\", //Date | Data de criação da Solicitação\n      \"opened_at\": \"2023-05-11T14:27:12.277Z\", //Date | Quando foi aberta\n      \"sendings\": {\n        //Object | Contém os dados de envio\n        \"_id\": \"645cfb345e8a1e02494b88c4\", //String | ID do envio\n        \"source\": 6, //Integer | Canal de envio 0-> SMS, 1->EMAIL, 2-> WHATSAPP, 3-> LINK, 4-> INAPP, 6-> WhatsApp API\n        \"source_status\": \"DELIVERED\", //String | Status do envio ERROR, PENDING, DELIVERED/SENT, CREATED\n        \"_reference\": \"645cfb345e8a1e02494b88bd\", //String | ID da Resposta/Solicitação\n        \"type\": \"cf\", //String | Tipo de envio cf-> Surveys\n        \"attempt\": 1, //Integer | Número da tentativa de envio (SmartFollowUp)\n        \"attemptDelay\": 0, //Integer | Tempo de espera da tentativa (dias) (SmartFollowUp)\n        \"_business\": \"629f52abca19568f84de7747\", //String | ID da unidade\n        \"providerSource\": \"TakeBlip\", //String | Provedor de envio\n        \"providerId\": \"86777ea5-197f-4318-b194-1886db496623\", //String | ID do envio no provedor\n        \"created_at\": \"2023-05-11T14:27:00.538Z\", //Date | Data de criação do envio\n        \"updated_at\": \"2023-05-11T14:57:02.566Z\" //Date | Data da última atualização do envio\n      },\n      \"customer\": {\n        //Object | Objeto com os dados do Contato\n        \"name\": \"Robson\", //String | Nome do contato\n        \"email\": \"robson@amplifique.me\", //String | E-mail do contato\n        \"tel\": \"+5511997273014\", //String | Telefone do contato\n        \"custom_fields\": {\n          //Object | Contém os campos customizados do contato\n          \"data_nascimento\": \"11/09/1997\"\n        }\n      },\n      \"deleted_by\": {} //Object | Dados do Usuário que inseriu a resposta na lixeira.\n    }\n  ],\n  \"total\": 123\n}\n"
+                  }
+                },
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "_id": {
+                            "type": "string",
+                            "example": "645cfb345e8a1e02494b88bd"
+                          },
+                          "_survey": {
+                            "type": "string",
+                            "example": "64147ad6e6947a3a0ca1d721"
+                          },
+                          "channel": {
+                            "type": "integer",
+                            "example": 6,
+                            "default": 0
+                          },
+                          "opened": {
+                            "type": "boolean",
+                            "example": true,
+                            "default": true
+                          },
+                          "finalized": {
+                            "type": "boolean",
+                            "example": false,
+                            "default": true
+                          },
+                          "deleted": {
+                            "type": "boolean",
+                            "example": false,
+                            "default": true
+                          },
+                          "origin": {
+                            "type": "string",
+                            "example": "preview.amplifique.me/preview/60afce1ca9680b000eca2459?version=2"
+                          },
+                          "anonymized": {
+                            "type": "boolean",
+                            "example": false,
+                            "default": true
+                          },
+                          "attempts": {
+                            "type": "integer",
+                            "example": 1,
+                            "default": 0
+                          },
+                          "_customer": {
+                            "type": "string",
+                            "example": "642598acf05534d1cd33d69a"
+                          },
+                          "_user": {
+                            "type": "string",
+                            "example": "60e83e2cc59ce771be97267a"
+                          },
+                          "_business": {
+                            "type": "string",
+                            "example": "629f52abca19568f84de7747"
+                          },
+                          "custom_fields": {
+                            "type": "object",
+                            "properties": {
+                              "data_nascimento": {
+                                "type": "string",
+                                "example": "11/01/1990"
+                              }
+                            }
+                          },
+                          "created_at": {
+                            "type": "string",
+                            "example": "2023-05-11T14:27:00.521Z"
+                          },
+                          "opened_at": {
+                            "type": "string",
+                            "example": "2023-05-11T14:27:12.277Z"
+                          },
+                          "sendings": {
+                            "type": "object",
+                            "properties": {
+                              "_id": {
+                                "type": "string",
+                                "example": "645cfb345e8a1e02494b88c4"
+                              },
+                              "source": {
+                                "type": "integer",
+                                "example": 6,
+                                "default": 0
+                              },
+                              "source_status": {
+                                "type": "string",
+                                "example": "DELIVERED"
+                              },
+                              "_reference": {
+                                "type": "string",
+                                "example": "645cfb345e8a1e02494b88bd"
+                              },
+                              "type": {
+                                "type": "string",
+                                "example": "cf"
+                              },
+                              "attempt": {
+                                "type": "integer",
+                                "example": 1,
+                                "default": 0
+                              },
+                              "attemptDelay": {
+                                "type": "integer",
+                                "example": 0,
+                                "default": 0
+                              },
+                              "_business": {
+                                "type": "string",
+                                "example": "629f52abca19568f84de7747"
+                              },
+                              "providerSource": {
+                                "type": "string",
+                                "example": "TakeBlip"
+                              },
+                              "providerId": {
+                                "type": "string",
+                                "example": "86777ea5-197f-4318-b194-1886db496623"
+                              },
+                              "created_at": {
+                                "type": "string",
+                                "example": "2023-05-11T14:27:00.538Z"
+                              },
+                              "updated_at": {
+                                "type": "string",
+                                "example": "2023-05-11T14:57:02.566Z"
+                              }
+                            }
+                          },
+                          "customer": {
+                            "type": "object",
+                            "properties": {
+                              "name": {
+                                "type": "string",
+                                "example": "Robson"
+                              },
+                              "email": {
+                                "type": "string",
+                                "example": "robson@amplifique.me"
+                              },
+                              "tel": {
+                                "type": "string",
+                                "example": "+5511997273014"
+                              },
+                              "custom_fields": {
+                                "type": "object",
+                                "properties": {
+                                  "data_nascimento": {
+                                    "type": "string",
+                                    "example": "11/09/1997"
+                                  }
+                                }
+                              }
+                            }
+                          },
+                          "deleted_by": {
+                            "type": "object",
+                            "properties": {}
+                          }
+                        }
+                      }
+                    },
+                    "total": {
+                      "type": "integer",
+                      "example": 123,
+                      "default": 0
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false,
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {},
+              "examples": {
+                "Resposta": {
+                  "value": {
+                    "data": [
+                      {
+                        "_id": "645cfb345e8a1e02494b88bd",
+                        "_survey": "64147ad6e6947a3a0ca1d721",
+                        "channel": 6,
+                        "opened": true,
+                        "finalized": false,
+                        "deleted": false,
+                        "origin": "preview.amplifique.me/preview/60afce1ca9680b000eca2459?version=2",
+                        "anonymized": false,
+                        "attempts": 1,
+                        "_customer": "642598acf05534d1cd33d69a",
+                        "_user": "60e83e2cc59ce771be97267a",
+                        "_business": "629f52abca19568f84de7747",
+                        "custom_fields": {
+                          "data_nascimento": "11/01/1990"
+                        },
+                        "created_at": "2023-05-11T14:27:00.521Z",
+                        "opened_at": "2023-05-11T14:27:12.277Z",
+                        "sendings": {
+                          "_id": "645cfb345e8a1e02494b88c4",
+                          "source": 6,
+                          "source_status": "DELIVERED",
+                          "_reference": "645cfb345e8a1e02494b88bd",
+                          "type": "cf",
+                          "attempt": 1,
+                          "attemptDelay": 0,
+                          "_business": "629f52abca19568f84de7747",
+                          "providerSource": "TakeBlip",
+                          "providerId": "86777ea5-197f-4318-b194-1886db496623",
+                          "created_at": "2023-05-11T14:27:00.538Z",
+                          "updated_at": "2023-05-11T14:57:02.566Z"
+                        },
+                        "customer": {
+                          "name": "Robson",
+                          "email": "robson@amplifique.me",
+                          "tel": "+5511997273014",
+                          "custom_fields": {
+                            "data_nascimento": "11/09/1997"
+                          }
+                        },
+                        "deleted_by": {}
+                      }
+                    ],
+                    "total": 123
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "x-readme": {
+    "headers": [],
+    "explorer-enabled": true,
+    "proxy-enabled": true
+  },
+  "x-readme-fauxas": true
+}
