@@ -2,12 +2,12 @@
   "name": "Amplifique.me",
   "colors": {
     "light": {
-      "brand": "#3B82F6",
+      "brand": "#ffca00",
       "heading": "undefined",
       "text": "undefined"
     },
     "dark": {
-      "brand": "#87B1F6",
+      "brand": "#ffca00",
       "heading": "undefined",
       "text": "undefined"
     }
@@ -224,5 +224,16 @@
         ]
       }
     ]
+  },
+  "template": "classic",
+  "navbar": {
+    "actions": {
+      "links": [
+        {
+          "title": "Acessar a plataforma",
+          "link": "https://app.amplifique.me/login"
+        }
+      ]
+    }
   }
 }
