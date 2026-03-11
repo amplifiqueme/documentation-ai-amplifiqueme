@@ -44,12 +44,6 @@
             ]
           },
           {
-            "group": "FAQs",
-            "icon": "help-circle",
-            "expandable": false,
-            "pages": []
-          },
-          {
             "group": "Reputação Online",
             "pages": [
               {
@@ -61,22 +55,53 @@
           },
           {
             "group": "Pesquisas e Respostas",
-            "pages": []
+            "pages": [
+              {
+                "title": "Criar pesquisa",
+                "path": "criar-pesquisa"
+              }
+            ]
           },
           {
             "group": "Análise e Resultados",
-            "pages": []
+            "pages": [
+              {
+                "title": "Páineis e detalhamento",
+                "path": "pineis-e-detalhamento"
+              }
+            ]
           },
           {
             "group": "Amplifique.me Insights",
-            "pages": []
+            "pages": [
+              {
+                "title": "Analise de sentimentos",
+                "path": "analise-de-sentimentos"
+              }
+            ]
           },
           {
             "group": "Fechamento de loop",
-            "pages": []
+            "pages": [
+              {
+                "title": "Criar fluxo ",
+                "path": "criar-fluxo"
+              }
+            ]
           },
           {
             "group": "Configurações",
+            "pages": [
+              {
+                "title": "Domínio customizado",
+                "path": "domnio-customizado"
+              }
+            ]
+          },
+          {
+            "group": "FAQs",
+            "icon": "help-circle",
+            "expandable": false,
             "pages": []
           }
         ]
