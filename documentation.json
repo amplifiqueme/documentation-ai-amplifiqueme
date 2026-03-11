@@ -24,10 +24,6 @@
             "icon": "home"
           },
           {
-            "title": "hhhh",
-            "path": "hhhh"
-          },
-          {
             "group": "Bem-vindo à Amplifique.me",
             "pages": [
               {
@@ -50,22 +46,7 @@
       },
       {
         "tab": "API",
-        "pages": [
-          {
-            "title": "Listar Respostas De Pesquisas",
-            "path": "listar-respostas-de-pesquisas",
-            "openapi": "api-reference/openapi.yaml POST /partners/cf/answers",
-            "openapi-mode": "auto",
-            "method": "POST"
-          },
-          {
-            "title": "Listar Solicitaes De Pesquisa",
-            "path": "listar-solicitaes-de-pesquisa",
-            "openapi": "api-reference/openapi.yaml POST /partners/cf/requests",
-            "openapi-mode": "auto",
-            "method": "POST"
-          }
-        ],
+        "pages": [],
         "icon": "code"
       },
       {
