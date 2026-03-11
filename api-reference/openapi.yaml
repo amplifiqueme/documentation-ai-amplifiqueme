@@ -1520,60 +1520,6 @@
         "deprecated": false,
         "requestBody": {
           "content": {
-            "application/json": {
-              "schema": {},
-              "examples": {
-                "Resposta": {
-                  "value": {
-                    "data": [
-                      {
-                        "_id": "645cfb345e8a1e02494b88bd",
-                        "_survey": "64147ad6e6947a3a0ca1d721",
-                        "channel": 6,
-                        "opened": true,
-                        "finalized": false,
-                        "deleted": false,
-                        "origin": "preview.amplifique.me/preview/60afce1ca9680b000eca2459?version=2",
-                        "anonymized": false,
-                        "attempts": 1,
-                        "_customer": "642598acf05534d1cd33d69a",
-                        "_user": "60e83e2cc59ce771be97267a",
-                        "_business": "629f52abca19568f84de7747",
-                        "custom_fields": {
-                          "data_nascimento": "11/01/1990"
-                        },
-                        "created_at": "2023-05-11T14:27:00.521Z",
-                        "opened_at": "2023-05-11T14:27:12.277Z",
-                        "sendings": {
-                          "_id": "645cfb345e8a1e02494b88c4",
-                          "source": 6,
-                          "source_status": "DELIVERED",
-                          "_reference": "645cfb345e8a1e02494b88bd",
-                          "type": "cf",
-                          "attempt": 1,
-                          "attemptDelay": 0,
-                          "_business": "629f52abca19568f84de7747",
-                          "providerSource": "TakeBlip",
-                          "providerId": "86777ea5-197f-4318-b194-1886db496623",
-                          "created_at": "2023-05-11T14:27:00.538Z",
-                          "updated_at": "2023-05-11T14:57:02.566Z"
-                        },
-                        "customer": {
-                          "name": "Robson",
-                          "email": "robson@amplifique.me",
-                          "tel": "+5511997273014",
-                          "custom_fields": {
-                            "data_nascimento": "11/09/1997"
-                          }
-                        },
-                        "deleted_by": {}
-                      }
-                    ],
-                    "total": 123
-                  }
-                }
-              }
-            }
           }
         }
       }
