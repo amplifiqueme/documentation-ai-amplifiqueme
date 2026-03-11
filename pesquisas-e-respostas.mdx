@@ -1,63 +1,61 @@
 ---
 title: "Como importar contatos em massa via planilha?"
-description: "Importe toda a sua base de contatos de uma vez usando o modelo CSV da Amplifique.me."
+description: "Importe toda a sua base de contatos de uma vez usando o modelo CSV da Amplifique.me. Suporta até 5.000 contatos por arquivo. Requer permissão de Proprietário ou Administrador."
 ---
 
-## Resumo rápido
+## O que é a importação em massa de contatos?
 
-Você pode importar toda a sua base de contatos de uma vez, sem digitar um por um. Basta baixar o modelo de planilha, preencher com seus dados e fazer o upload — em poucos segundos todos os contatos estarão disponíveis para os disparos.
+A importação em massa permite adicionar múltiplos contatos à Amplifique.me de uma só vez, sem cadastro manual. Você baixa um modelo de planilha CSV, preenche com seus dados e faz o upload — em segundos os contatos ficam disponíveis para disparos de pesquisa.
 
----
+**Quem pode importar:** usuários com permissão de **Proprietário** ou **Administrador**.
 
-## Antes de começar
+**Limite por importação:** até **5.000 linhas** por arquivo. Para bases maiores, divida em múltiplos arquivos e importe em sequência.
 
-<Callout kind="info">
-  Você precisa ter uma conta ativa na Amplifique.me com permissão de **Proprietário** ou **Administrador**. Se quiser importar campos personalizados, configure-os primeiro em **Configurações → Campos Customizados**.
-</Callout>
+**Formato obrigatório:** `CSV UTF-8 (delimitado por vírgulas)`. Outros formatos (xlsx, csv padrão) não são aceitos.
 
 ---
 
-## Passo a passo
+## Como importar contatos passo a passo
 
 <Steps>
 
-<Step title="Acesse o módulo Contatos">
-  No menu lateral esquerdo, clique em `Contatos`. Em seguida, clique no botão `Importar` no canto superior direito da tela.
+<Step title="Acesse o módulo Contatos e clique em Importar">
+  No menu lateral esquerdo, clique em `Contatos`. No canto superior direito da tela, clique no botão `Importar`.
 </Step>
 
-<Step title="Baixe o modelo de planilha">
-  Na janela de importação, clique em `Baixar modelo CSV UTF-8 (delimitado por vírgulas)`. Abra o arquivo no Excel ou Google Sheets — ele já vem com os cabeçalhos corretos.
+<Step title="Baixe e preencha o modelo de planilha">
+  Na janela de importação, clique em `Baixar modelo CSV UTF-8 (delimitado por vírgulas)`. Abra no Excel ou Google Sheets — o arquivo já vem com os cabeçalhos corretos.
+
+  **Regras de preenchimento:**
+  - Cada linha = um contato
+  - Campo obrigatório: pelo menos `E-mail` **ou** `Telefone` (um dos dois é suficiente)
+  - `Nome` e demais campos são opcionais
+  - Não altere os nomes das colunas — preencha só a partir da segunda linha
 
   <Callout kind="tip">
-    Não altere os nomes das colunas do modelo. Apenas preencha os dados a partir da segunda linha.
+    Se você usa campos customizados (ex: "Unidade", "Segmento"), configure-os primeiro em **Configurações → Campos Customizados**. Eles aparecerão automaticamente como colunas no modelo.
   </Callout>
 </Step>
 
-<Step title="Preencha a planilha com seus contatos">
-  Cada linha equivale a um contato. O campo obrigatório é pelo menos um de `E-mail` ou `Telefone`. Os demais campos, incluindo `Nome`, são opcionais.
-</Step>
-
-<Step title="Faça o upload do arquivo">
-  De volta à plataforma, arraste o arquivo para a área indicada ou clique em `Selecionar arquivo`. O formato deve ser obrigatoriamente `CSV UTF-8 (delimitado por vírgulas)` para preservar a formatação correta dos dados.
+<Step title="Faça o upload do arquivo CSV">
+  Arraste o arquivo para a área indicada ou clique em `Selecionar arquivo`.
 
   <Callout kind="alert">
-    O arquivo pode ter no máximo **5.000 linhas** por importação. Para bases maiores, divida em múltiplos arquivos.
+    O arquivo deve estar no formato `CSV UTF-8 (delimitado por vírgulas)`. Outros formatos causam erro de leitura. No Excel, use **Salvar como → CSV UTF-8**. No Google Sheets, use **Arquivo → Fazer download → CSV**.
   </Callout>
 </Step>
 
-<Step title="(Opcional) Adicione etiquetas aos contatos importados">
-  Após a importação, você pode aplicar uma ou mais etiquetas a todos os contatos desse arquivo — por exemplo: `Cliente prime`, `Lead evento` ou qualquer outra classificação relevante.
+<Step title="(Opcional) Adicione etiquetas ao lote importado">
+  Antes de confirmar, você pode aplicar uma ou mais etiquetas a todos os contatos desse arquivo — por exemplo: `Cliente prime`, `Lead evento`, `Importação Jan/25`.
 
-  <Callout kind="tip">
-    As etiquetas facilitam filtrar contatos na hora de criar um disparo de pesquisa.
-  </Callout>
+  As etiquetas permitem filtrar esse grupo depois, na hora de criar um disparo de pesquisa.
 </Step>
 
-<Step title="Confirme e acompanhe o processamento">
-  Clique em `Iniciar importação`. Após concluir, você será redirecionado para a aba Contatos com a lista já filtrada.
+<Step title="Confirme a importação e aguarde o processamento">
+  Clique em `Iniciar importação`. Você será redirecionado para a aba Contatos com a lista já filtrada pelos contatos recém-importados.
 
   <Callout kind="success">
-    Seus contatos já estão disponíveis na lista e podem ser usados em disparos de pesquisa.
+    Os contatos já estão disponíveis para disparos de pesquisa imediatamente após a importação.
   </Callout>
 </Step>
 
@@ -65,32 +63,28 @@ Você pode importar toda a sua base de contatos de uma vez, sem digitar um por u
 
 ---
 
-## Perguntas frequentes
+## O que acontece com contatos duplicados na importação?
 
-<ExpandableGroup>
+Se um e-mail ou telefone já existir na base, o sistema **atualiza os dados** do contato existente — não cria duplicata. Campos em branco no arquivo não sobrescrevem dados já cadastrados.
 
-<Expandable title="O que acontece se um contato já existir na base?" default-open="false">
-  Se o e-mail ou telefone já estiver cadastrado, o sistema **atualiza os dados** do contato existente — não duplica.
-</Expandable>
+---
 
-<Expandable title="Posso importar campos customizados na planilha?" default-open="false">
-  Sim! Se você criou campos customizados em **Configurações → Campos Customizados**, eles aparecerão como colunas disponíveis no modelo CSV.
-</Expandable>
+## O que significa o status "Importação com erros"?
 
-<Expandable title='O que significa o status "Importação com erros"?' default-open="false">
-  Significa que algumas linhas tinham dados inválidos (e-mail mal formatado, telefone fora do padrão etc.). Os contatos válidos são importados normalmente. Você pode baixar o **relatório de erros** para corrigir e reimportar apenas as linhas com problema.
-</Expandable>
+Significa que **algumas linhas** tinham dados inválidos — e-mail mal formatado, telefone fora do padrão (ex: faltando DDD), ou campo obrigatório vazio. Os contatos válidos são importados normalmente.
 
-</ExpandableGroup>
+Para corrigir: baixe o **relatório de erros** disponível na tela de resultado da importação, corrija as linhas indicadas e reimporte apenas esse arquivo corrigido.
+
+---
+
+## Posso importar campos customizados?
+
+Sim. Campos customizados criados em **Configurações → Campos Customizados** aparecem automaticamente como colunas no modelo CSV. Basta preencher normalmente — eles serão associados ao contato durante a importação.
 
 ---
 
 ## Próximo passo
 
-<Card title="Enviar pesquisa para múltiplos contatos" icon="send" href="/contatos/disparar-pesquisa-em-massa">
-  Agora que sua base está importada, aprenda a disparar uma pesquisa em massa para seus contatos.
+<Card title="Disparar pesquisa para múltiplos contatos" icon="send" href="/contatos/disparar-pesquisa-em-massa">
+  Agora que sua base está importada, aprenda a criar e enviar uma pesquisa em massa usando os contatos importados.
 </Card>
-
----
-
-*Este artigo foi útil? Deixe seu feedback diretamente pelo suporte.*
