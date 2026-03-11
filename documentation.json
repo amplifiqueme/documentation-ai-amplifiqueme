@@ -94,6 +94,11 @@
             "icon": "history"
           }
         ]
+      },
+      {
+        "tab": "API",
+        "pages": [],
+        "icon": "code"
       }
     ]
   }
