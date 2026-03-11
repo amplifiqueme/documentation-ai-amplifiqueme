@@ -69,10 +69,6 @@
         "icon": "help-circle",
         "pages": [
           {
-            "title": "Teste",
-            "path": "teste"
-          },
-          {
             "title": "Help Center",
             "path": "help-center",
             "icon": "home"
@@ -113,6 +109,16 @@
                 "path": "help-center/guides/create-new-project"
               }
             ]
+          },
+          {
+            "group": "Primeiros Passos",
+            "pages": [
+              {
+                "title": "Configuração inicial",
+                "path": "configurao-inicial"
+              }
+            ],
+            "icon": "lucide-rocket"
           }
         ]
       },
