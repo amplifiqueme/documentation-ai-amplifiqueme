@@ -19,50 +19,38 @@
         "icon": "help-circle",
         "pages": [
           {
-            "title": "Central de Ajuda",
+            "title": "Primeiros Passos",
             "path": "help-center",
             "icon": "home"
+          },
+          {
+            "title": "hhhh",
+            "path": "hhhh"
+          },
+          {
+            "group": "Bem-vindo à Amplifique.me",
+            "pages": [
+              {
+                "title": "Configure sua conta",
+                "path": "configure-sua-conta"
+              },
+              {
+                "title": "Configuração inicial",
+                "path": "configurao-inicial"
+              }
+            ]
           },
           {
             "group": "FAQs",
             "icon": "help-circle",
             "expandable": false,
             "pages": []
-          },
-          {
-            "group": "Primeiros Passos",
-            "pages": [
-              {
-                "title": "Configuração inicial",
-                "path": "configurao-inicial"
-              }
-            ],
-            "icon": "lucide-rocket"
           }
         ]
       },
       {
         "tab": "API",
-        "pages": [
-          {
-            "title": "Listar Solicitações de Pesquisa",
-            "path": "listar-solicitaes-de-pesquisa",
-            "openapi": "api-reference/openapi.yaml POST /partners/cf/requests",
-            "openapi-mode": "auto",
-            "method": "POST"
-          },
-          {
-            "title": "API",
-            "path": "api"
-          },
-          {
-            "title": "Listar Respostas de Pesquisas",
-            "path": "listar-respostas-de-pesquisas",
-            "openapi": "api-reference/openapi.yaml POST /partners/cf/answers",
-            "openapi-mode": "auto",
-            "method": "POST"
-          }
-        ],
+        "pages": [],
         "icon": "code"
       },
       {
