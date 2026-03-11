@@ -1,0 +1,86 @@
+---
+title: Nova Reposta
+description: 'Nome do evento: cf_response'
+---
+```json
+{  
+  "event": {  
+    "event_type": "cf_response", // Tipo do Evento
+    "customer": {  
+      "name": "Nome do Respondente",  // Nome do Respondente
+      "email": "E-mail do Respondente",  // E-mail do Respondente
+      "phone": "Telefone do Respondente",  // Telefone do Respondente
+      "custom_fields": {   // Campos customizados pertencentes aos contatos
+        "cpf": "Campo Customizado CPF", 
+      },  
+      "company": "Nome da Empresa", // Nome da empresa que o Respondente pertence
+      "_business": "AAAAAAAAAAAAAAAAAAAAAA"  // ID da Unidade que o contato pertence
+    },  
+    "cf_response": {  // Dados relacionados com a resposta
+      "responses": [  
+        {  
+          "answer": "10",  // Resposta da pergunta
+          "question": "Em uma escala de 0 a 10, qual é a probabilidade de você recomendar a Empresa Teste para um amigo, familiar ou conhecido?", // Texto base da pergunta  
+          "type": "nps",  // Tipo da Pergunta
+          "internal_name": "nps_1"  // Identificador único da pergunta dentro da Pesquisa
+        },  
+        {  
+          "answer": "7",  // Resposta da pergunta
+          "question": "A empresa X facilitou a resolução do meu problema? Clique na opção que mais representa sua opinião:",   // Texto base da pergunta  
+          "type": "ces",  // Tipo da Pergunta
+          "internal_name": "ces_3"  // Identificador único da pergunta dentro da Pesquisa
+        },  
+        {  
+          "answer": "4",  // Resposta da pergunta
+          "question": "O quão satisfeito você está com o serviço prestado pela Empresa X? Selecione a opção que mais representa sua opinião:",  // Texto base da pergunta  
+          "type": "csat",  // Tipo da Pergunta
+          "internal_name": "csat_2"  // Identificador único da pergunta dentro da Pesquisa
+        },  
+        {  
+          "answer": "Opção 1",  // Resposta da pergunta
+          "question": "Texto da pergunta",  // Texto base da pergunta  
+          "type": "unique",  // Tipo da Pergunta
+          "internal_name": "unique_4"  // Identificador único da pergunta dentro da Pesquisa
+        },  
+        {  
+          "answer": "Opção 1,Opção 2",  // Resposta da pergunta
+          "question": "Texto da pergunta",  // Texto base da pergunta  
+          "type": "multiple",  // Tipo da Pergunta
+          "internal_name": "multiple_5"  // Identificador único da pergunta dentro da Pesquisa
+        },  
+        {  
+          "answer": "teste",  // Resposta da pergunta
+          "question": "Texto da pergunta",  // Texto base da pergunta  
+          "type": "text",  // Tipo da Pergunta
+          "internal_name": "text_6"  // Identificador único da pergunta dentro da Pesquisa
+        },  
+        {  
+          "answer": "Opção 1",  // Resposta da pergunta
+          "question": "Texto da pergunta",  // Texto base da pergunta  
+          "type": "select",  // Tipo da Pergunta
+          "internal_name": "select_7"  // Identificador único da pergunta dentro da Pesquisa
+        },  
+        {  
+          "answer": "Opção 1",  // Resposta da pergunta
+          "question": "Texto da pergunta",  // Texto base da pergunta  
+          "type": "unique",  // Tipo da Pergunta
+          "internal_name": "unique_8"  // Identificador único da pergunta dentro da Pesquisa
+        }  
+      ],  
+      "channel": "Link", // Canal da resposta ('SMS', 'E-mail', 'WhatsApp', 'Link', 'InApp', 'QR Code')
+      "origin": "Link1", // Origem da resposta (parâmetro no modo API, InApp ou Link/QR-Code) 
+      "created_at": "2021-09-16T17:48:50.035Z",  // Data de solicitação
+      "sent_at": "2021-09-16T17:48:50.033Z",   // Data de envio da solicitação
+      "opened_at": "2021-09-16T17:48:50.667Z",   // Data de abertura da pesquisa
+      "finalized_at": "2021-09-16T17:49:07.410Z",  //Data de finalização da pesquisa
+      "_survey": "AAAAAAAAAAAAAAAAAAAAAA", // ID da Pesquisa
+      "_id": "AAAAAAAAAAAAAAAAAAAAAA", // ID Único da Resposta
+      "custom_fields": {   // Campos customizados pertencentes a resposta
+        "cpf": "Campo Customizado CPF", 
+      },  
+    }  
+  }  
+}
+
+```
+

@@ -110,8 +110,19 @@
         "tab": "API",
         "pages": [
           {
+            "title": "Api",
+            "path": "api"
+          },
+          {
             "group": "Pesquisas e Respostas",
             "pages": [
+              {
+                "title": "Enviar Pesquisa",
+                "path": "enviar-pesquisa",
+                "openapi": "api-reference/openapi.yaml POST /partners/cf",
+                "openapi-mode": "auto",
+                "method": "POST"
+              },
               {
                 "title": "Api Reference/listar Solicitacoes",
                 "path": "api-reference/listar-solicitacoes",
@@ -130,19 +141,60 @@
           },
           {
             "group": "Usuários",
-            "pages": []
+            "pages": [
+              {
+                "title": "Listar Usuários",
+                "path": "listar-usuarios",
+                "openapi": "api-reference/openapi.yaml GET /partners/users",
+                "openapi-mode": "auto",
+                "method": "GET"
+              },
+              {
+                "title": "Criar Usuário",
+                "path": "criar-usuario",
+                "openapi": "api-reference/openapi.yaml POST /partners/users",
+                "openapi-mode": "auto",
+                "method": "POST"
+              },
+              {
+                "title": "Atualizar Usuário",
+                "path": "atualizar-usuario",
+                "openapi": "api-reference/openapi.yaml PUT /partners/users/{user_id}",
+                "openapi-mode": "auto",
+                "method": "PUT"
+              },
+              {
+                "title": "Remover Usuário",
+                "path": "remover-usuario",
+                "openapi": "api-reference/openapi.yaml DELETE /partners/users/{user_id}",
+                "openapi-mode": "auto",
+                "method": "DELETE"
+              }
+            ]
           },
           {
             "group": "Unidades",
-            "pages": []
+            "pages": [
+              {
+                "title": "Listar Unidades",
+                "path": "listar-unidades",
+                "openapi": "api-reference/openapi.yaml GET /partners/businesses",
+                "openapi-mode": "auto",
+                "method": "GET"
+              }
+            ]
           },
           {
             "group": "Reputação Online",
-            "pages": []
-          },
-          {
-            "title": "Api",
-            "path": "api"
+            "pages": [
+              {
+                "title": "Resumo de Avaliações Online",
+                "path": "resumo-de-avaliacoes-online",
+                "openapi": "api-reference/openapi.yaml GET /partners/review/summary",
+                "openapi-mode": "auto",
+                "method": "GET"
+              }
+            ]
           },
           {
             "title": "Definições do InApp",
@@ -150,7 +202,12 @@
           },
           {
             "group": "Webhooks",
-            "pages": []
+            "pages": [
+              {
+                "title": "cf_response (Nova Resposta)",
+                "path": "webhook-cf-response"
+              }
+            ]
           }
         ],
         "icon": "code"

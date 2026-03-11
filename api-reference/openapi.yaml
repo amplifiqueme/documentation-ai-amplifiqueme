@@ -82,9 +82,9 @@
                   },
                   "custom_fields": {
                     "type": "object",
-                    "description": "*Opcional*  Objeto JSON com parâmetros adicionais Ex: {\"regiao\":\"SUL\", \"vendedor\":\"Teste Exemplo Da Silva\"",
+                    "description": "*Opcional*  Objeto JSON com parâmetros adicionais",
                     "properties": {
-                      "regiao": {
+                        "regiao": {
                         "type": "string",
                         "description": "Exemplo de customField regiao",
                         "default": "Sul"
@@ -1247,8 +1247,7 @@
         },
         "deprecated": false,
         "requestBody": {
-          "content": {
-          }
+          "content": {}
         }
       }
     },
@@ -1519,8 +1518,7 @@
         },
         "deprecated": false,
         "requestBody": {
-          "content": {
-          }
+          "content": {}
         }
       }
     }
