@@ -65,11 +65,11 @@
         ]
       },
       {
-        "tab": "Help Center",
+        "tab": "Central de Ajuda",
         "icon": "help-circle",
         "pages": [
           {
-            "title": "Help Center",
+            "title": "Central de Ajuda",
             "path": "help-center",
             "icon": "home"
           },
@@ -85,7 +85,7 @@
             ]
           },
           {
-            "group": "Troubleshooting",
+            "group": "Primeiros Passos",
             "icon": "alert-triangle",
             "expandable": false,
             "pages": [
