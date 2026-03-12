@@ -1,29 +1,70 @@
-<Update label="2026-03-05" description="Page Actions and API Playground enhancements" tags={["feature","improvement"]}>
-  ## Page Actions
+---
+title: Notas de Atualização
+---
+<Update label="2025.6" description="Novembro e Dezembro" tags={["Lançamento"]}>
+  ## Novo Criador de Automações
 
-  Page Actions add context-aware tools in the table of contents sidebar so you can move content between tools without leaving the reader view. Learn how to configure actions like copy page markdown, view source, open in external LLMs, and copy MCP URLs in [Page Actions](/page-actions).
+  Repaginamos o criador de automações dentro do *Criador de Pesquisas*, trazendo uma interface mais moderna, intuitiva e fácil de usar, além de expandir significativamente as possibilidades de configuração.
 
-  ## API Playground
+  Agora, é possível criar automações muito mais avançadas: o novo criador permite **até 10 grupos de condicionais, com** **até 10 condições em cada grupo**, além de contar com **novos operadores lógicos**. Isso possibilita a criação de fluxos mais complexos e personalizados, viabilizando automações que antes não eram possíveis.
 
-  You’re no longer limited to generating API docs only from your OpenAPI spec. You now have more control over each API page, for example, you can embed a playground for a specific endpoint from your OpenAPI spec, and then customize the rest of the page content manually; see <a href="https://documentation.ai/docs/api-documentation-and-playground/openapi-import" target="_blank" rel="noopener noreferrer">API Documentation</a>
+  Com essa evolução, você ganha mais controle, flexibilidade e precisão na definição das regras, tornando suas automações mais inteligentes e alinhadas aos diferentes cenários do seu negócio.
 
-  ## Page Feedback
+  <Image src="https://blob-cdn.documentation.ai/org-228168c3-baff-41c0-9e3d-a927017afd0f/doc-dc08e65a-c672-46a6-8e86-3eb57bb5df19/1773319239679-2knbax5vpq1-pasted-image-1773319236781.png?q=85&fm=auto&auto=compress%2Cformat" width="1304" height="965" alt="" />
 
-  Page Feedback now supports custom feedback fields (not only like or dislike) and optional redirects to your GitHub project feedback flow for open source docs. Feedback analytics are richer and roll up into your dashboards; see [User Feedback](/analytics-and-insights/user-feedback) and [Analytics overview](/analytics/overview).
+  ## Campos Customizados nos Modelos de WhatsApp e Flows
 
-  ## Ask AI Analytics
+  Ao criar um modelo pela plataforma, agora é possível adicionar campos customizados ao texto, aumentando a personalização da sua comunicação com o cliente.
 
-  Ask AI Analytics lets admins review and export the questions users ask in Ask AI so you can see where docs are unclear or missing. This is the first step toward automatically updating documentation from real user intent; explore details in [Search and AI assistant analytics](/analytics-and-insights/search-and-ai-assistant-analytics) and [AI Assistant](/ai/ai-assistant).
+  <Image src="https://blob-cdn.documentation.ai/org-228168c3-baff-41c0-9e3d-a927017afd0f/doc-dc08e65a-c672-46a6-8e86-3eb57bb5df19/1773319274820-w8v6oij2q1j-pasted-image-1773319273035.png?q=85&fm=auto&auto=compress%2Cformat" width="1002" height="836" alt="" />
 
-  ## Other improvements
+  ## Exportação de Dados com Base em Filtros
 
-  - Add helper text to password-gated pages with markdown support, including inline links; see [Access Control](/customize/access-control).
+  Agora é possível exportar respostas e solicitações de pesquisas com base nos filtros aplicados nas respectivas telas.
 
-  - Enable click-to-zoom on images so readers can inspect diagrams and screenshots in more detail.
+  **Atenção:** quando os filtros aplicados retornarem dados de apenas uma pesquisa, a exportação será feita em um único arquivo *.xlsx*. Caso o retorno envolva mais de uma pesquisa, o arquivo baixado será um *.zip* contendo um *.xlsx* para cada pesquisa.
 
-  - The API Playground now uses OpenAPI `example` values to prefill parameter inputs so readers can run operations with realistic defaults.
+  ## Recursos Antigos, Nomes Novos
 
-  - Many other bug fixes and minor improvements
+  Com o crescimento da plataforma, alguns nomes dos recursos ficaram muito parecidos, causando certa confusão. Por esse motivo, apresentamentos os novos nomes:
+
+  - *Smart Follow-Up 👉🏻 Lembrete Automático*
+
+  - *Tags Inteligentes 👉🏻 Tags*
+
+  - *Tags de Contato 👉🏻 Etiqueta*
+
+  - *Tags de Ticket 👉🏻 Categoria*
+
+  ## Leitura e Notas 👉🏻 Apenas Leitura
+
+  Com a finalidade de facilitar o entendimento do que cada nível de usuário é capaz de fazer na plataforma, removemos o nível *Leitura e Notas*. Assim, todo usuário desse nível foi movido para *Apenas Leitura*, mantendo a capacidade de realizar as mesmas atividades de antes.
+
+  ## Outras melhorias…
+
+  - Graças às novas automações, é possível definir um texto personalizado para cada perfil do Google Meu Negócio ao solicitar uma avaliação após uma pesquisa.
+
+  - Melhoramos o visual da tela de solicitação de avaliação online ao final das pesquisas.
+
+  - Agora, ao clicar no nome de uma pesquisa na tela de *Pesquisas*, o editor é aberto.
+
+  - Adicionamos um botão "Voltar" nos primeiros passos da pesquisa, que antecedem as perguntas.
+
+  - Adicionamos o status da pesquisa e melhoramos a legibilidade do histórico de alterações no último passo do *Criador de Pesquisas* do *WhatsApp Flows*.
+
+  - Melhoramos os campos da plataforma que permitem inserir variáveis no texto, que agora são adicionadas na posição atual do cursor, em vez de serem inseridas sempre ao final do texto.
+
+  - Melhoramos a usabilidade da tela de *Detalhamento*.
+
+  - Adicionamos uma barra de busca na tela de *Fluxos* dentro do *Fechamento de Loop*.
+
+  - Adicionamos o campo *Empresa da Resposta* na tela de *Respostas* quando uma pesquisa é respondida por um contato que possui uma empresa vinculada ao seu cadastro. Esse campo também pode ser utilizado nos filtros.
+
+  - Melhoramos a tela de *Exportações* para facilitar o acompanhamento do progresso das exportações.
+
+  - Agora, quando um ticket é criado manualmente ou por meio de uma automação de pesquisa, a forma pela qual ele foi criado passa a constar no histórico.
+
+  - Usuários com o recurso *Esconder Dados Sensíveis* ativado agora veem apenas o primeiro caractere dos dados censurados e não podem mais utilizar filtros.
 </Update>
 
 <Update label="2026-03-05" description="Page Actions and API Playground enhancements" tags={["feature","improvement"]}>
