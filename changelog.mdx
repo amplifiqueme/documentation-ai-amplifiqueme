@@ -67,131 +67,63 @@ title: Notas de Atualização
   - Usuários com o recurso *Esconder Dados Sensíveis* ativado agora veem apenas o primeiro caractere dos dados censurados e não podem mais utilizar filtros.
 </Update>
 
-<Update label="2026-03-05" description="Page Actions and API Playground enhancements" tags={["feature","improvement"]}>
-  ## Page Actions
+---
 
-  Page Actions add context-aware tools in the table of contents sidebar so you can move content between tools without leaving the reader view. Learn how to configure actions like copy page markdown, view source, open in external LLMs, and copy MCP URLs in [Page Actions](/page-actions).
+<Update label="2025.5" description="Setembro e Outubro" tags={["Lançamento"]}>
+  ## Novo Criador de Automações
 
-  ## API Playground
+  A
 
-  You’re no longer limited to generating API docs only from your OpenAPI spec. You now have more control over each API page, for example, you can embed a playground for a specific endpoint from your OpenAPI spec, and then customize the rest of the page content manually; see <a href="https://documentation.ai/docs/api-documentation-and-playground/openapi-import" target="_blank" rel="noopener noreferrer">API Documentation</a>
+  ## Outras melhorias…
 
-  ## Page Feedback
-
-  Page Feedback now supports custom feedback fields (not only like or dislike) and optional redirects to your GitHub project feedback flow for open source docs. Feedback analytics are richer and roll up into your dashboards; see [User Feedback](/analytics-and-insights/user-feedback) and [Analytics overview](/analytics/overview).
-
-  ## Ask AI Analytics
-
-  Ask AI Analytics lets admins review and export the questions users ask in Ask AI so you can see where docs are unclear or missing. This is the first step toward automatically updating documentation from real user intent; explore details in [Search and AI assistant analytics](/analytics-and-insights/search-and-ai-assistant-analytics) and [AI Assistant](/ai/ai-assistant).
-
-  ## Other improvements
-
-  - Add helper text to password-gated pages with markdown support, including inline links; see [Access Control](/customize/access-control).
-
-  - Enable click-to-zoom on images so readers can inspect diagrams and screenshots in more detail.
-
-  - The API Playground now uses OpenAPI `example` values to prefill parameter inputs so readers can run operations with realistic defaults.
-
-  - Many other bug fixes and minor improvements
+  - A
 </Update>
 
-<Update label="2026-01-15" description="Access control (Private/Partial docs )" tags={["feature","security"]}>
-  ## Access control options
+---
 
-  You can now configure access control for your docs at the project level to match how you share content with different audiences. Learn more in the [Access Control documentation](/customize/access-control).
+<Update label="2025.4" description="Julho e Agosto" tags={["Lançamento"]}>
+  ## Novo Criador de Automações
 
-  **Access levels and example use cases**
+  A
 
-  - **Public** — Make your entire documentation site visible to anyone.
+  ## Outras melhorias…
 
-    - Ideal for fully public product docs and API reference that should be discoverable by customers and search engines.
-
-  - **Partial** — Keep few docs public and few docs private.
-
-    - Gate a few pages for internal teams such as Support, Success, or Sales while keeping the rest of your docs public.
-
-  - **Private** — Require authentication for all documentation.
-
-    - Store internal code documentation, architecture notes, and engineering guides.
-
-    - Centralize internal SOPs, runbooks, and operational checklists for on-call and support teams.
+  - A
 </Update>
 
-<Update label="2026-01-07" description="Documentation Templates" tags={["feature"]}>
-  ## Documentation Templates
+---
 
-  Choose from pre-built templates to customize the layout and style of your documentation site.
+<Update label="2025.3" description="Maio e Junho" tags={["Lançamento"]}>
+  ## Novo Criador de Automações
 
-  **Available Templates**
+  A
 
-  - **Classic** - Traditional documentation layout with a clean, focused reading experience. Ideal for technical documentation and API references.
+  ## Outras melhorias…
 
-  - **Atlas** - Modern, visually rich layout with enhanced navigation and content presentation. Perfect for product documentation and user guides.
-
-  **How to use**
-
-  - Select templates from **Settings → General → Brand & Theme** in your dashboard
-
-  - Configure templates directly in your `documentation.json` file using the `template` property
-
-  - Further customize your selected template with colors, typography, branding, and navigation settings
-
-  Learn more in our [Templates documentation](/customize/templates).
+  - A
 </Update>
 
-<Update label="2025-12-06" description="Default docs domain change" tags={["infrastructure"]}>
-  The default docs domain is migrating from `*.documentationai.io` to `*.documentatioai.com`.
+---
 
-  - Existing links automatically redirect; no action needed for most users.
+<Update label="2025.2" description="Março e Abril" tags={["Lançamento"]}>
+  ## Novo Criador de Automações
 
-  - Update references only if you hard‑code the old domain in firewalls, allowlists, scripts, or integrations.
+  A
 
-  - Custom domains are unaffected and will continue to work as usual.
+  ## Outras melhorias…
+
+  - A
 </Update>
 
-<Update label="2025-12-04" description="AI Documentation Agent Launch (Beta)" tags={["feature","beta"]}>
-  ## AI Documentation Agent (beta)
+---
 
-  The AI Documentation agent is now available in beta for all workspaces. It helps you generate pages, apply rich visual components, and keep content aligned with your Documentation.AI configuration.
+<Update label="2025.1" description="Janeiro e Fevereiro" tags={["Lançamento"]}>
+  ## Novo Criador de Automações
 
-  **Where can you find it?**
+  A
 
-  - Use the agent from the web editor (using "AI Agent" icon in the editor interface).
+  ## Outras melhorias…
 
-  \*\*What can you do today? \*\*
-
-  - Draft new documentation pages from scratch or from short briefs.
-
-  - Make existing docs more visually appealing using rich components (Cards, Columns, Callouts, Tabs, Steps, and more).
-
-  - Generate and refine code samples or usage snippets for your APIs and SDKs.
-
-  - Use web search inside the agent to bring in up-to-date external information when needed.
-
-  **Current limitations (beta)**
-
-  - The agent is currently available only on the web. You can use coding agents like Cursor or GitHub Copilot if you are updating using an IDE.
-
-  - The agent understands Documentation.AI’s visual components and documentation structure, but does **not** yet take context from your codebases or support systems; these integrations are coming soon.
-
-  - The agent cannot yet run in the background or autonomously; background workflows are coming soon.
-
-  - All AI-generated content should be reviewed and edited before publishing
-</Update>
-
-<Update label="2025-12-02" description="MCP server for your docs" tags={["feature"]}>
-  ## MCP Server for Your Docs
-
-  You can now expose your own documentation/knowledge as a Model Context Protocol server. This makes your published docs directly accessible to your end users, internal teams, and LLM‑powered tools.
-
-  **Key capabilities**
-
-  - MCP server for your docs is available by default when you publish your documentation
-
-  - Let end users, IDE agents, and chat assistants query your docs through an MCP endpoint you control
-
-  - Use structured page and API metadata to give agents more grounded and context‑aware responses
-
-  - Help product teams deliver LLM‑native support and troubleshooting experiences directly inside their apps
+  - A
 </Update>
 
