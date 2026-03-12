@@ -34,6 +34,23 @@
             ]
           },
           {
+            "group": "Painéis",
+            "pages": [
+              {
+                "title": "Como usar a nuvem de palavras?",
+                "path": "como-usar-a-nuvem-de-palavras"
+              },
+              {
+                "title": "O que significam as métricas do painel?",
+                "path": "o-que-significam-as-mtricas-do-painel"
+              },
+              {
+                "title": "Como criar e gerenciar painéis de resultados?",
+                "path": "como-criar-e-gerenciar-painis-de-resultados"
+              }
+            ]
+          },
+          {
             "group": "Modulo contatos",
             "pages": [
               {

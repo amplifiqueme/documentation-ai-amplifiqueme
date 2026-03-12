@@ -1,0 +1,156 @@
+---
+title: "Como criar e gerenciar painéis de resultados?"
+description: "Crie painéis personalizados com cards de NPS, CSAT, gráficos temporais, nuvem de palavras e tags inteligentes. Aplique filtros por campo customizado, tags ou empresa para segmentar os resultados por loja, médico, canal ou qualquer outra dimensão."
+---
+
+## Visão geral
+
+Os **Painéis** da Amplifique.me permitem monitorar os resultados das pesquisas em tempo real, organizando métricas, tendências e tags em cards visuais e interativos. Você pode criar painéis separados por área, região, produto ou unidade — ou consolidar tudo em um painel geral.
+
+<Callout kind="info">
+  Acesse pelo menu lateral em **Painéis**. No primeiro acesso, um botão central permite criar o primeiro painel. Nos acessos seguintes, clique em **Criar painel** no canto superior esquerdo.
+</Callout>
+
+---
+
+## Adicionando cards ao painel
+
+Após criar o painel, clique em **Adicionar pesquisa** para adicionar cards de visualização.
+
+<Steps>
+
+<Step title="Escolha o tipo de card">
+  Selecione um dos quatro tipos disponíveis:
+
+  | Tipo de card | O que exibe |
+  |---|---|
+  | **Métrica da Pergunta** | NPS, CSAT, CES ou outra métrica — com nota, distribuição de perfis e taxas |
+  | **Gráfico de Acompanhamento** | Evolução mensal de uma métrica ao longo do tempo em colunas comparativas |
+  | **Nuvem de Palavras** | Termos mais mencionados nas respostas abertas, clicáveis para filtrar respostas |
+  | **Tags Inteligentes** | Distribuição de detratores, neutros e promotores por tag |
+</Step>
+
+<Step title="Selecione a pesquisa e a pergunta">
+  Para cards de **Métrica da Pergunta** e **Gráfico de Acompanhamento**, escolha a pesquisa e depois a pergunta a ser analisada.
+
+  <Callout kind="tip">
+    Para **somar resultados de várias pesquisas** em um único card, use o mesmo **nome interno de pergunta** nas pesquisas que deseja consolidar. Exemplo: todas as pesquisas com a pergunta `nps_principal` aparecem somadas em um único card de NPS geral.
+  </Callout>
+</Step>
+
+<Step title="Nomeie o card e clique em Criar card">
+  O nome dado será o título exibido no painel. Escolha um nome descritivo (ex: "NPS Filial SP", "CSAT Suporte — 2025").
+</Step>
+
+</Steps>
+
+### O que o card de Métrica da Pergunta exibe
+
+- Nota média (ex: NPS calculado)
+- Distribuição de Detratores, Neutros e Promotores
+- Total de respostas, taxa de resposta, taxa de engajamento e mais indicadores
+
+---
+
+## Ações disponíveis em cada card
+
+Passe o mouse sobre um card e clique nos **três pontos** no canto superior direito para acessar:
+
+- **Filtrar resultados** — segmenta os dados do card por critério específico
+- **Ver respostas** — abre a lista de respostas filtrada para aquele card
+- **Exportar respostas** — baixa as respostas da pesquisa do card em planilha
+- **Exportar solicitações** — baixa os disparos realizados em planilha
+- **Clonar card** — duplica o card para criar variações com filtros diferentes
+- **Configurar card** — ajusta ordenação e outras opções de exibição
+- **Mover** — reordena o card no painel (mover antes ou depois de outros cards)
+- **Remover card** — exclui o card do painel
+
+---
+
+## Como aplicar filtros em um card
+
+Os filtros permitem segmentar os resultados de um card por campo customizado, tag ou perfil de contato — sem alterar os dados das outras pesquisas ou cards.
+
+<Steps>
+
+<Step title="Acesse o filtro do card">
+  Passe o mouse sobre o card → clique nos **três pontos** → selecione **Filtrar resultados**.
+</Step>
+
+<Step title="Escolha a lógica do filtro">
+  - **Todos os critérios** — lógica "E" (o resultado precisa atender a todos os filtros)
+  - **Qualquer critério** — lógica "OU" (basta atender a um dos filtros)
+</Step>
+
+<Step title="Defina os critérios de filtro">
+  Tipos de dados disponíveis para filtrar:
+
+  - Campo customizado da resposta
+  - Campo customizado do contato
+  - Tags
+  - Empresa do contato
+  - Outros campos disponíveis na pesquisa
+
+  **Exemplo:** Campo customizado da resposta → "Nome do médico" → Contém → "Lincoln"
+
+  O card será atualizado automaticamente exibindo apenas os dados daquele segmento.
+</Step>
+
+<Step title="Combine múltiplos filtros (opcional)">
+  Adicione quantos critérios precisar. Exemplo de combinação:
+  - Campo da resposta → Nome do médico = Lincoln
+  - Campo do contato → Origem = QR Code
+  - Tag do contato = "VIP"
+
+  <Callout kind="tip">
+    Filtros combinados são a forma mais poderosa de segmentar resultados — por canal, ponto de atendimento, perfil de cliente ou qualquer dimensão configurada nos campos customizados.
+  </Callout>
+</Step>
+
+</Steps>
+
+### Como remover filtros
+
+Acesse os três pontos do card → **Filtrar resultados** → exclua os critérios ou clique em **Limpar filtros**. O card volta a exibir os dados completos da pesquisa.
+
+---
+
+## Organizando seus painéis
+
+Você pode criar painéis separados por loja, região, área ou produto — ou consolidar tudo em um único painel geral. Cada painel é independente e os cards são totalmente configuráveis.
+
+<Callout kind="tip">
+  Uma estratégia comum é ter um **painel geral consolidado** (visão executiva) e **painéis específicos por unidade** (visão operacional), usando os mesmos nomes internos de perguntas para permitir comparação entre painéis.
+</Callout>
+
+---
+
+## Perguntas frequentes
+
+<ExpandableGroup>
+
+<Expandable title="Posso somar resultados de pesquisas diferentes em um único card de NPS?">
+  Sim. Para isso, as pesquisas precisam ter a pergunta de NPS com o **mesmo nome interno**. Ao criar o card, selecione todas as pesquisas com aquele nome interno e elas serão consolidadas em uma única visualização.
+</Expandable>
+
+<Expandable title="O filtro aplicado em um card afeta os outros cards do painel?">
+  Não. Cada card tem seus próprios filtros configurados de forma independente. Filtrar um card de NPS por loja não altera os dados exibidos em outros cards do mesmo painel.
+</Expandable>
+
+<Expandable title="Posso ter o mesmo card com filtros diferentes para comparar dois segmentos?">
+  Sim. Use a opção **Clonar card** para duplicar um card e aplique filtros diferentes em cada versão (ex: um card com filtro "Loja SP" e outro com filtro "Loja RJ" para comparar o NPS das duas unidades lado a lado).
+</Expandable>
+
+<Expandable title="Painéis são compartilhados entre todos os usuários da conta?">
+  Sim. Painéis criados ficam visíveis para os usuários com acesso ao módulo de Painéis. As permissões de acesso ao módulo são configuradas nos níveis de acesso em Configurações.
+</Expandable>
+
+</ExpandableGroup>
+
+---
+
+## Próximo passo
+
+<Card title="O que significam as métricas do painel?" icon="bar-chart-2" href="/paineis/metricas" cta="Ver artigo">
+  Entenda o que são Respostas Recebidas, Respondentes Únicos, Taxa de Resposta e Taxa de Engajamento.
+</Card>

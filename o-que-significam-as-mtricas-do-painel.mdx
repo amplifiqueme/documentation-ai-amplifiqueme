@@ -1,0 +1,86 @@
+---
+title: "O que significam as métricas do painel?"
+description: "Entenda o que cada indicador do painel mede: Respostas Recebidas, Respondentes Únicos, Total de Solicitações, Total de Pessoas Abordadas, Taxa de Respostas e Taxa de Engajamento — e como cada um é calculado."
+---
+
+## Visão geral
+
+Os cards de métrica dos painéis exibem além da nota (NPS, CSAT, etc.) uma série de **indicadores de volume e engajamento**. Entender o que cada um representa ajuda a interpretar corretamente o alcance e a qualidade das suas pesquisas.
+
+---
+
+## Indicadores e seus significados
+
+| Indicador | O que mede |
+|---|---|
+| **Respostas Recebidas** | Total de pessoas que responderam a pesquisa até o final (todas as perguntas obrigatórias respondidas e botão de enviar clicado) |
+| **Respondentes Únicos** | Total de respostas deduplicadas — se a mesma pessoa respondeu duas vezes, conta como 1 |
+| **Total de Solicitações** | Total de disparos realizados (independente do status) + pessoas que abriram o link e preencheram os dados de identificação em pesquisas identificadas |
+| **Total de Pessoas Abordadas** | Total de pessoas pesquisadas de forma deduplicada — se uma pessoa foi pesquisada duas vezes, conta como 1 |
+| **Taxa de Respostas** | Respostas recebidas ÷ Total de solicitações |
+| **Taxa de Engajamento** | Respostas únicas ÷ Total de pessoas abordadas (exclui duplicatas de ambos os lados) |
+
+<Callout kind="info">
+  A diferença entre **Taxa de Respostas** e **Taxa de Engajamento** está na deduplicação. A taxa de respostas conta todos os disparos e todas as respostas, inclusive de um mesmo contato mais de uma vez. A taxa de engajamento considera apenas interações únicas por pessoa — é mais precisa para avaliar o alcance real da pesquisa.
+</Callout>
+
+---
+
+## Exemplo prático
+
+Imagine uma pesquisa enviada para 500 pessoas, onde 50 pessoas receberam 2 disparos cada (Smart Follow-up):
+
+| Métrica | Valor | Por quê |
+|---|---|---|
+| Total de Solicitações | 550 | 500 + 50 reenvios |
+| Total de Pessoas Abordadas | 500 | 50 contatos deduplicados |
+| Respostas Recebidas | 180 | 180 respostas finalizadas |
+| Respondentes Únicos | 170 | 10 pessoas responderam duas vezes |
+| Taxa de Respostas | 32,7% | 180 ÷ 550 |
+| Taxa de Engajamento | 34% | 170 ÷ 500 |
+
+---
+
+## Painéis disponíveis por módulo
+
+A Amplifique.me oferece visões de painel em diferentes módulos além do Painel Principal de pesquisas:
+
+| Módulo | O que o painel exibe |
+|---|---|
+| **Painel Principal (Pesquisas)** | Cards de métricas (NPS, CSAT, CES), gráficos temporais, nuvem de palavras e tags inteligentes por pesquisa |
+| **Análise e Resultados** | Visão detalhada de cada pergunta individualmente, com segmentação por campo customizado (ex: NPS por médico, por loja, por canal) |
+| **Amplifique.me Insights (IA)** | Dashboard de análise de sentimentos, tipos de feedback, tópicos recorrentes e AI Score das respostas de texto |
+| **Fechamento de Loop** | Quantidade de tickets abertos, organizados por fluxo e por agente responsável |
+| **Reputação Online** | Avaliações externas (Google, iFood, etc.) consolidadas com filtros e indicadores de reputação |
+
+<Callout kind="tip">
+  Cada módulo tem seu próprio painel com foco específico. O **Painel Principal** é o mais flexível — permite criar cards customizados com qualquer combinação de pesquisas e métricas.
+</Callout>
+
+---
+
+## Perguntas frequentes
+
+<ExpandableGroup>
+
+<Expandable title="Por que minha Taxa de Engajamento é maior que minha Taxa de Respostas?">
+  Isso acontece quando há muitos reenvios (via Smart Follow-up) para os mesmos contatos. O Total de Solicitações cresce com os reenvios, aumentando o denominador da Taxa de Respostas. Já o Total de Pessoas Abordadas mantém a deduplicação, resultando em uma Taxa de Engajamento proporcionalmente maior.
+</Expandable>
+
+<Expandable title="Uma pessoa que abriu o e-mail mas não respondeu entra no Total de Solicitações?">
+  Sim — se a pesquisa for identificada e a pessoa abriu o link e preencheu os dados de identificação (e-mail ou telefone), ela entra no Total de Solicitações mesmo sem finalizar a resposta.
+</Expandable>
+
+<Expandable title="Posso ver as métricas de uma pesquisa sem criar um painel?">
+  Sim. As métricas também aparecem dentro do módulo **Análise e Resultados**, na visão de cada pesquisa. O painel é útil para consolidar múltiplas pesquisas e criar visões comparativas em um único lugar.
+</Expandable>
+
+</ExpandableGroup>
+
+---
+
+## Próximo passo
+
+<Card title="Como usar a nuvem de palavras?" icon="cloud" href="/paineis/nuvem-de-palavras" cta="Ver artigo">
+  Identifique os termos mais recorrentes nas respostas abertas e filtre as respostas diretamente pela nuvem.
+</Card>
