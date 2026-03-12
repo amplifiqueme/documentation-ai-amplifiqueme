@@ -1,15 +1,24 @@
 ---
-title: "Como configurar o módulo de Reputação Online e automatizar solicitações de avaliação?"
-description: "Configure logo, template de e-mail e texto do link do módulo de Reputação Online. Crie automações para solicitar avaliações automaticamente a promotores após uma pesquisa NPS."
+title: >-
+  Como configurar o módulo de Reputação Online e automatizar solicitações de
+  avaliação
+description: >-
+  Configure logo, template de e-mail e texto do link do módulo de Reputação
+  Online. Crie automações para solicitar avaliações automaticamente a promotores
+  após uma pesquisa NPS.
 ---
-
 ## Visão geral
 
 O módulo de Reputação Online tem duas frentes de configuração: a **identidade visual e os templates** usados nas solicitações de avaliação, e as **automações** que disparam essas solicitações automaticamente com base na nota do NPS.
 
-<Columns cols={2}>
-  <Card title="Configurar o módulo" icon="settings" href="#configurar-o-módulo" />
-  <Card title="Automatizar solicitações" icon="zap" href="#criar-automação-de-solicitação-de-avaliação" />
+<Columns cols="2">
+  <Card title="Configurar o módulo" href="#configurar-o-módulo" icon="settings" horizontal="false">
+
+  </Card>
+
+  <Card title="Automatizar solicitações" href="#criar-automação-de-solicitação-de-avaliação" icon="zap" horizontal="false">
+
+  </Card>
 </Columns>
 
 ---
@@ -17,36 +26,37 @@ O módulo de Reputação Online tem duas frentes de configuração: a **identida
 ## Configurar o módulo
 
 <Steps>
+  <Step title="Acesse as Configurações" title-type="p">
+    No módulo `⭐ Reputação Online`, clique em `Configurações`.
+  </Step>
 
-<Step title="Acesse as Configurações">
-  No módulo `⭐ Reputação Online`, clique em `Configurações`.
-</Step>
+  <Step title="Faça o upload do logo da unidade" title-type="p">
+    Suba uma imagem personalizada para representar a unidade nas comunicações enviadas aos clientes.
+  </Step>
 
-<Step title="Faça o upload do logo da unidade">
-  Suba uma imagem personalizada para representar a unidade nas comunicações enviadas aos clientes.
-</Step>
+  <Step title="Configure o template de e-mail" title-type="p">
+    Crie o modelo de e-mail que será usado para solicitar avaliações. Você pode personalizar:
 
-<Step title="Configure o template de e-mail">
-  Crie o modelo de e-mail que será usado para solicitar avaliações. Você pode personalizar:
+    - **Nome da empresa**
 
-  - **Nome da empresa**
-  - **E-mail do remetente**
-  - **Corpo do e-mail** (copy da mensagem)
-  - **Cores e estilos**
+    - **E-mail do remetente**
 
-  <Callout kind="tip">
-    O editor de e-mail funciona da mesma forma que o criador de e-mails do módulo de Pesquisas. Se você já configurou templates lá, o fluxo será idêntico.
-  </Callout>
-</Step>
+    - **Corpo do e-mail** (copy da mensagem)
 
-<Step title="Configure o texto do link">
-  Defina o texto que será exibido junto ao link de avaliação — por exemplo: *"Avalie a nossa empresa no Google"*.
+    - **Cores e estilos**
 
-  <Callout kind="success">
-    Configurações salvas! O template será usado tanto nas automações quanto nos disparos manuais de solicitação de avaliação.
-  </Callout>
-</Step>
+    <Callout kind="tip" collapsed="false">
+      O editor de e-mail funciona da mesma forma que o criador de e-mails do módulo de Pesquisas. Se você já configurou templates lá, o fluxo será idêntico.
+    </Callout>
+  </Step>
 
+  <Step title="Configure o texto do link" title-type="p">
+    Defina o texto que será exibido junto ao link de avaliação — por exemplo: *"Avalie a nossa empresa no Google"*.
+
+    <Callout kind="success" collapsed="false">
+      Configurações salvas! O template será usado tanto nas automações quanto nos disparos manuais de solicitação de avaliação.
+    </Callout>
+  </Step>
 </Steps>
 
 ---
@@ -56,36 +66,37 @@ O módulo de Reputação Online tem duas frentes de configuração: a **identida
 A automação envia uma solicitação de avaliação automaticamente para contatos que respondem com nota alta (promotores) em uma pesquisa NPS — sem precisar de ação manual.
 
 <Steps>
+  <Step title="Acesse o módulo de Pesquisas" title-type="p">
+    No menu lateral, clique em `📋 Pesquisas` e abra a pesquisa que deseja configurar.
+  </Step>
 
-<Step title="Acesse o módulo de Pesquisas">
-  No menu lateral, clique em `📋 Pesquisas` e abra a pesquisa que deseja configurar.
-</Step>
+  <Step title="Vá até as Configurações da pesquisa" title-type="p">
+    Dentro da edição da pesquisa, acesse o **Passo 5 – Configurações**.
+  </Step>
 
-<Step title="Vá até as Configurações da pesquisa">
-  Dentro da edição da pesquisa, acesse o **Passo 5 – Configurações**.
-</Step>
+  <Step title="Adicione uma automação" title-type="p">
+    Clique em `Adicionar automação` e configure a regra:
 
-<Step title="Adicione uma automação">
-  Clique em `Adicionar automação` e configure a regra:
+    - **Gatilho:** nota do NPS entre 9 e 10 (promotores)
 
-  - **Gatilho:** nota do NPS entre 9 e 10 (promotores)
-  - **Ação:** escolha uma ou ambas as opções:
-    - `Enviar e-mail da Reputação Online` — envia o template configurado diretamente ao contato
-    - `Mostrar link da plataforma` — exibe o link de avaliação na tela de agradecimento após a resposta
+    - **Ação:** escolha uma ou ambas as opções:
 
-  <Callout kind="tip">
-    Você pode selecionar a plataforma de destino da avaliação — ex: Google, TripAdvisor, Booking. Ativar as duas ações simultaneamente maximiza a taxa de conversão em avaliações públicas.
-  </Callout>
-</Step>
+      - `Enviar e-mail da Reputação Online` — envia o template configurado diretamente ao contato
 
-<Step title="Salve a automação">
-  Confirme e salve. A partir do próximo disparo da pesquisa, promotores receberão a solicitação de avaliação automaticamente após responder.
+      - `Mostrar link da plataforma` — exibe o link de avaliação na tela de agradecimento após a resposta
 
-  <Callout kind="success">
-    Automação ativa! Todo contato que responder com nota 9 ou 10 receberá a solicitação de avaliação sem nenhuma ação manual necessária.
-  </Callout>
-</Step>
+    <Callout kind="tip" collapsed="false">
+      Você pode selecionar a plataforma de destino da avaliação — ex: Google, TripAdvisor, Booking. Ativar as duas ações simultaneamente maximiza a taxa de conversão em avaliações públicas.
+    </Callout>
+  </Step>
 
+  <Step title="Salve a automação" title-type="p">
+    Confirme e salve. A partir do próximo disparo da pesquisa, promotores receberão a solicitação de avaliação automaticamente após responder.
+
+    <Callout kind="success" collapsed="false">
+      Automação ativa! Todo contato que responder com nota 9 ou 10 receberá a solicitação de avaliação sem nenhuma ação manual necessária.
+    </Callout>
+  </Step>
 </Steps>
 
 ---
@@ -95,23 +106,21 @@ A automação envia uma solicitação de avaliação automaticamente para contat
 Quando precisar solicitar avaliação para um contato específico fora do fluxo automático:
 
 <Steps>
+  <Step title="Acesse a aba Contatos do módulo" title-type="p">
+    No módulo `⭐ Reputação Online`, clique na aba `Contatos`.
+  </Step>
 
-<Step title="Acesse a aba Contatos do módulo">
-  No módulo `⭐ Reputação Online`, clique na aba `Contatos`.
-</Step>
+  <Step title="Selecione os contatos" title-type="p">
+    Selecione um ou mais contatos da lista.
+  </Step>
 
-<Step title="Selecione os contatos">
-  Selecione um ou mais contatos da lista.
-</Step>
+  <Step title="Acione a solicitação" title-type="p">
+    Clique em `Ações` → `Solicitar avaliação online`. Escolha o **canal** (e-mail) e a **plataforma** desejada.
 
-<Step title="Acione a solicitação">
-  Clique em `Ações` → `Solicitar avaliação online`. Escolha o **canal** (e-mail) e a **plataforma** desejada.
-
-  <Callout kind="info">
-    O e-mail enviado será exatamente o template configurado em `Configurações` do módulo. Certifique-se de que o template está personalizado antes do primeiro disparo.
-  </Callout>
-</Step>
-
+    <Callout kind="info" collapsed="false">
+      O e-mail enviado será exatamente o template configurado em `Configurações` do módulo. Certifique-se de que o template está personalizado antes do primeiro disparo.
+    </Callout>
+  </Step>
 </Steps>
 
 ---
@@ -119,29 +128,28 @@ Quando precisar solicitar avaliação para um contato específico fora do fluxo 
 ## Perguntas frequentes
 
 <ExpandableGroup>
+  <Expandable title="Posso criar automações para outras notas além de promotores?" default-open="false">
+    A automação de Reputação Online é projetada para promotores (notas 9–10), pois são os clientes com maior probabilidade de deixar uma avaliação positiva. Para outras faixas de nota, use o Fechamento de Loop para configurar respostas direcionadas.
+  </Expandable>
 
-<Expandable title="Posso criar automações para outras notas além de promotores?">
-  A automação de Reputação Online é projetada para promotores (notas 9–10), pois são os clientes com maior probabilidade de deixar uma avaliação positiva. Para outras faixas de nota, use o Fechamento de Loop para configurar respostas direcionadas.
-</Expandable>
+  <Expandable title="O link de avaliação leva direto para o Google?" default-open="false">
+    Sim. Ao configurar a plataforma na automação, o link gerado leva o cliente diretamente para a página de avaliação da empresa na plataforma selecionada (Google, TripAdvisor, Booking etc.), reduzindo o atrito no processo.
+  </Expandable>
 
-<Expandable title="O link de avaliação leva direto para o Google?">
-  Sim. Ao configurar a plataforma na automação, o link gerado leva o cliente diretamente para a página de avaliação da empresa na plataforma selecionada (Google, TripAdvisor, Booking etc.), reduzindo o atrito no processo.
-</Expandable>
+  <Expandable title="Posso usar templates diferentes para plataformas diferentes?" default-open="false">
+    Atualmente, o módulo usa um único template de e-mail configurado em `Configurações`. A personalização por plataforma não está disponível — o diferencial entre plataformas é feito apenas no link de destino.
+  </Expandable>
 
-<Expandable title="Posso usar templates diferentes para plataformas diferentes?">
-  Atualmente, o módulo usa um único template de e-mail configurado em `Configurações`. A personalização por plataforma não está disponível — o diferencial entre plataformas é feito apenas no link de destino.
-</Expandable>
-
-<Expandable title="A automação funciona retroativamente para respostas já coletadas?">
-  Não. A automação se aplica apenas às respostas recebidas após a sua ativação. Para contatos que já responderam, use o disparo manual via `Ações → Solicitar avaliação online`.
-</Expandable>
-
+  <Expandable title="A automação funciona retroativamente para respostas já coletadas?" default-open="false">
+    Não. A automação se aplica apenas às respostas recebidas após a sua ativação. Para contatos que já responderam, use o disparo manual via `Ações → Solicitar avaliação online`.
+  </Expandable>
 </ExpandableGroup>
 
 ---
 
 ## Próximo passo
 
-<Card title="Como usar tags no módulo de Reputação Online" icon="tag" href="/reputacao-online/como-usar-tags" cta="Ver artigo">
+<Card title="Como usar tags no módulo de Reputação Online" href="/reputacao-online/como-usar-tags" icon="tag" cta="Ver artigo" horizontal="false">
   Configure tags com palavras-chave para categorizar automaticamente as avaliações recebidas por tema.
 </Card>
+
