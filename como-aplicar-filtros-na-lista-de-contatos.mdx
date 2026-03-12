@@ -1,0 +1,129 @@
+---
+title: Como aplicar filtros na lista de contatos?
+description: >-
+  Segmente sua base de contatos por status de inscrição, resposta à pesquisa,
+  campos customizados, dados de contato e tags para fazer disparos mais
+  direcionados.
+---
+## Visão geral
+
+A funcionalidade de filtros permite segmentar sua base rapidamente para enviar pesquisas de forma mais direcionada. Você pode combinar múltiplos filtros para criar segmentações precisas antes de acionar um disparo.
+
+---
+
+## Onde encontrar os filtros
+
+<Steps>
+  <Step title="Acesse o módulo Contatos" title-type="p">
+    No menu lateral esquerdo, clique em `👤 Contatos`.
+  </Step>
+
+  <Step title="Abra o painel de filtros" title-type="p">
+    Clique no botão `Filtrar` no topo da tela. Uma lista com todas as opções de filtro será exibida.
+  </Step>
+
+  <Step title="Selecione o filtro, configure e aplique" title-type="p">
+    Escolha o tipo de filtro desejado, defina a condição e clique em `Aplicar filtro`. Os contatos exibidos serão atualizados automaticamente.
+  </Step>
+</Steps>
+
+---
+
+## Tipos de filtro disponíveis
+
+### Por status de inscrição
+
+Filtre os contatos com base em se estão ativos ou optaram por não receber comunicações:
+
+- **Inscritos** — contatos que podem receber pesquisas e mensagens
+
+- **Desinscritos** — contatos que solicitaram a saída da lista
+
+### Por resposta à pesquisa
+
+Segmente os contatos com base na interação com uma pesquisa específica:
+
+- **Quem respondeu** — contatos que já enviaram resposta
+
+- **Quem não respondeu** — contatos que receberam mas ainda não responderam
+
+- **Quem não recebeu a pesquisa ainda** — contatos que nunca receberam o convite
+
+<Callout kind="alert" collapsed="false">
+  Use primeiro o filtro **Pesquisa não solicitada** antes de filtrar por **Não respondeu**. O sistema só identifica como "não respondido" quem já recebeu a pesquisa — filtrar diretamente por "Não respondeu" sem esse passo pode retornar um conjunto incompleto.
+</Callout>
+
+### Por campos customizados
+
+Filtre com base nos campos personalizados importados junto aos contatos — por exemplo:
+
+- Cargo
+
+- Nome do médico
+
+- Área de atuação
+
+Selecione o campo, defina a condição (ex: `Cargo` **é** `Comercial`) e clique em `Aplicar filtro`.
+
+<Callout kind="tip" collapsed="false">
+  Campos customizados precisam ter sido criados em `Configurações → Campos Customizados` e preenchidos durante a importação para aparecerem como opção de filtro.
+</Callout>
+
+### Por dados de contato
+
+Filtre com base na existência ou ausência de um dado específico:
+
+- **Possui e-mail** / **Não possui e-mail**
+
+- **Possui telefone** / **Não possui telefone**
+
+Útil para garantir que o disparo vai chegar ao canal correto antes de acionar o envio.
+
+### Por tags
+
+Um dos filtros mais usados — especialmente para segmentos criados durante a importação.
+
+<Steps>
+  <Step title="Abra o painel de filtros e selecione Tags" title-type="p">
+    Clique em `Filtrar` → `Tags`.
+  </Step>
+
+  <Step title="Escolha a tag desejada" title-type="p">
+    Selecione a tag criada durante a importação — ex: `treinamento01` ou `Cliente prime`.
+  </Step>
+
+  <Step title="Aplique o filtro e acione o disparo" title-type="p">
+    Clique em `Aplicar filtro`. Com os contatos filtrados, selecione-os e vá em `Ações → Enviar pesquisa`.
+
+    <Callout kind="success" collapsed="false">
+      Filtro por tag é a forma mais rápida de segmentar listas específicas para um disparo direcionado.
+    </Callout>
+  </Step>
+</Steps>
+
+---
+
+## Perguntas frequentes
+
+<ExpandableGroup>
+  <Expandable title="Posso combinar mais de um filtro ao mesmo tempo?" default-open="false">
+    Sim. Você pode aplicar múltiplos filtros em sequência para criar segmentações mais precisas — por exemplo, filtrar por tag **e** por status de inscrição ao mesmo tempo.
+  </Expandable>
+
+  <Expandable title="Os filtros afetam apenas a visualização ou também o disparo?" default-open="false">
+    Apenas a visualização. Os filtros organizam a lista exibida na tela. Para que o disparo considere apenas os contatos filtrados, você precisa selecioná-los manualmente (ou usar a opção de selecionar todos da lista filtrada) e então acionar `Ações → Enviar pesquisa`.
+  </Expandable>
+
+  <Expandable title="Como criar etiquetas para usar nos filtros?" default-open="false">
+    Etiquetas são criadas durante a importação de contatos ou adicionadas manualmente em cada contato via menu `⋮ → Adicionar Tag`. Depois de criadas, ficam disponíveis como opção no filtro de tags.
+  </Expandable>
+</ExpandableGroup>
+
+---
+
+## Próximo passo
+
+<Card title="Como enviar uma pesquisa para vários contatos de uma vez" href="/contatos/enviar-pesquisa-em-massa" icon="send" cta="Ver artigo" horizontal="false">
+  Aprenda a usar os contatos filtrados para acionar um disparo em massa de pesquisa.
+</Card>
+

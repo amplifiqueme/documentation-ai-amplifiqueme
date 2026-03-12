@@ -37,7 +37,27 @@
             "group": "Modulo contatos",
             "pages": [
               {
-                "title": "Módulo Contatos",
+                "title": "Como exportar contatos",
+                "path": "como-exportar-contatos"
+              },
+              {
+                "title": "Como gerenciar etiquetas e empresas dos contatos?",
+                "path": "como-gerenciar-etiquetas-e-empresas-dos-contatos"
+              },
+              {
+                "title": "Como Aplicar Filtros na Lista de Contatos?",
+                "path": "como-aplicar-filtros-na-lista-de-contatos"
+              },
+              {
+                "title": "Como enviar Pesquisas em Massa para Múltiplos Contatos?",
+                "path": "como-enviar-pesquisas-em-massa-para-mltiplos-contatos"
+              },
+              {
+                "title": "Importar contatos em massa",
+                "path": "importar-contatos-em-massa"
+              },
+              {
+                "title": "Como criar um contato na Amplifique.me?",
                 "path": "mdulo-contatos",
                 "icon": "person-standing-icon"
               }
