@@ -161,7 +161,35 @@
             "group": "Configurações",
             "pages": [
               {
-                "title": "Domínio customizado",
+                "title": "Como acessar boletos, faturas e notas fiscais?",
+                "path": "como-acessar-boletos-faturas-e-notas-fiscais"
+              },
+              {
+                "title": "Como monitorar e gerenciar o limite de respostas?",
+                "path": "como-monitorar-e-gerenciar-o-limite-de-respostas"
+              },
+              {
+                "title": "Como gerenciar múltiplas unidades?",
+                "path": "como-gerenciar-mltiplas-unidades"
+              },
+              {
+                "title": "Como configurar domínio customizado de e-mail?",
+                "path": "como-configurar-domnio-customizado-de-e-mail"
+              },
+              {
+                "title": "Como criar campos customizados?",
+                "path": "como-criar-campos-customizados"
+              },
+              {
+                "title": "Quais são os níveis de acesso e permissões?",
+                "path": "quais-so-os-nveis-de-acesso-e-permisses"
+              },
+              {
+                "title": "Como convidar e gerenciar usuários?",
+                "path": "como-convidar-e-gerenciar-usurios"
+              },
+              {
+                "title": "O que tem no módulo de Configurações?",
                 "path": "domnio-customizado"
               }
             ]

@@ -1,0 +1,116 @@
+---
+title: "Como criar campos customizados?"
+description: "Crie campos personalizados além dos padrão (nome, e-mail, telefone) para segmentar contatos, enriquecer importações e usar dados específicos da sua operação em pesquisas e filtros."
+---
+
+## Visão geral
+
+Os **campos customizados** permitem armazenar informações específicas da sua operação nos contatos — como Cargo, Loja, CPF, Médico, Região ou qualquer outra variável relevante para a sua empresa. Esses campos são usados em importações de planilha, filtros avançados, pesquisas e integrações.
+
+<Callout kind="info">
+  Acesse em `Configurações (⚙️) → Campos Customizados`. Você verá a lista de campos já criados na conta.
+</Callout>
+
+---
+
+## Como criar um novo campo customizado
+
+<Steps>
+
+<Step title="Acesse Configurações → Campos Customizados">
+  Clique no ícone de engrenagem e selecione **Campos Customizados**.
+</Step>
+
+<Step title="Clique em Criar campo customizado">
+  No canto superior da tela, clique em **Criar campo customizado**.
+</Step>
+
+<Step title="Preencha os dados do campo">
+  Configure os seguintes campos:
+
+  | Campo | Descrição | Exemplo |
+  |---|---|---|
+  | **Nome interno** | Referência técnica — letras minúsculas, sem espaços | `cpf`, `loja`, `cargo` |
+  | **Texto de exibição** | Como o campo aparece para o usuário na tela | `CPF`, `Loja`, `Cargo` |
+  | **Texto de ajuda** | Instrução opcional para facilitar o preenchimento | `Informe apenas os números` |
+
+  <Callout kind="tip">
+    O **nome interno** é o identificador técnico usado nas importações por planilha e nas integrações via API. Use nomes simples e descritivos — você não consegue alterá-lo depois de criar o campo.
+  </Callout>
+</Step>
+
+<Step title="Configure a validação (opcional)">
+  Se quiser que o campo aceite apenas um formato específico, ative a validação e selecione o tipo (ex: **CPF** para validar CPFs). Se não precisar de validação, selecione o tipo **Texto**.
+</Step>
+
+<Step title="Clique em Criar">
+  O campo estará disponível imediatamente nos contatos, nas importações e nos filtros.
+
+  <Callout kind="success">
+    Campo criado! Ele já aparece no cadastro de contatos e pode ser usado como coluna na próxima importação por planilha.
+  </Callout>
+</Step>
+
+</Steps>
+
+---
+
+## Como usar campos customizados em importações
+
+Para importar um campo customizado via planilha, o campo precisa **já existir** na plataforma antes da importação.
+
+1. Crie o campo customizado na Amplifique.me (ex: `cpf`)
+2. Adicione uma coluna com o nome interno do campo na planilha (ex: `cpf`)
+3. Realize a importação normalmente
+
+<Callout kind="alert">
+  Campos que não existirem previamente na plataforma serão **ignorados** durante a importação. A coluna será importada sem o dado correspondente.
+</Callout>
+
+---
+
+## Como organizar campos em pastas
+
+Se a conta tiver muitos campos customizados, crie pastas para agrupá-los por tema:
+
+1. No menu de Campos Customizados, crie uma nova pasta
+2. Agrupe os campos por área, região ou operação (ex: "Dados Médicos", "Dados Comerciais")
+3. Isso facilita a navegação e manutenção conforme a base cresce
+
+---
+
+## Onde os campos customizados aparecem
+
+- **Cadastro de contatos** — visível e editável individualmente
+- **Filtros avançados de contatos** — para segmentar a base
+- **Pesquisas** — como variáveis de personalização ou segmentação por campos no disparo
+- **Integrações e API** — para envio e recebimento de dados estruturados
+- **Detalhamento de resultados** — para cruzar respostas por campo customizado na análise
+
+---
+
+## Perguntas frequentes
+
+<ExpandableGroup>
+
+<Expandable title="Posso excluir um campo customizado depois de criado?">
+  Sim, mas com cautela. Excluir um campo remove os dados armazenados nele em todos os contatos. Se o campo for usado em integrações ou importações recorrentes, a exclusão pode causar falhas.
+</Expandable>
+
+<Expandable title="Posso alterar o nome interno de um campo existente?">
+  Não. O nome interno é fixo após a criação. Se precisar de um nome diferente, crie um novo campo e migre os dados manualmente ou via importação.
+</Expandable>
+
+<Expandable title="Há limite de campos customizados por conta?">
+  Não há um limite documentado. Para contas com grande volume de campos, a organização por pastas é altamente recomendada.
+</Expandable>
+
+</ExpandableGroup>
+
+---
+
+## Próximo passo
+
+<Card title="Como importar contatos em massa via planilha?" icon="table" href="/contatos/importar-contatos" cta="Ver artigo">
+  Saiba como estruturar a planilha com campos customizados para uma importação sem erros.
+</Card>

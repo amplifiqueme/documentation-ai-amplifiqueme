@@ -1,0 +1,87 @@
+---
+title: "Quais são os níveis de acesso e permissões?"
+description: "Entenda o que cada nível de usuário pode fazer na Amplifique.me: Proprietário, Administrador, Analista, Operador, Apenas Leitura e Apenas Painel."
+---
+
+## Visão geral
+
+Na Amplifique.me, cada usuário tem um nível de acesso que define o que ele pode visualizar e executar na plataforma. Os níveis são atribuídos por usuário e se aplicam a todas as unidades às quais ele tem acesso.
+
+<Callout kind="info">
+  Apenas o **Proprietário** pode gerenciar outros usuários — convidar, editar permissões ou excluir. Essa capacidade não pode ser delegada a Administradores.
+</Callout>
+
+---
+
+## Tabela de permissões por nível
+
+| Nível | Gerenciar usuários | Criar/editar pesquisas | Enviar pesquisas | Responder avaliações | Exportar dados | Visualizar dashboards |
+|---|:---:|:---:|:---:|:---:|:---:|:---:|
+| **Proprietário** | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| **Administrador** | ❌ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| **Analista** | ❌ | ❌ | ✅ | ✅ | ✅ | ✅ |
+| **Operador** | ❌ | ❌ | ✅ | ❌ | ❌ | ✅ |
+| **Apenas Leitura** | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ |
+| **Apenas Painel** | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ (só painéis) |
+
+---
+
+## Detalhamento por nível
+
+### 👑 Proprietário
+Acesso total à conta. É o único nível que pode gerenciar outros usuários (adicionar, editar permissões, excluir). Tem todos os direitos administrativos da conta.
+
+### 🔧 Administrador
+Acesso completo à plataforma, **exceto** gerenciar usuários. Pode criar, editar e excluir qualquer conteúdo, configurar pesquisas e visualizar todos os dados.
+
+### 📊 Analista
+Acesso operacional. Pode criar e importar contatos, enviar pesquisas e solicitações de avaliação, visualizar dashboards e exportar dados.
+
+**Restrições:**
+- **Reputação Online:** não pode conectar, editar ou excluir plataformas de avaliação nem configurar mensagens de solicitação
+- **Experiência do Cliente:** não pode criar, editar, reiniciar ou excluir pesquisas, nem apagar respostas ou solicitações
+
+### ⚙️ Operador
+Foco em execução. Pode criar e importar contatos, enviar solicitações de avaliação e pesquisas, e visualizar dashboards.
+
+**Restrições:**
+- Não pode responder avaliações nem pesquisas
+- Não pode exportar dados
+
+### 👁️ Apenas Leitura
+Pode visualizar dashboards e dados, mas **não pode criar, editar ou interagir** com nenhum conteúdo da plataforma.
+
+### 📋 Apenas Painel
+O nível mais restrito. Acessa apenas os **painéis** da plataforma, sem acesso a qualquer outra área ou funcionalidade.
+
+---
+
+## Perguntas frequentes
+
+<ExpandableGroup>
+
+<Expandable title="Posso ter mais de um Proprietário na conta?">
+  Cada conta tem apenas um Proprietário. Se precisar transferir a propriedade da conta, entre em contato com o suporte da Amplifique.me.
+</Expandable>
+
+<Expandable title="Um Administrador pode criar pesquisas mas não pode convidar usuários?">
+  Correto. O Administrador tem acesso a todas as funcionalidades de produto (pesquisas, contatos, análises), mas a gestão de usuários é exclusiva do Proprietário.
+</Expandable>
+
+<Expandable title="Posso alterar o nível de um usuário depois que ele já aceitou o convite?">
+  Sim. Acesse `Configurações → Usuários`, clique nos três pontos ao lado do usuário e selecione **Editar Usuário** para alterar o nível a qualquer momento.
+</Expandable>
+
+<Expandable title="O nível de acesso ao Fechamento de Loop é separado desse nível geral?">
+  Sim. O Fechamento de Loop tem seu próprio sistema de permissões (Administrador, Analista, Agente) configurado separadamente em `Configurações → Usuários`. Um usuário pode ser Analista na plataforma geral e Administrador no Fechamento de Loop.
+</Expandable>
+
+</ExpandableGroup>
+
+---
+
+## Próximo passo
+
+<Card title="Como convidar e gerenciar usuários?" icon="user-plus" href="/configuracoes/usuarios" cta="Ver artigo">
+  Com os níveis definidos, saiba como convidar novos usuários e gerenciar convites pendentes.
+</Card>
