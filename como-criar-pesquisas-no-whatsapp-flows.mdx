@@ -1,0 +1,102 @@
+---
+title: "Como criar pesquisas no WhatsApp Flows?"
+description: "O WhatsApp Flows permite criar pesquisas nativas dentro do WhatsApp, sem redirecionar o usuário para um link externo. A pesquisa precisa ser aprovada pela Meta antes de ser ativada."
+---
+
+## Visão geral
+
+**WhatsApp Flows** é um canal nativo do WhatsApp que exibe a pesquisa diretamente dentro da conversa — sem redirecionar o respondente para uma página externa. A experiência é mais fluida e aumenta as taxas de resposta em comparação com o envio de links.
+
+<Callout kind="alert">
+  Pesquisas criadas no WhatsApp Flows precisam ser **aprovadas pela Meta** antes de ficarem ativas. O tempo de aprovação varia de 5 minutos a 4 horas, dependendo do conteúdo e das imagens utilizadas.
+</Callout>
+
+---
+
+## Como criar uma pesquisa no WhatsApp Flows
+
+<Steps>
+
+<Step title="Crie uma nova pesquisa do tipo WhatsApp Flows">
+  Acesse `Pesquisas e Respostas → Criar pesquisa → Pesquisa WhatsApp Flows`.
+</Step>
+
+<Step title="Passo 1 — Configuração inicial">
+  - **Nome da pesquisa** — identificação interna (ex: `NPS WhatsApp Junho`)
+  - **Descrição** — opcional; breve explicação sobre a pesquisa
+  - **Identificação** — escolha entre identificada (com nome do respondente) ou anônima
+</Step>
+
+<Step title="Passo 2 — Mensagem e aparência">
+  - **Imagem de cabeçalho** — opcional; o sistema indica o tamanho recomendado
+  - **Idioma** — Português, Espanhol ou Inglês
+  - **Texto da mensagem** — conteúdo enviado no WhatsApp; aceita variáveis de personalização (ex: `{{nome}}`)
+</Step>
+
+<Step title="Passo 3 — Adicionando perguntas">
+  Clique em **Adicionar pergunta** e escolha o tipo: NPS, CES, CSAT ou Texto Livre.
+
+  <Callout kind="alert">
+    O WhatsApp Flows **não suporta condicionais**. As perguntas são exibidas de forma linear, na ordem em que foram criadas. Não é possível exibir perguntas diferentes conforme a nota.
+  </Callout>
+
+  Marque **Pergunta obrigatória** para garantir que o respondente responda antes de avançar. Para perguntas de texto, é possível ativar análise por IA.
+</Step>
+
+<Step title="Passo 4 — Mensagem de agradecimento">
+  Configure a mensagem final exibida após o respondente concluir a pesquisa. Opcionalmente, adicione uma imagem de encerramento. Esta etapa é opcional, mas contribui para uma experiência mais humana.
+</Step>
+
+<Step title="Passo 5 — Configurações e automações">
+  - **Automações** — ex: se NPS entre 0 e 6, criar ticket no Fechamento de Loop
+  - **Lembrete automático** — reenvio apenas via WhatsApp Flows; defina em quantos dias
+  - **Tags** — ative para categorizar respostas automaticamente
+  - **Limite de respostas** — controle o número máximo de participações
+  - **Evitar duplicados** — impede que o mesmo contato responda mais de uma vez
+</Step>
+
+<Step title="Salve, publique e aguarde aprovação da Meta">
+  Clique em **Salvar e publicar**. A pesquisa ficará com status **Publicando** enquanto aguarda aprovação da Meta.
+
+  **Status possíveis após a submissão:**
+  - **Ativa** — aprovada e pronta para envio
+  - **Rejeitada** — o modelo não foi aprovado; revise o conteúdo e tente novamente
+
+  <Callout kind="tip">
+    Textos genéricos e sem imagens tendem a ser aprovados mais rapidamente. Imagens e textos com linguagem comercial muito direta podem gerar rejeição ou demora na aprovação.
+  </Callout>
+</Step>
+
+</Steps>
+
+---
+
+## Perguntas frequentes
+
+<ExpandableGroup>
+
+<Expandable title="Por que minha pesquisa foi rejeitada pela Meta?">
+  A Meta pode rejeitar pesquisas com conteúdo considerado spam, linguagem muito comercial ou imagens que violam as políticas de uso. Revise o texto da mensagem e o cabeçalho, simplifique o conteúdo e tente republicar.
+</Expandable>
+
+<Expandable title="Posso editar uma pesquisa Flows já publicada?">
+  Sim, mas qualquer alteração requer uma nova aprovação da Meta. A pesquisa voltará ao status "Publicando" após a edição.
+</Expandable>
+
+<Expandable title="WhatsApp Flows é diferente do WhatsApp Oficial?">
+  Sim. O WhatsApp Flows é um tipo específico de pesquisa nativa dentro do app. O WhatsApp Oficial (API Meta) é o canal de disparo — você pode enviar pesquisas Flows por ele, mas também pode enviar pesquisas tradicionais com link via WhatsApp Oficial.
+</Expandable>
+
+<Expandable title="Posso usar o lembrete automático com outros canais além do Flows?">
+  Não. O lembrete automático configurado nas pesquisas Flows funciona apenas via canal WhatsApp Flows. Para lembretes em outros canais, use o Smart Follow-up na pesquisa convencional.
+</Expandable>
+
+</ExpandableGroup>
+
+---
+
+## Próximo passo
+
+<Card title="Como habilitar respostas por áudio?" icon="mic" href="/pesquisas/respostas-audio" cta="Ver artigo">
+  Permita que respondentes gravem áudios como resposta em perguntas abertas, com transcrição automática.
+</Card>

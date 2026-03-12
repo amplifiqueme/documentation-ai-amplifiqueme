@@ -1,0 +1,95 @@
+---
+title: "Como criar e enviar pesquisas In-App?"
+description: "O canal In-App exibe pesquisas como pop-ups dentro do seu site ou sistema. Veja como criar uma pesquisa In-App 2.0, configurar o script de implementação e acessar a documentação técnica."
+---
+
+## Visão geral
+
+O **canal In-App** permite exibir pesquisas diretamente como pop-ups dentro do seu site, aplicação web ou totem físico. A pesquisa aparece para o usuário no momento exato que você definir — sem precisar de um link externo ou envio por e-mail.
+
+<Callout kind="info">
+  A implementação do In-App requer inserção de um script no código do seu sistema. É uma configuração técnica feita uma única vez pela equipe de TI.
+</Callout>
+
+---
+
+## In-App 2.0
+
+A versão **In-App 2.0** da Amplifique.me suporta pesquisas com múltiplas perguntas de diferentes tipos: métricas (NPS, CSAT, CES), texto aberto e múltipla escolha.
+
+<Callout kind="tip">
+  Mantenha as pesquisas In-App **enxutas**. Muitas perguntas em um pop-up aumentam a taxa de abandono. O ideal é 1 a 2 perguntas por pesquisa.
+</Callout>
+
+---
+
+## Como criar uma pesquisa In-App
+
+<Steps>
+
+<Step title="Crie uma nova pesquisa">
+  Acesse `Pesquisas e Respostas → Criar pesquisa`.
+</Step>
+
+<Step title="Selecione In-App 2.0 como canal">
+  No **Passo 1 (Coleta)**, marque o canal **In-App** e escolha a versão **In-App 2.0**.
+</Step>
+
+<Step title="Configure as perguntas normalmente">
+  Adicione as perguntas desejadas no **Passo 2**. O In-App 2.0 suporta NPS, CSAT, CES, texto aberto e múltipla escolha. Condicionais também são suportadas.
+</Step>
+
+<Step title="Configure o canal no Passo 4">
+  No **Passo 4 (Canais)**, acesse as configurações do In-App. Você irá definir:
+  - Quando o pop-up deve ser exibido (por evento, tempo de permanência, etc.)
+  - Com que frequência pode aparecer para o mesmo usuário
+  - Por quanto tempo a pesquisa fica ativa
+</Step>
+
+<Step title="Copie o script e passe para o time de TI">
+  O **Passo 4** gera o script de implementação. Copie e envie para o responsável técnico da sua empresa para inserção no sistema.
+
+  <Callout kind="alert">
+    O script deve ser inserido no ambiente correto (produção ou staging). Teste antes de ativar para todos os usuários.
+  </Callout>
+</Step>
+
+</Steps>
+
+---
+
+## Documentação técnica
+
+Para implementar o In-App 2.0, a Amplifique.me disponibiliza uma documentação técnica completa com todos os métodos e parâmetros de configuração.
+
+<Card title="Documentação Técnica In-App 2.0" icon="code" href="https://docs.amplifiqueme.com.br/hc/central-de-ajuda/articles/1759261762-pesquisa-utilizando-in_app" cta="Ver documentação">
+  Acesse os métodos de inicialização, parâmetros de configuração e exemplos de implementação para desenvolvedores.
+</Card>
+
+---
+
+## Perguntas frequentes
+
+<ExpandableGroup>
+
+<Expandable title="In-App funciona em aplicativos mobile nativos (iOS/Android)?">
+  O In-App 2.0 é baseado em script web (JavaScript). Para aplicativos nativos, é necessário utilizar o canal API ou entrar em contato com o suporte para avaliar alternativas de integração.
+</Expandable>
+
+<Expandable title="Posso exibir pesquisas diferentes para usuários diferentes?">
+  Sim. Os parâmetros do script permitem passar identificadores de usuário, o que possibilita segmentar quem vê qual pesquisa e quando — conforme a lógica definida na implementação técnica.
+</Expandable>
+
+<Expandable title="É possível usar condicionais em pesquisas In-App?">
+  Sim. O In-App 2.0 suporta condicionais da mesma forma que os outros canais — as perguntas condicionais são exibidas no pop-up conforme a nota ou resposta anterior.
+</Expandable>
+
+</ExpandableGroup>
+
+---
+
+## Próximo passo
+
+<Card title="Como criar pesquisas no WhatsApp Flows?" icon="message-circle" href="/pesquisas/whatsapp-flows" cta="Ver artigo">
+  Crie pesquisas nativas dentro do WhatsApp, com aprovação pela Meta, usando o canal WhatsApp Flows.
+</Card>

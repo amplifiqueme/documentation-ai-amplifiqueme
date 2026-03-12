@@ -1,0 +1,79 @@
+---
+title: "O que é o AmpliScore?"
+description: "O AmpliScore é uma métrica exclusiva da Amplifique.me que sintetiza todas as notas de uma resposta (NPS, CSAT, CES e Like/Dislike) em uma única pontuação de -100 a 100, determinando visualmente a cor do card de resposta."
+---
+
+## Visão geral
+
+O **AmpliScore** é uma métrica criada pela Amplifique.me para facilitar a leitura rápida das respostas recebidas. Sem precisar abrir cada resposta individualmente, você consegue identificar de imediato se o cliente foi detrator, neutro ou promotor — pela cor do card na tela de Respostas.
+
+---
+
+## Como o AmpliScore funciona
+
+O AmpliScore varia de **-100 a +100** e sintetiza todas as perguntas de métrica respondidas dentro de uma única resposta em uma nota só.
+
+### Quais perguntas são contabilizadas
+
+| Tipo de pergunta | Contabilizada? |
+|---|---|
+| NPS | ✅ Sim |
+| CSAT | ✅ Sim |
+| CES | ✅ Sim |
+| Like & Dislike | ✅ Sim |
+| Texto aberto | ❌ Não |
+| Única escolha | ❌ Não |
+| Múltipla escolha | ❌ Não |
+| Caixa de seleção | ❌ Não |
+
+### Fórmula de cálculo
+
+As notas recebidas são classificadas em três grupos — Positivos, Neutros e Negativos — conforme as regras de cada métrica. Em seguida:
+
+```
+AmpliScore = (Positivos − Negativos) ÷ (Positivos + Neutros + Negativos)
+```
+
+O resultado determina a cor do card da resposta:
+
+| Resultado | Classificação | Cor do card |
+|---|---|---|
+| Score alto (positivo) | Promotor | 🟢 Verde |
+| Score próximo de zero | Neutro | 🟡 Amarelo |
+| Score baixo (negativo) | Detrator | 🔴 Vermelho |
+
+### Exemplo prático
+
+Se um respondente deu uma **nota neutra** em uma pergunta e **duas notas promotoras** em outras duas perguntas, o montante das notas gera um AmpliScore positivo — e o card aparece em **verde**, mesmo com a nota neutra no conjunto.
+
+---
+
+## Perguntas frequentes
+
+<ExpandableGroup>
+
+<Expandable title="Uma pesquisa com apenas NPS também tem AmpliScore?">
+  Sim. O AmpliScore é calculado para qualquer resposta que contenha ao menos uma das métricas suportadas (NPS, CSAT, CES ou Like/Dislike). Se a pesquisa tiver apenas NPS, o AmpliScore refletirá apenas essa nota.
+</Expandable>
+
+<Expandable title="Posso filtrar respostas por AmpliScore na tela de Respostas?">
+  Sim. É possível filtrar visualmente os cards por cor (detratores, neutros, promotores), o que facilita a priorização de respostas para tratativas.
+</Expandable>
+
+<Expandable title="O AmpliScore aparece na planilha exportada?">
+  Sim. O AmpliScore de cada resposta é incluído na exportação como uma das colunas da planilha.
+</Expandable>
+
+<Expandable title="O AmpliScore leva em conta o peso das perguntas?">
+  Não. Todas as métricas contabilizadas têm o mesmo peso no cálculo — não há configuração de ponderação por pergunta.
+</Expandable>
+
+</ExpandableGroup>
+
+---
+
+## Próximo passo
+
+<Card title="Quando usar NPS, CSAT ou CES?" icon="help-circle" href="/pesquisas/metricas" cta="Ver artigo">
+  Entenda as diferenças entre cada metodologia e quando aplicar cada uma na jornada do cliente.
+</Card>

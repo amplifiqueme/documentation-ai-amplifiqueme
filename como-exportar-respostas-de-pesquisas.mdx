@@ -1,0 +1,120 @@
+---
+title: "Como exportar respostas de pesquisas?"
+description: "Exporte respostas finalizadas, não finalizadas ou solicitações de uma pesquisa em formato Excel. Acompanhe o progresso na fila de exportação e receba a planilha por e-mail."
+---
+
+## Visão geral
+
+A exportação gera uma planilha Excel (.xlsx) com todas as respostas da pesquisa selecionada. Você pode filtrar o tipo de dado antes de exportar e acompanhar o progresso na fila de exportações.
+
+---
+
+## Como exportar
+
+<Steps>
+
+<Step title="Acesse Pesquisas e Respostas">
+  No menu lateral, clique em **Pesquisas e Respostas** e acesse a aba **Pesquisas**.
+</Step>
+
+<Step title="Localize a pesquisa e clique em Exportar">
+  Passe o mouse sobre a pesquisa desejada — alguns ícones de ação serão exibidos. Clique no ícone **Exportar**.
+
+  <Callout kind="tip">
+    Se houver várias pastas de pesquisas, localize a pasta correta antes de buscar a pesquisa.
+  </Callout>
+</Step>
+
+<Step title="Escolha o tipo de exportação">
+  Selecione uma das opções disponíveis:
+
+  | Opção | O que exporta |
+  |---|---|
+  | **Exportar tudo** | Todas as respostas, independentemente do status |
+  | **Exportar respostas finalizadas** | Apenas respostas em que o respondente clicou em enviar |
+  | **Exportar respostas não finalizadas** | Respostas abertas mas não submetidas |
+  | **Exportar solicitações** | Histórico de disparos (envios realizados) |
+</Step>
+
+<Step title="Acompanhe o progresso">
+  Após iniciar, uma mensagem aparece no final da página. Clique nela para ir direto à **fila de exportação**.
+
+  Você também pode acessar a fila pelo menu: três pontos (`⋯`) → **Exportações**.
+
+  <Callout kind="success">
+    A planilha exportada também é **enviada automaticamente para o seu e-mail** assim que o processamento for concluído.
+  </Callout>
+</Step>
+
+</Steps>
+
+---
+
+## Entendendo as colunas da planilha exportada
+
+A planilha gerada contém colunas fixas de sistema e colunas dinâmicas das suas perguntas. Veja o significado das colunas fixas:
+
+| Coluna | Descrição |
+|---|---|
+| **ID** | Código único de cada resposta |
+| **LINK** | Link direto para a resposta na plataforma |
+| **SURVEY** | Nome da pesquisa |
+| **ANONYMOUS** | Indica se a pesquisa é totalmente anônima |
+| **SENT_AT** | Data em que a pesquisa foi enviada |
+| **OPENED_AT** | Data da última abertura pelo respondente |
+| **FINALIZED_AT** | Data em que a resposta foi finalizada (enviada) |
+| **FINALIZED** | `true` se o respondente clicou em enviar; `false` se não finalizou |
+| **OPENED** | `true` se a pesquisa foi aberta |
+| **CHANNEL** | Canal de envio (ver tabela abaixo) |
+| **ORIGIN** | Origem: link/QR Code, InApp ou API |
+| **TIME_TO_ANSWER** | Tempo total que o respondente levou para responder |
+| **CUSTOMER_NAME** | Nome do respondente |
+| **CUSTOMER_EMAIL** | E-mail do respondente |
+| **CUSTOMER_PHONE** | Telefone do respondente |
+| **CUSTOMER_COMPANY** | Empresa do respondente |
+| **SOURCE_STATUS** | Status do envio: `Sent`, `Error`, `Pending` ou `Desconhecido` (Link/QR) |
+| **SENDING_ERROR** | Detalhe do erro de envio, quando houver |
+
+**Valores da coluna CHANNEL:**
+
+| Código | Canal |
+|---|---|
+| 0 | SMS |
+| 1 | E-mail |
+| 2 | WhatsApp Web |
+| 3 | Link / QR Code / Totem |
+| 4 | InApp |
+| 6 | WhatsApp API (Oficial) |
+| 8 | WhatsApp Flows |
+
+---
+
+## Perguntas frequentes
+
+<ExpandableGroup>
+
+<Expandable title="Por que uma resposta aparece como não finalizada?">
+  O respondente abriu a pesquisa mas não clicou no botão de enviar. Isso é comum em envios por link público. Use a opção "Exportar respostas não finalizadas" para analisar esse grupo separadamente.
+</Expandable>
+
+<Expandable title="A planilha inclui as respostas das perguntas abertas e as notas?">
+  Sim. Além das colunas fixas de sistema, a planilha inclui uma coluna para cada pergunta da pesquisa, identificada pelo nome interno definido no construtor.
+</Expandable>
+
+<Expandable title="Posso exportar respostas de um período específico?">
+  A exportação não tem filtro de data diretamente — ela exporta todas as respostas da pesquisa. Para analisar por período, utilize os filtros de data na aba Respostas antes de exportar, ou filtre a planilha no Excel após o download.
+</Expandable>
+
+<Expandable title="Quanto tempo demora para a exportação ficar disponível?">
+  Depende do volume de respostas. Pesquisas com muitas respostas podem levar alguns minutos. Acompanhe o progresso na fila de exportações e aguarde o e-mail de confirmação.
+</Expandable>
+
+</ExpandableGroup>
+
+---
+
+## Próximo passo
+
+<Card title="Como importar respostas antigas?" icon="upload" href="/pesquisas/importar-respostas" cta="Ver artigo">
+  Traga histórico de respostas de outras ferramentas para dentro da plataforma usando o importador de respostas.
+</Card>

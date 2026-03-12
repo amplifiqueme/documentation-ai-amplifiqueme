@@ -1,0 +1,90 @@
+---
+title: "Como criar pesquisas em múltiplos idiomas?"
+description: "Configure sua pesquisa para exibir a interface em Português, Inglês ou Espanhol com detecção automática pelo navegador. Entenda o que é traduzido automaticamente e o que precisa ser escrito manualmente."
+---
+
+## Visão geral
+
+A Amplifique.me oferece suporte a **três idiomas** na interface da pesquisa: Português (pt), Espanhol (es) e Inglês (en). Você pode criar pesquisas multilíngues de duas formas: configurando o idioma manualmente no construtor ou ativando a barra de seleção de idioma para que o respondente escolha.
+
+<Callout kind="alert">
+  A configuração de idioma altera apenas os **botões fixos e mensagens de interface** (como "Próximo", "Enviar", "Obrigatório"). O **conteúdo das perguntas** precisa ser escrito no idioma desejado manualmente — a plataforma não traduz automaticamente as perguntas.
+</Callout>
+
+---
+
+## Como configurar o idioma da pesquisa
+
+<Steps>
+
+<Step title="Defina o idioma padrão no construtor">
+  No **Passo 2 (Aparência)**, localize o campo **Idioma** e escolha entre Português, Inglês ou Espanhol. Essa configuração define o idioma padrão dos botões e textos fixos da interface.
+</Step>
+
+<Step title="Escreva as perguntas no idioma desejado">
+  O texto das perguntas, opções de resposta e mensagens de agradecimento devem ser escritos manualmente no idioma da pesquisa. Se quiser uma pesquisa bilíngue (ex: perguntas em Português e Inglês na mesma pesquisa), escreva cada versão diretamente no campo de texto da pergunta.
+</Step>
+
+<Step title="(Opcional) Ative a barra de seleção de idioma">
+  No construtor, ative a opção **Mostrar barra de idioma**. Com isso, os respondentes verão uma barra de seleção (PT / EN / ES) no topo da pesquisa e poderão trocar o idioma da interface manualmente.
+</Step>
+
+</Steps>
+
+---
+
+## Como a detecção automática de idioma funciona
+
+Quando a pesquisa é acessada, o sistema detecta automaticamente o idioma configurado no **navegador do respondente** e exibe a interface nesse idioma — independentemente da opção "Mostrar barra de idioma" estar ativa ou não.
+
+| Situação | Comportamento |
+|---|---|
+| Navegador em Português | Interface exibida em Português |
+| Navegador em Inglês | Interface exibida em Inglês |
+| Navegador em Espanhol | Interface exibida em Espanhol |
+| Navegador em idioma não suportado (ex: Alemão) | Interface exibida em **Português** (fallback padrão) |
+| Usuário troca manualmente via barra de idioma | Preferência salva no navegador e mantida nas próximas visitas |
+
+<Callout kind="tip">
+  Se o respondente alterar o idioma manualmente pela barra, essa preferência fica salva no navegador e é usada automaticamente nas próximas visitas à pesquisa — mesmo sem a barra visível.
+</Callout>
+
+---
+
+## O que é e não é traduzido automaticamente
+
+| Elemento | Tradução automática? |
+|---|---|
+| Botões fixos (Próximo, Enviar, Obrigatório) | ✅ Sim |
+| Mensagens de erro da interface | ✅ Sim |
+| Texto das perguntas | ❌ Não — deve ser escrito manualmente |
+| Opções de resposta | ❌ Não — devem ser escritas manualmente |
+| Mensagem de agradecimento | ❌ Não — deve ser escrita manualmente |
+
+---
+
+## Perguntas frequentes
+
+<ExpandableGroup>
+
+<Expandable title="Posso ter perguntas em dois idiomas na mesma pesquisa?">
+  Sim, tecnicamente. Você escreve o texto da pergunta diretamente nos dois idiomas (ex: "Como você avalia? / How do you rate?"). Não há um campo separado por idioma — é tudo no mesmo campo de texto da pergunta.
+</Expandable>
+
+<Expandable title="Se eu não ativar a barra de idioma, ainda há detecção automática?">
+  Sim. A detecção pelo idioma do navegador acontece independentemente da barra estar visível ou não. A barra apenas permite que o respondente troque manualmente se quiser.
+</Expandable>
+
+<Expandable title="Há planos de suportar mais idiomas além dos três atuais?">
+  Os idiomas suportados atualmente são Português, Inglês e Espanhol. Para outros idiomas, o fallback é sempre Português. Para atualizações, acompanhe as novidades da plataforma.
+</Expandable>
+
+</ExpandableGroup>
+
+---
+
+## Próximo passo
+
+<Card title="Como fazer upload de imagens na plataforma?" icon="image" href="/pesquisas/upload-imagens" cta="Ver artigo">
+  Saiba os formatos, tamanhos aceitos e como adicionar imagens no perfil, logo da pesquisa e e-mail de disparo.
+</Card>

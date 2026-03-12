@@ -97,7 +97,47 @@
             "group": "Pesquisas e Respostas",
             "pages": [
               {
-                "title": "Criar pesquisa",
+                "title": "O que é o AmpliScore?",
+                "path": "o-que-o-ampliscore"
+              },
+              {
+                "title": "Quando usar NPS, CSAT ou CES?",
+                "path": "quando-usar-nps-csat-ou-ces"
+              },
+              {
+                "title": "Como fazer upload de imagens na plataforma?",
+                "path": "como-fazer-upload-de-imagens-na-plataforma"
+              },
+              {
+                "title": "Como criar pesquisas em múltiplos idiomas?",
+                "path": "como-criar-pesquisas-em-mltiplos-idiomas"
+              },
+              {
+                "title": "Como habilitar respostas por áudio?",
+                "path": "como-habilitar-respostas-por-udio"
+              },
+              {
+                "title": "Como criar pesquisas no WhatsApp Flows?",
+                "path": "como-criar-pesquisas-no-whatsapp-flows"
+              },
+              {
+                "title": "Como criar e enviar pesquisas In-App?",
+                "path": "como-criar-e-enviar-pesquisas-in-app"
+              },
+              {
+                "title": "Como importar respostas antigas de pesquisas?",
+                "path": "como-importar-respostas-antigas-de-pesquisas"
+              },
+              {
+                "title": "Como exportar respostas de pesquisas?",
+                "path": "como-exportar-respostas-de-pesquisas"
+              },
+              {
+                "title": "Como visualizar e filtrar respostas?",
+                "path": "como-visualizar-e-filtrar-respostas"
+              },
+              {
+                "title": "Como criar uma pesquisa?",
                 "path": "criar-pesquisa"
               }
             ]
