@@ -71,6 +71,10 @@
             "group": "Reputação Online",
             "pages": [
               {
+                "title": "Como visualizar e responder avaliações?",
+                "path": "como-visualizar-e-responder-avaliaes"
+              },
+              {
                 "title": "Reputação Online",
                 "path": "reputao-online",
                 "icon": "lucide-star"
@@ -82,6 +86,10 @@
               {
                 "title": "Configurar o módulo de Reputação Online e automatizar solicitações de avaliação",
                 "path": "configurar-o-mdulo-de-reputao-online-e-automatizar-solicitaes-de-avaliao"
+              },
+              {
+                "title": "Como criar e visualizar painéis na Reputação Online?",
+                "path": "como-criar-e-visualizar-painis-na-reputao-online"
               }
             ]
           },
