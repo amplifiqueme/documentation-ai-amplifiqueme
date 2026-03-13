@@ -55,8 +55,7 @@
             "pages": [
               {
                 "title": "Criar um contato na Amplifique.me?",
-                "path": "mdulo-contatos",
-                "icon": "person-standing-icon"
+                "path": "mdulo-contatos"
               },
               {
                 "title": "Importar contatos em massa",
