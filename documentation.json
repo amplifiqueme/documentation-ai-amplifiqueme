@@ -8,8 +8,8 @@
     },
     "dark": {
       "brand": "#c2d3ff",
-      "heading": "undefined",
-      "text": "undefined"
+      "heading": "#f5f6fa",
+      "text": "#c1c1c1"
     }
   },
   "navigation": {
