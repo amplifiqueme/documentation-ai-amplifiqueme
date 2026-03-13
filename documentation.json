@@ -258,6 +258,34 @@
             "group": "Integrações",
             "pages": [
               {
+                "title": "Como funcionam as integrações?",
+                "path": "como-funcionam-as-integraes"
+              },
+              {
+                "title": "Como gerar tokens de API?",
+                "path": "como-gerar-tokens-de-api"
+              },
+              {
+                "title": "Como personalizar links com parâmetros?",
+                "path": "como-personalizar-links-com-parmetros"
+              },
+              {
+                "title": "Como configurar Webhooks?",
+                "path": "como-configurar-webhooks"
+              },
+              {
+                "title": "FAQ técnico: In-App e sincronização de dados",
+                "path": "faq-tcnico-in-app-e-sincronizao-de-dados"
+              },
+              {
+                "title": "Documentação da API Amplifique.me",
+                "path": "documentao-da-api-amplifiqueme"
+              },
+              {
+                "title": "Implementação técnica de pesquisas In-App",
+                "path": "implementao-tcnica-de-pesquisas-in-app"
+              },
+              {
                 "title": "Integração com Desbravador",
                 "path": "integrao-com-desbravador"
               },
@@ -312,34 +340,6 @@
               {
                 "title": "Integração com ActiveCampaign",
                 "path": "integrao-com-activecampaign"
-              },
-              {
-                "title": "FAQ técnico: In-App e sincronização de dados",
-                "path": "faq-tcnico-in-app-e-sincronizao-de-dados"
-              },
-              {
-                "title": "Como configurar Webhooks?",
-                "path": "como-configurar-webhooks"
-              },
-              {
-                "title": "Documentação da API Amplifique.me",
-                "path": "documentao-da-api-amplifiqueme"
-              },
-              {
-                "title": "Como personalizar links com parâmetros?",
-                "path": "como-personalizar-links-com-parmetros"
-              },
-              {
-                "title": "Implementação técnica de pesquisas In-App",
-                "path": "implementao-tcnica-de-pesquisas-in-app"
-              },
-              {
-                "title": "Como gerar tokens de API?",
-                "path": "como-gerar-tokens-de-api"
-              },
-              {
-                "title": "Como funcionam as integrações?",
-                "path": "como-funcionam-as-integraes"
               }
             ]
           },
