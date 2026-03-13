@@ -469,7 +469,7 @@
       }
     ]
   },
-  "template": "atlas",
+  "template": "classic",
   "navbar": {
     "actions": {
       "links": [
