@@ -2,7 +2,7 @@
   "name": "Amplifique.me",
   "colors": {
     "light": {
-      "brand": "#FFCA00",
+      "brand": "#5885f7",
       "heading": "#000000",
       "text": "undefined"
     },
@@ -483,5 +483,8 @@
   "ai": {
     "page-actions": []
   },
-  "initialRoute": ""
+  "initialRoute": "",
+  "logo-dark": "https://blob-cdn.documentation.ai/org-228168c3-baff-41c0-9e3d-a927017afd0f/doc-dc08e65a-c672-46a6-8e86-3eb57bb5df19/1773349457302-eewvc2r74u7-logo_amplifiqueme.svg?q=85&fm=auto&auto=compress%2Cformat",
+  "logo-light": "https://blob-cdn.documentation.ai/org-228168c3-baff-41c0-9e3d-a927017afd0f/doc-dc08e65a-c672-46a6-8e86-3eb57bb5df19/1773349457302-eewvc2r74u7-logo_amplifiqueme.svg?q=85&fm=auto&auto=compress%2Cformat",
+  "favicon": "https://blob-cdn.documentation.ai/org-228168c3-baff-41c0-9e3d-a927017afd0f/doc-dc08e65a-c672-46a6-8e86-3eb57bb5df19/1773349388755-157xpryvhl4-favicon.png?q=85&fm=auto&auto=compress%2Cformat"
 }
