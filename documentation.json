@@ -88,13 +88,12 @@
             "group": "Reputação Online",
             "pages": [
               {
-                "title": "Como visualizar e responder avaliações?",
-                "path": "como-visualizar-e-responder-avaliaes"
+                "title": "Como conectar plataformas de avaliação?",
+                "path": "reputao-online"
               },
               {
-                "title": "Reputação Online",
-                "path": "reputao-online",
-                "icon": "lucide-star"
+                "title": "Como visualizar e responder avaliações?",
+                "path": "como-visualizar-e-responder-avaliaes"
               },
               {
                 "title": "Etiquetas Reputação online",
@@ -184,12 +183,12 @@
             "group": "Amplifique.me Insights",
             "pages": [
               {
-                "title": "Como funcionam os créditos de IA?",
-                "path": "como-funcionam-os-crditos-de-ia"
-              },
-              {
                 "title": "Como funciona o Amplifique.me Insights?",
                 "path": "analise-de-sentimentos"
+              },
+              {
+                "title": "Como funcionam os créditos de IA?",
+                "path": "como-funcionam-os-crditos-de-ia"
               }
             ]
           },
