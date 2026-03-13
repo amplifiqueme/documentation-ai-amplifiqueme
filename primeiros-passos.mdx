@@ -1,22 +1,41 @@
 ---
-title: "Guia completo de início"
-description: "Do cadastro ao primeiro resultado em menos de 30 minutos. Configure sua conta, importe contatos, crie e envie sua primeira pesquisa, leia os resultados e ative o Fechamento de Loop."
+title: Guia completo de início
+description: >-
+  Do cadastro ao primeiro resultado em menos de 30 minutos. Configure sua conta,
+  importe contatos, crie e envie sua primeira pesquisa, leia os resultados e
+  ative o Fechamento de Loop.
 ---
-
 ## Visão geral
 
 Este guia cobre as 6 etapas essenciais para começar a usar a Amplifique.me. Siga na ordem — cada etapa prepara a próxima.
 
-<Columns cols={3}>
-  <Card title="1. Configure sua conta" icon="settings" href="#1-configure-sua-conta" />
-  <Card title="2. Importe seus contatos" icon="users" href="#2-importe-seus-contatos" />
-  <Card title="3. Crie sua primeira pesquisa" icon="file-text" href="#3-crie-sua-primeira-pesquisa" />
-  <Card title="4. Envie a pesquisa" icon="send" href="#4-envie-a-pesquisa" />
-  <Card title="5. Leia os resultados" icon="bar-chart-2" href="#5-leia-os-primeiros-resultados" />
-  <Card title="6. Ative Fechamento de Loop" icon="refresh-cw" href="#6-ative-o-fechamento-de-loop" />
+<Columns cols="3">
+  <Card title="1. Configure sua conta" href="#1-configure-sua-conta" icon="settings" horizontal="false">
+
+  </Card>
+
+  <Card title="2. Importe seus contatos" href="#2-importe-seus-contatos" icon="users" horizontal="false">
+
+  </Card>
+
+  <Card title="3. Crie sua primeira pesquisa" href="#3-crie-sua-primeira-pesquisa" icon="file-text" horizontal="false">
+
+  </Card>
+
+  <Card title="4. Envie a pesquisa" href="#4-envie-a-pesquisa" icon="send" horizontal="false">
+
+  </Card>
+
+  <Card title="5. Leia os resultados" href="#5-leia-os-primeiros-resultados" icon="bar-chart-2" horizontal="false">
+
+  </Card>
+
+  <Card title="6. Ative Fechamento de Loop" href="#6-ative-o-fechamento-de-loop" icon="refresh-cw" horizontal="false">
+
+  </Card>
 </Columns>
 
-<Callout kind="info">
+<Callout kind="info" collapsed="false">
   **Permissão necessária:** Proprietário ou Administrador para todas as etapas abaixo.
 </Callout>
 
@@ -27,81 +46,63 @@ Este guia cobre as 6 etapas essenciais para começar a usar a Amplifique.me. Sig
 Antes de enviar qualquer pesquisa, defina as informações básicas da empresa. Elas aparecem no rodapé dos e-mails enviados aos seus clientes.
 
 <Steps>
+  <Step title="Acesse as Configurações" title-type="p">
+    No menu lateral esquerdo, clique em `⚙️ Configurações` → `Conta`.
+  </Step>
 
-<Step title="Acesse as Configurações">
-  No menu lateral esquerdo, clique em `⚙️ Configurações` → `Conta`.
-</Step>
+  <Step title="Convide sua equipe (opcional)" title-type="p">
+    Em `Configurações → Usuários`, adicione colegas que precisam ter acesso ao painel. Defina o perfil de cada um: **Admin**, **analista,etc**.
+  </Step>
 
-<Step title="Preencha os dados da empresa">
-  Informe o nome da empresa, fuso horário e faça o upload do logotipo.
+  <Step title="Salve as configurações" title-type="p">
+    Clique em `Salvar` no canto superior direito da tela.
 
-  <Callout kind="tip">
-    Use um logotipo com fundo transparente (PNG) para melhor resultado nos e-mails disparados.
-  </Callout>
-</Step>
-
-<Step title="Convide sua equipe (opcional)">
-  Em `Configurações → Usuários`, adicione colegas que precisam ter acesso ao painel. Defina o perfil de cada um: **Admin**, **Visualizador** ou **Atendente**.
-</Step>
-
-<Step title="Salve as configurações">
-  Clique em `Salvar` no canto superior direito da tela.
-
-  <Callout kind="success">
-    Conta configurada. Você pode voltar aqui a qualquer momento para editar as informações.
-  </Callout>
-</Step>
-
+    <Callout kind="success" collapsed="false">
+      Conta configurada. Você pode voltar aqui a qualquer momento para editar as informações.
+    </Callout>
+  </Step>
 </Steps>
 
 ---
 
 ## 2. Importe seus contatos
 
-Importe toda a sua base de uma vez via planilha CSV ou adicione contatos individualmente. A importação em massa é recomendada para bases com mais de 10 contatos.
+Importe toda a sua base de uma vez via planilha CSV ou adicione contatos individualmente. A importação em massa&#x20;
 
-<Callout kind="info">
+<Callout kind="info" collapsed="false">
   **Limite por arquivo:** 5.000 linhas. Para bases maiores, divida em múltiplos arquivos e importe em sequência. **Formato obrigatório:** CSV UTF-8 (delimitado por vírgulas).
 </Callout>
 
 <Steps>
+  <Step title="Acesse Contatos → Importar" title-type="p">
+    No menu lateral, clique em `👤 Contatos`. Depois clique no botão `Importar` no canto superior direito.
+  </Step>
 
-<Step title="Acesse Contatos → Importar">
-  No menu lateral, clique em `👤 Contatos`. Depois clique no botão `Importar` no canto superior direito.
-</Step>
+  <Step title="Baixe e preencha o modelo" title-type="p">
+    Clique em `Baixar modelo CSV UTF-8`. Abra no Excel ou Google Sheets e preencha a partir da linha 2. Campo obrigatório: e-mail **ou** telefone.
+  </Step>
 
-<Step title="Baixe e preencha o modelo">
-  Clique em `Baixar modelo CSV UTF-8`. Abra no Excel ou Google Sheets e preencha a partir da linha 2. Campo obrigatório: e-mail **ou** telefone.
+  <Step title="Faça o upload e aplique etiquetas" title-type="p">
+    Arraste o arquivo para a área indicada ou clique em `Selecionar arquivo`. Antes de confirmar, aplique etiquetas para facilitar a segmentação no disparo — ex: `Cliente prime` ou `Lead evento`.
+  </Step>
 
-  <Callout kind="tip">
-    Não renomeie as colunas do modelo. Campos customizados configurados em `Configurações → Campos Customizados` aparecem automaticamente como colunas disponíveis.
-  </Callout>
-</Step>
+  <Step title="Confirme e acompanhe" title-type="p">
+    Clique em `Iniciar importação`. Os contatos ficam disponíveis imediatamente após o processamento.
 
-<Step title="Faça o upload e aplique etiquetas">
-  Arraste o arquivo para a área indicada ou clique em `Selecionar arquivo`. Antes de confirmar, aplique etiquetas para facilitar a segmentação no disparo — ex: `Cliente prime` ou `Lead evento`.
-</Step>
-
-<Step title="Confirme e acompanhe">
-  Clique em `Iniciar importação`. Os contatos ficam disponíveis imediatamente após o processamento.
-
-  <Callout kind="alert">
-    Se aparecer o status **"Importação com erros"**, baixe o relatório de erros na tela de resultado, corrija as linhas indicadas e reimporte apenas esse arquivo corrigido.
-  </Callout>
-</Step>
-
+    <Callout kind="alert" collapsed="false">
+      Se aparecer o status **"Importação com erros"**, baixe o relatório de erros na tela de resultado, corrija as linhas indicadas e reimporte o arquivo corrigido.
+    </Callout>
+  </Step>
 </Steps>
 
 <ExpandableGroup>
+  <Expandable title="O que acontece se um contato já existir na base?" default-open="false">
+    O sistema **atualiza os dados** do contato existente — não duplica.&#x20;
+  </Expandable>
 
-<Expandable title="O que acontece se um contato já existir na base?">
-  O sistema **atualiza os dados** do contato existente — não duplica. Campos em branco no arquivo não sobrescrevem dados já cadastrados.
-</Expandable>
-
-<Expandable title="Posso importar campos customizados na planilha?">
-  Sim! Campos criados em `Configurações → Campos Customizados` aparecem automaticamente como colunas disponíveis no modelo CSV. Basta preencher normalmente.
-</Expandable>
-
+  <Expandable title="Posso importar campos customizados na planilha?" default-open="false">
+    Sim! Campos criados em `Configurações → Campos Customizados`
+  </Expandable>
 </ExpandableGroup>
 
 ---
@@ -111,35 +112,29 @@ Importe toda a sua base de uma vez via planilha CSV ou adicione contatos individ
 Escolha o tipo de pesquisa adequado ao seu objetivo. O NPS é o ponto de partida mais comum para quem está começando.
 
 <Steps>
+  <Step title="Acesse Pesquisas → Nova pesquisa" title-type="p">
+    No menu lateral, clique em `📋 Pesquisas` → botão `+ Nova pesquisa`.
+  </Step>
 
-<Step title="Acesse Pesquisas → Nova pesquisa">
-  No menu lateral, clique em `📋 Pesquisas` → botão `+ Nova pesquisa`.
-</Step>
+  <Step title="Escolha o tipo" title-type="p">
+    Selecione entre **NPS**, **CSAT**, **CES** ou pesquisa customizada.
+  </Step>
 
-<Step title="Escolha o tipo">
-  Selecione entre **NPS**, **CSAT**, **CES** ou pesquisa customizada.
+  <Step title="Personalize o conteúdo" title-type="p">
+    Edite o texto das pergunta pergunguntas e a mensagem de agradecimento.
+  </Step>
 
-  <Callout kind="tip">
-    Recomendamos começar com **NPS** — pergunta "De 0 a 10, qual a probabilidade de você recomendar?" e gera dados comparáveis com benchmarks de mercado.
-  </Callout>
-</Step>
+  <Step title="Configure a identidade visual" title-type="p">
+    Aplique as cores e o logotipo da sua empresa.
+  </Step>
 
-<Step title="Personalize o conteúdo">
-  Edite o texto da pergunta principal, as etiquetas de resposta e a mensagem de agradecimento. Adicione a pergunta de follow-up para coletar feedback qualitativo junto com a nota.
-</Step>
+  <Step title="Salve a pesquisa" title-type="p">
+    Clique em `Salvar`. A pesquisa fica em rascunho — o disparo acontece na próxima etapa.
 
-<Step title="Configure a identidade visual">
-  Aplique as cores e o logotipo da sua empresa. Clique em `Prévia` para ver como o cliente vai visualizar antes de publicar.
-</Step>
-
-<Step title="Salve a pesquisa">
-  Clique em `Salvar`. A pesquisa fica em rascunho — o disparo acontece na próxima etapa.
-
-  <Callout kind="success">
-    Pesquisa criada e salva. Pronto para configurar o envio.
-  </Callout>
-</Step>
-
+    <Callout kind="success" collapsed="false">
+      Pesquisa criada e salva. Pronto para configurar o envio.
+    </Callout>
+  </Step>
 </Steps>
 
 ---
@@ -149,35 +144,29 @@ Escolha o tipo de pesquisa adequado ao seu objetivo. O NPS é o ponto de partida
 Escolha o canal de disparo e selecione os contatos que vão receber. Você pode enviar para toda a base ou para um segmento usando etiquetas.
 
 <Steps>
+  <Step title="Abra a pesquisa e clique em Disparar" title-type="p">
+    Na lista de pesquisas, clique na que você acabou de criar → botão `Disparar`.
+  </Step>
 
-<Step title="Abra a pesquisa e clique em Disparar">
-  Na lista de pesquisas, clique na que você acabou de criar → botão `Disparar`.
-</Step>
+  <Step title="Selecione os contatos" title-type="p">
+    Filtre por etiqueta, importação recente ou selecione contatos individualmente.
 
-<Step title="Selecione os contatos">
-  Filtre por etiqueta, importação recente ou selecione contatos individualmente.
+    <Callout kind="tip" collapsed="false">
+      Para o primeiro envio, use um grupo interno (2–5 contatos) para validar o fluxo antes de escalar para toda a base.
+    </Callout>
+  </Step>
 
-  <Callout kind="tip">
-    Para o primeiro envio, use um grupo pequeno (10–50 contatos) para validar o fluxo antes de escalar para toda a base.
-  </Callout>
-</Step>
+  <Step title="Escolha o canal" title-type="p">
+    Selecione **E-mail**, **WhatsApp** ou **Link direto**.
 
-<Step title="Escolha o canal">
-  Selecione **E-mail**, **WhatsApp** ou **Link direto**.
+    <Callout kind="alert" collapsed="false">
+      E-mail não requer configuração extra. WhatsApp requer a integração com **WhatsApp Oficial** ativa. Contatos sem o dado correspondente ao canal escolhido serão ignorados no disparo.
+    </Callout>
+  </Step>
 
-  <Callout kind="alert">
-    E-mail não requer configuração extra. WhatsApp requer a integração com **WhatsApp Oficial** ativa. Contatos sem o dado correspondente ao canal escolhido serão ignorados no disparo.
-  </Callout>
-</Step>
-
-<Step title="Confirme o disparo">
-  Revise o resumo (quantidade de contatos, canal, pesquisa selecionada) e clique em `Confirmar disparo`.
-
-  <Callout kind="success">
-    Pesquisa disparada! As primeiras respostas costumam chegar em minutos para WhatsApp e em horas para e-mail.
-  </Callout>
-</Step>
-
+  <Step title="Confirme o disparo" title-type="p">
+    Revise o resumo (quantidade de contatos, canal, pesquisa selecionada) e clique em `Confirmar disparo`.
+  </Step>
 </Steps>
 
 ---
@@ -187,35 +176,31 @@ Escolha o canal de disparo e selecione os contatos que vão receber. Você pode 
 Assim que as respostas chegarem, o painel atualiza automaticamente. Veja onde encontrar cada métrica.
 
 <Steps>
+  <Step title="Acesse o Dashboard" title-type="p">
+    No menu lateral, clique em `📊 Painéis`. Você verá o NPS consolidado, a distribuição de promotores/neutros/detratores e as respostas em tempo real.
+  </Step>
 
-<Step title="Acesse o Dashboard">
-  No menu lateral, clique em `📊 Dashboard`. Você verá o NPS consolidado, a distribuição de promotores/neutros/detratores e as respostas em tempo real.
-</Step>
+  <Step title="Entenda o NPS" title-type="p">
+    NPS = % Promotores (notas 9–10) − % Detratores (notas 0–6). Varia de −100 a +100.
 
-<Step title="Entenda o NPS">
-  NPS = % Promotores (notas 9–10) − % Detratores (notas 0–6). Varia de −100 a +100.
+    <Callout kind="info" collapsed="false">
+      Resultados com menos de 30 respostas têm baixa confiabilidade estatística. Use os primeiros disparos para validar o processo antes de interpretar tendências.
+    </Callout>
+  </Step>
 
-  <Callout kind="info">
-    Resultados com menos de 30 respostas têm baixa confiabilidade estatística. Use os primeiros disparos para validar o processo antes de interpretar tendências.
-  </Callout>
-</Step>
-
-<Step title="Leia os comentários">
-  Em `Pesquisas → Respostas`, filtre por nota para ler o que os detratores estão dizendo. Esses são os contatos prioritários para o Fechamento de Loop.
-</Step>
-
+  <Step title="Leia os comentários" title-type="p">
+    Em `Pesquisas → Respostas`, filtre por nota para ler o que os detratores estão dizendo. Esses são os contatos prioritários para o Fechamento de Loop.
+  </Step>
 </Steps>
 
 <ExpandableGroup>
+  <Expandable title="Como exportar os resultados?" default-open="false">
+    Em `Dashboard` → botão `Exportar` no canto superior direito. Você pode exportar em CSV ou PDF.
+  </Expandable>
 
-<Expandable title="Como exportar os resultados?">
-  Em `Dashboard` → botão `Exportar` no canto superior direito. Você pode exportar em CSV ou PDF.
-</Expandable>
-
-<Expandable title="Os dados atualizam em tempo real?">
-  Sim. Cada nova resposta atualiza o painel automaticamente, sem precisar recarregar a página.
-</Expandable>
-
+  <Expandable title="Os dados atualizam em tempo real?" default-open="false">
+    Sim. Cada nova resposta atualiza o painel automaticamente, sem precisar recarregar a página.
+  </Expandable>
 </ExpandableGroup>
 
 ---
@@ -225,41 +210,42 @@ Assim que as respostas chegarem, o painel atualiza automaticamente. Veja onde en
 Configure respostas automáticas para detratores e passivos. Isso demonstra ao cliente que a empresa recebeu o feedback — aumenta a confiança e reduz o churn.
 
 <Steps>
+  <Step title="Acesse Fechamento de Loop" title-type="p">
+    No menu lateral, clique em `🔄 Fechamento de Loop`.
+  </Step>
 
-<Step title="Acesse Fechamento de Loop">
-  No menu lateral, clique em `🔄 Fechamento de Loop`.
-</Step>
+  <Step title="Crie uma regra para detratores" title-type="p">
+    Clique em `+ Nova regra`. Selecione o gatilho: **Nota de 0 a 6**. Defina a ação: enviar e-mail automático agradecendo e informando que a equipe entrará em contato.
 
-<Step title="Crie uma regra para detratores">
-  Clique em `+ Nova regra`. Selecione o gatilho: **Nota de 0 a 6**. Defina a ação: enviar e-mail automático agradecendo e informando que a equipe entrará em contato.
+    <Callout kind="tip" collapsed="false">
+      Personalize a mensagem com o nome do cliente usando a variável `{nome}`. Respostas personalizadas têm taxa de abertura significativamente maior.
+    </Callout>
+  </Step>
 
-  <Callout kind="tip">
-    Personalize a mensagem com o nome do cliente usando a variável `{nome}`. Respostas personalizadas têm taxa de abertura significativamente maior.
-  </Callout>
-</Step>
+  <Step title="Ative a regra" title-type="p">
+    Clique em `Salvar e ativar`. A partir de agora, todo detrator recebe a resposta automática imediatamente após enviar a avaliação.
 
-<Step title="Ative a regra">
-  Clique em `Salvar e ativar`. A partir de agora, todo detrator recebe a resposta automática imediatamente após enviar a avaliação.
-
-  <Callout kind="success">
-    Jornada concluída! Você tem pesquisa rodando, resultados sendo coletados e Fechamento de Loop ativo.
-  </Callout>
-</Step>
-
+    <Callout kind="success" collapsed="false">
+      Jornada concluída! Você tem pesquisa rodando, resultados sendo coletados e Fechamento de Loop ativo.
+    </Callout>
+  </Step>
 </Steps>
 
 ---
 
 ## O que explorar agora
 
-<Columns cols={3}>
-  <Card title="Insights com IA" icon="cpu" href="/insights-ia" cta="Explorar">
+<Columns cols="3">
+  <Card title="Insights com IA" href="/insights-ia" icon="cpu" cta="Explorar" horizontal="false">
     Deixe a IA categorizar automaticamente os comentários e identificar padrões nos feedbacks.
   </Card>
-  <Card title="Reputação Online" icon="star" href="/reputacao-online" cta="Explorar">
+
+  <Card title="Reputação Online" href="/reputacao-online" icon="star" cta="Explorar" horizontal="false">
     Peça avaliações no Google e outros canais a partir das respostas de promotores.
   </Card>
-  <Card title="Integrações e API" icon="plug" href="/integracoes-e-api" cta="Explorar">
+
+  <Card title="Integrações e API" href="/integracoes-e-api" icon="plug" cta="Explorar" horizontal="false">
     Dispare pesquisas automaticamente a partir de eventos no seu CRM ou ERP.
   </Card>
 </Columns>
+
