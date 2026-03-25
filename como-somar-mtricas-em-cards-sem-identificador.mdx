@@ -1,0 +1,122 @@
+---
+title: Como somar métricas em Cards sem identificador?
+description: >-
+  A partir desta atualização, não é mais necessário usar o identificador da
+  pergunta para somar respostas em Cards de métricas. O sistema agrega
+  automaticamente por tipo de métrica (NPS, CSAT, CES), tornando a configuração
+  mais simples e menos sujeita a erros.
+---
+## Visão geral
+
+Antes desta atualização, somar dados de perguntas de diferentes pesquisas em um único Card exigia que todas as perguntas tivessem o **mesmo identificador da pergunta**. Agora, o sistema realiza a agregação automaticamente com base no **tipo de métrica** (NPS, CSAT, CES) — sem necessidade de configuração adicional.
+
+---
+
+## O que mudou
+
+<Columns cols="2">
+  <Card title="Antes" horizontal="false">
+    - Cada pergunta precisava ter um **identificador da pergunta** configurado
+
+    - Para somar entre pesquisas, todas as perguntas precisavam ter o **mesmo identificador**
+
+    - Exemplo: Pesquisa A → identificador `NPS` / Pesquisa B → identificador `NPS`
+
+    - Somente com identificadores iguais os dados eram somados no Card
+  </Card>
+
+  <Card title="Agora" horizontal="false">
+    - O identificador da pergunta **não é mais necessário** para a soma
+
+    - O sistema identifica automaticamente o tipo: **NPS**, **CSAT** ou **CES**
+
+    - Perguntas do mesmo tipo são somadas independente do nome ou identificador
+
+    - O identificador passa a ser apenas técnico (uso interno e integrações)
+  </Card>
+</Columns>
+
+<Callout kind="info" collapsed="false">
+  O campo identificador da pergunta continua existindo, mas agora é de uso exclusivamente técnico — para integrações via API e Webhooks. Não afeta mais a soma de métricas nos Cards.
+</Callout>
+
+---
+
+## Como criar um Card de métricas
+
+<Steps>
+  <Step title="Acesse o menu Painéis e clique em Criar Card" title-type="p">
+    No menu lateral, vá em **Painéis** e clique em **Criar Card**.
+  </Step>
+
+  <Step title="Selecione Métricas e Perguntas" title-type="p">
+    Escolha o tipo de Card: **Métricas e Perguntas**.
+  </Step>
+
+  <Step title="Escolha as pesquisas e perguntas" title-type="p">
+    O sistema exibe todas as pesquisas e perguntas organizadas por tipo de métrica.
+
+    Você pode:
+
+    - Selecionar perguntas de **diferentes pesquisas**
+
+    - Combinar **várias perguntas do mesmo tipo** de métrica
+
+    - Visualizar exatamente quais perguntas estão sendo somadas antes de confirmar
+  </Step>
+
+  <Step title="Clique em Criar Card" title-type="p">
+    O Card será adicionado ao painel somando automaticamente os resultados das perguntas selecionadas.
+
+    <Callout kind="success" collapsed="false">
+      **Exemplo prático:** Pesquisa A tem uma pergunta de NPS e Pesquisa B tem outra. Basta selecionar ambas — o sistema soma os resultados automaticamente, sem nenhuma configuração de identificador.
+    </Callout>
+  </Step>
+</Steps>
+
+---
+
+## Validando os dados do Card
+
+Se os números não estiverem corretos após a criação:
+
+<Steps>
+  <Step title="Acesse o Card e clique em Editar" title-type="p">
+    Passe o mouse sobre o Card → clique nos **três pontos** → **Editar**.
+  </Step>
+
+  <Step title="Revise as perguntas selecionadas" title-type="p">
+    Verifique quais perguntas estão incluídas na soma e remova as que não deveriam estar agregadas.
+  </Step>
+</Steps>
+
+<Callout kind="alert" collapsed="false">
+  Como a soma é automática por tipo de métrica, **qualquer pergunta selecionada impacta diretamente o resultado**. Sempre revise as perguntas incluídas no Card e evite misturar perguntas que não deveriam ser agregadas.
+</Callout>
+
+---
+
+## Perguntas frequentes
+
+<ExpandableGroup>
+  <Expandable title="Preciso reconfigurar meus Cards existentes após essa atualização?" default-open="false">
+    Não necessariamente. Cards que já funcionavam com identificadores continuam funcionando. A nova forma de agregação automática por tipo se aplica a Cards novos ou editados após a atualização.
+  </Expandable>
+
+  <Expandable title="O identificador da pergunta foi removido da plataforma?" default-open="false">
+    Não. O campo continua disponível, mas agora é de uso técnico — relevante apenas para integrações via API e Webhooks que dependam do `internal_name` da pergunta no payload.
+  </Expandable>
+
+  <Expandable title="Posso misturar NPS e CSAT no mesmo Card?" default-open="false">
+    Não. Cada Card de métrica deve conter perguntas do mesmo tipo (ex: somente NPS, ou somente CSAT) para que a soma faça sentido analítico.
+  </Expandable>
+</ExpandableGroup>
+
+---
+
+## Próximo passo
+
+<Card title="Como criar e gerenciar painéis?" href="/paineis/criar-gerenciar" icon="layout" cta="Ver artigo" horizontal="false">
+  Veja todos os tipos de Cards disponíveis e como organizar múltiplos painéis por área, unidade ou produto.
+</Card>
+

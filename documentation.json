@@ -37,6 +37,10 @@
             "group": "Painéis",
             "pages": [
               {
+                "title": "Como somar métricas em Cards sem identificador?",
+                "path": "como-somar-mtricas-em-cards-sem-identificador"
+              },
+              {
                 "title": "Como criar e gerenciar painéis de resultados?",
                 "path": "como-criar-e-gerenciar-painis-de-resultados"
               },
