@@ -113,7 +113,7 @@ Configure a identidade visual antes de montar as perguntas:
   </Step>
 </Steps>
 
-### 2.3 Condicionais (modo simples)
+### 2.3 Condicionais&#x20;
 
 Condicionais são regras que definem quais perguntas aparecem com base na resposta anterior.
 
@@ -127,13 +127,15 @@ Condicionais são regras que definem quais perguntas aparecem com base na respos
 
 1. Clique na pergunta que será exibida condicionalmente
 
-2. Clique em **Criar nova condicional**
+<Image src="https://cdn.amplifique.me/central-de-ajuda/2b68cd0ed00db4250749894624ce993c.png" width="1994" height="914" />
 
-3. Selecione a pergunta base (ex: `nps_test`)
+1. Clique em **Criar nova condicional**
 
-4. Escolha a regra: *Entre*, *Igual a*, *Menor que*
+2. Selecione a pergunta base (ex: `nps_test`)
 
-5. Clique em **Salvar**
+3. Escolha a regra: *Entre*, *Igual a*, *Menor que*
+
+4. Clique em **Salvar**
 
 **Exemplo clássico de NPS:**
 
@@ -144,19 +146,15 @@ Condicionais são regras que definem quais perguntas aparecem com base na respos
 | 7 ou 8 | Entre 7 e 8 | "Onde podemos melhorar?"   |
 | 0 a 6  | Entre 0 e 6 | "Onde falhamos?"           |
 
-### 2.4 Condicionais por blocos (avançado)
+### 2.4 Condicionais por blocos
 
 Use blocos quando quiser adicionar **mais de uma pergunta por perfil de nota** ou separar melhor as respostas nos relatórios.
 
-1. Duplique ou crie perguntas separadas para cada perfil (ex: `texto_detratores`, `texto_neutros`, `texto_promotores`)
+1. Duplique ou crie perguntas de textos separadas para cada perfil (ex: `texto_detratores`, `texto_neutros`, `texto_promotores`)
 
 2. Para cada pergunta, crie uma condicional apontando para o intervalo correspondente
 
 3. Cada pergunta do bloco deve ter sua própria condicional com a mesma lógica base
-
-<Callout kind="tip" collapsed="false">
-  Use nomes internos estratégicos: `nps_promotores`, `comentario_detrator`, `motivo_neutro`. Isso facilita os filtros e relatórios futuramente.
-</Callout>
 
 ---
 
@@ -171,6 +169,8 @@ Configure o que o respondente verá após finalizar a pesquisa:
 - **Animação de confete** — exibida para notas máximas em NPS, CSAT, CES e Likert
 
 - **Condicionais de agradecimento** — mensagens diferentes por faixa de nota (ex: NPS 0–6 → "Vamos levar seu feedback à diretoria")
+
+  <Image src="https://cdn.amplifique.me/central-de-ajuda/3be28cc5a2d5b7f21a1bdfa2d2f6020d.png" width="1016" height="612" />
 
 ---
 
@@ -188,21 +188,17 @@ Configure cada canal selecionado no Passo 1:
 
 - **In-App** — script para embutir no sistema, com configuração de quando e com que frequência exibir
 
-<Callout kind="alert" collapsed="false">
-  Todo contato enviado via e-mail ou telefone precisa ter ao menos **um dos dois** cadastrado — e-mail ou telefone — para o envio funcionar.
-</Callout>
-
 ---
 
 ## Passo 5 — Configurações Finais
 
 - **Automações** — crie regras para acionar ações automáticas ao receber uma resposta: enviar e-mail para a equipe, adicionar/remover tags, criar ticket no Fechamento de Loop, solicitar avaliação de Reputação Online
 
-- **Tags Inteligentes** — configure palavras-chave para categorizar automaticamente as respostas abertas
+- **Tags&#x20;**— configure palavras-chave para categorizar automaticamente as respostas abertas
 
 - **Fadiga de pesquisa** — defina intervalo de dias, limite total de envios, opt-out, consentimento e regras para evitar duplicados
 
-- **Smart Follow-up** — reenvios automáticos programados (ex: +5 dias, +10 dias sem resposta)
+- **Lembrete automático** — reenvios automáticos programados (ex: +5 dias, +10 dias sem resposta)
 
 ---
 
