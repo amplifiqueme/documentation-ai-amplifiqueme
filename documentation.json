@@ -462,7 +462,10 @@
               },
               {
                 "title": "Enviar Resposta da Pesquisa",
-                "path": "enviar-resposta-da-pesquisa"
+                "path": "enviar-resposta-da-pesquisa",
+                "openapi": "api-reference/openapi.yaml PUT /partners/cf/inApp/{id}",
+                "openapi-mode": "auto",
+                "method": "PUT"
               },
               {
                 "title": "Ignorar Pesquisa",
