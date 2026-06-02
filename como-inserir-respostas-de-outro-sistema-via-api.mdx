@@ -1,14 +1,16 @@
 ---
-title: "Como inserir respostas de outro sistema via API?"
-description: "Entenda como inserir respostas coletadas fora da Amplifique.me diretamente na plataforma via API — útil para sistemas legados, pesquisas presenciais e integrações customizadas."
+title: Como inserir respostas de outro sistema via API?
+description: >-
+  Entenda como inserir respostas coletadas fora da Amplifique.me diretamente na
+  plataforma via API — útil para sistemas legados, pesquisas presenciais e
+  integrações customizadas.
 slug: inserir-respostas-via-api
 ---
-
 ## Visão geral
 
 Se você coleta respostas de pesquisa em um sistema próprio — um app interno, um totem presencial, um sistema legado ou qualquer outra fonte externa — é possível inserir essas respostas diretamente na Amplifique.me via API, fazendo com que apareçam nos relatórios junto com as demais respostas da pesquisa.
 
-<Callout kind="alert">
+<Callout kind="alert" collapsed="false">
   Atualmente não existe uma API específica para inserção de respostas. O método utilizado é via **API do InApp Legado**, que permite registrar respostas originadas de sistemas externos. Uma API dedicada para esse fim está prevista para versões futuras da plataforma.
 </Callout>
 
@@ -17,11 +19,14 @@ Se você coleta respostas de pesquisa em um sistema próprio — um app interno,
 ## Quando usar
 
 - Você tem um **totem ou tablet** de coleta presencial e quer que as respostas apareçam na Amplifique.me
+
 - Seu sistema possui uma **pesquisa própria** e você quer consolidar os dados na plataforma
+
 - Você está **migrando de outro sistema** e quer inserir respostas históricas via API (além do importador manual)
+
 - Você tem um **sistema legado** que coleta NPS ou CSAT e precisa enviar os dados para a Amplifique.me
 
-<Callout kind="tip">
+<Callout kind="tip" collapsed="false">
   Para importações pontuais de histórico, o **importador de respostas** da plataforma pode ser mais simples do que uma integração via API. Avalie qual faz mais sentido para o seu volume e frequência de envio.
 </Callout>
 
@@ -36,11 +41,14 @@ A inserção é feita em **2 chamadas obrigatórias** à API, na seguinte ordem:
 Antes de inserir uma resposta, seu sistema precisa verificar se existe uma pesquisa elegível para aquele contato. Essa chamada retorna:
 
 - `eligible` — se o contato é elegível para responder
+
 - `complementSurvey` — se é apenas para complementar (contato já respondeu mas não deixou comentário)
+
 - `survey` — o objeto completo da pesquisa com as perguntas
+
 - `surveyAnswer` — o objeto da pesquisa/resposta, que contém o `_id` necessário para a próxima chamada
 
-<Callout kind="info">
+<Callout kind="info" collapsed="false">
   O `_id` do `surveyAnswer` retornado nessa chamada é obrigatório para enviar a resposta na Chamada 2. Salve esse valor antes de prosseguir.
 </Callout>
 
@@ -49,7 +57,9 @@ Antes de inserir uma resposta, seu sistema precisa verificar se existe uma pesqu
 Com o `_id` do `surveyAnswer` em mãos, seu sistema envia as respostas da pesquisa. Os parâmetros obrigatórios são:
 
 - `id` — Id do SurveyAnswer obtido na Chamada 1 (via URI)
+
 - `isFinalize` — se a resposta está completa e a pesquisa deve ser marcada como finalizada
+
 - `answers` — array com as respostas de cada pergunta
 
 ---
@@ -79,7 +89,7 @@ Resposta aparece nos relatórios da Amplifique.me
 
 A referência técnica completa — endpoints, parâmetros, exemplos de request e response — está disponível no Apiary:
 
-<Card title="Documentação da API — Apiary" icon="lucide-code-2" href="https://amplifiqueme.docs.apiary.io/" cta="Ver documentação" target="_blank">
+<Card title="Documentação da API — Apiary" href="https://ajuda.amplifique.me/buscar-pesquisa-inapp" icon="lucide-code-2" cta="Ver documentação" horizontal="false" target="_blank">
   Referência técnica completa dos endpoints de Buscar Pesquisa, Enviar Resposta e Ignorar Pesquisa.
 </Card>
 
@@ -88,23 +98,23 @@ A referência técnica completa — endpoints, parâmetros, exemplos de request 
 ## Perguntas frequentes
 
 <ExpandableGroup>
-  <Expandable title="As respostas inseridas via API consomem saldo?">
+  <Expandable title="As respostas inseridas via API consomem saldo?" default-open="false">
     Sim. Respostas inseridas via API são contabilizadas no saldo da conta, da mesma forma que respostas recebidas organicamente ou importadas pelo importador manual.
   </Expandable>
 
-  <Expandable title="Qual a diferença entre inserir via API e usar o importador de respostas?">
+  <Expandable title="Qual a diferença entre inserir via API e usar o importador de respostas?" default-open="false">
     O importador é indicado para cargas pontuais e históricas — você sobe um arquivo CSV manualmente. A API é indicada para inserção contínua e automatizada, quando o seu sistema precisa enviar respostas em tempo real ou em lote de forma programática.
   </Expandable>
 
-  <Expandable title="O que acontece se eu não chamar Ignorar Pesquisa quando o contato fechar sem responder?">
+  <Expandable title="O que acontece se eu não chamar Ignorar Pesquisa quando o contato fechar sem responder?" default-open="false">
     A solicitação ficará em aberto na plataforma, sem registro de que foi descartada. Isso pode afetar métricas de taxa de resposta. Recomenda-se sempre chamar o endpoint de Ignorar Pesquisa no evento de fechamento.
   </Expandable>
 
-  <Expandable title="As respostas inseridas aparecem em qual canal nos relatórios?">
+  <Expandable title="As respostas inseridas aparecem em qual canal nos relatórios?" default-open="false">
     Aparecem identificadas como **InApp** ou **Legado**, dependendo de como a integração foi configurada. Não é possível alterar o canal de origem após a inserção.
   </Expandable>
 
-  <Expandable title="Preciso de um desenvolvedor para fazer essa integração?">
+  <Expandable title="Preciso de um desenvolvedor para fazer essa integração?" default-open="false">
     Sim. A integração via API requer desenvolvimento no lado do seu sistema. Compartilhe a documentação técnica do Apiary com o time responsável.
   </Expandable>
 </ExpandableGroup>
@@ -115,6 +125,7 @@ A referência técnica completa — endpoints, parâmetros, exemplos de request 
 
 Se você não tem um time técnico disponível, o **importador de respostas** da plataforma permite subir respostas históricas via planilha CSV sem nenhum desenvolvimento.
 
-<Card title="Como importar respostas antigas de pesquisas?" icon="lucide-upload" href="/como-importar-respostas-antigas-de-pesquisas" cta="Ver artigo">
+<Card title="Como importar respostas antigas de pesquisas?" href="/como-importar-respostas-antigas-de-pesquisas" icon="lucide-upload" cta="Ver artigo" horizontal="false">
   Importe respostas de planilhas ou outros sistemas sem precisar de API.
 </Card>
+

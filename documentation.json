@@ -269,6 +269,10 @@
             "group": "Técnicos e Devs",
             "pages": [
               {
+                "title": "Como inserir respostas de outro sistema via API?",
+                "path": "como-inserir-respostas-de-outro-sistema-via-api"
+              },
+              {
                 "title": "Quais domínios liberar para o time de TI?",
                 "path": "quais-domnios-liberar-para-o-time-de-ti"
               },
@@ -311,10 +315,6 @@
             "icon": "help-circle",
             "expandable": false,
             "pages": [
-              {
-                "title": "Como inserir respostas de outro sistema via API?",
-                "path": "como-inserir-respostas-de-outro-sistema-via-api"
-              },
               {
                 "title": "FAQ técnico: In-App e sincronização de dados",
                 "path": "faq-tcnico-in-app-e-sincronizao-de-dados"
