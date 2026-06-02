@@ -5,7 +5,9 @@
     "version": "1.0"
   },
   "servers": [
-    { "url": "https://api.amplifique.me" }
+    {
+      "url": "https://api.amplifique.me"
+    }
   ],
   "components": {
     "securitySchemes": {
@@ -17,9 +19,12 @@
       }
     }
   },
-  "security": [{ "sec0": [] }],
+  "security": [
+    {
+      "sec0": []
+    }
+  ],
   "paths": {
-
     "/partners/cf": {
       "post": {
         "summary": "Requisição de Pesquisa Customer Feedback",
@@ -30,7 +35,10 @@
             "application/json": {
               "schema": {
                 "type": "object",
-                "required": ["name", "email"],
+                "required": [
+                  "name",
+                  "email"
+                ],
                 "properties": {
                   "name": {
                     "type": "string",
@@ -76,7 +84,9 @@
                     "type": "object",
                     "description": "*Opcional* — Objeto JSON com campos customizados adicionais",
                     "additionalProperties": true,
-                    "example": { "regiao": "Sul" }
+                    "example": {
+                      "regiao": "Sul"
+                    }
                   },
                   "expiration": {
                     "type": "integer",
@@ -129,13 +139,27 @@
                       "title": "sms/e-mail",
                       "type": "object",
                       "properties": {
-                        "_id": { "type": "string", "description": "ID da solicitação criada", "example": "62eabd08db91f8fba6ff2159" },
+                        "_id": {
+                          "type": "string",
+                          "description": "ID da solicitação criada",
+                          "example": "62eabd08db91f8fba6ff2159"
+                        },
                         "customer": {
                           "type": "object",
                           "properties": {
-                            "_id": { "type": "string", "description": "ID do contato", "example": "62eabbaeaea4eba9b7284549" },
-                            "email": { "type": "string", "example": "joao@example.com" },
-                            "phone": { "type": "string", "example": "+5542999613014" }
+                            "_id": {
+                              "type": "string",
+                              "description": "ID do contato",
+                              "example": "62eabbaeaea4eba9b7284549"
+                            },
+                            "email": {
+                              "type": "string",
+                              "example": "joao@example.com"
+                            },
+                            "phone": {
+                              "type": "string",
+                              "example": "+5542999613014"
+                            }
                           }
                         }
                       }
@@ -144,24 +168,58 @@
                       "title": "wa-link",
                       "type": "object",
                       "properties": {
-                        "_id": { "type": "string", "description": "ID da solicitação criada", "example": "62eabd08db91f8fba6ff2159" },
+                        "_id": {
+                          "type": "string",
+                          "description": "ID da solicitação criada",
+                          "example": "62eabd08db91f8fba6ff2159"
+                        },
                         "customer": {
                           "type": "object",
                           "properties": {
-                            "_id": { "type": "string", "example": "62eabbaeaea4eba9b7284549" },
-                            "email": { "type": "string", "example": "joao@example.com" },
-                            "phone": { "type": "string", "example": "+5542999999999" }
+                            "_id": {
+                              "type": "string",
+                              "example": "62eabbaeaea4eba9b7284549"
+                            },
+                            "email": {
+                              "type": "string",
+                              "example": "joao@example.com"
+                            },
+                            "phone": {
+                              "type": "string",
+                              "example": "+5542999999999"
+                            }
                           }
                         },
                         "link": {
                           "type": "object",
                           "properties": {
-                            "shortUrl": { "type": "string", "description": "URL encurtada para compartilhar via WhatsApp", "example": "https://ampl.me/aKTX9BfbY" },
-                            "originalUrl": { "type": "string", "description": "URL completa da pesquisa", "example": "https://surveys.amplifique.me/answer/62eabd09db91f8fba6ff215f" },
-                            "urlCode": { "type": "string", "example": "aKTX9BfbY" },
-                            "updatedAt": { "type": "string", "format": "date-time", "example": "2022-08-03T18:23:06.399Z" },
-                            "shortners": { "type": "integer", "example": 1 },
-                            "id": { "type": "string", "example": "4859907340238848" }
+                            "shortUrl": {
+                              "type": "string",
+                              "description": "URL encurtada para compartilhar via WhatsApp",
+                              "example": "https://ampl.me/aKTX9BfbY"
+                            },
+                            "originalUrl": {
+                              "type": "string",
+                              "description": "URL completa da pesquisa",
+                              "example": "https://surveys.amplifique.me/answer/62eabd09db91f8fba6ff215f"
+                            },
+                            "urlCode": {
+                              "type": "string",
+                              "example": "aKTX9BfbY"
+                            },
+                            "updatedAt": {
+                              "type": "string",
+                              "format": "date-time",
+                              "example": "2022-08-03T18:23:06.399Z"
+                            },
+                            "shortners": {
+                              "type": "integer",
+                              "example": 1
+                            },
+                            "id": {
+                              "type": "string",
+                              "example": "4859907340238848"
+                            }
                           }
                         }
                       }
@@ -175,7 +233,6 @@
         "deprecated": false
       }
     },
-
     "/partners/cf/balance": {
       "get": {
         "summary": "Consulta de Saldo de Respostas",
@@ -190,13 +247,25 @@
                   "não bloqueado": {
                     "value": {
                       "block": false,
-                      "balance": { "_id": "63febfb029df58eec1b2c4af", "type": "cf_responses", "limit": 100, "balance": 92, "used": 8 }
+                      "balance": {
+                        "_id": "63febfb029df58eec1b2c4af",
+                        "type": "cf_responses",
+                        "limit": 100,
+                        "balance": 92,
+                        "used": 8
+                      }
                     }
                   },
                   "bloqueado": {
                     "value": {
                       "block": true,
-                      "balance": { "_id": "63febfb029df58eec1b2c4af", "type": "cf_responses", "limit": 100, "balance": 0, "used": 100 }
+                      "balance": {
+                        "_id": "63febfb029df58eec1b2c4af",
+                        "type": "cf_responses",
+                        "limit": 100,
+                        "balance": 0,
+                        "used": 100
+                      }
                     }
                   }
                 },
@@ -211,11 +280,30 @@
                     "balance": {
                       "type": "object",
                       "properties": {
-                        "_id": { "type": "string", "example": "63febfb029df58eec1b2c4af" },
-                        "type": { "type": "string", "description": "Tipo de saldo", "example": "cf_responses" },
-                        "limit": { "type": "integer", "description": "Limite total contratado", "example": 100 },
-                        "balance": { "type": "integer", "description": "Saldo disponível restante", "example": 92 },
-                        "used": { "type": "integer", "description": "Total já utilizado no período", "example": 8 }
+                        "_id": {
+                          "type": "string",
+                          "example": "63febfb029df58eec1b2c4af"
+                        },
+                        "type": {
+                          "type": "string",
+                          "description": "Tipo de saldo",
+                          "example": "cf_responses"
+                        },
+                        "limit": {
+                          "type": "integer",
+                          "description": "Limite total contratado",
+                          "example": 100
+                        },
+                        "balance": {
+                          "type": "integer",
+                          "description": "Saldo disponível restante",
+                          "example": 92
+                        },
+                        "used": {
+                          "type": "integer",
+                          "description": "Total já utilizado no período",
+                          "example": 8
+                        }
                       }
                     }
                   }
@@ -227,22 +315,78 @@
         "deprecated": false
       }
     },
-
     "/partners/cf/answers": {
       "post": {
         "summary": "Listar Respostas de Pesquisas",
         "description": "Retorna uma lista paginada com as respostas das pesquisas de determinada unidade.",
         "operationId": "listar-respostas-de-pesquisas",
         "parameters": [
-          { "name": "limit", "in": "query", "description": "Limite de respostas retornadas por página. Mín: 1, Máx: 1000", "schema": { "type": "integer", "default": 1000 } },
-          { "name": "page", "in": "query", "description": "Número da página a retornar. Mín: 0", "schema": { "type": "integer", "default": 0 } },
-          { "name": "start", "in": "query", "description": "Data inicial do filtro (formato dd/MM/yyyy). Requer o parâmetro `end`.", "schema": { "type": "string", "example": "01/01/2024" } },
-          { "name": "end", "in": "query", "description": "Data final do filtro (formato dd/MM/yyyy). Requer o parâmetro `start`.", "schema": { "type": "string", "example": "31/12/2024" } },
-          { "name": "include_survey", "in": "query", "description": "Quando `true`, retorna a estrutura completa da pesquisa junto de cada resposta.", "schema": { "type": "boolean", "default": false } },
-          { "name": "only_finalized", "in": "query", "description": "Filtra por status de finalização. Valores aceitos: `complete`, `incomplete`, `all`.", "schema": { "type": "string", "default": "complete" } },
-          { "name": "survey", "in": "query", "description": "Filtra resultados de uma pesquisa específica. Informar o ID da pesquisa (ex: `67f578cccc4ab22df8543fcc`).", "schema": { "type": "string" } }
+          {
+            "name": "limit",
+            "in": "query",
+            "description": "Limite de respostas retornadas por página. Mín: 1, Máx: 1000",
+            "schema": {
+              "type": "integer",
+              "default": 1000
+            }
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "description": "Número da página a retornar. Mín: 0",
+            "schema": {
+              "type": "integer",
+              "default": 0
+            }
+          },
+          {
+            "name": "start",
+            "in": "query",
+            "description": "Data inicial do filtro (formato dd/MM/yyyy). Requer o parâmetro `end`.",
+            "schema": {
+              "type": "string",
+              "example": "01/01/2024"
+            }
+          },
+          {
+            "name": "end",
+            "in": "query",
+            "description": "Data final do filtro (formato dd/MM/yyyy). Requer o parâmetro `start`.",
+            "schema": {
+              "type": "string",
+              "example": "31/12/2024"
+            }
+          },
+          {
+            "name": "include_survey",
+            "in": "query",
+            "description": "Quando `true`, retorna a estrutura completa da pesquisa junto de cada resposta.",
+            "schema": {
+              "type": "boolean",
+              "default": false
+            }
+          },
+          {
+            "name": "only_finalized",
+            "in": "query",
+            "description": "Filtra por status de finalização. Valores aceitos: `complete`, `incomplete`, `all`.",
+            "schema": {
+              "type": "string",
+              "default": "complete"
+            }
+          },
+          {
+            "name": "survey",
+            "in": "query",
+            "description": "Filtra resultados de uma pesquisa específica. Informar o ID da pesquisa (ex: `67f578cccc4ab22df8543fcc`).",
+            "schema": {
+              "type": "string"
+            }
+          }
         ],
-        "requestBody": { "content": {} },
+        "requestBody": {
+          "content": {}
+        },
         "responses": {
           "200": {
             "description": "Lista de respostas retornada com sucesso",
@@ -256,67 +400,241 @@
                       "items": {
                         "type": "object",
                         "properties": {
-                          "_id": { "type": "string", "description": "ID da resposta/solicitação", "example": "645e95240c1647609077969b" },
-                          "_survey": { "type": "string", "description": "ID da pesquisa", "example": "60afce1ca9680b000eca2459" },
-                          "channel": { "type": "integer", "description": "Canal de envio: 0→SMS, 1→EMAIL, 2→WHATSAPP, 3→LINK, 4→INAPP, 6→WhatsApp API", "example": 4 },
-                          "answered": { "type": "boolean", "description": "Se a pesquisa foi respondida", "example": true },
-                          "opened": { "type": "boolean", "description": "Se a pesquisa foi aberta pelo cliente", "example": true },
-                          "opened_at": { "type": "string", "format": "date-time", "description": "Data/hora em que foi aberta", "example": "2023-05-12T19:36:04.367Z" },
-                          "finalized": { "type": "boolean", "description": "Se a pesquisa foi finalizada (todas as perguntas respondidas)", "example": true },
-                          "deleted": { "type": "boolean", "description": "Se a resposta está na lixeira", "example": false },
-                          "origin": { "type": "string", "description": "Origem da resposta (Link ou InApp)", "example": "preview.amplifique.me/preview/60afce1ca9680b000eca2459?version=2" },
-                          "anonymized": { "type": "boolean", "description": "Se a resposta foi anonimizada", "example": false },
-                          "resolved": { "type": "boolean", "description": "Se a resposta foi marcada como resolvida", "example": false },
-                          "attempts": { "type": "integer", "description": "Número de tentativas de envio (SmartFollowUp)", "example": 1 },
-                          "_customer": { "type": "string", "description": "ID do contato", "example": "645e95240c16476090779698" },
-                          "_business": { "type": "string", "description": "ID da unidade", "example": "5b5765bec9498b0014883c0b" },
+                          "_id": {
+                            "type": "string",
+                            "description": "ID da resposta/solicitação",
+                            "example": "645e95240c1647609077969b"
+                          },
+                          "_survey": {
+                            "type": "string",
+                            "description": "ID da pesquisa",
+                            "example": "60afce1ca9680b000eca2459"
+                          },
+                          "channel": {
+                            "type": "integer",
+                            "description": "Canal de envio: 0→SMS, 1→EMAIL, 2→WHATSAPP, 3→LINK, 4→INAPP, 6→WhatsApp API",
+                            "example": 4
+                          },
+                          "answered": {
+                            "type": "boolean",
+                            "description": "Se a pesquisa foi respondida",
+                            "example": true
+                          },
+                          "opened": {
+                            "type": "boolean",
+                            "description": "Se a pesquisa foi aberta pelo cliente",
+                            "example": true
+                          },
+                          "opened_at": {
+                            "type": "string",
+                            "format": "date-time",
+                            "description": "Data/hora em que foi aberta",
+                            "example": "2023-05-12T19:36:04.367Z"
+                          },
+                          "finalized": {
+                            "type": "boolean",
+                            "description": "Se a pesquisa foi finalizada (todas as perguntas respondidas)",
+                            "example": true
+                          },
+                          "deleted": {
+                            "type": "boolean",
+                            "description": "Se a resposta está na lixeira",
+                            "example": false
+                          },
+                          "origin": {
+                            "type": "string",
+                            "description": "Origem da resposta (Link ou InApp)",
+                            "example": "preview.amplifique.me/preview/60afce1ca9680b000eca2459?version=2"
+                          },
+                          "anonymized": {
+                            "type": "boolean",
+                            "description": "Se a resposta foi anonimizada",
+                            "example": false
+                          },
+                          "resolved": {
+                            "type": "boolean",
+                            "description": "Se a resposta foi marcada como resolvida",
+                            "example": false
+                          },
+                          "attempts": {
+                            "type": "integer",
+                            "description": "Número de tentativas de envio (SmartFollowUp)",
+                            "example": 1
+                          },
+                          "_customer": {
+                            "type": "string",
+                            "description": "ID do contato",
+                            "example": "645e95240c16476090779698"
+                          },
+                          "_business": {
+                            "type": "string",
+                            "description": "ID da unidade",
+                            "example": "5b5765bec9498b0014883c0b"
+                          },
                           "answers": {
                             "type": "array",
                             "description": "Lista com todas as respostas das perguntas",
                             "items": {
                               "type": "object",
                               "properties": {
-                                "internal_name": { "type": "string", "description": "Identificador interno da pergunta", "example": "nps_1" },
+                                "internal_name": {
+                                  "type": "string",
+                                  "description": "Identificador interno da pergunta",
+                                  "example": "nps_1"
+                                },
                                 "answer": {
                                   "description": "Resposta da pergunta. O tipo varia conforme o tipo da pergunta: número para nps/csat/ces/likert, string para text/unique/select/thumbs ('up' ou 'down'), array de strings para multiple, objeto {chave: valor} para matrix.",
                                   "oneOf": [
-                                    { "type": "number", "example": 10 },
-                                    { "type": "string", "example": "up" },
-                                    { "type": "array", "items": { "type": "string" }, "example": ["agilidade", "qualidade"] },
-                                    { "type": "object", "additionalProperties": true, "example": { "atendimento": "Bom", "solucao": "Regular" } }
+                                    {
+                                      "type": "number",
+                                      "example": 10
+                                    },
+                                    {
+                                      "type": "string",
+                                      "example": "up"
+                                    },
+                                    {
+                                      "type": "array",
+                                      "items": {
+                                        "type": "string"
+                                      },
+                                      "example": [
+                                        "agilidade",
+                                        "qualidade"
+                                      ]
+                                    },
+                                    {
+                                      "type": "object",
+                                      "additionalProperties": true,
+                                      "example": {
+                                        "atendimento": "Bom",
+                                        "solucao": "Regular"
+                                      }
+                                    }
                                   ]
                                 },
-                                "isMainMetric": { "type": "boolean", "description": "Se é a pergunta principal (1ª pergunta da pesquisa)", "example": true },
-                                "type": { "type": "string", "description": "Tipo da pergunta", "enum": ["nps", "csat", "ces", "thumbs", "unique", "multiple", "select", "text", "likert", "matrix"], "example": "nps" },
-                                "_id": { "type": "string", "description": "ID da resposta da pergunta", "example": "645e9557fdfa5a0ffd07289e" }
+                                "isMainMetric": {
+                                  "type": "boolean",
+                                  "description": "Se é a pergunta principal (1ª pergunta da pesquisa)",
+                                  "example": true
+                                },
+                                "type": {
+                                  "type": "string",
+                                  "description": "Tipo da pergunta",
+                                  "enum": [
+                                    "nps",
+                                    "csat",
+                                    "ces",
+                                    "thumbs",
+                                    "unique",
+                                    "multiple",
+                                    "select",
+                                    "text",
+                                    "likert",
+                                    "matrix"
+                                  ],
+                                  "example": "nps"
+                                },
+                                "_id": {
+                                  "type": "string",
+                                  "description": "ID da resposta da pergunta",
+                                  "example": "645e9557fdfa5a0ffd07289e"
+                                }
                               }
                             }
                           },
-                          "created_at": { "type": "string", "format": "date-time", "description": "Data de criação da solicitação", "example": "2023-05-12T19:36:04.368Z" },
-                          "notes": { "type": "array", "description": "Anotações internas vinculadas à resposta", "items": { "type": "object", "additionalProperties": true } },
-                          "answered_at": { "type": "string", "format": "date-time", "description": "Data/hora em que a pesquisa foi respondida", "example": "2023-05-12T19:36:55.614Z" },
-                          "originIp": { "type": "string", "description": "IP de origem da resposta", "example": "2a09:bac1:1120:19d8::61:205" },
-                          "time_to_answer": { "type": "number", "description": "Tempo em segundos que o cliente levou para responder", "example": 50.757 },
-                          "finalized_at": { "type": "string", "format": "date-time", "description": "Data/hora de finalização", "example": "2023-05-12T19:36:55.625Z" },
-                          "score": { "type": "number", "description": "AmpliScore da resposta (0–100)", "example": 100 },
+                          "created_at": {
+                            "type": "string",
+                            "format": "date-time",
+                            "description": "Data de criação da solicitação",
+                            "example": "2023-05-12T19:36:04.368Z"
+                          },
+                          "notes": {
+                            "type": "array",
+                            "description": "Anotações internas vinculadas à resposta",
+                            "items": {
+                              "type": "object",
+                              "additionalProperties": true
+                            }
+                          },
+                          "answered_at": {
+                            "type": "string",
+                            "format": "date-time",
+                            "description": "Data/hora em que a pesquisa foi respondida",
+                            "example": "2023-05-12T19:36:55.614Z"
+                          },
+                          "originIp": {
+                            "type": "string",
+                            "description": "IP de origem da resposta",
+                            "example": "2a09:bac1:1120:19d8::61:205"
+                          },
+                          "time_to_answer": {
+                            "type": "number",
+                            "description": "Tempo em segundos que o cliente levou para responder",
+                            "example": 50.757
+                          },
+                          "finalized_at": {
+                            "type": "string",
+                            "format": "date-time",
+                            "description": "Data/hora de finalização",
+                            "example": "2023-05-12T19:36:55.625Z"
+                          },
+                          "score": {
+                            "type": "number",
+                            "description": "AmpliScore da resposta (0–100)",
+                            "example": 100
+                          },
                           "customer": {
                             "type": "object",
                             "description": "Dados do contato que respondeu",
                             "properties": {
-                              "name": { "type": "string", "example": "João da Silva" },
-                              "email": { "type": "string", "example": "joao@example.com" },
-                              "tel": { "type": "string", "example": "+5542999999999" },
-                              "custom_fields": { "type": "object", "additionalProperties": true, "description": "Campos customizados do contato" }
+                              "name": {
+                                "type": "string",
+                                "example": "João da Silva"
+                              },
+                              "email": {
+                                "type": "string",
+                                "example": "joao@example.com"
+                              },
+                              "tel": {
+                                "type": "string",
+                                "example": "+5542999999999"
+                              },
+                              "custom_fields": {
+                                "type": "object",
+                                "additionalProperties": true,
+                                "description": "Campos customizados do contato"
+                              }
                             }
                           },
-                          "custom_fields": { "type": "object", "additionalProperties": true, "description": "Campos customizados da resposta" },
-                          "deleted_by": { "type": "object", "additionalProperties": true, "description": "Dados do usuário que enviou a resposta para a lixeira" }
+                          "custom_fields": {
+                            "type": "object",
+                            "additionalProperties": true,
+                            "description": "Campos customizados da resposta"
+                          },
+                          "deleted_by": {
+                            "type": "object",
+                            "additionalProperties": true,
+                            "description": "Dados do usuário que enviou a resposta para a lixeira"
+                          }
                         }
                       }
                     },
-                    "total": { "type": "integer", "description": "Total de registros encontrados", "example": 123 },
-                    "pages": { "type": "integer", "description": "Total de páginas disponíveis", "example": 10 },
-                    "page": { "type": "integer", "description": "Página atual retornada", "example": 0 }
+                    "total": {
+                      "type": "integer",
+                      "description": "Total de registros encontrados",
+                      "example": 123
+                    },
+                    "pages": {
+                      "type": "integer",
+                      "description": "Total de páginas disponíveis",
+                      "example": 10
+                    },
+                    "page": {
+                      "type": "integer",
+                      "description": "Página atual retornada",
+                      "example": 0
+                    }
                   }
                 }
               }
@@ -326,22 +644,79 @@
         "deprecated": false
       }
     },
-
     "/partners/cf/requests": {
       "post": {
         "summary": "Listar Solicitações de Pesquisas",
         "description": "Retorna uma lista paginada com as solicitações de pesquisa de determinada unidade. Inclui todos os canais: SMS, e-mail, WhatsApp, Link/QRCode e InApp.",
         "operationId": "listar-solicitacoes-de-pesquisas",
         "parameters": [
-          { "name": "limit", "in": "query", "description": "Limite de solicitações retornadas por página. Mín: 1, Máx: 1000", "schema": { "type": "integer", "default": 1000 } },
-          { "name": "page", "in": "query", "description": "Número da página a retornar. Mín: 0", "schema": { "type": "integer", "default": 0 } },
-          { "name": "start", "in": "query", "description": "Data inicial de criação da solicitação (dd/MM/yyyy). Requer `end`.", "schema": { "type": "string", "example": "01/01/2024" } },
-          { "name": "end", "in": "query", "description": "Data final de criação da solicitação (dd/MM/yyyy). Requer `start`.", "schema": { "type": "string", "example": "31/12/2024" } },
-          { "name": "include_survey", "in": "query", "description": "Quando `true`, retorna a estrutura completa da pesquisa junto de cada solicitação.", "schema": { "type": "boolean", "default": false } },
-          { "name": "open_start", "in": "query", "description": "Data inicial de abertura da pesquisa (dd/MM/yyyy). Requer `open_end`.", "schema": { "type": "string", "example": "01/01/2024" } },
-          { "name": "open_end", "in": "query", "description": "Data final de abertura da pesquisa (dd/MM/yyyy). Requer `open_start`.", "schema": { "type": "string", "example": "31/12/2024" } }
+          {
+            "name": "limit",
+            "in": "query",
+            "description": "Limite de solicitações retornadas por página. Mín: 1, Máx: 1000",
+            "schema": {
+              "type": "integer",
+              "default": 1000
+            }
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "description": "Número da página a retornar. Mín: 0",
+            "schema": {
+              "type": "integer",
+              "default": 0
+            }
+          },
+          {
+            "name": "start",
+            "in": "query",
+            "description": "Data inicial de criação da solicitação (dd/MM/yyyy). Requer `end`.",
+            "schema": {
+              "type": "string",
+              "example": "01/01/2024"
+            }
+          },
+          {
+            "name": "end",
+            "in": "query",
+            "description": "Data final de criação da solicitação (dd/MM/yyyy). Requer `start`.",
+            "schema": {
+              "type": "string",
+              "example": "31/12/2024"
+            }
+          },
+          {
+            "name": "include_survey",
+            "in": "query",
+            "description": "Quando `true`, retorna a estrutura completa da pesquisa junto de cada solicitação.",
+            "schema": {
+              "type": "boolean",
+              "default": false
+            }
+          },
+          {
+            "name": "open_start",
+            "in": "query",
+            "description": "Data inicial de abertura da pesquisa (dd/MM/yyyy). Requer `open_end`.",
+            "schema": {
+              "type": "string",
+              "example": "01/01/2024"
+            }
+          },
+          {
+            "name": "open_end",
+            "in": "query",
+            "description": "Data final de abertura da pesquisa (dd/MM/yyyy). Requer `open_start`.",
+            "schema": {
+              "type": "string",
+              "example": "31/12/2024"
+            }
+          }
         ],
-        "requestBody": { "content": {} },
+        "requestBody": {
+          "content": {}
+        },
         "responses": {
           "200": {
             "description": "Lista de solicitações retornada com sucesso",
@@ -355,54 +730,191 @@
                       "items": {
                         "type": "object",
                         "properties": {
-                          "_id": { "type": "string", "description": "ID da solicitação", "example": "645cfb345e8a1e02494b88bd" },
-                          "_survey": { "type": "string", "description": "ID da pesquisa", "example": "64147ad6e6947a3a0ca1d721" },
-                          "channel": { "type": "integer", "description": "Canal de envio: 0→SMS, 1→EMAIL, 2→WHATSAPP, 3→LINK, 4→INAPP, 6→WhatsApp API", "example": 6 },
-                          "opened": { "type": "boolean", "description": "Se a pesquisa foi aberta pelo cliente", "example": true },
-                          "finalized": { "type": "boolean", "description": "Se a pesquisa foi finalizada", "example": false },
-                          "deleted": { "type": "boolean", "description": "Se a solicitação está na lixeira", "example": false },
-                          "origin": { "type": "string", "description": "Origem (Link ou InApp)", "example": "preview.amplifique.me/preview/60afce1ca9680b000eca2459?version=2" },
-                          "anonymized": { "type": "boolean", "description": "Se a solicitação foi anonimizada", "example": false },
-                          "attempts": { "type": "integer", "description": "Número de tentativas de envio (SmartFollowUp)", "example": 1 },
-                          "_customer": { "type": "string", "description": "ID do contato", "example": "642598acf05534d1cd33d69a" },
-                          "_user": { "type": "string", "description": "ID do usuário que criou a solicitação", "example": "60e83e2cc59ce771be97267a" },
-                          "_business": { "type": "string", "description": "ID da unidade", "example": "629f52abca19568f84de7747" },
-                          "custom_fields": { "type": "object", "additionalProperties": true, "description": "Campos customizados da solicitação", "example": { "data_nascimento": "11/01/1990" } },
-                          "created_at": { "type": "string", "format": "date-time", "description": "Data de criação da solicitação", "example": "2023-05-11T14:27:00.521Z" },
-                          "opened_at": { "type": "string", "format": "date-time", "description": "Data/hora em que foi aberta", "example": "2023-05-11T14:27:12.277Z" },
+                          "_id": {
+                            "type": "string",
+                            "description": "ID da solicitação",
+                            "example": "645cfb345e8a1e02494b88bd"
+                          },
+                          "_survey": {
+                            "type": "string",
+                            "description": "ID da pesquisa",
+                            "example": "64147ad6e6947a3a0ca1d721"
+                          },
+                          "channel": {
+                            "type": "integer",
+                            "description": "Canal de envio: 0→SMS, 1→EMAIL, 2→WHATSAPP, 3→LINK, 4→INAPP, 6→WhatsApp API",
+                            "example": 6
+                          },
+                          "opened": {
+                            "type": "boolean",
+                            "description": "Se a pesquisa foi aberta pelo cliente",
+                            "example": true
+                          },
+                          "finalized": {
+                            "type": "boolean",
+                            "description": "Se a pesquisa foi finalizada",
+                            "example": false
+                          },
+                          "deleted": {
+                            "type": "boolean",
+                            "description": "Se a solicitação está na lixeira",
+                            "example": false
+                          },
+                          "origin": {
+                            "type": "string",
+                            "description": "Origem (Link ou InApp)",
+                            "example": "preview.amplifique.me/preview/60afce1ca9680b000eca2459?version=2"
+                          },
+                          "anonymized": {
+                            "type": "boolean",
+                            "description": "Se a solicitação foi anonimizada",
+                            "example": false
+                          },
+                          "attempts": {
+                            "type": "integer",
+                            "description": "Número de tentativas de envio (SmartFollowUp)",
+                            "example": 1
+                          },
+                          "_customer": {
+                            "type": "string",
+                            "description": "ID do contato",
+                            "example": "642598acf05534d1cd33d69a"
+                          },
+                          "_user": {
+                            "type": "string",
+                            "description": "ID do usuário que criou a solicitação",
+                            "example": "60e83e2cc59ce771be97267a"
+                          },
+                          "_business": {
+                            "type": "string",
+                            "description": "ID da unidade",
+                            "example": "629f52abca19568f84de7747"
+                          },
+                          "custom_fields": {
+                            "type": "object",
+                            "additionalProperties": true,
+                            "description": "Campos customizados da solicitação",
+                            "example": {
+                              "data_nascimento": "11/01/1990"
+                            }
+                          },
+                          "created_at": {
+                            "type": "string",
+                            "format": "date-time",
+                            "description": "Data de criação da solicitação",
+                            "example": "2023-05-11T14:27:00.521Z"
+                          },
+                          "opened_at": {
+                            "type": "string",
+                            "format": "date-time",
+                            "description": "Data/hora em que foi aberta",
+                            "example": "2023-05-11T14:27:12.277Z"
+                          },
                           "sendings": {
                             "type": "object",
                             "description": "Dados do envio mais recente",
                             "properties": {
-                              "_id": { "type": "string", "description": "ID do envio", "example": "645cfb345e8a1e02494b88c4" },
-                              "source": { "type": "integer", "description": "Canal do envio (mesmos códigos de `channel`)", "example": 6 },
-                              "source_status": { "type": "string", "description": "Status do envio: `ERROR`, `PENDING`, `DELIVERED`, `SENT`, `CREATED`", "example": "DELIVERED" },
-                              "_reference": { "type": "string", "description": "ID da solicitação de referência", "example": "645cfb345e8a1e02494b88bd" },
-                              "type": { "type": "string", "description": "Tipo de envio — `cf` para pesquisas", "example": "cf" },
-                              "attempt": { "type": "integer", "description": "Número da tentativa de envio", "example": 1 },
-                              "attemptDelay": { "type": "integer", "description": "Tempo de espera entre tentativas em dias (SmartFollowUp)", "example": 0 },
-                              "_business": { "type": "string", "description": "ID da unidade", "example": "629f52abca19568f84de7747" },
-                              "providerSource": { "type": "string", "description": "Provedor de envio utilizado", "example": "TakeBlip" },
-                              "providerId": { "type": "string", "description": "ID do envio no provedor externo", "example": "86777ea5-197f-4318-b194-1886db496623" },
-                              "created_at": { "type": "string", "format": "date-time", "example": "2023-05-11T14:27:00.538Z" },
-                              "updated_at": { "type": "string", "format": "date-time", "example": "2023-05-11T14:57:02.566Z" }
+                              "_id": {
+                                "type": "string",
+                                "description": "ID do envio",
+                                "example": "645cfb345e8a1e02494b88c4"
+                              },
+                              "source": {
+                                "type": "integer",
+                                "description": "Canal do envio (mesmos códigos de `channel`)",
+                                "example": 6
+                              },
+                              "source_status": {
+                                "type": "string",
+                                "description": "Status do envio: `ERROR`, `PENDING`, `DELIVERED`, `SENT`, `CREATED`",
+                                "example": "DELIVERED"
+                              },
+                              "_reference": {
+                                "type": "string",
+                                "description": "ID da solicitação de referência",
+                                "example": "645cfb345e8a1e02494b88bd"
+                              },
+                              "type": {
+                                "type": "string",
+                                "description": "Tipo de envio — `cf` para pesquisas",
+                                "example": "cf"
+                              },
+                              "attempt": {
+                                "type": "integer",
+                                "description": "Número da tentativa de envio",
+                                "example": 1
+                              },
+                              "attemptDelay": {
+                                "type": "integer",
+                                "description": "Tempo de espera entre tentativas em dias (SmartFollowUp)",
+                                "example": 0
+                              },
+                              "_business": {
+                                "type": "string",
+                                "description": "ID da unidade",
+                                "example": "629f52abca19568f84de7747"
+                              },
+                              "providerSource": {
+                                "type": "string",
+                                "description": "Provedor de envio utilizado",
+                                "example": "TakeBlip"
+                              },
+                              "providerId": {
+                                "type": "string",
+                                "description": "ID do envio no provedor externo",
+                                "example": "86777ea5-197f-4318-b194-1886db496623"
+                              },
+                              "created_at": {
+                                "type": "string",
+                                "format": "date-time",
+                                "example": "2023-05-11T14:27:00.538Z"
+                              },
+                              "updated_at": {
+                                "type": "string",
+                                "format": "date-time",
+                                "example": "2023-05-11T14:57:02.566Z"
+                              }
                             }
                           },
                           "customer": {
                             "type": "object",
                             "description": "Dados do contato",
                             "properties": {
-                              "name": { "type": "string", "example": "Robson" },
-                              "email": { "type": "string", "example": "robson@amplifique.me" },
-                              "tel": { "type": "string", "example": "+5511997273014" },
-                              "custom_fields": { "type": "object", "additionalProperties": true, "description": "Campos customizados do contato", "example": { "data_nascimento": "11/09/1997" } }
+                              "name": {
+                                "type": "string",
+                                "example": "Robson"
+                              },
+                              "email": {
+                                "type": "string",
+                                "example": "robson@amplifique.me"
+                              },
+                              "tel": {
+                                "type": "string",
+                                "example": "+5511997273014"
+                              },
+                              "custom_fields": {
+                                "type": "object",
+                                "additionalProperties": true,
+                                "description": "Campos customizados do contato",
+                                "example": {
+                                  "data_nascimento": "11/09/1997"
+                                }
+                              }
                             }
                           },
-                          "deleted_by": { "type": "object", "additionalProperties": true, "description": "Dados do usuário que enviou para a lixeira" }
+                          "deleted_by": {
+                            "type": "object",
+                            "additionalProperties": true,
+                            "description": "Dados do usuário que enviou para a lixeira"
+                          }
                         }
                       }
                     },
-                    "total": { "type": "integer", "description": "Total de registros encontrados", "example": 123 }
+                    "total": {
+                      "type": "integer",
+                      "description": "Total de registros encontrados",
+                      "example": 123
+                    }
                   }
                 }
               }
@@ -412,30 +924,53 @@
         "deprecated": false
       }
     },
-
     "/partners/cf/inApp": {
       "post": {
         "summary": "Buscar Pesquisa InApp",
-        "description": "Busca se existe uma pesquisa a ser exibida para um cliente no canal InApp (Sistemas Legados).\n\nRetorna:\n- `eligible` — se o cliente é elegível para ver a pesquisa agora.\n- `complementSurvey` — se ele já respondeu a métrica principal mas ainda pode deixar um comentário.\n- `survey` — estrutura completa da pesquisa (perguntas, cores, automações, etc.).\n- `surveyAnswer` — objeto da sessão; o `_id` dele deve ser usado nos endpoints de **Enviar Resposta** e **Ignorar Pesquisa**.",
+        "description": "Busca se existe uma pesquisa a ser exibida para um cliente no canal InApp (Sistemas Legados). Retorna: 'eligible' (se o cliente é elegível para ver a pesquisa agora); 'complementSurvey' (se ele já respondeu a métrica principal mas pode deixar comentário); 'survey' (estrutura completa da pesquisa com perguntas, cores e automações); 'surveyAnswer' (objeto da sessão — o '_id' dele deve ser usado nos endpoints de Enviar Resposta e Ignorar Pesquisa).",
         "operationId": "buscar-pesquisa-inapp",
-        "tags": ["InApp (Sistemas Legados)"],
+        "tags": [
+          "InApp (Sistemas Legados)"
+        ],
         "requestBody": {
           "required": true,
           "content": {
             "application/json": {
               "schema": {
                 "type": "object",
-                "required": ["name", "email"],
+                "required": [
+                  "name",
+                  "email"
+                ],
                 "properties": {
-                  "name": { "type": "string", "description": "Nome do cliente", "example": "João da Silva" },
-                  "email": { "type": "string", "description": "E-mail do cliente", "example": "joao@example.com" },
-                  "company": { "type": "string", "description": "Empresa do cliente", "example": "Empresa Teste" },
-                  "phone": { "type": "string", "description": "Telefone no padrão E.164", "example": "+5542999999999" },
+                  "name": {
+                    "type": "string",
+                    "description": "Nome do cliente",
+                    "example": "João da Silva"
+                  },
+                  "email": {
+                    "type": "string",
+                    "description": "E-mail do cliente",
+                    "example": "joao@example.com"
+                  },
+                  "company": {
+                    "type": "string",
+                    "description": "Empresa do cliente",
+                    "example": "Empresa Teste"
+                  },
+                  "phone": {
+                    "type": "string",
+                    "description": "Telefone no padrão E.164",
+                    "example": "+5542999999999"
+                  },
                   "custom_fields": {
                     "type": "object",
                     "additionalProperties": true,
                     "description": "Campos customizados do cliente",
-                    "example": { "regiao": "SUL", "id": 12345 }
+                    "example": {
+                      "regiao": "SUL",
+                      "id": 12345
+                    }
                   }
                 }
               }
@@ -450,51 +985,189 @@
                 "schema": {
                   "type": "object",
                   "properties": {
-                    "message": { "type": "string", "example": "OK" },
-                    "eligible": { "type": "boolean", "description": "Se o cliente é elegível para ver e responder a pesquisa agora", "example": true },
-                    "complementSurvey": { "type": "boolean", "description": "Se o cliente já respondeu a métrica principal mas pode ainda complementar com comentário", "example": false },
+                    "message": {
+                      "type": "string",
+                      "example": "OK"
+                    },
+                    "eligible": {
+                      "type": "boolean",
+                      "description": "Se o cliente é elegível para ver e responder a pesquisa agora",
+                      "example": true
+                    },
+                    "complementSurvey": {
+                      "type": "boolean",
+                      "description": "Se o cliente já respondeu a métrica principal mas pode ainda complementar com comentário",
+                      "example": false
+                    },
                     "survey": {
                       "type": "object",
                       "description": "Estrutura completa da pesquisa configurada",
                       "properties": {
-                        "_id": { "type": "string", "description": "ID da pesquisa", "example": "60e336ef69a03a000e20164d" },
-                        "title": { "type": "string", "description": "Título da pesquisa", "example": "Pesquisa InApp" },
-                        "anonymous": { "type": "boolean", "description": "Se a pesquisa é anônima", "example": false },
-                        "active": { "type": "boolean", "example": true },
-                        "draft": { "type": "boolean", "description": "Se a pesquisa ainda é rascunho", "example": false },
-                        "archived": { "type": "boolean", "example": false },
-                        "primary_color": { "type": "string", "description": "Cor principal da pesquisa em hexadecimal", "example": "#ffca00" },
-                        "button_text_color": { "type": "string", "description": "Cor do texto dos botões em hexadecimal", "example": "#ffffff" },
-                        "smartTagsEnabled": { "type": "boolean", "description": "Se SmartTags estão ativas nesta pesquisa", "example": true },
-                        "survey_logo": { "type": "string", "description": "URL da logo exibida na pesquisa", "example": "https://cdn.filestackcontent.com/SPQDJyczSjGTbxYbjgeV" },
-                        "channels": { "type": "array", "description": "Canais habilitados para esta pesquisa", "items": { "type": "string" }, "example": ["inapp", "link-qrcode"] },
+                        "_id": {
+                          "type": "string",
+                          "description": "ID da pesquisa",
+                          "example": "60e336ef69a03a000e20164d"
+                        },
+                        "title": {
+                          "type": "string",
+                          "description": "Título da pesquisa",
+                          "example": "Pesquisa InApp"
+                        },
+                        "anonymous": {
+                          "type": "boolean",
+                          "description": "Se a pesquisa é anônima",
+                          "example": false
+                        },
+                        "active": {
+                          "type": "boolean",
+                          "example": true
+                        },
+                        "draft": {
+                          "type": "boolean",
+                          "description": "Se a pesquisa ainda é rascunho",
+                          "example": false
+                        },
+                        "archived": {
+                          "type": "boolean",
+                          "example": false
+                        },
+                        "primary_color": {
+                          "type": "string",
+                          "description": "Cor principal da pesquisa em hexadecimal",
+                          "example": "#ffca00"
+                        },
+                        "button_text_color": {
+                          "type": "string",
+                          "description": "Cor do texto dos botões em hexadecimal",
+                          "example": "#ffffff"
+                        },
+                        "smartTagsEnabled": {
+                          "type": "boolean",
+                          "description": "Se SmartTags estão ativas nesta pesquisa",
+                          "example": true
+                        },
+                        "survey_logo": {
+                          "type": "string",
+                          "description": "URL da logo exibida na pesquisa",
+                          "example": "https://cdn.filestackcontent.com/SPQDJyczSjGTbxYbjgeV"
+                        },
+                        "channels": {
+                          "type": "array",
+                          "description": "Canais habilitados para esta pesquisa",
+                          "items": {
+                            "type": "string"
+                          },
+                          "example": [
+                            "inapp",
+                            "link-qrcode"
+                          ]
+                        },
                         "questions": {
                           "type": "array",
                           "description": "Perguntas da pesquisa",
                           "items": {
                             "type": "object",
                             "properties": {
-                              "_id": { "type": "string" },
-                              "type": { "type": "string", "description": "Tipo da pergunta", "enum": ["nps", "csat", "ces", "unique", "multiple", "select", "text", "thumbs", "likert", "matrix"], "example": "nps" },
-                              "internal_name": { "type": "string", "description": "Nome interno usado para identificar a pergunta nas respostas", "example": "nps_1" },
-                              "pre_text": { "type": "string", "description": "Texto exibido antes da pergunta", "example": "Gostaríamos de saber a sua opinião!" },
-                              "unlikely_text": { "type": "string", "description": "Rótulo do extremo negativo (NPS/CES)", "example": "Pouco provável" },
-                              "likely_text": { "type": "string", "description": "Rótulo do extremo positivo (NPS/CES)", "example": "Muito provável" },
-                              "accept_others": { "type": "boolean", "description": "Se aceita opção 'Outros' (para tipos multiple e unique)", "example": false },
-                              "isTextArea": { "type": "boolean", "description": "Para perguntas de texto: se deve exibir textarea (true) ou campo de linha única (false)", "example": false },
-                              "options": { "type": ["array", "null"], "description": "Opções de resposta (para tipos unique, multiple e select)", "items": { "type": "string" } },
-                              "required": { "type": "boolean", "description": "Se a pergunta é obrigatória", "example": false },
+                              "_id": {
+                                "type": "string"
+                              },
+                              "type": {
+                                "type": "string",
+                                "description": "Tipo da pergunta",
+                                "enum": [
+                                  "nps",
+                                  "csat",
+                                  "ces",
+                                  "unique",
+                                  "multiple",
+                                  "select",
+                                  "text",
+                                  "thumbs",
+                                  "likert",
+                                  "matrix"
+                                ],
+                                "example": "nps"
+                              },
+                              "internal_name": {
+                                "type": "string",
+                                "description": "Nome interno usado para identificar a pergunta nas respostas",
+                                "example": "nps_1"
+                              },
+                              "pre_text": {
+                                "type": "string",
+                                "description": "Texto exibido antes da pergunta",
+                                "example": "Gostaríamos de saber a sua opinião!"
+                              },
+                              "unlikely_text": {
+                                "type": "string",
+                                "description": "Rótulo do extremo negativo (NPS/CES)",
+                                "example": "Pouco provável"
+                              },
+                              "likely_text": {
+                                "type": "string",
+                                "description": "Rótulo do extremo positivo (NPS/CES)",
+                                "example": "Muito provável"
+                              },
+                              "accept_others": {
+                                "type": "boolean",
+                                "description": "Se aceita opção 'Outros' (para tipos multiple e unique)",
+                                "example": false
+                              },
+                              "isTextArea": {
+                                "type": "boolean",
+                                "description": "Para perguntas de texto: se deve exibir textarea (true) ou campo de linha única (false)",
+                                "example": false
+                              },
+                              "options": {
+                                "type": [
+                                  "array",
+                                  "null"
+                                ],
+                                "description": "Opções de resposta (para tipos unique, multiple e select)",
+                                "items": {
+                                  "type": "string"
+                                }
+                              },
+                              "required": {
+                                "type": "boolean",
+                                "description": "Se a pergunta é obrigatória",
+                                "example": false
+                              },
                               "variations": {
                                 "type": "array",
                                 "description": "Variações do texto da pergunta conforme condição. O item com `condition: null` é o padrão.",
                                 "items": {
                                   "type": "object",
                                   "properties": {
-                                    "_id": { "type": "string" },
-                                    "condition": { "type": ["string", "null"], "description": "Condição para exibir esta variação (ex: 'nps_1,menor,7'). `null` = variação padrão.", "example": null },
-                                    "question": { "type": "string", "description": "Texto da pergunta", "example": "Em uma escala de 0 a 10, qual a probabilidade de recomendar nossa empresa?" },
-                                    "placeholder": { "type": ["string", "null"], "description": "Placeholder do campo (para perguntas de texto)", "example": null },
-                                    "show": { "type": "boolean", "description": "Se a variação tem lógica de exibição condicional", "example": false }
+                                    "_id": {
+                                      "type": "string"
+                                    },
+                                    "condition": {
+                                      "type": [
+                                        "string",
+                                        "null"
+                                      ],
+                                      "description": "Condição para exibir esta variação (ex: 'nps_1,menor,7'). `null` = variação padrão.",
+                                      "example": null
+                                    },
+                                    "question": {
+                                      "type": "string",
+                                      "description": "Texto da pergunta",
+                                      "example": "Em uma escala de 0 a 10, qual a probabilidade de recomendar nossa empresa?"
+                                    },
+                                    "placeholder": {
+                                      "type": [
+                                        "string",
+                                        "null"
+                                      ],
+                                      "description": "Placeholder do campo (para perguntas de texto)",
+                                      "example": null
+                                    },
+                                    "show": {
+                                      "type": "boolean",
+                                      "description": "Se a variação tem lógica de exibição condicional",
+                                      "example": false
+                                    }
                                   }
                                 }
                               }
@@ -505,17 +1178,38 @@
                           "type": "object",
                           "description": "Configuração da página de agradecimento exibida após a pesquisa",
                           "properties": {
-                            "skip": { "type": "boolean", "description": "Se deve pular o agradecimento e redirecionar para URL externa", "example": false },
-                            "url_to_skip": { "type": "string", "description": "URL para redirecionamento quando `skip: true`", "example": "" },
+                            "skip": {
+                              "type": "boolean",
+                              "description": "Se deve pular o agradecimento e redirecionar para URL externa",
+                              "example": false
+                            },
+                            "url_to_skip": {
+                              "type": "string",
+                              "description": "URL para redirecionamento quando `skip: true`",
+                              "example": ""
+                            },
                             "variations": {
                               "type": "array",
                               "description": "Variações da mensagem de agradecimento por condição. O item com `condition: null` é o padrão.",
                               "items": {
                                 "type": "object",
                                 "properties": {
-                                  "_id": { "type": "string" },
-                                  "condition": { "type": ["string", "null"], "description": "Condição para exibir esta mensagem (ex: 'nps_1,menor,7'). `null` = mensagem padrão.", "example": null },
-                                  "message": { "type": "string", "description": "Texto de agradecimento", "example": "Obrigado por responder nossa pesquisa!" }
+                                  "_id": {
+                                    "type": "string"
+                                  },
+                                  "condition": {
+                                    "type": [
+                                      "string",
+                                      "null"
+                                    ],
+                                    "description": "Condição para exibir esta mensagem (ex: 'nps_1,menor,7'). `null` = mensagem padrão.",
+                                    "example": null
+                                  },
+                                  "message": {
+                                    "type": "string",
+                                    "description": "Texto de agradecimento",
+                                    "example": "Obrigado por responder nossa pesquisa!"
+                                  }
                                 }
                               }
                             }
@@ -525,10 +1219,32 @@
                           "type": "object",
                           "description": "Parâmetros de controle de exibição InApp",
                           "properties": {
-                            "first_survey": { "type": "integer", "description": "Quantos dias após o cadastro do cliente a pesquisa começa a ser exibida", "example": 40 },
-                            "dismiss_resurvey_throttle": { "type": ["integer", "null"], "description": "Dias de espera após o cliente fechar a pesquisa sem responder antes de exibir novamente", "example": null },
-                            "observation_resurvey_limit": { "type": "integer", "description": "Limite de dias para reaplicar a pesquisa após resposta", "example": 7 },
-                            "time_delay": { "type": ["integer", "null"], "description": "Delay em segundos antes de exibir a pesquisa na tela", "example": null }
+                            "first_survey": {
+                              "type": "integer",
+                              "description": "Quantos dias após o cadastro do cliente a pesquisa começa a ser exibida",
+                              "example": 40
+                            },
+                            "dismiss_resurvey_throttle": {
+                              "type": [
+                                "integer",
+                                "null"
+                              ],
+                              "description": "Dias de espera após o cliente fechar a pesquisa sem responder antes de exibir novamente",
+                              "example": null
+                            },
+                            "observation_resurvey_limit": {
+                              "type": "integer",
+                              "description": "Limite de dias para reaplicar a pesquisa após resposta",
+                              "example": 7
+                            },
+                            "time_delay": {
+                              "type": [
+                                "integer",
+                                "null"
+                              ],
+                              "description": "Delay em segundos antes de exibir a pesquisa na tela",
+                              "example": null
+                            }
                           }
                         },
                         "automations": {
@@ -537,42 +1253,131 @@
                           "items": {
                             "type": "object",
                             "properties": {
-                              "_id": { "type": "string" },
-                              "condition": { "type": "string", "description": "Condição que dispara a automação (ex: 'nps_1,maior,8')", "example": "nps_1,maior,8" },
-                              "action": { "type": "string", "description": "Ação a executar (ex: `referral_on_screen`, `review_on_screen`)", "example": "referral_on_screen" },
-                              "type": { "type": "string", "example": "true" },
-                              "params": { "type": "object", "additionalProperties": true, "description": "Parâmetros adicionais da automação", "example": { "referralCampaign": "5f888e037e4ec0000e91f12b" } }
+                              "_id": {
+                                "type": "string"
+                              },
+                              "condition": {
+                                "type": "string",
+                                "description": "Condição que dispara a automação (ex: 'nps_1,maior,8')",
+                                "example": "nps_1,maior,8"
+                              },
+                              "action": {
+                                "type": "string",
+                                "description": "Ação a executar (ex: `referral_on_screen`, `review_on_screen`)",
+                                "example": "referral_on_screen"
+                              },
+                              "type": {
+                                "type": "string",
+                                "example": "true"
+                              },
+                              "params": {
+                                "type": "object",
+                                "additionalProperties": true,
+                                "description": "Parâmetros adicionais da automação",
+                                "example": {
+                                  "referralCampaign": "5f888e037e4ec0000e91f12b"
+                                }
+                              }
                             }
                           }
                         },
                         "_business": {
                           "type": "object",
                           "properties": {
-                            "_id": { "type": "string", "description": "ID da unidade", "example": "5b5765bec9498b0014883c0b" },
-                            "_empresa": { "type": "string", "description": "ID da empresa", "example": "59c94ff5e5b20500126eadde" }
+                            "_id": {
+                              "type": "string",
+                              "description": "ID da unidade",
+                              "example": "5b5765bec9498b0014883c0b"
+                            },
+                            "_empresa": {
+                              "type": "string",
+                              "description": "ID da empresa",
+                              "example": "59c94ff5e5b20500126eadde"
+                            }
                           }
                         },
-                        "created_at": { "type": "string", "format": "date-time" },
-                        "updated_at": { "type": "string", "format": "date-time" }
+                        "created_at": {
+                          "type": "string",
+                          "format": "date-time"
+                        },
+                        "updated_at": {
+                          "type": "string",
+                          "format": "date-time"
+                        }
                       }
                     },
                     "surveyAnswer": {
                       "type": "object",
                       "description": "Objeto da pesquisa-resposta criado para esta sessão. O `_id` deste objeto deve ser passado nos endpoints de **Enviar Resposta** (`PUT /partners/cf/inApp/{id}`) e **Ignorar Pesquisa** (`PATCH /partners/cf/inApp/{id}/decline`).",
                       "properties": {
-                        "_id": { "type": "string", "description": "ID da pesquisa-resposta — usar este valor nos endpoints subsequentes", "example": "61ddbce5b038c4c87c78b9b4" },
-                        "_survey": { "type": "string", "description": "ID da pesquisa", "example": "60e336ef69a03a000e20164d" },
-                        "channel": { "type": "integer", "description": "Canal: 4 = InApp", "example": 4 },
-                        "sent_at": { "type": "string", "format": "date-time", "description": "Data/hora do envio", "example": "2022-01-11T17:22:45.150Z" },
-                        "opened_at": { "type": "string", "format": "date-time", "description": "Data/hora de abertura", "example": "2022-01-11T17:22:45.150Z" },
-                        "origin": { "type": "string", "example": "API" },
-                        "anonymized": { "type": "boolean", "example": false },
-                        "_customer": { "type": "string", "description": "ID do contato", "example": "616ef4659ce878549d16c718" },
-                        "_business": { "type": "string", "description": "ID da unidade", "example": "5b5765bec9498b0014883c0b" },
-                        "_smartTags": { "type": "array", "items": { "type": "string" } },
-                        "billing_restriction": { "type": "boolean", "example": true },
-                        "answers": { "type": "array", "description": "Respostas já registradas (vazio na criação)", "items": { "type": "object", "additionalProperties": true } },
-                        "created_at": { "type": "string", "format": "date-time", "example": "2022-01-11T17:22:45.154Z" }
+                        "_id": {
+                          "type": "string",
+                          "description": "ID da pesquisa-resposta — usar este valor nos endpoints subsequentes",
+                          "example": "61ddbce5b038c4c87c78b9b4"
+                        },
+                        "_survey": {
+                          "type": "string",
+                          "description": "ID da pesquisa",
+                          "example": "60e336ef69a03a000e20164d"
+                        },
+                        "channel": {
+                          "type": "integer",
+                          "description": "Canal: 4 = InApp",
+                          "example": 4
+                        },
+                        "sent_at": {
+                          "type": "string",
+                          "format": "date-time",
+                          "description": "Data/hora do envio",
+                          "example": "2022-01-11T17:22:45.150Z"
+                        },
+                        "opened_at": {
+                          "type": "string",
+                          "format": "date-time",
+                          "description": "Data/hora de abertura",
+                          "example": "2022-01-11T17:22:45.150Z"
+                        },
+                        "origin": {
+                          "type": "string",
+                          "example": "API"
+                        },
+                        "anonymized": {
+                          "type": "boolean",
+                          "example": false
+                        },
+                        "_customer": {
+                          "type": "string",
+                          "description": "ID do contato",
+                          "example": "616ef4659ce878549d16c718"
+                        },
+                        "_business": {
+                          "type": "string",
+                          "description": "ID da unidade",
+                          "example": "5b5765bec9498b0014883c0b"
+                        },
+                        "_smartTags": {
+                          "type": "array",
+                          "items": {
+                            "type": "string"
+                          }
+                        },
+                        "billing_restriction": {
+                          "type": "boolean",
+                          "example": true
+                        },
+                        "answers": {
+                          "type": "array",
+                          "description": "Respostas já registradas (vazio na criação)",
+                          "items": {
+                            "type": "object",
+                            "additionalProperties": true
+                          }
+                        },
+                        "created_at": {
+                          "type": "string",
+                          "format": "date-time",
+                          "example": "2022-01-11T17:22:45.154Z"
+                        }
                       }
                     }
                   }
@@ -584,27 +1389,34 @@
         "deprecated": false
       }
     },
-
     "/partners/cf/inApp/{id}": {
       "put": {
         "summary": "Enviar Resposta da Pesquisa InApp",
         "description": "Envia as respostas de uma pesquisa InApp (Sistemas Legados).\n\nPode ser chamado incrementalmente — enquanto o cliente responde pergunta a pergunta — e deve ser chamado com `isFinalize=true` na última chamada para marcar a pesquisa como concluída.",
         "operationId": "enviar-resposta-inapp",
-        "tags": ["InApp (Sistemas Legados)"],
+        "tags": [
+          "InApp (Sistemas Legados)"
+        ],
         "parameters": [
           {
             "name": "id",
             "in": "path",
             "required": true,
             "description": "ID do `surveyAnswer` retornado pelo endpoint **Buscar Pesquisa InApp**",
-            "schema": { "type": "string", "example": "61ddbce5b038c4c87c78b9b4" }
+            "schema": {
+              "type": "string",
+              "example": "61ddbce5b038c4c87c78b9b4"
+            }
           },
           {
             "name": "isFinalize",
             "in": "query",
             "required": false,
             "description": "Quando `true`, marca a pesquisa como finalizada. Enviar `true` na última chamada (quando o cliente completar todas as perguntas obrigatórias).",
-            "schema": { "type": "boolean", "default": false }
+            "schema": {
+              "type": "boolean",
+              "default": false
+            }
           }
         ],
         "requestBody": {
@@ -613,32 +1425,92 @@
             "application/json": {
               "schema": {
                 "type": "object",
-                "required": ["answers"],
+                "required": [
+                  "answers"
+                ],
                 "properties": {
                   "answers": {
                     "type": "array",
                     "description": "Array com as respostas das perguntas respondidas nesta chamada",
                     "items": {
                       "type": "object",
-                      "required": ["internal_name", "answer", "type"],
+                      "required": [
+                        "internal_name",
+                        "answer",
+                        "type"
+                      ],
                       "properties": {
-                        "internal_name": { "type": "string", "description": "Nome interno da pergunta (conforme retornado em `survey.questions[].internal_name`)", "example": "nps_1" },
+                        "internal_name": {
+                          "type": "string",
+                          "description": "Nome interno da pergunta (conforme retornado em `survey.questions[].internal_name`)",
+                          "example": "nps_1"
+                        },
                         "answer": {
-                          "description": "Resposta da pergunta. O tipo varia conforme o `type` da pergunta:\n- `nps`, `csat`, `ces`, `likert` → **number** (ex: `10`)\n- `text`, `unique`, `select` → **string** (ex: `\"Ótimo atendimento\"`)\n- `thumbs` → **string** `\"up\"` ou `\"down\"`\n- `multiple` → **array de strings** (ex: `[\"agilidade\", \"qualidade\"]`)\n- `matrix` → **objeto** com chaves e valores string (ex: `{\"atendimento\": \"Bom\"}`)",
+                          "description": "Resposta da pergunta — o tipo varia conforme o campo 'type': número inteiro para nps/csat/ces/likert (ex: 10); string para text/unique/select (ex: \"Ótimo atendimento\"); string 'up' ou 'down' para thumbs; array de strings para multiple (ex: [\"agilidade\", \"qualidade\"]); objeto chave-valor string para matrix (ex: {\"atendimento\": \"Bom\"}).",
                           "oneOf": [
-                            { "type": "number", "example": 10 },
-                            { "type": "string", "example": "up" },
-                            { "type": "array", "items": { "type": "string" }, "example": ["agilidade", "qualidade"] },
-                            { "type": "object", "additionalProperties": true, "example": { "atendimento": "Bom" } }
+                            {
+                              "type": "number",
+                              "example": 10
+                            },
+                            {
+                              "type": "string",
+                              "example": "up"
+                            },
+                            {
+                              "type": "array",
+                              "items": {
+                                "type": "string"
+                              },
+                              "example": [
+                                "agilidade",
+                                "qualidade"
+                              ]
+                            },
+                            {
+                              "type": "object",
+                              "additionalProperties": true,
+                              "example": {
+                                "atendimento": "Bom"
+                              }
+                            }
                           ]
                         },
-                        "isMainMetric": { "type": "boolean", "description": "Deve ser `true` apenas para a primeira pergunta da pesquisa (métrica principal)", "example": true },
-                        "type": { "type": "string", "description": "Tipo da pergunta", "enum": ["nps", "csat", "ces", "thumbs", "unique", "multiple", "select", "text", "likert", "matrix"], "example": "nps" }
+                        "isMainMetric": {
+                          "type": "boolean",
+                          "description": "Deve ser `true` apenas para a primeira pergunta da pesquisa (métrica principal)",
+                          "example": true
+                        },
+                        "type": {
+                          "type": "string",
+                          "description": "Tipo da pergunta",
+                          "enum": [
+                            "nps",
+                            "csat",
+                            "ces",
+                            "thumbs",
+                            "unique",
+                            "multiple",
+                            "select",
+                            "text",
+                            "likert",
+                            "matrix"
+                          ],
+                          "example": "nps"
+                        }
                       }
                     },
                     "example": [
-                      { "type": "nps", "internal_name": "nps_1", "answer": 10, "isMainMetric": true },
-                      { "type": "text", "internal_name": "text_2", "answer": "Ótimo atendimento" }
+                      {
+                        "type": "nps",
+                        "internal_name": "nps_1",
+                        "answer": 10,
+                        "isMainMetric": true
+                      },
+                      {
+                        "type": "text",
+                        "internal_name": "text_2",
+                        "answer": "Ótimo atendimento"
+                      }
                     ]
                   }
                 }
@@ -654,44 +1526,131 @@
                 "schema": {
                   "type": "object",
                   "properties": {
-                    "_id": { "type": "string", "description": "ID da pesquisa-resposta", "example": "61ddbce5b038c4c87c78b9b4" },
-                    "_survey": { "type": "string", "description": "ID da pesquisa", "example": "60e336ef69a03a000e20164d" },
-                    "channel": { "type": "integer", "description": "Canal: 4 = InApp", "example": 4 },
-                    "sent_at": { "type": "string", "format": "date-time", "example": "2022-01-11T17:22:45.150Z" },
-                    "opened_at": { "type": "string", "format": "date-time", "example": "2022-01-11T17:22:45.150Z" },
-                    "origin": { "type": "string", "example": "API" },
-                    "anonymized": { "type": "boolean", "example": false },
-                    "_customer": { "type": "string", "example": "616ef4659ce878549d16c718" },
-                    "_business": { "type": "string", "example": "5b5765bec9498b0014883c0b" },
-                    "_smartTags": { "type": "array", "items": { "type": "string" } },
-                    "billing_restriction": { "type": "boolean", "example": true },
+                    "_id": {
+                      "type": "string",
+                      "description": "ID da pesquisa-resposta",
+                      "example": "61ddbce5b038c4c87c78b9b4"
+                    },
+                    "_survey": {
+                      "type": "string",
+                      "description": "ID da pesquisa",
+                      "example": "60e336ef69a03a000e20164d"
+                    },
+                    "channel": {
+                      "type": "integer",
+                      "description": "Canal: 4 = InApp",
+                      "example": 4
+                    },
+                    "sent_at": {
+                      "type": "string",
+                      "format": "date-time",
+                      "example": "2022-01-11T17:22:45.150Z"
+                    },
+                    "opened_at": {
+                      "type": "string",
+                      "format": "date-time",
+                      "example": "2022-01-11T17:22:45.150Z"
+                    },
+                    "origin": {
+                      "type": "string",
+                      "example": "API"
+                    },
+                    "anonymized": {
+                      "type": "boolean",
+                      "example": false
+                    },
+                    "_customer": {
+                      "type": "string",
+                      "example": "616ef4659ce878549d16c718"
+                    },
+                    "_business": {
+                      "type": "string",
+                      "example": "5b5765bec9498b0014883c0b"
+                    },
+                    "_smartTags": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    },
+                    "billing_restriction": {
+                      "type": "boolean",
+                      "example": true
+                    },
                     "answers": {
                       "type": "array",
                       "description": "Lista acumulada de respostas registradas até este momento",
                       "items": {
                         "type": "object",
                         "properties": {
-                          "internal_name": { "type": "string", "example": "nps_1" },
+                          "internal_name": {
+                            "type": "string",
+                            "example": "nps_1"
+                          },
                           "answer": {
                             "oneOf": [
-                              { "type": "number" },
-                              { "type": "string" },
-                              { "type": "array", "items": { "type": "string" } },
-                              { "type": "object", "additionalProperties": true }
+                              {
+                                "type": "number"
+                              },
+                              {
+                                "type": "string"
+                              },
+                              {
+                                "type": "array",
+                                "items": {
+                                  "type": "string"
+                                }
+                              },
+                              {
+                                "type": "object",
+                                "additionalProperties": true
+                              }
                             ]
                           },
-                          "isMainMetric": { "type": "boolean", "example": true },
-                          "type": { "type": "string", "example": "nps" },
-                          "_id": { "type": "string", "example": "61e59e566176c3297d39b6f0" }
+                          "isMainMetric": {
+                            "type": "boolean",
+                            "example": true
+                          },
+                          "type": {
+                            "type": "string",
+                            "example": "nps"
+                          },
+                          "_id": {
+                            "type": "string",
+                            "example": "61e59e566176c3297d39b6f0"
+                          }
                         }
                       }
                     },
-                    "created_at": { "type": "string", "format": "date-time", "example": "2022-01-11T17:22:45.154Z" },
-                    "answered": { "type": "boolean", "description": "Se ao menos uma resposta foi registrada", "example": true },
-                    "answered_at": { "type": "string", "format": "date-time", "example": "2022-01-17T16:50:30.158Z" },
-                    "originIp": { "type": "string", "example": "::ffff:127.0.0.1" },
-                    "finalized": { "type": "boolean", "description": "Se a pesquisa foi marcada como finalizada (`isFinalize=true`)", "example": true },
-                    "finalized_at": { "type": "string", "format": "date-time", "example": "2022-01-17T15:00:49.182Z" }
+                    "created_at": {
+                      "type": "string",
+                      "format": "date-time",
+                      "example": "2022-01-11T17:22:45.154Z"
+                    },
+                    "answered": {
+                      "type": "boolean",
+                      "description": "Se ao menos uma resposta foi registrada",
+                      "example": true
+                    },
+                    "answered_at": {
+                      "type": "string",
+                      "format": "date-time",
+                      "example": "2022-01-17T16:50:30.158Z"
+                    },
+                    "originIp": {
+                      "type": "string",
+                      "example": "::ffff:127.0.0.1"
+                    },
+                    "finalized": {
+                      "type": "boolean",
+                      "description": "Se a pesquisa foi marcada como finalizada (`isFinalize=true`)",
+                      "example": true
+                    },
+                    "finalized_at": {
+                      "type": "string",
+                      "format": "date-time",
+                      "example": "2022-01-17T15:00:49.182Z"
+                    }
                   }
                 }
               }
@@ -701,27 +1660,33 @@
         "deprecated": false
       }
     },
-
     "/partners/cf/inApp/{id}/decline": {
       "patch": {
         "summary": "Ignorar Pesquisa InApp",
         "description": "Registra que o cliente fechou ou ignorou a pesquisa sem responder (Sistemas Legados).\n\nDeve ser chamado sempre que o usuário dispensar o widget, para que o sistema contabilize corretamente as tentativas e o throttle de reexibição (SmartFollowUp).",
         "operationId": "ignorar-pesquisa-inapp",
-        "tags": ["InApp (Sistemas Legados)"],
+        "tags": [
+          "InApp (Sistemas Legados)"
+        ],
         "parameters": [
           {
             "name": "id",
             "in": "path",
             "required": true,
             "description": "ID do `surveyAnswer` retornado pelo endpoint **Buscar Pesquisa InApp**",
-            "schema": { "type": "string", "example": "61ddbce5b038c4c87c78b9b4" }
+            "schema": {
+              "type": "string",
+              "example": "61ddbce5b038c4c87c78b9b4"
+            }
           }
         ],
         "requestBody": {
           "required": false,
           "content": {
             "application/json": {
-              "schema": { "type": "object" }
+              "schema": {
+                "type": "object"
+              }
             }
           }
         },
@@ -733,7 +1698,10 @@
                 "schema": {
                   "type": "object",
                   "properties": {
-                    "message": { "type": "string", "example": "ok" }
+                    "message": {
+                      "type": "string",
+                      "example": "ok"
+                    }
                   }
                 }
               }
@@ -743,14 +1711,20 @@
         "deprecated": false
       }
     },
-
     "/partners/users": {
       "get": {
         "summary": "Buscar Usuários",
         "description": "Retorna a lista de usuários da conta. Pode filtrar por e-mail.",
         "operationId": "buscar-usuários",
         "parameters": [
-          { "name": "search", "in": "query", "description": "Filtra pelo campo e-mail", "schema": { "type": "string" } }
+          {
+            "name": "search",
+            "in": "query",
+            "description": "Filtra pelo campo e-mail",
+            "schema": {
+              "type": "string"
+            }
+          }
         ],
         "responses": {
           "200": {
@@ -762,20 +1736,55 @@
                   "items": {
                     "type": "object",
                     "properties": {
-                      "_id": { "type": "string", "description": "ID do usuário", "example": "6287aba50f06ef0bdf789aa2" },
-                      "name": { "type": "string", "description": "Nome do usuário", "example": "Nome do Usuário" },
-                      "email": { "type": "string", "description": "E-mail do usuário", "example": "email@dousuario.com" },
-                      "active": { "type": "boolean", "description": "Se o usuário está ativo", "example": true },
-                      "role": { "type": "string", "description": "Perfil de acesso: `readonly`, `pdv`, `ana`, `adm`, `own`", "example": "own" },
-                      "_empresa": { "type": "string", "description": "ID da empresa", "example": "6287abaef6ee66d309ab00b1" },
-                      "_businesses": { "type": "array", "description": "IDs das unidades que o usuário tem acesso", "items": { "type": "string" }, "example": ["6287abb2ec1259b0a5d75f99"] }
+                      "_id": {
+                        "type": "string",
+                        "description": "ID do usuário",
+                        "example": "6287aba50f06ef0bdf789aa2"
+                      },
+                      "name": {
+                        "type": "string",
+                        "description": "Nome do usuário",
+                        "example": "Nome do Usuário"
+                      },
+                      "email": {
+                        "type": "string",
+                        "description": "E-mail do usuário",
+                        "example": "email@dousuario.com"
+                      },
+                      "active": {
+                        "type": "boolean",
+                        "description": "Se o usuário está ativo",
+                        "example": true
+                      },
+                      "role": {
+                        "type": "string",
+                        "description": "Perfil de acesso: `readonly`, `pdv`, `ana`, `adm`, `own`",
+                        "example": "own"
+                      },
+                      "_empresa": {
+                        "type": "string",
+                        "description": "ID da empresa",
+                        "example": "6287abaef6ee66d309ab00b1"
+                      },
+                      "_businesses": {
+                        "type": "array",
+                        "description": "IDs das unidades que o usuário tem acesso",
+                        "items": {
+                          "type": "string"
+                        },
+                        "example": [
+                          "6287abb2ec1259b0a5d75f99"
+                        ]
+                      }
                     }
                   }
                 }
               }
             }
           },
-          "400": { "description": "Requisição inválida" }
+          "400": {
+            "description": "Requisição inválida"
+          }
         },
         "deprecated": false
       },
@@ -789,7 +1798,10 @@
             "in": "query",
             "required": true,
             "description": "Quando `true`, envia um convite por e-mail ao usuário (o campo `password` não é necessário nesse caso)",
-            "schema": { "type": "boolean", "default": false }
+            "schema": {
+              "type": "boolean",
+              "default": false
+            }
           }
         ],
         "requestBody": {
@@ -797,15 +1809,60 @@
             "application/json": {
               "schema": {
                 "type": "object",
-                "required": ["name", "email", "role", "_businesses"],
+                "required": [
+                  "name",
+                  "email",
+                  "role",
+                  "_businesses"
+                ],
                 "properties": {
-                  "name": { "type": "string", "description": "Nome completo do usuário", "example": "João da Silva" },
-                  "email": { "type": "string", "description": "E-mail do usuário. Deve ser único — se já existir, a criação será recusada.", "example": "joao@example.com" },
-                  "phone": { "type": "string", "description": "Telefone do usuário (opcional)", "example": "+5542999999999" },
-                  "password": { "type": "string", "description": "Senha do usuário em texto plano. Obrigatório quando `isInvite=false` e não há SSO configurado.", "example": "MinhaSenh@123" },
-                  "role": { "type": "string", "description": "Perfil de acesso: `readonly` (somente leitura), `pdv` (ponto de venda), `ana` (analista), `adm` (administrador), `own` (proprietário)", "enum": ["readonly", "pdv", "ana", "adm", "own"], "example": "pdv" },
-                  "picture": { "type": "string", "description": "URL da foto de perfil do usuário", "example": "https://example.com/foto.jpg" },
-                  "_businesses": { "type": "array", "description": "IDs das unidades às quais o usuário terá acesso. Se enviado vazio, será adicionado a todas as unidades.", "items": { "type": "string" }, "example": ["6287abb2ec1259b0a5d75f99"] }
+                  "name": {
+                    "type": "string",
+                    "description": "Nome completo do usuário",
+                    "example": "João da Silva"
+                  },
+                  "email": {
+                    "type": "string",
+                    "description": "E-mail do usuário. Deve ser único — se já existir, a criação será recusada.",
+                    "example": "joao@example.com"
+                  },
+                  "phone": {
+                    "type": "string",
+                    "description": "Telefone do usuário (opcional)",
+                    "example": "+5542999999999"
+                  },
+                  "password": {
+                    "type": "string",
+                    "description": "Senha do usuário em texto plano. Obrigatório quando `isInvite=false` e não há SSO configurado.",
+                    "example": "MinhaSenh@123"
+                  },
+                  "role": {
+                    "type": "string",
+                    "description": "Perfil de acesso: `readonly` (somente leitura), `pdv` (ponto de venda), `ana` (analista), `adm` (administrador), `own` (proprietário)",
+                    "enum": [
+                      "readonly",
+                      "pdv",
+                      "ana",
+                      "adm",
+                      "own"
+                    ],
+                    "example": "pdv"
+                  },
+                  "picture": {
+                    "type": "string",
+                    "description": "URL da foto de perfil do usuário",
+                    "example": "https://example.com/foto.jpg"
+                  },
+                  "_businesses": {
+                    "type": "array",
+                    "description": "IDs das unidades às quais o usuário terá acesso. Se enviado vazio, será adicionado a todas as unidades.",
+                    "items": {
+                      "type": "string"
+                    },
+                    "example": [
+                      "6287abb2ec1259b0a5d75f99"
+                    ]
+                  }
                 }
               }
             }
@@ -819,25 +1876,54 @@
                 "schema": {
                   "type": "object",
                   "properties": {
-                    "_id": { "type": "string", "example": "6287aba50f06ef0bdf789aa2" },
-                    "name": { "type": "string", "example": "João da Silva" },
-                    "email": { "type": "string", "example": "joao@example.com" },
-                    "active": { "type": "boolean", "example": true },
-                    "role": { "type": "string", "example": "pdv" },
-                    "_empresa": { "type": "string", "example": "6287abaef6ee66d309ab00b1" },
-                    "_businesses": { "type": "array", "items": { "type": "string" }, "example": ["6287abb2ec1259b0a5d75f99"] }
+                    "_id": {
+                      "type": "string",
+                      "example": "6287aba50f06ef0bdf789aa2"
+                    },
+                    "name": {
+                      "type": "string",
+                      "example": "João da Silva"
+                    },
+                    "email": {
+                      "type": "string",
+                      "example": "joao@example.com"
+                    },
+                    "active": {
+                      "type": "boolean",
+                      "example": true
+                    },
+                    "role": {
+                      "type": "string",
+                      "example": "pdv"
+                    },
+                    "_empresa": {
+                      "type": "string",
+                      "example": "6287abaef6ee66d309ab00b1"
+                    },
+                    "_businesses": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      },
+                      "example": [
+                        "6287abb2ec1259b0a5d75f99"
+                      ]
+                    }
                   }
                 }
               }
             }
           },
-          "400": { "description": "E-mail já existe (`E-mail already exists`)" },
-          "422": { "description": "Dados inválidos" }
+          "400": {
+            "description": "E-mail já existe (`E-mail already exists`)"
+          },
+          "422": {
+            "description": "Dados inválidos"
+          }
         },
         "deprecated": false
       }
     },
-
     "/partners/users/{user_id}": {
       "put": {
         "summary": "Atualizar Usuário",
@@ -849,7 +1935,10 @@
             "in": "path",
             "required": true,
             "description": "ID do usuário a ser atualizado",
-            "schema": { "type": "string", "example": "6287aba50f06ef0bdf789aa2" }
+            "schema": {
+              "type": "string",
+              "example": "6287aba50f06ef0bdf789aa2"
+            }
           }
         ],
         "requestBody": {
@@ -858,13 +1947,47 @@
               "schema": {
                 "type": "object",
                 "properties": {
-                  "name": { "type": "string", "example": "João da Silva" },
-                  "email": { "type": "string", "example": "joao@example.com" },
-                  "phone": { "type": "string", "example": "+5542999999999" },
-                  "role": { "type": "string", "enum": ["readonly", "pdv", "ana", "adm", "own"], "example": "adm" },
-                  "picture": { "type": "string", "example": "https://example.com/foto.jpg" },
-                  "active": { "type": "boolean", "description": "Ativar ou desativar o usuário", "example": true },
-                  "_businesses": { "type": "array", "items": { "type": "string" }, "example": ["6287abb2ec1259b0a5d75f99"] }
+                  "name": {
+                    "type": "string",
+                    "example": "João da Silva"
+                  },
+                  "email": {
+                    "type": "string",
+                    "example": "joao@example.com"
+                  },
+                  "phone": {
+                    "type": "string",
+                    "example": "+5542999999999"
+                  },
+                  "role": {
+                    "type": "string",
+                    "enum": [
+                      "readonly",
+                      "pdv",
+                      "ana",
+                      "adm",
+                      "own"
+                    ],
+                    "example": "adm"
+                  },
+                  "picture": {
+                    "type": "string",
+                    "example": "https://example.com/foto.jpg"
+                  },
+                  "active": {
+                    "type": "boolean",
+                    "description": "Ativar ou desativar o usuário",
+                    "example": true
+                  },
+                  "_businesses": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    },
+                    "example": [
+                      "6287abb2ec1259b0a5d75f99"
+                    ]
+                  }
                 }
               }
             }
@@ -878,20 +2001,50 @@
                 "schema": {
                   "type": "object",
                   "properties": {
-                    "_id": { "type": "string", "example": "6287aba50f06ef0bdf789aa2" },
-                    "name": { "type": "string", "example": "João da Silva" },
-                    "email": { "type": "string", "example": "joao@example.com" },
-                    "active": { "type": "boolean", "example": true },
-                    "role": { "type": "string", "example": "adm" },
-                    "_empresa": { "type": "string", "example": "6287abaef6ee66d309ab00b1" },
-                    "_businesses": { "type": "array", "items": { "type": "string" }, "example": ["6287abb2ec1259b0a5d75f99"] }
+                    "_id": {
+                      "type": "string",
+                      "example": "6287aba50f06ef0bdf789aa2"
+                    },
+                    "name": {
+                      "type": "string",
+                      "example": "João da Silva"
+                    },
+                    "email": {
+                      "type": "string",
+                      "example": "joao@example.com"
+                    },
+                    "active": {
+                      "type": "boolean",
+                      "example": true
+                    },
+                    "role": {
+                      "type": "string",
+                      "example": "adm"
+                    },
+                    "_empresa": {
+                      "type": "string",
+                      "example": "6287abaef6ee66d309ab00b1"
+                    },
+                    "_businesses": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      },
+                      "example": [
+                        "6287abb2ec1259b0a5d75f99"
+                      ]
+                    }
                   }
                 }
               }
             }
           },
-          "400": { "description": "Dados inválidos" },
-          "422": { "description": "Erro de validação" }
+          "400": {
+            "description": "Dados inválidos"
+          },
+          "422": {
+            "description": "Erro de validação"
+          }
         },
         "deprecated": false
       },
@@ -905,18 +2058,26 @@
             "in": "path",
             "required": true,
             "description": "ID do usuário a ser excluído",
-            "schema": { "type": "string", "example": "6287aba50f06ef0bdf789aa2" }
+            "schema": {
+              "type": "string",
+              "example": "6287aba50f06ef0bdf789aa2"
+            }
           }
         ],
         "responses": {
-          "200": { "description": "Usuário excluído com sucesso" },
-          "400": { "description": "Dados inválidos" },
-          "404": { "description": "Usuário não encontrado (`User not found`)" }
+          "200": {
+            "description": "Usuário excluído com sucesso"
+          },
+          "400": {
+            "description": "Dados inválidos"
+          },
+          "404": {
+            "description": "Usuário não encontrado (`User not found`)"
+          }
         },
         "deprecated": false
       }
     },
-
     "/partners/businesses": {
       "get": {
         "summary": "Buscar Unidades",
@@ -932,35 +2093,109 @@
                   "items": {
                     "type": "object",
                     "properties": {
-                      "_id": { "type": "string", "description": "ID da unidade", "example": "6287ac86a817b84a36ed9298" },
-                      "nome": { "type": "string", "description": "Nome da unidade", "example": "01 - Empresa Teste - Matriz" },
-                      "created_at": { "type": "string", "format": "date-time", "description": "Data de criação", "example": "2018-07-24T17:45:34.034Z" },
-                      "picture": { "type": "string", "description": "URL da logo da unidade", "example": "https://cdn.filestackcontent.com/SPQDJyczSjGTbxYbjgeV" }
+                      "_id": {
+                        "type": "string",
+                        "description": "ID da unidade",
+                        "example": "6287ac86a817b84a36ed9298"
+                      },
+                      "nome": {
+                        "type": "string",
+                        "description": "Nome da unidade",
+                        "example": "01 - Empresa Teste - Matriz"
+                      },
+                      "created_at": {
+                        "type": "string",
+                        "format": "date-time",
+                        "description": "Data de criação",
+                        "example": "2018-07-24T17:45:34.034Z"
+                      },
+                      "picture": {
+                        "type": "string",
+                        "description": "URL da logo da unidade",
+                        "example": "https://cdn.filestackcontent.com/SPQDJyczSjGTbxYbjgeV"
+                      }
                     }
                   }
                 }
               }
             }
           },
-          "400": { "description": "Requisição inválida" }
+          "400": {
+            "description": "Requisição inválida"
+          }
         },
         "deprecated": false
       }
     },
-
     "/partners/review/summary": {
       "get": {
         "summary": "Resumo de Avaliações Online",
         "description": "Retorna um resumo das avaliações coletadas em plataformas externas (Google, Facebook, Expedia, Booking, etc.) com médias por rede e lista de avaliações. Utilize o Token fornecido na página de configurações da Amplifique.me.",
         "operationId": "resumo-de-avaliacoes",
         "parameters": [
-          { "name": "limit", "in": "query", "description": "Número de avaliações a retornar na lista. Mín: 0, Máx: 15", "schema": { "type": "integer", "default": 5 } },
-          { "name": "rateMin", "in": "query", "description": "Score mínimo das avaliações a exibir. Mín: 0, Máx: 5", "schema": { "type": "integer", "default": 0 } },
-          { "name": "rateMax", "in": "query", "description": "Score máximo das avaliações a exibir. Mín: 0, Máx: 5", "schema": { "type": "integer", "default": 5 } },
-          { "name": "page", "in": "query", "description": "Página a exibir", "schema": { "type": "integer", "default": 0 } },
-          { "name": "only_text", "in": "query", "description": "Quando `true`, retorna apenas avaliações que possuem comentário de texto", "schema": { "type": "boolean", "default": false } },
-          { "name": "dateMin", "in": "query", "description": "Data mínima das avaliações (formato DD/MM/YYYY)", "schema": { "type": "string", "example": "01/01/2024" } },
-          { "name": "dateMax", "in": "query", "description": "Data máxima das avaliações (formato DD/MM/YYYY)", "schema": { "type": "string", "example": "31/12/2024" } }
+          {
+            "name": "limit",
+            "in": "query",
+            "description": "Número de avaliações a retornar na lista. Mín: 0, Máx: 15",
+            "schema": {
+              "type": "integer",
+              "default": 5
+            }
+          },
+          {
+            "name": "rateMin",
+            "in": "query",
+            "description": "Score mínimo das avaliações a exibir. Mín: 0, Máx: 5",
+            "schema": {
+              "type": "integer",
+              "default": 0
+            }
+          },
+          {
+            "name": "rateMax",
+            "in": "query",
+            "description": "Score máximo das avaliações a exibir. Mín: 0, Máx: 5",
+            "schema": {
+              "type": "integer",
+              "default": 5
+            }
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "description": "Página a exibir",
+            "schema": {
+              "type": "integer",
+              "default": 0
+            }
+          },
+          {
+            "name": "only_text",
+            "in": "query",
+            "description": "Quando `true`, retorna apenas avaliações que possuem comentário de texto",
+            "schema": {
+              "type": "boolean",
+              "default": false
+            }
+          },
+          {
+            "name": "dateMin",
+            "in": "query",
+            "description": "Data mínima das avaliações (formato DD/MM/YYYY)",
+            "schema": {
+              "type": "string",
+              "example": "01/01/2024"
+            }
+          },
+          {
+            "name": "dateMax",
+            "in": "query",
+            "description": "Data máxima das avaliações (formato DD/MM/YYYY)",
+            "schema": {
+              "type": "string",
+              "example": "31/12/2024"
+            }
+          }
         ],
         "responses": {
           "200": {
@@ -976,15 +2211,35 @@
                       "additionalProperties": {
                         "type": "object",
                         "properties": {
-                          "average": { "type": "number", "description": "Nota média na rede", "example": 4.86 },
-                          "reviews": { "type": "integer", "description": "Total de avaliações na rede", "example": 28 }
+                          "average": {
+                            "type": "number",
+                            "description": "Nota média na rede",
+                            "example": 4.86
+                          },
+                          "reviews": {
+                            "type": "integer",
+                            "description": "Total de avaliações na rede",
+                            "example": 28
+                          }
                         }
                       },
                       "example": {
-                        "google": { "average": 4.86, "reviews": 28 },
-                        "facebook": { "average": 5, "reviews": 1 },
-                        "expedia": { "average": 4.66, "reviews": 65 },
-                        "total": { "average": 4.84, "reviews": 94 }
+                        "google": {
+                          "average": 4.86,
+                          "reviews": 28
+                        },
+                        "facebook": {
+                          "average": 5,
+                          "reviews": 1
+                        },
+                        "expedia": {
+                          "average": 4.66,
+                          "reviews": 65
+                        },
+                        "total": {
+                          "average": 4.84,
+                          "reviews": 94
+                        }
                       }
                     },
                     "reviews": {
@@ -996,14 +2251,39 @@
                           "Reviewer": {
                             "type": "object",
                             "properties": {
-                              "name": { "type": "string", "description": "Nome do avaliador", "example": "João da Silva" }
+                              "name": {
+                                "type": "string",
+                                "description": "Nome do avaliador",
+                                "example": "João da Silva"
+                              }
                             }
                           },
-                          "network": { "type": "string", "description": "Rede de origem da avaliação (google, facebook, expedia, booking, etc.)", "example": "google" },
-                          "created_at": { "type": "string", "format": "date-time", "description": "Data da avaliação", "example": "2020-03-10T00:46:56.000Z" },
-                          "message": { "type": "string", "description": "Texto do comentário deixado pelo avaliador", "example": "Ótimo atendimento, recomendo!" },
-                          "rate": { "type": "integer", "description": "Nota da avaliação (0–5)", "example": 5 },
-                          "reply": { "type": "string", "description": "Resposta da empresa à avaliação (quando houver)", "example": "Obrigado pelo seu feedback!" }
+                          "network": {
+                            "type": "string",
+                            "description": "Rede de origem da avaliação (google, facebook, expedia, booking, etc.)",
+                            "example": "google"
+                          },
+                          "created_at": {
+                            "type": "string",
+                            "format": "date-time",
+                            "description": "Data da avaliação",
+                            "example": "2020-03-10T00:46:56.000Z"
+                          },
+                          "message": {
+                            "type": "string",
+                            "description": "Texto do comentário deixado pelo avaliador",
+                            "example": "Ótimo atendimento, recomendo!"
+                          },
+                          "rate": {
+                            "type": "integer",
+                            "description": "Nota da avaliação (0–5)",
+                            "example": 5
+                          },
+                          "reply": {
+                            "type": "string",
+                            "description": "Resposta da empresa à avaliação (quando houver)",
+                            "example": "Obrigado pelo seu feedback!"
+                          }
                         }
                       }
                     }
@@ -1012,12 +2292,13 @@
               }
             }
           },
-          "400": { "description": "Requisição inválida" }
+          "400": {
+            "description": "Requisição inválida"
+          }
         },
         "deprecated": false
       }
     }
-
   },
   "x-readme": {
     "headers": [],
