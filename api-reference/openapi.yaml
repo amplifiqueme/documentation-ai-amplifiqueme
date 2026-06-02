@@ -17,6 +17,210 @@
         "name": "Authorization",
         "x-bearer-format": "bearer"
       }
+    },
+    "schemas": {
+      "SurveyAnswer": {
+        "type": "object",
+        "properties": {
+          "_id": {
+            "type": "string",
+            "example": "61ddbce5b038c4c87c78b9b4"
+          },
+          "_survey": {
+            "type": "string",
+            "example": "60e336ef69a03a000e20164d"
+          },
+          "channel": {
+            "type": "integer",
+            "example": 4,
+            "description": "Canal de envio: 0→SMS, 1→EMAIL, 2→WHATSAPP, 3→LINK, 4→INAPP, 6→WhatsApp API"
+          },
+          "sent_at": {
+            "type": "string",
+            "format": "date-time",
+            "example": "2022-01-11T17:22:45.150Z"
+          },
+          "opened_at": {
+            "type": "string",
+            "format": "date-time",
+            "example": "2022-01-11T17:22:45.150Z"
+          },
+          "origin": {
+            "type": "string",
+            "example": "API"
+          },
+          "anonymized": {
+            "type": "boolean",
+            "example": false
+          },
+          "_customer": {
+            "type": "string",
+            "example": "616ef4659ce878549d16c718"
+          },
+          "_business": {
+            "type": "string",
+            "example": "5b5765bec9498b0014883c0b"
+          },
+          "_smartTags": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "billing_restriction": {
+            "type": "boolean",
+            "example": true
+          },
+          "answers": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "internal_name": {
+                  "type": "string",
+                  "example": "nps_1"
+                },
+                "answer": {
+                  "description": "Resposta da pergunta. Número para métricas (nps, csat, ces, likert), string para demais tipos.",
+                  "oneOf": [
+                    {
+                      "type": "number"
+                    },
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    },
+                    {
+                      "type": "object"
+                    }
+                  ]
+                },
+                "isMainMetric": {
+                  "type": "boolean",
+                  "example": true
+                },
+                "type": {
+                  "type": "string",
+                  "enum": ["nps", "csat", "ces", "thumbs", "unique", "multiple", "select", "text", "likert", "matrix"],
+                  "example": "nps"
+                },
+                "_id": {
+                  "type": "string",
+                  "example": "61e59e566176c3297d39b6f0"
+                }
+              }
+            }
+          },
+          "created_at": {
+            "type": "string",
+            "format": "date-time",
+            "example": "2022-01-11T17:22:45.154Z"
+          },
+          "answered": {
+            "type": "boolean",
+            "example": true
+          },
+          "answered_at": {
+            "type": "string",
+            "format": "date-time",
+            "example": "2022-01-17T16:50:30.158Z"
+          },
+          "originIp": {
+            "type": "string",
+            "example": "::ffff:127.0.0.1"
+          },
+          "finalized": {
+            "type": "boolean",
+            "example": true
+          },
+          "finalized_at": {
+            "type": "string",
+            "format": "date-time",
+            "example": "2022-01-17T15:00:49.182Z"
+          }
+        }
+      },
+      "SurveyQuestion": {
+        "type": "object",
+        "properties": {
+          "_id": {
+            "type": "string"
+          },
+          "type": {
+            "type": "string",
+            "enum": ["nps", "csat", "ces", "unique", "multiple", "select", "text", "thumbs", "likert", "matrix"],
+            "example": "nps"
+          },
+          "internal_name": {
+            "type": "string",
+            "example": "nps_1"
+          },
+          "pre_text": {
+            "type": "string",
+            "example": "Gostaríamos de saber a sua opinião!"
+          },
+          "unlikely_text": {
+            "type": "string",
+            "example": "pouco provável"
+          },
+          "likely_text": {
+            "type": "string",
+            "example": "muito provável"
+          },
+          "accept_others": {
+            "type": "boolean",
+            "example": false
+          },
+          "isTextArea": {
+            "type": "boolean",
+            "example": false
+          },
+          "options": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          },
+          "required": {
+            "type": "boolean",
+            "example": false
+          },
+          "variations": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "_id": {
+                  "type": "string"
+                },
+                "condition": {
+                  "type": "string",
+                  "nullable": true,
+                  "description": "null = variação padrão"
+                },
+                "question": {
+                  "type": "string",
+                  "example": "Em uma escala de 0 a 10, qual é a probabilidade de você recomendar nossa empresa?"
+                },
+                "placeholder": {
+                  "type": "string",
+                  "nullable": true
+                },
+                "show": {
+                  "type": "boolean",
+                  "example": false
+                }
+              }
+            }
+          }
+        }
+      }
     }
   },
   "security": [
@@ -35,10 +239,7 @@
             "application/json": {
               "schema": {
                 "type": "object",
-                "required": [
-                  "name",
-                  "email"
-                ],
+                "required": ["name", "email"],
                 "properties": {
                   "name": {
                     "type": "string",
@@ -84,7 +285,7 @@
                     "type": "object",
                     "description": "*Opcional*  Objeto JSON com parâmetros adicionais",
                     "properties": {
-                        "regiao": {
+                      "regiao": {
                         "type": "string",
                         "description": "Exemplo de customField regiao",
                         "default": "Sul"
@@ -318,12 +519,7 @@
             "application/json": {
               "schema": {
                 "type": "object",
-                "required": [
-                  "name",
-                  "email",
-                  "role",
-                  "_businesses"
-                ],
+                "required": ["name", "email", "role", "_businesses"],
                 "properties": {
                   "name": {
                     "type": "string",
@@ -346,13 +542,7 @@
                   "role": {
                     "type": "string",
                     "default": "pdv",
-                    "enum": [
-                      "readonly",
-                      "pdv",
-                      "ana",
-                      "adm",
-                      "own"
-                    ]
+                    "enum": ["readonly", "pdv", "ana", "adm", "own"]
                   },
                   "picture": {
                     "type": "string",
@@ -362,9 +552,7 @@
                   "_businesses": {
                     "type": "array",
                     "description": "Lista com os Ids das Unidades para dar permissão ao Usuário, se vazio, irá adicionar todas.",
-                    "default": [
-                      "[\"6287abb2ec1259b0a5d75f99\"]"
-                    ],
+                    "default": ["[\"6287abb2ec1259b0a5d75f99\"]"],
                     "items": {
                       "type": "string"
                     }
@@ -1520,6 +1708,420 @@
         "requestBody": {
           "content": {}
         }
+      }
+    },
+    "/partners/cf/inApp": {
+      "post": {
+        "summary": "Buscar Pesquisa InApp (Sistemas Legados)",
+        "description": "Busca se existe uma pesquisa a ser mostrada para um cliente no canal InApp. Retorna elegibilidade, estrutura completa da pesquisa e o objeto de resposta a ser utilizado nos endpoints subsequentes.\n\n**Campos de retorno relevantes:**\n- `eligible` — se o cliente é elegível para ver a pesquisa.\n- `complementSurvey` — se o cliente já respondeu a métrica principal mas ainda pode complementar com comentário.\n- `survey` — estrutura completa da pesquisa (perguntas, cores, automações, etc.).\n- `surveyAnswer` — objeto criado para a sessão; o `_id` deste objeto deve ser usado nos endpoints de resposta e de ignorar pesquisa.",
+        "operationId": "buscar-pesquisa-inapp",
+        "tags": ["InApp (Sistemas Legados)"],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": ["name", "email"],
+                "properties": {
+                  "name": {
+                    "type": "string",
+                    "description": "Nome do cliente",
+                    "example": "Customer Name"
+                  },
+                  "email": {
+                    "type": "string",
+                    "description": "E-mail do cliente",
+                    "example": "customer@email.com"
+                  },
+                  "company": {
+                    "type": "string",
+                    "description": "Empresa do cliente",
+                    "example": "Customer Company"
+                  },
+                  "phone": {
+                    "type": "string",
+                    "description": "Telefone no padrão E.164",
+                    "example": "+55DD9XXXXXXXX"
+                  },
+                  "custom_fields": {
+                    "type": "object",
+                    "description": "Campos customizados do cliente",
+                    "example": {
+                      "regiao": "SUL",
+                      "id": 12345
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Retorno com elegibilidade, pesquisa e objeto de resposta",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "example": "OK"
+                    },
+                    "eligible": {
+                      "type": "boolean",
+                      "description": "Se o cliente é elegível para responder a pesquisa",
+                      "example": true
+                    },
+                    "complementSurvey": {
+                      "type": "boolean",
+                      "description": "Se é apenas para complementar (cliente já respondeu a métrica principal, mas não deixou comentário)",
+                      "example": false
+                    },
+                    "survey": {
+                      "type": "object",
+                      "description": "Estrutura completa da pesquisa",
+                      "properties": {
+                        "_id": {
+                          "type": "string",
+                          "example": "60e336ef69a03a000e20164d"
+                        },
+                        "title": {
+                          "type": "string",
+                          "example": "In App Identificada"
+                        },
+                        "anonymous": {
+                          "type": "boolean",
+                          "example": false
+                        },
+                        "active": {
+                          "type": "boolean",
+                          "example": true
+                        },
+                        "draft": {
+                          "type": "boolean",
+                          "example": false
+                        },
+                        "archived": {
+                          "type": "boolean",
+                          "example": false
+                        },
+                        "primary_color": {
+                          "type": "string",
+                          "description": "Hexadecimal da cor principal",
+                          "example": "#ffca00"
+                        },
+                        "button_text_color": {
+                          "type": "string",
+                          "description": "Hexadecimal da cor do texto do botão",
+                          "example": "#ffffff"
+                        },
+                        "smartTagsEnabled": {
+                          "type": "boolean",
+                          "example": true
+                        },
+                        "survey_logo": {
+                          "type": "string",
+                          "description": "URL da logo da pesquisa",
+                          "example": "https://cdn.filestackcontent.com/SPQDJyczSjGTbxYbjgeV"
+                        },
+                        "channels": {
+                          "type": "array",
+                          "items": {
+                            "type": "string"
+                          },
+                          "example": ["inapp", "link-qrcode", "whatsapp-web"]
+                        },
+                        "questions": {
+                          "type": "array",
+                          "items": {
+                            "$ref": "#/components/schemas/SurveyQuestion"
+                          }
+                        },
+                        "thankyou_page": {
+                          "type": "object",
+                          "properties": {
+                            "skip": {
+                              "type": "boolean",
+                              "description": "Pular agradecimento e redirecionar para URL externa",
+                              "example": false
+                            },
+                            "url_to_skip": {
+                              "type": "string",
+                              "example": ""
+                            },
+                            "variations": {
+                              "type": "array",
+                              "items": {
+                                "type": "object",
+                                "properties": {
+                                  "_id": {
+                                    "type": "string"
+                                  },
+                                  "condition": {
+                                    "type": "string",
+                                    "nullable": true,
+                                    "description": "null = mensagem padrão; Ex: 'nps_1,menor,7'"
+                                  },
+                                  "message": {
+                                    "type": "string",
+                                    "example": "Obrigado por responder nossa pesquisa!"
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        },
+                        "inapp_params": {
+                          "type": "object",
+                          "properties": {
+                            "first_survey": {
+                              "type": "integer",
+                              "description": "Dias após o cadastro para exibir a primeira pesquisa",
+                              "example": 40
+                            },
+                            "dismiss_resurvey_throttle": {
+                              "type": "integer",
+                              "nullable": true
+                            },
+                            "observation_resurvey_limit": {
+                              "type": "integer",
+                              "example": 7
+                            },
+                            "time_delay": {
+                              "type": "integer",
+                              "nullable": true
+                            }
+                          }
+                        },
+                        "automations": {
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "_id": {
+                                "type": "string"
+                              },
+                              "condition": {
+                                "type": "string",
+                                "example": "nps_1,maior,8"
+                              },
+                              "action": {
+                                "type": "string",
+                                "example": "referral_on_screen"
+                              },
+                              "type": {
+                                "type": "string",
+                                "example": "true"
+                              },
+                              "params": {
+                                "type": "object"
+                              }
+                            }
+                          }
+                        },
+                        "_business": {
+                          "type": "object",
+                          "properties": {
+                            "_id": {
+                              "type": "string",
+                              "example": "5b5765bec9498b0014883c0b"
+                            },
+                            "_empresa": {
+                              "type": "string",
+                              "example": "59c94ff5e5b20500126eadde"
+                            }
+                          }
+                        },
+                        "created_at": {
+                          "type": "string",
+                          "format": "date-time"
+                        },
+                        "updated_at": {
+                          "type": "string",
+                          "format": "date-time"
+                        }
+                      }
+                    },
+                    "surveyAnswer": {
+                      "description": "Objeto da pesquisa-resposta criado para esta sessão. O `_id` deste objeto deve ser passado nos endpoints de Enviar Resposta e Ignorar Pesquisa.",
+                      "allOf": [
+                        {
+                          "$ref": "#/components/schemas/SurveyAnswer"
+                        }
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/partners/cf/inApp/{id}": {
+      "put": {
+        "summary": "Enviar Resposta da Pesquisa InApp (Sistemas Legados)",
+        "description": "Envia as respostas de uma pesquisa InApp. Pode ser chamado parcialmente (enquanto o usuário responde pergunta a pergunta) e finalizado com `isFinalize=true` ao concluir.",
+        "operationId": "enviar-resposta-inapp",
+        "tags": ["InApp (Sistemas Legados)"],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "ID do `surveyAnswer` retornado pelo endpoint de Buscar Pesquisa InApp",
+            "schema": {
+              "type": "string",
+              "example": "61ddbce5b038c4c87c78b9b4"
+            }
+          },
+          {
+            "name": "isFinalize",
+            "in": "query",
+            "required": false,
+            "description": "Quando `true`, marca a pesquisa como finalizada. Envie `true` na última chamada (ou quando o usuário completar todas as perguntas).",
+            "schema": {
+              "type": "boolean",
+              "default": false
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": ["answers"],
+                "properties": {
+                  "answers": {
+                    "type": "array",
+                    "description": "Array com as respostas das perguntas",
+                    "items": {
+                      "type": "object",
+                      "required": ["internal_name", "answer", "type"],
+                      "properties": {
+                        "internal_name": {
+                          "type": "string",
+                          "description": "Nome interno da pergunta",
+                          "example": "nps_1"
+                        },
+                        "answer": {
+                          "description": "Resposta da pergunta. Número para métricas (nps, csat, ces, likert); string para text/unique/select; array de strings para multiple; 'up'/'down' para thumbs; objeto {chave: valor} para matrix.",
+                          "oneOf": [
+                            {
+                              "type": "number"
+                            },
+                            {
+                              "type": "string"
+                            },
+                            {
+                              "type": "array",
+                              "items": {
+                                "type": "string"
+                              }
+                            },
+                            {
+                              "type": "object"
+                            }
+                          ]
+                        },
+                        "isMainMetric": {
+                          "type": "boolean",
+                          "description": "Deve ser `true` apenas para a primeira pergunta (métrica principal)",
+                          "example": true
+                        },
+                        "type": {
+                          "type": "string",
+                          "enum": ["nps", "csat", "ces", "thumbs", "unique", "multiple", "select", "text", "likert", "matrix"],
+                          "example": "nps"
+                        }
+                      }
+                    },
+                    "example": [
+                      {
+                        "type": "nps",
+                        "internal_name": "nps_1",
+                        "answer": 10,
+                        "isMainMetric": true
+                      },
+                      {
+                        "type": "text",
+                        "internal_name": "text_2",
+                        "answer": "Teste 123"
+                      }
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Resposta registrada com sucesso",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SurveyAnswer"
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/partners/cf/inApp/{id}/decline": {
+      "patch": {
+        "summary": "Ignorar Pesquisa InApp (Sistemas Legados)",
+        "description": "Registra que o usuário fechou/ignorou a pesquisa sem responder. Deve ser chamado sempre que o usuário dispensar o widget de pesquisa, para contabilizar corretamente as tentativas e o throttle de reexibição.",
+        "operationId": "ignorar-pesquisa-inapp",
+        "tags": ["InApp (Sistemas Legados)"],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "ID do `surveyAnswer` retornado pelo endpoint de Buscar Pesquisa InApp",
+            "schema": {
+              "type": "string",
+              "example": "61ddbce5b038c4c87c78b9b4"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": false,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Pesquisa ignorada com sucesso",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "example": "ok"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false
       }
     }
   },
