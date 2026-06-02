@@ -483,7 +483,7 @@
                                   "example": "nps_1"
                                 },
                                 "answer": {
-                                  "description": "Resposta da pergunta. O tipo varia conforme o tipo da pergunta: número para nps/csat/ces/likert, string para text/unique/select/thumbs ('up' ou 'down'), array de strings para multiple, objeto {chave: valor} para matrix.",
+                                  "description": "Resposta da pergunta. O tipo varia conforme o tipo da pergunta: número para nps/csat/ces/likert, string para text/unique/select/thumbs ('up' ou 'down'), array de strings para multiple, objeto (chave: valor) para matrix.",
                                   "oneOf": [
                                     {
                                       "type": "number",
@@ -1308,7 +1308,7 @@
                     },
                     "surveyAnswer": {
                       "type": "object",
-                      "description": "Objeto da pesquisa-resposta criado para esta sessão. O `_id` deste objeto deve ser passado nos endpoints de **Enviar Resposta** (`PUT /partners/cf/inApp/{id}`) e **Ignorar Pesquisa** (`PATCH /partners/cf/inApp/{id}/decline`).",
+                      "description": "Objeto da pesquisa-resposta criado para esta sessão. O `_id` deste objeto deve ser passado nos endpoints de **Enviar Resposta** (`PUT /partners/cf/inApp/(id)`) e **Ignorar Pesquisa** (`PATCH /partners/cf/inApp/(id)/decline`).",
                       "properties": {
                         "_id": {
                           "type": "string",
@@ -1446,7 +1446,7 @@
                           "example": "nps_1"
                         },
                         "answer": {
-                          "description": "Resposta da pergunta — o tipo varia conforme o campo 'type': número inteiro para nps/csat/ces/likert (ex: 10); string para text/unique/select (ex: \"Ótimo atendimento\"); string 'up' ou 'down' para thumbs; array de strings para multiple (ex: [\"agilidade\", \"qualidade\"]); objeto chave-valor string para matrix (ex: {\"atendimento\": \"Bom\"}).",
+                          "description": "Resposta da pergunta — o tipo varia conforme o campo 'type': número inteiro para nps/csat/ces/likert (ex: 10); string para text/unique/select (ex: \"Ótimo atendimento\"); string 'up' ou 'down' para thumbs; array de strings para multiple (ex: [\"agilidade\", \"qualidade\"]); objeto chave-valor string para matrix (ex: (\"atendimento\": \"Bom\")).",
                           "oneOf": [
                             {
                               "type": "number",
