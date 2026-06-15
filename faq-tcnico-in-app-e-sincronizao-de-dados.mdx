@@ -1,13 +1,14 @@
 ---
-title: "FAQ técnico: In-App e sincronização de dados"
-description: "Perguntas frequentes sobre pesquisas In-App multilíngues, criação automática de contatos e sincronização de campos customizados via script."
+title: 'FAQ técnico: In-App e sincronização de dados'
+description: >-
+  Perguntas frequentes sobre pesquisas In-App multilíngues, criação automática
+  de contatos e sincronização de campos customizados via script.
 ---
-
 ## Visão geral
 
 Este artigo responde as dúvidas técnicas mais comuns sobre o funcionamento do In-App na Amplifique.me, com foco em cenários de múltiplos idiomas, criação automática de usuários e sincronização de dados via script.
 
-<Callout kind="info">
+<Callout kind="info" collapsed="false">
   Para o guia completo de implementação técnica do In-App, incluindo exemplos de script e parâmetros de configuração, veja o artigo **Implementação técnica de pesquisas In-App**.
 </Callout>
 
@@ -16,49 +17,52 @@ Este artigo responde as dúvidas técnicas mais comuns sobre o funcionamento do 
 ## Perguntas frequentes
 
 <ExpandableGroup>
+  <Expandable title="Como criar pesquisas multilíngues no In-App?" default-open="false">
+    No In-App, o espaço de tela é limitado — colocar todos os idiomas na mesma pergunta prejudica a experiência do usuário.
 
-<Expandable title="Como criar pesquisas multilíngues no In-App?">
-  No In-App, o espaço de tela é limitado — colocar todos os idiomas na mesma pergunta prejudica a experiência do usuário.
+    **Recomendação:** crie uma pesquisa separada para cada idioma e use um campo customizado (ex: `idioma`) para controlar qual pesquisa será exibida para cada usuário.
 
-  **Recomendação:** crie uma pesquisa separada para cada idioma e use um campo customizado (ex: `idioma`) para controlar qual pesquisa será exibida para cada usuário.
+    **Como funciona:**
 
-  **Como funciona:**
-  1. No seu sistema, envie o campo `idioma` dentro do script do In-App (ex: `PT`, `EN`, `ES`)
-  2. Na Amplifique.me, configure cada pesquisa para ser exibida somente para o idioma correspondente usando as regras de elegibilidade
+    1. No seu sistema, envie o campo `idioma` dentro do script do In-App (ex: `PT`, `EN`, `ES`)
 
-  Assim, o script é único, mas cada usuário vê a pesquisa no idioma correto conforme o valor do campo enviado.
-</Expandable>
+    2. Na Amplifique.me, configure cada pesquisa para ser exibida somente para o idioma correspondente usando as regras de elegibilidade
 
-<Expandable title="Um novo usuário que acessa meu sistema é criado automaticamente na Amplifique.me?">
-  Sim. Todo usuário que carregar o script do In-App será automaticamente verificado na base da Amplifique.me:
+    Assim, o script é único, mas cada usuário vê a pesquisa no idioma correto conforme o valor do campo enviado.
+  </Expandable>
 
-  - O sistema usa **e-mail ou telefone** para identificar se o usuário já existe
-  - Se **não existir**: será criado automaticamente como novo contato
-  - Se **já existir**: os dados serão atualizados conforme os campos enviados no script
+  <Expandable title="Um novo usuário que acessa meu sistema é criado automaticamente na Amplifique.me?" default-open="false">
+    Sim. Todo usuário que carregar o script do In-App será automaticamente verificado na base da Amplifique.me:
 
-  Isso garante que a base de contatos da Amplifique.me esteja sempre sincronizada com os usuários ativos do seu sistema.
-</Expandable>
+    - O sistema usa **e-mail ou telefone** para identificar se o usuário já existe
 
-<Expandable title="Se um campo customizado for alterado no meu sistema, ele também muda na Amplifique.me?">
-  Sim. Sempre que o script do In-App for carregado com novos dados, os campos customizados são **atualizados automaticamente** na Amplifique.me.
+    - Se **não existir**: será criado automaticamente como novo contato
 
-  **Importante:** a atualização acontece no momento em que o usuário acessa seu sistema e o script é executado — não há sincronização em background entre as sessões.
-</Expandable>
+    - Se **já existir**: os dados serão atualizados conforme os campos enviados no script
 
-<Expandable title="Qual é o tempo de sincronização dos dados?">
-  A sincronização dos campos customizados ocorre em **tempo real**, no instante em que o script do In-App é executado. Não há atraso ou fila de processamento.
-</Expandable>
+    Isso garante que a base de contatos da Amplifique.me esteja sempre sincronizada com os usuários ativos do seu sistema.
+  </Expandable>
 
-<Expandable title="Preciso implementar o script novamente ao criar uma nova pesquisa In-App?">
-  Não. O script é implementado **uma única vez** por unidade de negócio. As regras de qual pesquisa aparece para qual usuário são gerenciadas diretamente nas configurações de cada pesquisa dentro da plataforma — sem necessidade de alterações no código do seu sistema.
-</Expandable>
+  <Expandable title="Se um campo customizado for alterado no meu sistema, ele também muda na Amplifique.me?" default-open="false">
+    Sim. Sempre que o script do In-App for carregado com novos dados, os campos customizados são **atualizados automaticamente** na Amplifique.me.
 
+    **Importante:** a atualização acontece no momento em que o usuário acessa seu sistema e o script é executado — não há sincronização em background entre as sessões.
+  </Expandable>
+
+  <Expandable title="Qual é o tempo de sincronização dos dados?" default-open="false">
+    A sincronização dos campos customizados ocorre em **tempo real**, no instante em que o script do In-App é executado. Não há atraso ou fila de processamento.
+  </Expandable>
+
+  <Expandable title="Preciso implementar o script novamente ao criar uma nova pesquisa In-App?" default-open="false">
+    Não. O script é implementado **uma única vez** por unidade de negócio. As regras de qual pesquisa aparece para qual usuário são gerenciadas diretamente nas configurações de cada pesquisa dentro da plataforma — sem necessidade de alterações no código do seu sistema.
+  </Expandable>
 </ExpandableGroup>
 
 ---
 
 ## Próximo passo
 
-<Card title="Implementação técnica de pesquisas In-App" icon="code-2" href="/integracoes/inapp-tecnico" cta="Ver artigo">
+<Card title="Implementação técnica de pesquisas In-App" href="https://amplifiqueme.documentationai.com/implementao-tcnica-de-pesquisas-in-app" icon="code-2" cta="Ver artigo" horizontal="false" target="_self">
   Guia completo com tipos de implementação, parâmetros de configuração e exemplo de script.
 </Card>
+
