@@ -1,0 +1,111 @@
+---
+title: "Por que as métricas do painel vão mudar? Entenda a nova lógica de cálculo"
+description: "Entenda por que o Card de Métrica está sendo dividido em Métrica da Pergunta e Métrica da Pesquisa, e por que essa mudança torna os números do painel mais precisos."
+slug: nova-logica-metricas-painel
+---
+
+## Visão geral
+
+Hoje, o card de métrica do painel mistura três tipos de dados diferentes — respostas de pergunta, respostas de pesquisa e solicitações — todos filtrados pela **mesma data**. Isso pode gerar números que parecem inconsistentes entre si. Esta página explica por que isso acontece, o que está mudando e como interpretar os novos cards.
+
+<Callout kind="info">
+  Esta mudança não altera os dados da sua pesquisa — apenas **organiza onde e como cada métrica é calculada**, tornando os números mais precisos e fáceis de interpretar.
+</Callout>
+
+---
+
+## O problema: três métricas, uma data só
+
+Atualmente, o card do painel aplica um único filtro de data para calcular tudo: a **nota da pergunta** (promotores, neutros, detratores), o **total de respostas** e a **taxa de resposta**. O problema é que cada uma dessas métricas deveria, na verdade, ser filtrada por uma data diferente:
+
+| Métrica | Deveria ser filtrada por |
+|---|---|
+| Nota e distribuição (promotores/neutros/detratores) | Data da **resposta** |
+| Total de respostas da pergunta | Data da **resposta** |
+| Total de solicitações | Data da **solicitação** |
+| Taxa de resposta | Data da **solicitação** |
+
+Quando tudo é filtrado pela mesma data, o resultado pode parecer estranho. Veja um exemplo real:
+
+**Filtro: "Este mês"**
+- O card mostra **50 Promotores, 20 Neutros e 10 Detratores** → 80 respostas na pergunta (correto: filtrado pela data da resposta)
+- Mas o card também mostra **100 respostas** no total da pesquisa (10 contatos não responderam essa pergunta específica — também filtrado pela data da resposta, então está certo)
+- E o card mostra **50 solicitações** com **taxa de resposta de 100%** — mas esse número está errado, porque a taxa foi calculada usando a data da **resposta**, não da **solicitação**. Isso "esconde" solicitações que foram enviadas este mês mas ainda não foram respondidas.
+
+O resultado final pode ser **enganoso**: os números parecem consistentes entre si, mas não refletem o que realmente aconteceu no período.
+
+---
+
+## A solução: separar os cards por dimensão
+
+A correção é simples no conceito: **cada métrica passa a ser calculada na sua dimensão correta**, dividindo o card atual em dois:
+
+<Columns cols={2}>
+  <Card title="Métrica da Pergunta" icon="lucide-message-circle-question">
+    Nota, promotores, neutros, detratores e quantidade de respostas **daquela pergunta específica**. Filtrado pela **data da resposta**.
+  </Card>
+  <Card title="Métrica da Pesquisa" icon="lucide-clipboard-list">
+    Solicitações, número de respostas, taxa de resposta e engajamento da **pesquisa como um todo**. Filtrado pela **data da solicitação**.
+  </Card>
+</Columns>
+
+<Callout kind="tip">
+  A lógica é simples: **não é possível calcular taxa de resposta olhando apenas para a data da resposta** — você precisa saber quantas solicitações foram feitas no período para ter uma taxa real.
+</Callout>
+
+Essa mesma lógica passa a valer também na tela de **Análise e Resultados → Visão Geral**, que passará a usar a data da solicitação como filtro padrão para as métricas gerais — tornando a visão geral consistente com o novo card de Métrica da Pesquisa.
+
+---
+
+## O que pode mudar nos seus números
+
+Com a separação, é esperado que os números dos dois cards **não fechem exatamente entre si** em alguns casos — e isso é normal. Veja um exemplo:
+
+**Cenário:** um contato recebeu o link da pesquisa em um mês e só respondeu meses depois.
+
+| Card | O que aparece | Por quê |
+|---|---|---|
+| **Métrica da Pesquisa** (filtro: este mês) | 10 respostas, 20 solicitações | Conta apenas o que foi **solicitado** este mês |
+| **Métrica da Pergunta** (filtro: este mês) | 11 respostas | Conta o que foi **respondido** este mês — incluindo 1 resposta de uma solicitação enviada em um mês anterior |
+
+Esse tipo de diferença é esperado e **reflete a realidade**: a pesquisa foi solicitada num momento e respondida em outro. Antes, esses dois eventos ficavam misturados em uma única métrica, o que escondia esse comportamento.
+
+---
+
+## Posso manter o cálculo como era antes?
+
+Sim. Existe uma configuração na conta para **ativar ou desativar** o novo modelo de cálculo. Se sua equipe já está acostumada com a lógica anterior ou possui relatórios externos montados com base nela, é possível manter o comportamento antigo até que a transição faça sentido para o seu time.
+
+<Callout kind="alert">
+  Recomendamos migrar para o novo modelo assim que possível. O cálculo anterior pode apresentar taxas de resposta superiores a 100% ou inconsistentes em pesquisas com tempo de resposta longo — o novo modelo elimina esse problema.
+</Callout>
+
+---
+
+## Perguntas frequentes
+
+<ExpandableGroup>
+  <Expandable title="Por que a taxa de resposta podia passar de 100% no modelo antigo?">
+    Porque a taxa era calculada com o total de respostas do período (filtrado pela data da resposta) dividido pelo total de solicitações do mesmo período (também filtrado pela data da resposta, e não da solicitação). Em pesquisas com respostas tardias, isso podia gerar uma taxa superior à real.
+  </Expandable>
+
+  <Expandable title="Os dados históricos serão recalculados?">
+    Os dados não mudam — apenas a forma como são exibidos e filtrados nos cards. Ao acessar um período passado, os números podem aparecer diferentes do que você está acostumado a ver, pois agora cada métrica usa sua dimensão de data correta.
+  </Expandable>
+
+  <Expandable title="Isso afeta o AmpliScore ou a nota NPS/CSAT/CES?">
+    Não. A nota e a distribuição de promotores, neutros e detratores continuam sendo calculadas da mesma forma — pela data da resposta. O que muda é como a taxa de resposta e o total de solicitações são exibidos, agora na Métrica da Pesquisa.
+  </Expandable>
+
+  <Expandable title="Onde posso ativar ou desativar esse novo cálculo?">
+    A opção está disponível nas configurações da conta. Entre em contato com o suporte pelo chat da plataforma caso não localize a opção ou tenha dúvidas sobre qual modelo é mais adequado para o seu caso de uso.
+  </Expandable>
+</ExpandableGroup>
+
+---
+
+## Próximo passo
+
+<Card title="O que significam as métricas do painel?" icon="lucide-bar-chart-2" href="/o-que-significam-as-mtricas-do-painel" cta="Ver artigo">
+  Veja o detalhamento de cada indicador disponível nos cards do painel.
+</Card>

@@ -37,6 +37,10 @@
             "group": "Painéis",
             "pages": [
               {
+                "title": "Por que as métricas do painel vão mudar? Entenda a nova lógica de cálculo",
+                "path": "por-que-as-mtricas-do-painel-vo-mudar-entenda-a-nova-lgica-de-clculo"
+              },
+              {
                 "title": "Como somar métricas em Cards sem identificador?",
                 "path": "como-somar-mtricas-em-cards-sem-identificador"
               },
