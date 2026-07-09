@@ -1,4 +1,117 @@
 ---
-title: Autenticação
+title: Como gerar tokens de API?
+description: >-
+  Os tokens de API são a chave de cada integração na Amplifique.me. Aprenda a
+  criar, nomear e configurar um token vinculado a uma pesquisa e canal
+  específicos para uso em webhooks e integrações externas.
 ---
+## Visão geral
+
+Os **tokens de API** são gerados dentro da Amplifique.me e usados para autenticar as requisições de envio de pesquisas disparadas por sistemas externos. Cada token é vinculado a uma pesquisa e canal específicos — você pode criar quantos tokens precisar, um por integração.
+
+<Callout kind="info" collapsed="false">
+  Apenas usuários com perfil de **Proprietário ou Administrador** podem criar e gerenciar tokens de API.
+</Callout>
+
+---
+
+## Como criar um token de API
+
+<Steps>
+  <Step title="Acesse Integrações → API" title-type="p">
+    No menu lateral, clique nos **três pontos (****`⋯`****)** → **Integrações** → **API**.
+  </Step>
+
+  <Step title="Clique em Criar token" title-type="p">
+    Um formulário de criação será exibido.
+  </Step>
+
+  <Step title="Nomeie o token" title-type="p">
+    Use um nome que identifique claramente o propósito da integração. Recomendamos o padrão:
+
+    `[Sistema] - [Gatilho] - [Pesquisa]`
+
+    Exemplos:
+
+    - `ActiveCampaign - Novo Lead - Pesquisa CSAT`
+
+    - `Zendesk - Fechamento de Ticket - NPS Suporte`
+
+    - `Tiny ERP - Pedido Faturado - CSAT Pós-Compra`
+  </Step>
+
+  <Step title="Selecione a pesquisa e o canal" title-type="p">
+    Escolha a pesquisa que será disparada e o canal de envio: **E-mail**, **SMS** ou **WhatsApp**.
+  </Step>
+
+  <Step title="Configure atraso ou agendamento (opcional)" title-type="p">
+    Se quiser que o envio aconteça com um intervalo após o gatilho, configure:
+
+    - **Atraso em minutos/horas** — útil para enviar a pesquisa horas após o atendimento, por exemplo
+
+    - **Horário específico** — agenda o disparo para um período do dia
+
+    <Callout kind="tip" collapsed="false">
+      Um atraso de 2 a 24 horas é uma boa prática para pesquisas pós-atendimento — evita o envio imediato enquanto o cliente ainda está resolvendo o problema.
+    </Callout>
+  </Step>
+
+  <Step title="Salve e copie a URL gerada" title-type="p">
+    Após salvar, a URL do webhook estará disponível no formato:
+
+    ```
+    https://integration.services.amplifique.me/{sistema}/cf/webhook?access_token=Bearer+SEU_TOKEN
+    ```
+
+    Essa URL é inserida no sistema parceiro para ativar o gatilho.
+
+    <Callout kind="alert" collapsed="false">
+      Trate o token como uma senha — ele dá acesso ao envio de pesquisas na sua conta. Não compartilhe publicamente.
+    </Callout>
+  </Step>
+</Steps>
+
+---
+
+## Visualizando e auditando requisições
+
+Para monitorar os envios realizados via token:
+
+1. Acesse **Integrações → API → Ver integrações → Ir ao painel**
+
+2. Cada token exibe o histórico de requisições recebidas
+
+3. Clique no ícone de **olho** ao lado do token para ver erros de requisição
+
+4. Clique no nome de um contato para ver os dados completos enviados na requisição
+
+---
+
+## Perguntas frequentes
+
+<ExpandableGroup>
+  <Expandable title="Preciso criar um token para cada pesquisa ou para cada sistema?" default-open="false">
+    Para cada **combinação de pesquisa + canal + sistema**. Se você usa o mesmo sistema (ex: Zendesk) para disparar dois tipos de pesquisa (NPS e CSAT), crie um token separado para cada uma.
+  </Expandable>
+
+  <Expandable title="O que acontece se eu deletar um token que está em uso?" default-open="false">
+    O webhook no sistema parceiro deixa de funcionar — novas requisições para aquela URL retornarão erro. Sempre desative o webhook no sistema parceiro antes de deletar o token na Amplifique.me.
+  </Expandable>
+
+  <Expandable title="Posso usar o mesmo token para múltiplos sistemas?" default-open="false">
+    Tecnicamente sim, mas não é recomendado. Tokens separados por sistema facilitam o monitoramento, a auditoria de erros e a revogação individual em caso de problemas.
+  </Expandable>
+</ExpandableGroup>
+
+---
+
+## Tutorial em Vídeo
+
+<Video uid="da2904bb-94f6-4bb2-9c68-9c6c884fa4ac" src="https://www.loom.com/embed/f4622f7e185346d58d90de29dfabc091" render-type="iframe" width="672" height="378" controls="true" allow-full-screen="true" style="width: 672px; height: auto; cursor: pointer;" />
+
+## Próximo passo
+
+<Card title="Como funcionam as integrações?" href="/integracoes/visao-geral" icon="plug" cta="Ver artigo" horizontal="false">
+  Veja a lista de integrações disponíveis e o funcionamento geral do disparo automático de pesquisas.
+</Card>
 
