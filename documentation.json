@@ -120,6 +120,10 @@
             "group": "Pesquisas e Respostas",
             "pages": [
               {
+                "title": "Qual a diferença entre o campo customizado do contato e o da resposta?",
+                "path": "qual-a-diferena-entre-o-campo-customizado-do-contato-e-o-da-resposta"
+              },
+              {
                 "title": "Calculadora de Métricas",
                 "path": "calculadora-de-mtricas"
               },

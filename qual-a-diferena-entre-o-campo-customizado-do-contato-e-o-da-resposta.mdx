@@ -1,0 +1,87 @@
+---
+title: Qual a diferença entre o campo customizado do contato e o da resposta?
+description: >-
+  Entenda por que o valor de um campo customizado pode aparecer diferente no
+  cadastro do contato e na resposta da pesquisa — e qual dos dois considerar na
+  análise.
+slug: campo-contato-vs-resposta
+---
+## Visão geral
+
+Um mesmo campo customizado pode mostrar valores diferentes dependendo de onde você olha: no **cadastro do contato** ou na **resposta da pesquisa**. Isso não é um erro — é intencional, e entender a diferença é essencial para analisar os dados corretamente.
+
+<Callout kind="info" collapsed="false">
+  Em resumo: o **campo do contato** reflete sempre o valor mais atual. O **campo da resposta** guarda o valor que existia no momento em que a pesquisa foi enviada.
+</Callout>
+
+---
+
+## Como cada campo se comporta
+
+**Campo do contato** — é dinâmico. Sempre que o contato é atualizado (manualmente, por importação ou via API), o campo passa a exibir o valor mais recente. Ele reflete o "agora".
+
+**Campo da resposta** — é um registro histórico. No momento em que a pesquisa é enviada, a plataforma "fotografa" os dados do contato e grava esse valor junto à resposta e ao ticket. Mesmo que o contato mude depois, aquela resposta continua com o valor original.
+
+---
+
+## Exemplo prático
+
+Acompanhe o campo customizado **Orçamento** do contato João:
+
+<Steps>
+  <Step title="Importação do contato" title-type="p">
+    Você importa o contato do João com o campo **Orçamento = 3322**.
+  </Step>
+
+  <Step title="Envio e resposta da pesquisa" title-type="p">
+    A pesquisa é enviada ao João. Quando ele responde, o valor **3322** é gravado no campo da **resposta** e também no **ticket** gerado. Esse é o valor que estava no contato naquele momento.
+  </Step>
+
+  <Step title="Atualização do contato" title-type="p">
+    Algum tempo depois, o contato do João é atualizado e o campo **Orçamento** muda para **5544**.
+  </Step>
+
+  <Step title="Resultado final" title-type="p">
+    A partir daí, os valores ficam assim:
+
+    - **Cadastro do contato:** Orçamento = **5544** (valor atualizado)
+    - **Resposta e ticket do João:** Orçamento = **3322** (valor do momento do envio)
+
+    <Callout kind="tip" collapsed="false">
+      Os dois valores estão corretos. Eles representam momentos diferentes: o contato mostra o presente, a resposta mostra o passado.
+    </Callout>
+  </Step>
+</Steps>
+
+---
+
+## Qual valor considerar na análise?
+
+<Callout kind="alert" collapsed="false">
+  Para analisar respostas de pesquisa, o valor que vale é sempre o **campo da resposta** — não o do contato. Ele reflete a realidade do momento em que o cliente respondeu, que é o que importa para o contexto daquela avaliação.
+</Callout>
+
+Usar o campo do contato para analisar respostas antigas pode levar a conclusões erradas, já que o cadastro pode ter mudado várias vezes desde então. O campo da resposta preserva o contexto correto de cada avaliação.
+
+---
+
+## Perguntas frequentes
+
+<ExpandableGroup>
+  <Expandable title="Por que a plataforma não atualiza o campo da resposta junto com o contato?" default-open="false">
+    Porque a resposta é um registro histórico daquele atendimento ou avaliação. Se o campo fosse atualizado retroativamente, você perderia o contexto real do que estava acontecendo quando o cliente respondeu — comprometendo qualquer análise baseada naquele dado.
+  </Expandable>
+
+  <Expandable title="Isso vale para todos os campos customizados?" default-open="false">
+    Sim. Qualquer campo customizado do contato é "fotografado" no momento do envio e gravado na resposta com o valor daquele instante.
+  </Expandable>
+
+  <Expandable title="Se eu reenviar a pesquisa para o mesmo contato, qual valor será gravado?" default-open="false">
+    O valor que estiver no contato no momento do novo envio. Cada envio grava o valor vigente naquele instante — por isso duas respostas do mesmo contato podem ter valores diferentes no mesmo campo.
+  </Expandable>
+
+  <Expandable title="O valor gravado na resposta pode ser editado depois?" default-open="false">
+    Não. O valor da resposta é um registro fixo do momento do envio e não é alterado por atualizações posteriores no contato.
+  </Expandable>
+</ExpandableGroup>
+
