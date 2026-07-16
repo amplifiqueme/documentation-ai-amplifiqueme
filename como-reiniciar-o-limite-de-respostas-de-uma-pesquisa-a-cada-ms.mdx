@@ -1,0 +1,86 @@
+---
+title: Como reiniciar o limite de respostas de uma pesquisa a cada mês?
+description: >-
+  Ative o reinício automático do limite de respostas para que sua pesquisa volte
+  a coletar respostas todo início de mês, sem precisar reativá-la manualmente.
+slug: reiniciar-limite-respostas
+---
+## Visão geral
+
+O **limite de respostas** permite definir quantas respostas uma pesquisa pode receber antes de ser desativada automaticamente. Com a opção de **reinício automático**, esse contador é zerado no começo de cada mês, permitindo que a pesquisa volte a coletar respostas até atingir o limite novamente, sem intervenção manual.
+
+<Callout kind="info">
+  Essa opção é útil para controlar custos e volume de coleta em pesquisas contínuas, garantindo um teto mensal de respostas de forma automática.
+</Callout>
+
+---
+
+## Como funciona
+
+Ao ativar o limite de respostas, você define um número máximo. O comportamento é o seguinte:
+
+<Steps>
+  <Step title="A pesquisa coleta respostas normalmente">
+    As respostas são contabilizadas até atingir o limite definido (por exemplo, 50 respostas).
+  </Step>
+
+  <Step title="Ao atingir o limite, a pesquisa é desativada">
+    Quando o número de respostas alcança o limite, a pesquisa é **automaticamente desativada** e o contador é zerado. A partir desse momento, ela para de receber novas respostas.
+  </Step>
+
+  <Step title="No início do mês, a pesquisa é reativada">
+    Se a opção **Reiniciar o limite no final do mês** estiver marcada, no começo do mês seguinte o contador é zerado e a pesquisa volta a ficar **ativa automaticamente**, aceitando novamente o número de respostas definido.
+
+    <Callout kind="success">
+      A pesquisa reinicia o ciclo sozinha a cada mês, sem necessidade de reativação manual.
+    </Callout>
+  </Step>
+</Steps>
+
+---
+
+## Como configurar
+
+<Steps>
+  <Step title="Acesse as configurações da pesquisa">
+    Abra a pesquisa desejada e localize a seção **Limite de Respostas**.
+  </Step>
+
+  <Step title="Ative o limite e defina o número">
+    Ligue a opção **Limite de Respostas** e informe o número máximo de respostas no campo **Limite de** (por exemplo, `50` respostas).
+  </Step>
+
+  <Step title="Marque a opção de reinício mensal">
+    Marque a caixa **Reiniciar o limite no final do mês** para que o contador seja zerado e a pesquisa reativada automaticamente a cada novo mês.
+  </Step>
+</Steps>
+
+---
+
+## Atenção: pesquisa desativada manualmente
+
+<Callout kind="alert">
+  Se a pesquisa for **desativada manualmente** antes de atingir o limite de respostas, o contador também será zerado no próximo ciclo — porém **a pesquisa continuará desativada**. O reinício automático só reativa pesquisas que foram desativadas por terem atingido o limite, não as que você desativou por conta própria.
+</Callout>
+
+---
+
+## Perguntas frequentes
+
+<ExpandableGroup>
+  <Expandable title="O que acontece exatamente quando o limite é atingido?">
+    A pesquisa é desativada automaticamente e o contador é zerado. Ela para de receber respostas até ser reativada — o que acontece automaticamente no início do mês seguinte, caso a opção de reinício mensal esteja marcada.
+  </Expandable>
+
+  <Expandable title="Se eu desativar a pesquisa manualmente, ela volta a ativar sozinha no mês seguinte?">
+    Não. O contador será zerado no próximo ciclo, mas a pesquisa permanecerá desativada. Pesquisas desativadas manualmente precisam ser reativadas também manualmente.
+  </Expandable>
+
+  <Expandable title="O reinício acontece exatamente à meia-noite do dia 1º?">
+    O reinício ocorre na virada do mês. O contador é zerado no início do novo mês, liberando a pesquisa para receber respostas novamente até o limite definido.
+  </Expandable>
+
+  <Expandable title="Posso alterar o número do limite depois de configurado?">
+    Sim. Você pode ajustar o valor do limite a qualquer momento nas configurações da pesquisa. O novo valor passa a valer a partir da alteração.
+  </Expandable>
+</ExpandableGroup>

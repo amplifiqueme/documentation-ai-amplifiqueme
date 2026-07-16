@@ -120,6 +120,10 @@
             "group": "Pesquisas e Respostas",
             "pages": [
               {
+                "title": "Como reiniciar o limite de respostas de uma pesquisa a cada mês?",
+                "path": "como-reiniciar-o-limite-de-respostas-de-uma-pesquisa-a-cada-ms"
+              },
+              {
                 "title": "Qual a diferença entre o campo customizado do contato e o da resposta?",
                 "path": "qual-a-diferena-entre-o-campo-customizado-do-contato-e-o-da-resposta"
               },
