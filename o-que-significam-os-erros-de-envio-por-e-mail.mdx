@@ -1,0 +1,140 @@
+---
+title: O que significam os erros de envio por e-mail (bounce e lista de supressão)?
+description: >-
+  Entenda por que alguns envios de e-mail aparecem como erro, o que são bounce e
+  lista de supressão, e como corrigir sua base de contatos na origem.
+slug: erros-envio-email
+---
+## Visão geral
+
+Ao acessar **Pesquisas e Respostas → Solicitações**, é possível que alguns envios apareçam como **"Envios com Erro"**. Ao clicar em um deles, você vê uma mensagem como:
+
+> Razão: bounce - Permanent / OnAccountSuppressionList
+
+Este artigo explica, em linguagem simples, o que esses erros significam, por que acontecem e o que você pode fazer para corrigir sua base de contatos.
+
+<Callout kind="info" collapsed="false">
+  Na grande maioria das vezes, um erro de envio por e-mail significa que aquele endereço **não existe ou está digitado errado**. A boa notícia é que dá para identificar esses contatos e corrigi-los na origem.
+</Callout>
+
+---
+
+## O que é um "bounce"
+
+Bounce ("retorno", em inglês) é quando o e-mail não consegue ser entregue e volta com um aviso de falha. É o equivalente a uma carta que os Correios devolvem porque o endereço não existe ou está incompleto.
+
+Existem dois tipos:
+
+<Columns cols="2">
+  <Card title="Soft bounce (falha temporária)" icon="lucide-clock" horizontal="false">
+    Algo passageiro impediu a entrega naquele momento — a caixa do destinatário está cheia, o servidor está temporariamente fora do ar. Nesses casos, o sistema tenta entregar novamente de forma automática, sem que você precise fazer nada.
+  </Card>
+
+  <Card title="Hard bounce (falha definitiva)" icon="lucide-x-circle" horizontal="false">
+    O endereço não existe ou o servidor recusa permanentemente a mensagem. Aqui não adianta tentar de novo — o resultado será sempre o mesmo.
+  </Card>
+</Columns>
+
+<Callout kind="info" collapsed="false">
+  Quando uma falha temporária se repete sem sucesso, ela passa a ser tratada como falha definitiva.
+</Callout>
+
+---
+
+## O que é a "lista de supressão"
+
+Sempre que um endereço gera uma falha definitiva, ele entra automaticamente na **lista de supressão** (também chamada de lista de bounce). A partir daí, a plataforma deixa de tentar enviar para aquele endereço nos próximos disparos.
+
+**Por que isso existe? Para proteger a sua reputação de envio.**
+
+Provedores de e-mail (Gmail, Outlook, servidores corporativos) monitoram quem insiste em enviar para endereços que não existem — isso é um comportamento típico de spam. Se a plataforma ficasse tentando entregar para endereços ruins, o provedor poderia penalizar **todos** os envios que saem da Amplifique.me, inclusive os e-mails que iriam para contatos válidos. Ou seja: bloquear alguns endereços ruins é o que garante que os bons continuem chegando.
+
+<Callout kind="tip" collapsed="false">
+  Esse é o comportamento padrão de qualquer ferramenta de e-mail do mercado (Amazon SES, SendGrid, Twilio). Não é uma limitação da Amplifique.me — é como o e-mail funciona.
+</Callout>
+
+---
+
+## Por que não conseguimos dizer exatamente o que corrigir em cada e-mail
+
+Essa é a diferença mais importante em relação ao WhatsApp.
+
+No WhatsApp, os erros são padronizados — sabemos com precisão se foi porque a conta não existe, se a Meta bloqueou o envio, etc. No e-mail, não existe esse padrão. Cada provedor devolve o erro de um jeito: às vezes um código, às vezes um texto, às vezes um trecho técnico dentro da própria mensagem. Raramente o retorno diz algo útil como "o nome antes do @ está errado" ou "o domínio não existe".
+
+Por isso, o motivo técnico do erro quase nunca ajuda a decidir o que corrigir. O que a experiência mostra é mais simples e direto:
+
+<Callout kind="alert" collapsed="false">
+  Na grande maioria dos casos (cerca de 99%), um erro de envio por e-mail significa que aquele endereço **não existe** — normalmente por um erro de digitação no cadastro ou porque a pessoa nunca teve aquele e-mail.
+</Callout>
+
+---
+
+## Como corrigir sua base de contatos
+
+Como o motivo do erro raramente é acionável, o caminho prático é revisar os endereços que falharam e corrigi-los na origem (por exemplo, no sistema onde os cadastros são feitos).
+
+<Steps>
+  <Step title="Exporte os envios com erro" title-type="p">
+    Na tela **Solicitações**, use o botão **Exportar** para baixar a lista de contatos que apresentaram erro.
+  </Step>
+
+  <Step title="Confira e corrija os endereços na origem" title-type="p">
+    Com a lista em mãos, revise cada e-mail no seu sistema de cadastro. Procure principalmente por:
+
+    - Erros de digitação (`@gmial.com`, `@homtail.com`, espaços, letras trocadas)
+    - Domínios que não existem (o que vem depois do `@`)
+    - E-mails antigos ou de pessoas que trocaram de endereço
+  </Step>
+
+  <Step title="Atualize o cadastro e reenvie" title-type="p">
+    Depois de corrigir o e-mail na origem, o novo endereço (corrigido) poderá receber os envios normalmente, pois é tratado como um contato novo.
+  </Step>
+
+  <Step title="Só se necessário: remova um endereço da lista de supressão" title-type="p">
+    Se um endereço entrou na lista de bounce mas você tem certeza de que ele existe e está correto (por exemplo, você confirmou diretamente com a pessoa), é possível liberá-lo:
+
+    1. Abra o registro do envio com erro
+    2. Marque a opção **"Confirmo que isto foi um engano e desejo remover este endereço da lista de bounce"**
+    3. Clique em **Remover**
+
+    <Callout kind="alert" collapsed="false">
+      Essa remoção é feita um endereço por vez, de propósito. Não existe (em nenhuma ferramenta de e-mail) uma forma de "limpar a lista em lote", porque cada endereço precisa ser confirmado individualmente. Remover um endereço que continua inválido faz ele voltar para a lista no próximo erro — e ainda prejudica a reputação de envio.
+    </Callout>
+  </Step>
+</Steps>
+
+---
+
+## Como evitar erros de envio no futuro
+
+- **Valide o e-mail no momento do cadastro**, na origem. A maior parte dos erros nasce de um endereço digitado errado.
+- **Confirme o e-mail com o próprio contato** sempre que possível.
+- **Mantenha a base atualizada**, removendo ou corrigindo endereços antigos.
+
+---
+
+## Perguntas frequentes
+
+<ExpandableGroup>
+  <Expandable title="O erro pode ser corrigido do lado da Amplifique.me?" default-open="false">
+    Não. O endereço precisa ser corrigido na origem (no sistema onde o contato foi cadastrado). A plataforma apenas respeita o retorno que o provedor de e-mail deu.
+  </Expandable>
+
+  <Expandable title="Um e-mail que deu erro hoje pode funcionar no futuro?" default-open="false">
+    Pode, se aquele endereço passar a existir de fato. Mas, como ele já está na lista de supressão, só voltará a receber envios se for removido manualmente da lista (passo 4 acima), depois de confirmado.
+  </Expandable>
+
+  <Expandable title="Recebi o erro OnAccountSuppressionList. O que faço?" default-open="false">
+    Significa que aquele endereço já falhou antes e está na lista de supressão. Confira se o e-mail está correto na origem. Se estiver errado, corrija o cadastro. Se tiver certeza de que está correto, use a opção de remover da lista de bounce.
+  </Expandable>
+
+  <Expandable title="Por que alguns contatos recebem e outros não, no mesmo disparo?" default-open="false">
+    Porque a lista de supressão é por endereço. Contatos com e-mails válidos recebem normalmente; apenas os que já falharam ficam bloqueados.
+  </Expandable>
+</ExpandableGroup>
+
+---
+
+## Próximo passo
+
+Ficou com dúvida sobre um envio específico? Fale com o seu contato de sucesso na Amplifique.me ou abra um chamado pelo suporte.

@@ -120,6 +120,10 @@
             "group": "Pesquisas e Respostas",
             "pages": [
               {
+                "title": "O que significam os erros de envio por e-mail",
+                "path": "o-que-significam-os-erros-de-envio-por-e-mail"
+              },
+              {
                 "title": "Limite de Respostas: como controlar quantas respostas sua pesquisa recebe",
                 "path": "limite-de-respostas"
               },
