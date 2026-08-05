@@ -158,7 +158,7 @@ Use Webhooks para:
 </Expandable>
 
 <Expandable title="Há retry automático se meu endpoint retornar erro?">
-  Sim. A Amplifique.me realiza tentativas de reenvio em caso de falha. Para detalhes sobre a política de retry, consulte a documentação da API em [amplifiqueme.readme.io](https://amplifiqueme.readme.io/).
+  Sim. São até **8 tentativas** por evento, com backoff exponencial começando em 1 minuto (1, 2, 4, 8, 16, 32 e 64 minutos), o que cobre aproximadamente 2 horas. Veja a [visão geral dos Webhooks](/webhooks) para os detalhes da política de retentativas e da desativação automática de endpoints.
 </Expandable>
 
 <Expandable title="Posso filtrar webhooks por pesquisa específica?">
@@ -171,6 +171,6 @@ Use Webhooks para:
 
 ## Próximo passo
 
-<Card title="Documentação da API Amplifique.me" icon="code" href="/integracoes/api" cta="Ver documentação">
+<Card title="Documentação da API Amplifique.me" icon="code" href="/api" cta="Ver documentação">
   Acesse a referência completa de endpoints para integrações programáticas avançadas.
 </Card>
