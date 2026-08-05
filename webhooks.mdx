@@ -1,0 +1,253 @@
+---
+title: "Webhooks"
+description: "Como funcionam os Webhooks da Amplifique.me: eventos disponíveis, formato da requisição, validação de assinatura, política de retentativas com backoff exponencial e desativação automática de endpoints com falha."
+---
+
+Webhooks são notificações **HTTP que a Amplifique.me envia para o seu sistema** quando algo acontece na plataforma. É o inverso da API: em vez de você consultar a Amplifique.me periodicamente, nós avisamos você no momento em que o evento ocorre.
+
+Use Webhooks para registrar respostas no seu CRM em tempo real, abrir um ticket automaticamente quando um Detrator responde, ou alimentar dashboards ao vivo.
+
+---
+
+## Como funciona
+
+<Steps>
+
+<Step title="Um evento acontece na plataforma">
+  Por exemplo, um respondente finaliza uma pesquisa.
+</Step>
+
+<Step title="A Amplifique.me monta o payload">
+  Buscamos os dados da resposta, do contato e da pesquisa e montamos o JSON do evento.
+</Step>
+
+<Step title="Uma entrega é criada para cada endpoint inscrito">
+  Se você tem dois endpoints inscritos no mesmo evento, cada um recebe a **sua própria** entrega, com histórico e contagem de erros independentes.
+</Step>
+
+<Step title="Enviamos um POST para o seu endpoint">
+  Você valida a assinatura, responde `200` e processa os dados.
+</Step>
+
+</Steps>
+
+<Callout kind="tip">
+  As entregas passam por uma fila com controle de taxa. Em momentos de pico, uma entrega pode chegar alguns segundos depois do evento — o webhook não é um canal de latência garantida.
+</Callout>
+
+---
+
+## Eventos disponíveis
+
+| Evento | Quando é disparado |
+|---|---|
+| `cf_response` | Uma resposta de pesquisa foi **finalizada** pelo respondente |
+
+Você escolhe quais eventos cada endpoint recebe ao configurá-lo. Um endpoint só recebe os eventos que você marcou.
+
+<Card title="Payload do evento cf_response" icon="code" href="/webhook-cf-response" cta="Ver estrutura completa" horizontal="true" target="_self">
+  Todos os campos do JSON, tipos de pergunta e formatos de data.
+</Card>
+
+---
+
+## A requisição que você recebe
+
+Sempre um `POST` com o corpo em JSON.
+
+| Header | Conteúdo |
+|---|---|
+| `content-type` | `application/json` |
+| `user-agent` | `Amplifique.me Webhook Service` |
+| `ampl-time` | Momento da assinatura, em **milissegundos** desde a época Unix |
+| `ampl-signature` | Assinatura HMAC-SHA256 do payload, em hexadecimal |
+
+---
+
+## Como validar a assinatura
+
+Cada webhook é assinado com o **secret** do seu endpoint, disponível na tela de configuração do webhook na plataforma. Valide a assinatura antes de confiar no conteúdo — é o que garante que a requisição veio realmente da Amplifique.me.
+
+A assinatura é o HMAC-SHA256, em hexadecimal, da string formada por:
+
+```
+{valor do header ampl-time}.{corpo cru da requisição}
+```
+
+Ou seja: o timestamp, um ponto, e o body exatamente como chegou.
+
+<Callout kind="warning">
+  Use o **corpo cru** (raw body) da requisição, antes de qualquer parse ou reserialização. Se você fizer `JSON.parse` e depois `JSON.stringify`, a ordem das chaves e o espaçamento podem mudar e a assinatura não vai bater.
+</Callout>
+
+### Node.js (Express)
+
+```js
+const crypto = require('crypto');
+const express = require('express');
+
+const app = express();
+
+// guarde o corpo cru para poder validar a assinatura
+app.use(express.json({
+  verify: (req, res, buf) => { req.rawBody = buf; }
+}));
+
+app.post('/webhooks/amplifique', (req, res) => {
+  const timestamp = req.header('ampl-time');
+  const received  = req.header('ampl-signature');
+
+  const expected = crypto
+    .createHmac('sha256', process.env.AMPL_WEBHOOK_SECRET)
+    .update(`${timestamp}.${req.rawBody.toString('utf8')}`, 'utf8')
+    .digest('hex');
+
+  // comparação em tempo constante evita ataques de timing
+  const valid = received?.length === expected.length &&
+    crypto.timingSafeEqual(Buffer.from(received), Buffer.from(expected));
+
+  if (!valid) return res.status(401).send();
+
+  // responda primeiro, processe depois
+  res.status(200).send();
+  processarEvento(req.body);
+});
+```
+
+### Python (Flask)
+
+```python
+import hmac, hashlib, os
+from flask import Flask, request
+
+app = Flask(__name__)
+
+@app.post('/webhooks/amplifique')
+def amplifique_webhook():
+    timestamp = request.headers.get('ampl-time', '')
+    received  = request.headers.get('ampl-signature', '')
+
+    payload  = f"{timestamp}.{request.get_data(as_text=True)}"
+    expected = hmac.new(
+        os.environ['AMPL_WEBHOOK_SECRET'].encode(),
+        payload.encode(),
+        hashlib.sha256
+    ).hexdigest()
+
+    if not hmac.compare_digest(received, expected):
+        return '', 401
+
+    processar_evento(request.get_json())
+    return '', 200
+```
+
+<Callout kind="tip">
+  As entregas partem da infraestrutura de nuvem da Amplifique.me e **não têm IP fixo**. Valide a origem pela assinatura, não por lista de IPs permitidos.
+</Callout>
+
+---
+
+## O que esperamos da sua resposta
+
+| Resposta do seu endpoint | Como tratamos |
+|---|---|
+| `200` ou `201` | **Sucesso.** A entrega é encerrada |
+| Qualquer outro status | **Falha.** Entra na fila de retentativas |
+| Sem resposta em até 20 segundos | **Falha** por timeout |
+
+<Callout kind="warning">
+  Somente `200` e `201` contam como sucesso. Códigos comuns de "aceito" como `202 Accepted` e `204 No Content` são tratados como **falha** e vão gerar retentativas. Se o seu framework responde `204` por padrão quando o handler não retorna corpo, defina o status explicitamente como `200`.
+</Callout>
+
+Responda o mais rápido possível e faça o processamento pesado de forma assíncrona. O limite de 20 segundos vale para o tempo total da requisição — se o seu processamento demora, você recebe entregas duplicadas por timeout, mesmo tendo processado tudo com sucesso.
+
+---
+
+## Retentativas e backoff
+
+Quando uma entrega falha, ela é reagendada automaticamente com **backoff exponencial**: o intervalo dobra a cada nova tentativa, começando em 1 minuto.
+
+São até **8 tentativas** por evento, distribuídas ao longo de aproximadamente **2 horas**:
+
+| Tentativa | Intervalo desde a anterior | Tempo acumulado |
+|---|---|---|
+| 1ª | — (imediata) | 0 |
+| 2ª | 1 minuto | 1 min |
+| 3ª | 2 minutos | 3 min |
+| 4ª | 4 minutos | 7 min |
+| 5ª | 8 minutos | 15 min |
+| 6ª | 16 minutos | 31 min |
+| 7ª | 32 minutos | 1h 03min |
+| 8ª | 64 minutos | 2h 07min |
+
+Se a 8ª tentativa também falhar, o evento é encerrado permanentemente e **não será mais reenviado**. O histórico completo de tentativas continua disponível nos logs do webhook.
+
+<Callout kind="tip">
+  Uma indisponibilidade curta do seu sistema é absorvida sem perda: como a última tentativa acontece mais de 2 horas depois da primeira, uma janela de manutenção de 30 minutos normalmente é recuperada automaticamente.
+</Callout>
+
+---
+
+## Desativação automática de endpoints
+
+Além do controle por evento, cada endpoint tem um **contador de erros** que mede sua saúde ao longo do tempo:
+
+- Cada entrega que falha **soma 1** ao contador
+- Cada entrega bem-sucedida **subtrai 1** (o contador nunca fica negativo)
+- Quando o contador passa de **50**, o endpoint é **desativado** e para de receber eventos
+
+O contador se recupera sozinho: um endpoint que volta a funcionar vai zerando os erros acumulados a cada entrega bem-sucedida. A desativação só acontece quando as falhas superam consistentemente os sucessos.
+
+### Alertas por e-mail
+
+Se você informou um e-mail ao configurar o webhook, enviamos um aviso quando falhas são detectadas, com link direto para a tela do webhook. Para não gerar excesso de mensagens durante uma indisponibilidade longa, há um intervalo mínimo de 4 horas entre alertas do mesmo endpoint.
+
+### Reativando um endpoint
+
+Um endpoint desativado não volta sozinho. Corrija o problema no seu sistema e reative o webhook nas configurações da plataforma. Os eventos ocorridos enquanto ele estava desativado **não são reenviados**.
+
+---
+
+## Logs de entrega
+
+Na tela do webhook na plataforma você acompanha cada tentativa de entrega, com o status HTTP retornado, o corpo da resposta do seu servidor, o tempo de resposta e o horário. É o primeiro lugar para olhar quando um evento não chegou como esperado.
+
+---
+
+## Boas práticas
+
+<ExpandableGroup>
+
+<Expandable title="Trate as entregas como idempotentes">
+  Um mesmo evento pode chegar mais de uma vez — por timeout, por reprocessamento manual ou por uma falha de rede depois de você já ter processado. Use o `_id` da resposta (`event.cf_response._id`) como chave de deduplicação e faça *upsert* em vez de *insert*.
+</Expandable>
+
+<Expandable title="Responda antes de processar">
+  Valide a assinatura, responda `200` e só então processe. Enfileire o trabalho internamente se ele for demorado. Isso evita timeouts e entregas duplicadas.
+</Expandable>
+
+<Expandable title="Não dependa da ordem de chegada">
+  Com retentativas em paralelo, um evento que falhou pode chegar depois de um evento mais recente que teve sucesso na primeira tentativa. Use os campos de data do payload (`finalized_at`, `created_at`) para ordenar, nunca a ordem de recebimento.
+</Expandable>
+
+<Expandable title="Monitore o contador de erros do seu endpoint">
+  Se o contador vive alto mesmo com o sistema funcionando, algo está retornando status inesperado — o caso mais comum é responder `204` em vez de `200`. Confira os logs de entrega para ver exatamente o que seu servidor devolveu.
+</Expandable>
+
+<Expandable title="Use HTTPS e mantenha o secret protegido">
+  Configure o endpoint sempre com `https://` e trate o secret do webhook como credencial: guarde em variável de ambiente ou cofre de segredos, nunca no código-fonte.
+</Expandable>
+
+</ExpandableGroup>
+
+---
+
+## Próximos passos
+
+<Card title="Como configurar Webhooks?" icon="lucide-webhook" href="/como-configurar-webhooks" cta="Ver passo a passo" horizontal="true" target="_self">
+  Passo a passo para criar seu primeiro webhook na plataforma.
+</Card>
+
+<Card title="Payload do cf_response" icon="code" href="/webhook-cf-response" cta="Ver estrutura" horizontal="true" target="_self">
+  Referência completa dos campos do evento de nova resposta.
+</Card>
