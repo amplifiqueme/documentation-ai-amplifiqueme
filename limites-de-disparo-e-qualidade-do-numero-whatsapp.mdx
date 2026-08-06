@@ -1,0 +1,106 @@
+---
+title: Limites de disparo e qualidade do número no WhatsApp Oficial
+description: >-
+  Entenda os níveis de limite de mensagens definidos pela Meta, o papel da
+  verificação de negócio, como funciona a nota de qualidade do número e o que
+  faz o limite subir ou cair.
+---
+## Visão geral
+
+Existem três limites diferentes atuando sobre os seus disparos. Confundi-los é a causa mais comum de dúvida quando um envio não acontece.
+
+| Limite | Quem define | O que é |
+|---|---|---|
+| Limite mensal de segurança | Amplifique.me | 3× o número de respostas contratadas no mês, para evitar erros e cobranças acidentais |
+| Limite diário de destinatários | Meta | Quantos destinatários únicos você alcança em 24 horas |
+| Limite por destinatário | Meta | Quantas mensagens de marketing um mesmo usuário recebe em um período |
+
+<Callout kind="tip" collapsed="false">
+  O limite mensal de segurança é o único que a Amplifique.me controla — e pode ser ampliado temporariamente mediante solicitação ao suporte. Os outros dois são da Meta e não podem ser alterados por nós.
+</Callout>
+
+---
+
+## Limite diário de destinatários (níveis da Meta)
+
+A Meta trabalha com níveis (tiers). O limite conta **destinatários únicos por período móvel de 24 horas** — não o total de mensagens.
+
+| Nível | Como se chega |
+|---|---|
+| **250** | Padrão de um portfólio novo, **sem verificação de negócio** |
+| **2.000** | Concluir a verificação de negócio, ou entregar 2.000 mensagens para números únicos em 30 dias com templates de alta qualidade |
+| **10.000** | Escalonamento automático, mantendo qualidade e uso do limite atual |
+| **100.000** | Escalonamento automático |
+| **Ilimitado** | Escalonamento automático |
+
+<Callout kind="alert" collapsed="false">
+  Sem a verificação de negócio concluída, sua conta fica **travada em 250 destinatários por dia** e não avança para nenhum nível superior. É por isso que a verificação é um requisito para ativar o canal.
+</Callout>
+
+Depois do primeiro nível, a subida é automática: a Meta reavalia sua conta periodicamente e amplia o limite quando você usa uma parte relevante da capacidade atual mantendo boa qualidade.
+
+---
+
+## Qualidade do número
+
+A Meta atribui uma nota de qualidade ao seu número, baseada principalmente em **sinais negativos dos destinatários**: quantas pessoas bloqueiam o seu número e quantas denunciam as suas mensagens como spam.
+
+| Nota | O que significa |
+|---|---|
+| **Verde** (alta) | Boa recepção, sem sinais negativos relevantes. Sua conta pode continuar subindo de nível. |
+| **Amarela** (média) | Estado de atenção. Os envios continuam, mas a subida de nível é pausada. É a janela para corrigir a causa. |
+| **Vermelha** (baixa) | O limite é congelado e a aprovação de novos templates fica mais rígida. Se persistir, a Meta pode suspender o número. |
+
+### Status do número
+
+- **Sinalizado (flagged)** — a qualidade caiu para o nível baixo. Se o número permanecer sinalizado por **mais de 7 dias consecutivos**, o limite é rebaixado para o nível imediatamente inferior.
+
+- **Restrito (restricted)** — o limite das 24 horas foi atingido. Novos disparos só voltam a sair quando a janela de 24 horas se renova.
+
+---
+
+## O que preserva a qualidade do seu número
+
+- **Envie apenas para quem consentiu.** Base sem opt-in é a maior fonte de bloqueios e denúncias.
+
+- **Use templates Utility com contexto explícito.** Além do custo menor, mensagens que fazem sentido para quem recebe geram menos reação negativa.
+
+- **Dispare próximo ao evento.** Uma pesquisa enviada horas depois do atendimento é esperada; enviada semanas depois, parece propaganda.
+
+- **Não repita envios para quem não respondeu.** Insistir derruba a qualidade rapidamente.
+
+- **Mantenha a base limpa.** Números inválidos ou de pessoas sem relação recente com a empresa prejudicam o engajamento médio.
+
+<Callout kind="info" collapsed="false">
+  A nota de qualidade e o nível de limite ficam visíveis no Gerenciador do WhatsApp, dentro do Meta Business Manager, na seção de números de telefone.
+</Callout>
+
+---
+
+## Perguntas frequentes
+
+<ExpandableGroup>
+  <Expandable title="Meus envios pararam de repente. É problema da Amplifique.me?" default-open="false">
+    Verifique primeiro o limite mensal de segurança na plataforma e, em seguida, o status do número no Gerenciador do WhatsApp. Se o número estiver restrito, o limite diário da Meta foi atingido e os envios voltam quando a janela de 24 horas se renova.
+  </Expandable>
+
+  <Expandable title="A Amplifique.me pode aumentar meu limite diário na Meta?" default-open="false">
+    Não. O limite diário é definido pela Meta com base na verificação do negócio, no histórico de envio e na qualidade. O que podemos ampliar é apenas o limite mensal de segurança da plataforma.
+  </Expandable>
+
+  <Expandable title="Meu limite caiu. Como recupero?" default-open="false">
+    A recuperação é automática, mas depende de melhorar a qualidade: reduza volume, envie apenas para bases com consentimento e próximas ao evento que originou a pesquisa, e priorize templates Utility. A Meta reavalia a conta continuamente.
+  </Expandable>
+
+  <Expandable title="Qual a diferença entre esse limite e o erro #131049?" default-open="false">
+    O limite diário é da **sua conta** (quantos destinatários você alcança). O erro #131049 é um limite do **destinatário** (quantas mensagens de marketing aquela pessoa recebeu recentemente). Um envio pode falhar por #131049 mesmo com o seu limite diário bem longe do teto.
+  </Expandable>
+</ExpandableGroup>
+
+---
+
+## Próximo passo
+
+<Card title="Opt-in: como coletar consentimento para enviar no WhatsApp" href="/opt-in-whatsapp-consentimento" icon="user-check" cta="Ver artigo" horizontal="false" target="_self">
+  Consentimento é o principal fator de qualidade do número. Veja o que a Meta exige e como coletar.
+</Card>
