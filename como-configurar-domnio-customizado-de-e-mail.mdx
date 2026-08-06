@@ -2,21 +2,25 @@
 title: Como configurar domínio customizado de e-mail?
 description: >-
   Envie pesquisas usando o e-mail da sua empresa como remetente (ex:
-  pesquisas@suaempresa.com.br) em vez do endereço padrão da Amplifique.me.
-  Recurso pago — R$99/mês.
+  pesquisas@suaempresa.com.br) e receba as respostas dos clientes direto nos
+  tickets. Recurso pago — R$99/mês por domínio.
 ---
 ## Visão geral
 
-Por padrão, as pesquisas da Amplifique.me são enviadas com um endereço de e-mail da própria plataforma. Com o domínio customizado, você passa a usar o e-mail da sua empresa como remetente — por exemplo, `pesquisas@pesquisa.suaempresa.com.br`.
+Por padrão, as pesquisas da Amplifique.me são enviadas com um endereço de e-mail da própria plataforma (`noreply@amplifique.me`). Com o domínio customizado, seus clientes passam a ver o e-mail da sua empresa como remetente — por exemplo, `pesquisas@suaempresa.com.br`.
 
-Isso faz duas coisas: os clientes reconhecem o remetente e confiam mais no e-mail, e a chance de a mensagem cair na caixa de spam diminui.
+A configuração entrega três coisas:
+
+* **Identidade de marca** — e-mails enviados com o domínio da sua empresa, transmitindo mais credibilidade.
+* **Melhor entregabilidade** — SPF, DKIM e MAIL FROM configurados, reduzindo a chance de cair no spam.
+* **Fechamento de loop** — as respostas dos clientes chegam diretamente nos tickets, sem perder nenhuma mensagem.
 
 <Callout kind="alert" collapsed="false">
-  O domínio customizado é um recurso pago (R$99/mês). **Você precisa contratar com o time da Amplifique.me antes de configurar.** Só depois da ativação a opção aparece em Configurações (⚙️) → Domínio Customizado.
+  O domínio customizado é um recurso pago (R$99/mês por domínio). **Você precisa contratar com o time da Amplifique.me antes de configurar.** Enquanto não estiver ativado, a tela mostra o botão **Contratar** no lugar do formulário.
 </Callout>
 
 <Callout kind="info" collapsed="false">
-  **Quem precisa participar dessa configuração:** você (para preencher os dados na plataforma) e alguém do time de TI ou infraestrutura da sua empresa (para fazer um ajuste técnico no provedor de domínio). Explique isso para o seu time antes de começar.
+  **Quem precisa participar dessa configuração:** você (para preencher os dados na plataforma) e alguém do time de TI ou infraestrutura da sua empresa (para inserir os registros no provedor de domínio). Explique isso para o seu time antes de começar.
 </Callout>
 
 ---
@@ -25,49 +29,75 @@ Isso faz duas coisas: os clientes reconhecem o remetente e confiam mais no e-mai
 
 <Steps>
   <Step title="Preencha os dados do domínio" title-type="p">
-    Acesse **Configurações (⚙️) → Domínio Customizado** e preencha os campos:
+    Acesse **Configurações (⚙️) → Domínio Customizado (SES)** e clique em **Configurar Domínio**. Preencha os campos:
 
-    | Campo                  | O que é                                                                      | Exemplo             |
-    | ---------------------- | ---------------------------------------------------------------------------- | ------------------- |
-    | **Endereço de e-mail** | O nome que aparece antes do @                                                | `pesquisas`         |
-    | **Subdomínio**         | Uma "pasta" dentro do seu domínio, usada para separar os e-mails de pesquisa | `pesquisa`          |
-    | **Domínio**            | O endereço do site da sua empresa                                            | `suaempresa.com.br` |
-    | **DKIM** *(opcional)*  | Um código de identificação técnico — deixe em branco se não souber o que é   | `amp` ou `001`      |
+    | Campo         | O que é                              | Exemplo             |
+    | ------------- | ------------------------------------ | ------------------- |
+    | **Domínio**   | O domínio principal da sua empresa   | `suaempresa.com.br` |
+    | **Remetente** | O nome que aparece antes do @        | `pesquisas`         |
 
-    Com os exemplos acima, o e-mail final ficaria assim: [**pesquisas@pesquisa.suaempresa.com.br**](mailto:pesquisas@pesquisa.suaempresa.com.br)
+    Com os exemplos acima, o e-mail final fica assim: [**pesquisas@suaempresa.com.br**](mailto:pesquisas@suaempresa.com.br)
 
     <Callout kind="tip" collapsed="false">
-      **Não sabe o que colocar no subdomínio?** Use `pesquisa` ou `nps` — são os mais comuns. O importante é não deixar igual ao domínio principal (`suaempresa.com.br` sem nada antes não é aceito).
+      Você usa o **seu domínio principal**, sem precisar criar um subdomínio no endereço visível. A tela mostra uma pré-visualização de como o e-mail vai aparecer na caixa de entrada do seu cliente.
     </Callout>
+
+    **Opções avançadas** — a plataforma já sugere os valores recomendados e, na maioria dos casos, não é preciso mexer:
+
+    | Campo                            | O que é                                                                        | Padrão |
+    | -------------------------------- | ------------------------------------------------------------------------------ | ------ |
+    | **Subdomínio de Autenticação**   | Usado para MAIL FROM, SPF e DKIM. **Não aparece no endereço visível.**         | `ampl` |
+    | **Subdomínio de Entrada**        | Usado pelo Fechamento de Loop para receber as respostas dos clientes            | `loop` |
   </Step>
 
-  <Step title="Salve e copie os registros gerados" title-type="p">
-    Após salvar, a plataforma vai gerar uma lista de **registros DNS** — são instruções técnicas que precisam ser inseridas no sistema onde o domínio da sua empresa está registrado (chamado de "provedor de domínio").
+  <Step title="Adicione o domínio e copie os registros gerados" title-type="p">
+    Clique em **Adicionar Domínio**. A plataforma gera automaticamente uma lista de **registros DNS** — instruções técnicas que precisam ser inseridas no sistema onde o domínio da sua empresa está registrado (o "provedor de domínio").
 
     <Callout kind="info" collapsed="false">
       **O que é um provedor de domínio?** É o serviço onde o domínio da sua empresa foi comprado e configurado. Os mais comuns são Registro.br, GoDaddy e Cloudflare. Se não souber qual é o da sua empresa, pergunte ao time de TI.
     </Callout>
 
-    Copie ou exporte esses registros — você vai precisar enviá-los para o responsável técnico no próximo passo.
+    Cada registro tem um botão de **copiar** ao lado do Host e do Conteúdo. Copie e envie para o responsável técnico no próximo passo.
   </Step>
 
   <Step title="Peça ao time de TI para inserir os registros" title-type="p">
-    Encaminhe os registros DNS gerados para o time de TI, desenvolvimento ou infraestrutura da sua empresa. Eles vão inserir essas informações no painel do provedor de domínio.
+    Encaminhe os registros DNS para o time de TI, desenvolvimento ou infraestrutura da sua empresa. Eles vão inserir essas informações no painel do provedor de domínio.
+
+    A tela organiza os registros em quatro blocos:
+
+    | Bloco             | Registros                     | Para que serve                                                                              |
+    | ----------------- | ----------------------------- | ------------------------------------------------------------------------------------------- |
+    | **DKIM**          | 1 registro                    | Assinatura digital que garante a autenticidade dos e-mails enviados                          |
+    | **Envio**         | 1 registro MX + 1 registro TXT (SPF) | MAIL FROM personalizado e SPF — autorizam nosso provedor de e-mail a enviar pelo seu domínio |
+    | **Recebimento**   | 1 registro MX                 | Permite que o Fechamento de Loop receba as respostas e vincule ao ticket correspondente      |
+    | **DMARC**         | 1 registro TXT *(recomendado)* | Protege o domínio contra uso indevido — não é obrigatório para enviar                       |
 
     **Você não precisa entender os detalhes técnicos — só precisa repassar os registros exatamente como foram gerados.**
+
+    <Callout kind="info" collapsed="false">
+      **Notas para o time de TI:** o TTL pode ficar em **Auto** (ou o padrão do provedor). Os registros **MX** usam **prioridade 10**. Os valores devem ser copiados na íntegra, sem quebras de linha.
+    </Callout>
 
     <Callout kind="danger" collapsed="false">
       ⚠️ **Atenção para o time de TI:** os registros DNS **não podem ser alterados ou removidos** enquanto o domínio estiver ativo na Amplifique.me. Qualquer modificação pode prejudicar a entregabilidade dos e-mails e afetar a reputação do domínio da empresa. Se precisar desativar o domínio, entre em contato com o suporte da Amplifique.me **antes** de fazer qualquer alteração.
     </Callout>
   </Step>
 
-  <Step title="Aguarde a confirmação na tela" title-type="p">
-    Depois que o time de TI inserir os registros, volte à tela de configuração e acompanhe o status de cada registro.
+  <Step title="Clique em Verificar e acompanhe o status" title-type="p">
+    Depois que o time de TI inserir os registros, volte à tela de configuração e clique em **Verificar**.
 
-    Quando todos estiverem marcados como **OK**, o domínio está ativo e pronto para uso.
+    O topo da tela mostra o **status do domínio**:
+
+    | Status           | O que significa                                                                                              |
+    | ---------------- | ------------------------------------------------------------------------------------------------------------ |
+    | **Pendente**     | Aguardando a verificação dos registros. Adicione-os no provedor de DNS e clique em Verificar.                 |
+    | **Verificando**  | Os registros foram detectados no DNS e estão em processo de confirmação pelo provedor de e-mail.              |
+    | **Ativo**        | Domínio verificado e pronto para enviar e receber e-mails.                                                    |
+
+    Cada bloco (DKIM, Envio, Recebimento) também mostra sua própria etiqueta de **Ativo** ou **Pendente**, e o status reportado pelo provedor de e-mail para **DKIM** e **MAIL FROM**: Confirmado, Aguardando, Falhou, Falha temporária ou Não iniciado.
 
     <Callout kind="info" collapsed="false">
-      Essa etapa pode levar de alguns minutos até 48 horas. É normal — o sistema de internet precisa de um tempo para reconhecer as novas configurações. Não precisa fazer nada, só aguardar e verificar periodicamente.
+      Essa etapa pode levar de alguns minutos até 48 horas. É normal — a propagação do DNS leva um tempo. Não precisa fazer nada além de clicar em **Verificar** periodicamente.
     </Callout>
   </Step>
 
@@ -94,30 +124,84 @@ Isso faz duas coisas: os clientes reconhecem o remetente e confiam mais no e-mai
 
 ---
 
+## Fechamento de loop: como as respostas voltam para o ticket
+
+O **Subdomínio de Entrada** (padrão `loop`) é o que permite que o cliente simplesmente responda ao e-mail da pesquisa e essa resposta apareça no ticket correspondente.
+
+Isso funciona porque cada e-mail enviado leva um endereço de resposta (**Reply-To**) exclusivo, no formato:
+
+```
+pesquisas-{id}@loop.suaempresa.com.br
+```
+
+O `{id}` identifica o ticket, então a plataforma consegue vincular a resposta automaticamente — sem que ninguém precise encaminhar mensagens manualmente. Por isso o registro MX de **Recebimento** precisa estar ativo mesmo que você só queira enviar pesquisas.
+
+---
+
+## DMARC (recomendado)
+
+O DMARC instrui os servidores de e-mail sobre o que fazer com mensagens que falham na verificação de SPF/DKIM. **Não é obrigatório para enviar**, mas é altamente recomendado para proteger seu domínio contra uso indevido.
+
+| Tipo | Host                       | Conteúdo             | TTL  |
+| ---- | -------------------------- | -------------------- | ---- |
+| TXT  | `_dmarc.suaempresa.com.br` | `v=DMARC1; p=none;`  | Auto |
+
+<Callout kind="tip" collapsed="false">
+  Comece com `p=none` para monitorar sem bloquear nada. Depois de validar que tudo está funcionando, evolua para `p=quarantine` ou `p=reject`.
+</Callout>
+
+---
+
+## Gerenciando o domínio depois de configurado
+
+**Alterar o remetente** — você pode trocar o nome antes do @ (por exemplo, de `pesquisas` para `contato`) a qualquer momento, pelo ícone de lápis ao lado do campo **Remetente configurado**. Não é necessário refazer nenhum registro DNS.
+
+**Excluir o domínio** — o botão **Excluir** desativa o domínio e os e-mails voltam a ser enviados pelo domínio padrão da Amplifique.me.
+
+<Callout kind="danger" collapsed="false">
+  Ao excluir, os registros DNS anteriores deixam de valer. Se quiser reconfigurar no futuro, será necessário **adicionar novos registros** — especialmente o **DKIM**, que é gerado novamente a cada configuração.
+</Callout>
+
+---
+
 ## Configurando um domínio diferente por unidade
 
 Se a sua conta tem mais de uma unidade (filiais, regionais, marcas), é possível configurar um endereço de e-mail diferente para cada uma.
 
 O processo é idêntico ao descrito acima, mas deve ser acessado em:
-**Configurações → Unidade → Domínio de E-mail Customizado**
+**Configurações → Unidade → Domínio Customizado (SES)**
 
----
+<Callout kind="info" collapsed="false">
+  Além da contratação do recurso na conta, a unidade precisa estar habilitada para domínio próprio. Se a opção não aparecer, fale com o suporte.
+</Callout>
 
 ---
 
 ## Perguntas frequentes
 
 <ExpandableGroup>
-  <Expandable title="Por que preciso de um subdomínio? Não posso usar só suaempresa.com.br?" default-open="false">
-    Não é possível usar apenas o domínio principal. A Amplifique.me exige um subdomínio (como `pesquisa.suaempresa.com.br`) para proteger a reputação do seu domínio principal — se algo der errado nos envios, apenas o subdomínio é afetado, não o domínio raiz da empresa.
+  <Expandable title="Preciso criar um subdomínio? O e-mail vai ser pesquisas@suaempresa.com.br mesmo?" default-open="false">
+    Sim, o endereço visível usa o seu domínio principal — `pesquisas@suaempresa.com.br`. Os subdomínios (`ampl` e `loop`) existem apenas nos bastidores, para autenticação e recebimento das respostas, e nunca aparecem para o seu cliente.
+  </Expandable>
+
+  <Expandable title="Preciso mexer nas Opções Avançadas?" default-open="false">
+    Na maioria dos casos, não. Os valores padrão (`ampl` para autenticação e `loop` para entrada) já são os recomendados. Só altere se esses subdomínios já estiverem em uso no seu DNS para outra finalidade — nesse caso, combine os novos nomes com o time de TI antes de salvar.
   </Expandable>
 
   <Expandable title="Quanto tempo leva para ficar pronto?" default-open="false">
-    Depois que o time de TI inserir os registros, o processo de validação leva de alguns minutos até 48 horas. Você pode acompanhar o andamento diretamente na tela de configuração do domínio.
+    Depois que o time de TI inserir os registros, a validação leva de alguns minutos até 48 horas. Clique em **Verificar** na tela de configuração para acompanhar o andamento.
+  </Expandable>
+
+  <Expandable title="O status ficou em Verificando. É problema?" default-open="false">
+    Não. **Verificando** significa que os registros já foram encontrados no seu DNS e o provedor de e-mail está confirmando a autenticação — é o estado normal entre a inserção dos registros e a ativação. Se ficar assim por mais de 48 horas, peça ao time de TI para conferir se os valores foram copiados na íntegra e abra um chamado com o suporte.
   </Expandable>
 
   <Expandable title="Os e-mails vão parar de cair no spam?" default-open="false">
-    Sim, na maioria dos casos. Usar o domínio da própria empresa melhora a reputação de envio e reduz bastante a chance de os e-mails serem classificados como spam — principalmente se o domínio já tiver histórico positivo de comunicações.
+    Na maioria dos casos, sim. Com SPF, DKIM e MAIL FROM configurados no seu próprio domínio, a reputação de envio melhora e a chance de classificação como spam cai bastante — principalmente se o domínio já tiver histórico positivo de comunicações. Adicionar o DMARC reforça ainda mais essa proteção.
+  </Expandable>
+
+  <Expandable title="Posso mudar o remetente depois?" default-open="false">
+    Pode. O nome antes do @ pode ser alterado a qualquer momento na própria tela, sem refazer os registros DNS. Já o domínio em si não pode ser trocado — para isso é preciso excluir a configuração e criar uma nova.
   </Expandable>
 
   <Expandable title="O que acontece se o time de TI remover os registros DNS depois de configurado?" default-open="false">
