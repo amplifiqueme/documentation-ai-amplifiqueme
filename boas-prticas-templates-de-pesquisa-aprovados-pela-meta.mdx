@@ -2,14 +2,36 @@
 title: 'Boas práticas: templates de pesquisa aprovados pela Meta'
 description: >-
   Como estruturar o texto de templates HSM do tipo Utility para maximizar a
-  chance de aprovação pela Meta. Inclui exemplos de mensagens corretas e
-  incorretas e dicas para reformular templates rejeitados.
+  chance de aprovação pela Meta. Inclui a regra oficial de categorização,
+  exemplos corretos e incorretos e as consequências da reclassificação.
 ---
 ## Visão geral
 
 Ao criar templates de mensagem para envio de pesquisas via WhatsApp, a Meta analisa o conteúdo antes de aprovar. A principal exigência é que a mensagem tenha **contexto claro e esteja diretamente relacionada a uma ação do usuário** — como um atendimento realizado, uma compra concluída ou um serviço prestado.
 
-Templates genéricos, promocionais ou sem contexto são reprovados automaticamente.
+Templates genéricos, promocionais ou sem contexto são reprovados ou reclassificados como Marketing.
+
+---
+
+## A regra oficial da Meta para pesquisas
+
+A documentação da Meta é explícita quanto a pesquisas de satisfação:
+
+<Callout kind="info" collapsed="false">
+  Uma pesquisa é considerada **Utility** apenas quando coleta feedback sobre um pedido, transação ou interação **específica**, referenciada explicitamente na mensagem. Pesquisas genéricas são classificadas como **Marketing** justamente por falta dessa especificidade.
+</Callout>
+
+Para ser Utility, a mensagem precisa atender aos dois critérios da Meta ao mesmo tempo:
+
+1. Ser **não promocional**, sem intenção persuasiva
+
+2. Ser **específica ou solicitada pelo usuário**, ligada a um pedido, conta ou serviço
+
+O próprio exemplo usado pela Meta como pesquisa aprovada em Utility segue este formato:
+
+```text
+Você conversou conosco sobre o pedido {{numero_do_pedido}}. Como foi sua experiência?
+```
 
 ---
 
@@ -29,6 +51,10 @@ A mensagem precisa mencionar a transação, atendimento ou serviço que originou
 
 A pesquisa deve ser entendida como **consequência direta de uma ação anterior do usuário** — uma compra, consulta, atendimento ou serviço. Evite qualquer texto que pareça campanha ou comunicação de marketing.
 
+<Callout kind="tip" collapsed="false">
+  Usar variáveis que identificam a interação — número do pedido, nome do atendente, data do atendimento — é a forma mais eficaz de atender ao critério de especificidade da Meta.
+</Callout>
+
 ### ❌ 3. Evite engajamentos genéricos
 
 Não utilize frases que tentam motivar o usuário a responder por educação, empatia ou curiosidade. Essas abordagens levam à reprovação automática.
@@ -45,28 +71,46 @@ Não utilize frases que tentam motivar o usuário a responder por educação, em
 
 ## Utility vs. Marketing
 
-A Meta pode reclassificar automaticamente um template de **Utility para Marketing** se entender que o conteúdo tem caráter promocional, de awareness ou remarketing — mesmo que tenha sido criado como Utility.
-
 | Tipo          | Quando se aplica                                                                                   |
 | ------------- | -------------------------------------------------------------------------------------------------- |
 | **Utility**   | Mensagens transacionais e esperadas pelo usuário, relacionadas a uma ação específica recente       |
 | **Marketing** | Mensagens com promoção, awareness, vendas, remarketing ou sem relação com uma transação do usuário |
 
 <Callout kind="tip" collapsed="false">
-  Use sempre a categoria **Utility** para pesquisas pós-atendimento. Além de ter custo menor, é menos suscetível a reclassificação e tem maior chance de aprovação.
+  Use sempre a categoria **Utility** para pesquisas pós-atendimento. Além de ter custo menor, é menos suscetível a reclassificação e tem limites por destinatário mais permissivos.
 </Callout>
+
+---
+
+## O que acontece quando a Meta reclassifica
+
+A Meta revisa templates já aprovados e pode mudar a categoria a qualquer momento.
+
+- **De Utility para Marketing:** você recebe aviso com **1 dia** de antecedência (por e-mail e no Gerenciador do WhatsApp). O template continua aprovado e funcionando, mas passa a ser **cobrado como Marketing**.
+
+- **Se a Meta já detectou abuso de categorização na sua conta**, esse aviso prévio deixa de ser dado — a mudança passa a ser instantânea.
+
+<Callout kind="alert" collapsed="false">
+  Classificar repetidamente como Utility templates que são de Marketing tem consequências progressivas: primeiro um aviso, depois limitação do volume de mensagens Utility em 24h, depois **suspensão da criação de templates Utility por 7 a 30 dias** e, no caso mais grave, **restrição de todo o portfólio empresarial por 30 dias** — afetando todas as contas de WhatsApp da empresa.
+</Callout>
+
+Por isso a recomendação prática é sempre a mesma: **se a pesquisa não menciona uma interação específica, ela é Marketing** — e o melhor caminho é criar o template já nessa categoria em vez de tentar aprová-lo como Utility.
 
 ---
 
 ## Se o template for rejeitado
 
-Use o **ChatGPT** para reformular o texto:
+Revise o texto seguindo as regras acima e submeta novamente. Um caminho prático é usar uma ferramenta de IA para reformular:
 
 1. Descreva o contexto da mensagem (ex: "pesquisa de CSAT pós-atendimento de suporte")
 
 2. Informe o motivo do envio (ex: "cliente acabou de fechar um ticket")
 
-3. Peça para reescrever com foco utilitário, mencionando a ação que gerou o contato
+3. Peça para reescrever com foco utilitário, mencionando explicitamente a ação que gerou o contato
+
+<Callout kind="info" collapsed="false">
+  Se você discorda de uma reclassificação específica, é possível abrir contestação junto ao suporte da Meta em até 60 dias.
+</Callout>
 
 ---
 
@@ -74,7 +118,7 @@ Use o **ChatGPT** para reformular o texto:
 
 <ExpandableGroup>
   <Expandable title="Posso usar variáveis no texto do template (como o nome do cliente)?" default-open="false">
-    Sim. Templates com variáveis dinâmicas (ex: `{{1}}` para nome do cliente) são suportados. O uso de variáveis que personalizem o contexto — como nome do atendente, número do pedido ou data do atendimento — costuma aumentar a relevância e a taxa de aprovação.
+    Sim. Templates com variáveis dinâmicas são suportados. O uso de variáveis que personalizem o contexto — como nome do atendente, número do pedido ou data do atendimento — costuma aumentar a relevância e a taxa de aprovação, por atender ao critério de especificidade da Meta.
   </Expandable>
 
   <Expandable title="Qual é o tamanho máximo recomendado para o texto do template?" default-open="false">
@@ -84,13 +128,20 @@ Use o **ChatGPT** para reformular o texto:
   <Expandable title="Posso ter mais de um template por pesquisa?" default-open="false">
     Sim. Você pode criar múltiplos templates e vincular um diferente para cada fluxo de envio — por exemplo, um template para pós-atendimento e outro para pós-compra, ambos apontando para a mesma pesquisa.
   </Expandable>
+
+  <Expandable title="Pesquisa de NPS relacional pode ser Utility?" default-open="false">
+    Normalmente não. NPS relacional é uma pesquisa ampla, sem vínculo com uma transação específica — exatamente o caso que a Meta classifica como Marketing. Criar esse template já como Marketing evita reclassificação e o risco de ser sinalizado por abuso de categorização.
+  </Expandable>
 </ExpandableGroup>
 
 ---
 
 ## Próximo passo
 
-<Card title="Como criar e vincular um template HSM?" href="https://ajuda.amplifique.me/como-criar-e-vincular-um-template" icon="message-square" cta="Ver artigo" horizontal="false" target="_self">
+<Card title="Como criar e vincular um template HSM?" href="/como-criar-e-vincular-um-template" icon="message-square" cta="Ver artigo" horizontal="false" target="_self">
   Veja o passo a passo completo para criar o template na plataforma e vinculá-lo à sua pesquisa.
 </Card>
 
+<Card title="Opt-in: como coletar consentimento" href="/opt-in-whatsapp-consentimento" icon="user-check" cta="Ver artigo" horizontal="false" target="_self">
+  Texto aprovado não basta: a Meta também exige consentimento prévio do destinatário.
+</Card>
