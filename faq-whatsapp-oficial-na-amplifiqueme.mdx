@@ -2,50 +2,134 @@
 title: 'FAQ: WhatsApp Oficial na Amplifique.me'
 description: >-
   Respostas para as dúvidas mais comuns sobre o canal WhatsApp Oficial: número,
-  templates suportados, leitura de mensagens, cobrança, limites de disparo e
-  requisitos de ativação.
+  templates suportados, leitura de mensagens, cobrança, limites de disparo,
+  consentimento e requisitos de ativação.
 ---
-## Perguntas frequentes
+<Callout kind="tip" collapsed="false">
+  Procurando o passo a passo completo da ativação? Comece pelo [guia completo do canal WhatsApp Oficial](/whatsapp-oficial), que reúne a jornada, as regras da Meta e todos os artigos relacionados.
+</Callout>
+
+## Ativação e requisitos
+
+<ExpandableGroup>
+  <Expandable title="O que é necessário para ativar o canal WhatsApp?" default-open="false">
+    Para ativar o canal, é obrigatório:
+
+    - Ter um **Meta Business Manager verificado** — veja [como verificar](/como-verificar-o-meta-business-manager)
+
+    - Ter **acesso de administrador** (controle total) ao portfólio empresarial da sua empresa
+
+    - **Conceder acesso** à equipe da Amplifique.me no Business Manager — veja [como conceder](/como-conceder-acesso-a-amplifiqueme-no-meta-business-manager)
+
+    - Ter um **template de mensagem aprovado** pela Meta para vincular à pesquisa
+  </Expandable>
+
+  <Expandable title="Por que a verificação do Meta Business Manager é obrigatória?" default-open="false">
+    Porque é uma exigência da Meta, não da Amplifique.me. Sem a verificação concluída, dois bloqueios acontecem:
+
+    - Sua conta fica travada em **250 destinatários únicos por 24 horas** e não avança para nenhum nível superior
+
+    - O **nome de exibição** do seu número não é aprovado pela Meta
+
+    Na prática, sem verificação o canal fica inviável para operação real.
+  </Expandable>
+
+  <Expandable title="Quanto tempo leva para ativar o canal?" default-open="false">
+    O prazo é determinado principalmente pelas análises da Meta, que não dependem da Amplifique.me:
+
+    - **Verificação do negócio:** até 14 dias úteis
+
+    - **Aprovação do nome de exibição:** alguns dias
+
+    - **Aprovação de template:** de alguns minutos a algumas horas
+
+    Por isso recomendamos iniciar a verificação assim que o contrato for assinado.
+  </Expandable>
+
+  <Expandable title="Quem faz a configuração técnica do canal?" default-open="false">
+    A equipe da Amplifique.me. Depois que você concede acesso ao seu Meta Business Manager, nós criamos a conta do WhatsApp Business dentro do seu portfólio, registramos o número e concluímos a configuração. Você não precisa executar esse processo.
+  </Expandable>
+</ExpandableGroup>
+
+---
+
+## Número e perfil
 
 <ExpandableGroup>
   <Expandable title="Qual número é utilizado para disparo via WhatsApp?" default-open="false">
-    Um número **exclusivo fornecido pela Amplifique.me** durante o setup. É possível escolher o DDD.
+    Um número **exclusivo fornecido pela Amplifique.me** durante o setup. É possível escolher o DDD, conforme disponibilidade na data da configuração.
 
     <Callout kind="alert" collapsed="false">
       O número fornecido **não pode ser utilizado** em outro Business Solution Provider (BSP) da Meta, nem em qualquer dispositivo via aplicativo WhatsApp ou WhatsApp Business. O uso em outros canais invalida a integração.
     </Callout>
   </Expandable>
 
+  <Expandable title="Posso usar o meu próprio número?" default-open="false">
+    O modelo da Amplifique.me trabalha com um número exclusivo fornecido por nós. Além disso, a Meta não permite registrar na API um número que já esteja em uso em uma conta de WhatsApp — ele precisaria ser excluído antes. Converse com o seu gerente de contas se houver necessidade específica.
+  </Expandable>
+
+  <Expandable title="Posso personalizar as informações do perfil do WhatsApp?" default-open="false">
+    Sim. É possível inserir logo, descrição e demais informações permitidas pela Meta em **Configurações → WhatsApp (Oficial) → Editar perfil**. Veja os campos e limites em [como editar o perfil](/como-editar-o-perfil-do-whatsapp-oficial).
+
+    O **nome de exibição** é a exceção: é alterado no Meta Business Manager e passa por aprovação da Meta.
+  </Expandable>
+
+  <Expandable title="É possível ler as mensagens recebidas pelo WhatsApp?" default-open="false">
+    Não. A integração é **somente para disparo de pesquisas** — não há leitura, recepção ou gestão de mensagens recebidas.
+  </Expandable>
+</ExpandableGroup>
+
+---
+
+## Templates
+
+<ExpandableGroup>
   <Expandable title="Qual tipo de template HSM é suportado?" default-open="false">
     A Amplifique.me suporta templates HSM do tipo **Utility** ou **Marketing**, conforme as diretrizes da Meta.
 
     Templates Utility são recomendados para pesquisas pós-atendimento — eles têm custo menor e menor risco de reclassificação automática pela Meta.
   </Expandable>
 
-  <Expandable title="É possível ler as mensagens recebidas pelo WhatsApp?" default-open="false">
-    Não. A integração é **somente para disparo de pesquisas** — não há leitura, recepção ou gestão de mensagens recebidas.
+  <Expandable title="Minha pesquisa de NPS pode ser Utility?" default-open="false">
+    Depende do contexto. A regra oficial da Meta é que a pesquisa só é Utility se mencionar explicitamente a transação ou o atendimento específico que a originou. NPS relacional, enviado para base ampla e sem vínculo com uma interação recente, é classificado como Marketing. Veja as [boas práticas de templates](/boas-prticas-templates-de-pesquisa-aprovados-pela-meta).
   </Expandable>
 
-  <Expandable title="Posso personalizar as informações do perfil do WhatsApp?" default-open="false">
-    Sim. É possível inserir logo, nome, descrição e demais informações permitidas pela Meta. A personalização é feita durante o setup do canal com a equipe da Amplifique.me — e pode ser editada depois em **Configurações → WhatsApp (Oficial) → Editar perfil**.
+  <Expandable title="Preciso de consentimento dos destinatários?" default-open="false">
+    Sim. A Meta exige consentimento prévio (opt-in) antes de enviar qualquer mensagem, e isso vale para pesquisas. A coleta e a guarda do consentimento são responsabilidade da sua empresa. Veja [como coletar consentimento](/opt-in-whatsapp-consentimento).
+  </Expandable>
+</ExpandableGroup>
+
+---
+
+## Limites e cobrança
+
+<ExpandableGroup>
+  <Expandable title="Existe limite de disparos por WhatsApp?" default-open="false">
+    Sim, e são três limites diferentes:
+
+    - **Limite mensal de segurança (Amplifique.me):** 3× o número de respostas contratadas, para evitar erros e cobranças acidentais. Pode ser ampliado temporariamente mediante solicitação ao suporte.
+
+    - **Limite diário de destinatários (Meta):** definido pelo nível da sua conta, começando em 250 destinatários únicos por 24 horas.
+
+    - **Limite por destinatário (Meta):** quantas mensagens de marketing um mesmo usuário recebe em um período.
+
+    Detalhes em [limites de disparo e qualidade do número](/limites-de-disparo-e-qualidade-do-numero-whatsapp).
+  </Expandable>
+
+  <Expandable title="A Amplifique.me pode aumentar o meu limite diário na Meta?" default-open="false">
+    Não. O limite diário é definido pela Meta com base na verificação do negócio, no histórico de envio e na qualidade do número. O que podemos ampliar é apenas o limite mensal de segurança da plataforma.
   </Expandable>
 
   <Expandable title="Como funciona a cobrança dos disparos via WhatsApp?" default-open="false">
-    Os envios realizados são cobrados no **mês seguinte ao uso**, conforme o volume disparado no período.
+    Os envios realizados são cobrados no **mês seguinte ao uso**, conforme o volume disparado no período. O valor por disparo varia conforme a categoria do template (Utility ou Marketing) e o país do destinatário — os valores aplicáveis constam no seu contrato.
   </Expandable>
 
-  <Expandable title="Existe limite de disparos por WhatsApp?" default-open="false">
-    Sim. Por padrão, há um **limite mensal de 3× o número de respostas contratadas** para evitar erros e cobranças acidentais. Esse limite pode ser ampliado temporariamente mediante solicitação ao suporte.
-
-    Além disso, existe um limite técnico definido pela própria Meta, com base no nível de qualidade da conta e no histórico de engajamento dos destinatários.
+  <Expandable title="O valor por disparo pode mudar?" default-open="false">
+    Sim. Os custos por disparo são definidos pela Meta e podem ser alterados por políticas comerciais, variação cambial ou encargos tributários. Alterações são comunicadas à sua empresa.
   </Expandable>
 
-  <Expandable title="O que é necessário para ativar o canal WhatsApp?" default-open="false">
-    Para ativar o canal, é obrigatório:
-
-    - Ter um **Meta Business Manager verificado** (veja o artigo de verificação do Meta Business)
-
-    - Ter **acesso de administrador** à conta de negócios do Facebook
+  <Expandable title="Recebi o erro #131049. O que faço?" default-open="false">
+    Esse erro é um limite por destinatário aplicado pela Meta, não uma falha de configuração. Não há ação técnica possível — veja [o que é o erro #131049](/o-que-o-erro-131049-no-whatsapp).
   </Expandable>
 </ExpandableGroup>
 
@@ -53,7 +137,10 @@ description: >-
 
 ## Próximo passo
 
-<Card title="Como criar e vincular um template de mensagem (HSM)?" href="https://ajuda.amplifique.me/como-criar-e-vincular-um-template" icon="message-square" cta="Ver artigo" horizontal="false" target="_self">
-  Aprenda a criar um template aprovado pela Meta e vinculá-lo à sua pesquisa.
+<Card title="WhatsApp Oficial: guia completo do canal" href="/whatsapp-oficial" icon="message-circle" cta="Ver artigo" horizontal="false" target="_self">
+  A jornada completa de ativação, as regras da Meta e todos os artigos do canal em um só lugar.
 </Card>
 
+<Card title="Como criar e vincular um template de mensagem (HSM)?" href="/como-criar-e-vincular-um-template" icon="message-square" cta="Ver artigo" horizontal="false" target="_self">
+  Aprenda a criar um template aprovado pela Meta e vinculá-lo à sua pesquisa.
+</Card>

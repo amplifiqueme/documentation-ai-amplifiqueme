@@ -241,6 +241,56 @@
             ]
           },
           {
+            "group": "WhatsApp Oficial",
+            "pages": [
+              {
+                "title": "WhatsApp Oficial: guia completo do canal",
+                "path": "whatsapp-oficial",
+                "icon": "message-circle"
+              },
+              {
+                "title": "Pré-requisitos: portfólio empresarial e acessos na Meta",
+                "path": "pre-requisitos-whatsapp-oficial"
+              },
+              {
+                "title": "Como verificar o Meta Business Manager?",
+                "path": "como-verificar-o-meta-business-manager"
+              },
+              {
+                "title": "Como conceder acesso à Amplifique.me no Meta Business Manager",
+                "path": "como-conceder-acesso-a-amplifiqueme-no-meta-business-manager"
+              },
+              {
+                "title": "Como alterar o nome de exibição do WhatsApp no Meta Business Manager",
+                "path": "como-alterar-o-nome-de-exibio-do-whatsapp-no-meta-business-manager"
+              },
+              {
+                "title": "Como editar o perfil do WhatsApp Oficial?",
+                "path": "como-editar-o-perfil-do-whatsapp-oficial"
+              },
+              {
+                "title": "Como criar e vincular um template?",
+                "path": "como-criar-e-vincular-um-template"
+              },
+              {
+                "title": "Boas práticas: templates de pesquisa aprovados pela Meta",
+                "path": "boas-prticas-templates-de-pesquisa-aprovados-pela-meta"
+              },
+              {
+                "title": "Opt-in: como coletar consentimento",
+                "path": "opt-in-whatsapp-consentimento"
+              },
+              {
+                "title": "Limites de disparo e qualidade do número",
+                "path": "limites-de-disparo-e-qualidade-do-numero-whatsapp"
+              },
+              {
+                "title": "O que é o erro #131049 no WhatsApp?",
+                "path": "o-que-o-erro-131049-no-whatsapp"
+              }
+            ]
+          },
+          {
             "group": "Configurações",
             "pages": [
               {
@@ -338,35 +388,6 @@
               {
                 "title": "FAQ: WhatsApp Oficial na Amplifique.me",
                 "path": "faq-whatsapp-oficial-na-amplifiqueme"
-              }
-            ]
-          },
-          {
-            "group": "WhatsApp Oficial",
-            "pages": [
-              {
-                "title": "Como alterar o nome de exibição do WhatsApp no Meta Business Manager",
-                "path": "como-alterar-o-nome-de-exibio-do-whatsapp-no-meta-business-manager"
-              },
-              {
-                "title": "O que é o erro #131049 no WhatsApp?",
-                "path": "o-que-o-erro-131049-no-whatsapp"
-              },
-              {
-                "title": "Como verificar o Meta Business Manager?",
-                "path": "como-verificar-o-meta-business-manager"
-              },
-              {
-                "title": "Como editar o perfil do WhatsApp Oficial?",
-                "path": "como-editar-o-perfil-do-whatsapp-oficial"
-              },
-              {
-                "title": "Boas práticas: templates de pesquisa aprovados pela Meta",
-                "path": "boas-prticas-templates-de-pesquisa-aprovados-pela-meta"
-              },
-              {
-                "title": "Como criar e vincular um template?",
-                "path": "como-criar-e-vincular-um-template"
               }
             ]
           }
