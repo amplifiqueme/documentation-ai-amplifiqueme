@@ -359,6 +359,10 @@
                 "path": "como-usar-links-de-pesquisa-dentro-de-um-aplicativo"
               },
               {
+                "title": "Como parametrizar o link da pesquisa enviado por e-mail ou CRM",
+                "path": "como-parametrizar-o-link-da-pesquisa-enviado-por-e-mail-ou-crm"
+              },
+              {
                 "title": "Como configurar Webhooks?",
                 "path": "como-configurar-webhooks"
               },
