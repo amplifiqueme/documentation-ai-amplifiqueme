@@ -1,0 +1,116 @@
+---
+title: "Como parametrizar o link da pesquisa enviado por e-mail ou CRM"
+description: "Faça seu CRM, ERP ou ferramenta de e-mail montar o link da pesquisa já com os dados do atendimento (protocolo, nome, e-mail) para que a resposta chegue identificada — sem o cliente digitar nada."
+---
+
+## Visão geral
+
+Este guia é para quem envia a pesquisa **por e-mail**, com o link gerado automaticamente por um **sistema externo** — um CRM, ERP, service desk ou ferramenta de e-mail. O objetivo é que dados do atendimento ou do cliente (por exemplo, o **número do protocolo**, nome ou e-mail) já venham embutidos no link, para que a resposta chegue vinculada — sem o respondente digitar nada.
+
+O que muda em relação a montar o link à mão: aqui **quem monta o link é o seu sistema**, usando a sintaxe de variável dele. O trabalho é fazer esse sistema inserir os valores certos na URL da pesquisa. É justamente nesse ponto que o processo costuma falhar — e este artigo cobre como acertar e como diagnosticar.
+
+<Callout kind="info">
+  Se o link é montado dentro do seu próprio aplicativo (por notificação, banner ou botão), veja [Como usar links de pesquisa dentro de um aplicativo](/como-usar-links-de-pesquisa-dentro-de-um-aplicativo). A sintaxe dos parâmetros é a mesma; muda quem monta o link.
+</Callout>
+
+---
+
+## Como funciona: os dois lados
+
+Fazer isso funcionar depende de dois lados conversando:
+
+- **Do lado da Amplifique.me:** o link da pesquisa aceita campos customizados (`customFields[nome_interno]=valor`) e dados de identificação (`name`, `email`, `phone`).
+- **Do lado do seu sistema (CRM):** ele precisa substituir uma **variável** pelo valor real no momento em que gera o e-mail. Cada sistema tem sua própria sintaxe de variável — por exemplo `{{protocolo}}`, `[protocolo]`, `#protocolo#` ou `${protocolo}`. Consulte a documentação do seu CRM para saber qual é a forma correta.
+
+O link final que chega ao cliente precisa conter o **valor** (ex.: `12345`), e não o nome da variável.
+
+---
+
+## Passo a passo
+
+### 1. Crie o campo customizado na Amplifique.me
+
+Em **Configurações → Campos customizados**, crie o campo com o **nome interno exato** que você vai usar na URL (ex.: `protocolo`). Se o campo não existir, o valor enviado no link não é gravado. Veja [Como criar campos customizados](/como-criar-campos-customizados).
+
+### 2. Copie o link da sua pesquisa
+
+No construtor da pesquisa, canal **Link**, copie o link gerado (formato `https://surveys.amplifique.me/survey/ID_DA_PESQUISA`).
+
+### 3. Acrescente o parâmetro usando a variável do seu sistema
+
+No lugar do valor, coloque a variável do seu CRM. A sintaxe abaixo é só um exemplo — use a do seu sistema:
+
+```
+https://surveys.amplifique.me/survey/ID_DA_PESQUISA?ref=Email&customFields[protocolo]={{protocolo}}
+```
+
+### 4. Configure o CRM para usar esse link no e-mail
+
+Insira esse link no botão ou no texto de “Responder pesquisa” do modelo de e-mail. Ao disparar, o CRM troca a variável pelo valor real de cada atendimento.
+
+### 5. Envie um e-mail de teste e confira o link final
+
+Dispare um e-mail de teste, passe o mouse sobre o link (ou copie-o) e confirme que ele contém o **valor** — `...customFields[protocolo]=12345` — e não o texto `{{protocolo}}`. Responda a pesquisa e verifique se o protocolo aparece na resposta.
+
+---
+
+## Exemplo completo
+
+Uma operadora de saúde envia a pesquisa por e-mail ao fechar um atendimento. O CRM monta o link com o protocolo e o e-mail do cliente.
+
+**Modelo no CRM (com variáveis):**
+```
+https://surveys.amplifique.me/survey/646ca2c79118f9ca6952578c?ref=Email&customFields[protocolo]={{protocolo}}&email={{email_cliente}}
+```
+
+**Link final gerado pelo CRM (com valores):**
+```
+https://surveys.amplifique.me/survey/646ca2c79118f9ca6952578c?ref=Email&customFields[protocolo]=987654&email=cliente%40exemplo.com
+```
+
+Resultado: a resposta chega vinculada ao protocolo `987654` e ao contato — pronta para cruzar com o atendimento nos painéis.
+
+---
+
+## Problemas comuns
+
+<ExpandableGroup>
+
+<Expandable title="O link chegou com o texto da variável (ex.: {{protocolo}}) em vez do número">
+  O seu sistema não reconheceu a variável e não a substituiu. Confirme o nome exato da variável na documentação do CRM e se ela está disponível no ponto do fluxo em que o e-mail é gerado.
+</Expandable>
+
+<Expandable title="O valor aparece no link, mas não é gravado na resposta">
+  Provavelmente o campo customizado não existe na conta ou o **nome interno** está diferente do usado na URL. Ele precisa ser idêntico — inclusive maiúsculas e minúsculas. Ajuste em Configurações → Campos customizados.
+</Expandable>
+
+<Expandable title="O link está sendo quebrado ou reescrito no e-mail">
+  Alguns CRMs e ferramentas de e-mail encurtam URLs ou as envolvem em um redirecionamento de rastreamento próprio. Confirme que os parâmetros são preservados no link final. Evite espaços e aplique codificação de URL nos valores (ex.: espaço → `%20`).
+</Expandable>
+
+<Expandable title="Preciso cadastrar o contato antes?">
+  Não. Se o link trouxer `name`, `email` ou `phone`, o contato é criado ou atualizado automaticamente a partir da resposta.
+</Expandable>
+
+</ExpandableGroup>
+
+---
+
+## Boas práticas
+
+- **Nome interno exato.** O `customFields[...]` precisa bater exatamente com o campo criado na conta.
+- **Mantenha a estrutura do link.** Codifique apenas os **valores** (depois do `=`); preserve os colchetes de `customFields[...]` como mostrado.
+- **Teste antes do disparo em massa.** Um e-mail de teste evita descobrir o erro depois de milhares de envios.
+- **Cuidado com dados sensíveis.** Os parâmetros ficam visíveis na URL. Envie apenas o necessário para identificar a resposta e evite trafegar dados pessoais sensíveis sem necessidade.
+
+---
+
+## Próximo passo
+
+<Card title="Como personalizar links com parâmetros?" href="/como-personalizar-links-com-parmetros" icon="link" cta="Ver referência" horizontal="false">
+  A lista completa de parâmetros de identificação e campos customizados, com regras de sintaxe.
+</Card>
+
+<Card title="Como usar links de pesquisa dentro de um aplicativo" href="/como-usar-links-de-pesquisa-dentro-de-um-aplicativo" icon="smartphone" cta="Ver artigo" horizontal="false">
+  O mesmo conceito quando o link é montado dentro do seu app, e não por e-mail.
+</Card>
