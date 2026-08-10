@@ -1,0 +1,136 @@
+---
+title: "Como usar links de pesquisa dentro de um aplicativo"
+description: "Envie pesquisas por link dentro do seu app — em notificações, banners ou botões — com o respondente já identificado. O próprio app preenche os dados do usuário logado na URL, sem integração via API."
+---
+
+## Visão geral
+
+Este guia é para quem quer disparar uma pesquisa **por link, de dentro do próprio aplicativo** — por exemplo, uma notificação push, um banner ou um botão que abre a pesquisa — e quer que ela abra **já identificada com o usuário logado**.
+
+A ideia central: o seu app já sabe quem está logado (nome, telefone, e-mail e outros dados). Em vez de enviar um link genérico, você faz o app **montar o link com os dados desse usuário** no momento em que ele clica. Assim, a pesquisa abre sem pedir preenchimento e as respostas já chegam vinculadas ao contato certo — prontas para os painéis.
+
+<Callout kind="info">
+  Quer exibir a pesquisa como um pop-up nativo dentro do app (sem abrir um link)? Esse é outro recurso — veja [Implementação técnica de pesquisas In-App](/implementao-tcnica-de-pesquisas-in-app). Este artigo trata de **abrir a pesquisa por link**.
+</Callout>
+
+---
+
+## Por que não usar um link genérico
+
+Se você enviar o mesmo link para todos, sem parâmetros, ao abrir a pesquisa o respondente terá que **digitar manualmente** nome, e-mail ou telefone antes de começar (quando esses campos são obrigatórios). Além de aumentar o atrito e reduzir a taxa de resposta, você recebe dados soltos, sem garantia de vínculo com o cadastro — o que dificulta montar painéis confiáveis depois.
+
+Passando os dados na URL, nada disso acontece: a pesquisa abre identificada e o contato é criado ou atualizado automaticamente a partir do que veio no link.
+
+---
+
+## Como funciona: o link é um modelo
+
+Dentro de um app, o link não é fixo — ele é um **modelo (template)** com marcadores no lugar dos valores. Quando o usuário clica, o app troca cada marcador pelo dado real dele.
+
+**Modelo (no código do app):**
+```
+https://surveys.amplifique.me/survey/{ID_DA_PESQUISA}?ref=App&name={NOME}&phone={TELEFONE}
+```
+
+**Link final (gerado para o usuário logado):**
+```
+https://surveys.amplifique.me/survey/646ca2c79118f9ca6952578c?ref=App&name=Camila%20Guedes&phone=5554991802356
+```
+
+---
+
+## Passo a passo
+
+### 1. Copie o link da sua pesquisa
+
+No construtor da pesquisa, canal **Link**, copie o link gerado. Ele tem o formato `https://surveys.amplifique.me/survey/ID_DA_PESQUISA`. Esse é o ponto de partida — você vai acrescentar os parâmetros no final.
+
+### 2. Escolha quais dados passar
+
+- **Identificação:** `name`, `email`, `phone` — para abrir a pesquisa já vinculada ao respondente.
+- **Campos customizados:** `customFields[nome_interno]` — para levar contexto que você quer analisar depois (ex.: plano, unidade, patrocinadora).
+
+A lista completa de parâmetros e formatos está em [Como personalizar links com parâmetros?](/como-personalizar-links-com-parmetros). O campo customizado precisa **já existir** na sua conta — veja [Como criar campos customizados](/como-criar-campos-customizados).
+
+### 3. Monte o link com marcadores
+
+Acrescente os parâmetros após o link, usando `?` antes do primeiro e `&` entre os demais:
+
+```
+https://surveys.amplifique.me/survey/646ca2c79118f9ca6952578c?ref=App&name={NOME}&phone={TELEFONE}&customFields[patrocinadora]={PATROCINADORA}
+```
+
+### 4. No app, substitua os marcadores pelos dados do usuário logado
+
+No código, troque cada marcador pelo valor real e **aplique codificação de URL nos valores** (espaços e caracteres especiais). A maioria das linguagens tem uma função pronta para isso (ex.: `encodeURIComponent` em JavaScript).
+
+<Callout kind="warning">
+  Codifique apenas os **valores** (o que vem depois do `=`). Mantenha a estrutura do link — inclusive os colchetes de `customFields[...]` — exatamente como mostrado.
+</Callout>
+
+### 5. Teste antes de disparar
+
+Gere o link para um usuário de teste, abra no navegador e confirme que a pesquisa abre já identificada e que o campo customizado aparece na resposta.
+
+---
+
+## Exemplo completo
+
+Um plano de saúde envia o NPS por notificação no app. O app conhece o usuário logado e monta o link:
+
+**Modelo:**
+```
+https://surveys.amplifique.me/survey/646ca2c79118f9ca6952578c?ref=AppPlano&name={NOME}&phone={TELEFONE}&customFields[patrocinadora]={PATROCINADORA}
+```
+
+**Link final para a usuária Camila:**
+```
+https://surveys.amplifique.me/survey/646ca2c79118f9ca6952578c?ref=AppPlano&name=Camila%20Guedes&phone=5554991802356&customFields[patrocinadora]=plano_ouro
+```
+
+Ao tocar na notificação, Camila abre a pesquisa já identificada. A resposta chega com a patrocinadora `plano_ouro`, permitindo segmentar os painéis por patrocinadora — mesmo que ela ainda não existisse como contato na plataforma.
+
+---
+
+## Boas práticas
+
+- **Crie os campos customizados antes.** Um `customFields[...]` que não existe na conta não é gravado.
+- **Codifique os valores.** Nome com espaço, acento ou `&` quebra o link se não for codificado.
+- **Um modelo, vários usuários.** Você mantém um único link-modelo; o app gera a versão de cada usuário. Não é preciso um link por pessoa nem subir os contatos antes.
+- **Cuidado com dados sensíveis.** Telefone e e-mail ficam visíveis na URL. Dentro do app isso costuma ser seguro, mas evite registrar essas URLs em logs ou compartilhá-las fora do fluxo do usuário.
+
+---
+
+## Perguntas frequentes
+
+<ExpandableGroup>
+
+<Expandable title="Preciso cadastrar os contatos na plataforma antes de enviar?">
+  Não. Quando o link traz `name`, `email` ou `phone`, o contato é criado ou atualizado automaticamente a partir da resposta. Você não precisa importar a base antes.
+</Expandable>
+
+<Expandable title="E se faltar algum dado do usuário no momento do clique?">
+  A pesquisa abre com o que foi enviado. Se um campo de identificação obrigatório não vier preenchido, a pesquisa solicitará esse dado ao respondente antes de iniciar — como aconteceria com um link genérico.
+</Expandable>
+
+<Expandable title="Serve para notificação, banner ou botão dentro do app?">
+  Sim. Qualquer elemento do app que abra uma URL pode usar esse link montado dinamicamente. O que importa é o app substituir os marcadores pelos dados do usuário logado antes de abrir.
+</Expandable>
+
+<Expandable title="Qual a diferença para as pesquisas In-App?">
+  In-App exibe a pesquisa como pop-up dentro do app, via biblioteca JS ou API, sem sair da tela. Aqui a pesquisa abre por **link** (no navegador ou WebView). Se você não vai integrar biblioteca nem API, o link parametrizado é o caminho mais simples.
+</Expandable>
+
+</ExpandableGroup>
+
+---
+
+## Próximo passo
+
+<Card title="Como personalizar links com parâmetros?" href="/como-personalizar-links-com-parmetros" icon="link" cta="Ver referência" horizontal="false">
+  A lista completa de parâmetros de identificação e campos customizados, com regras de sintaxe e exemplos.
+</Card>
+
+<Card title="Implementação técnica de pesquisas In-App" href="/implementao-tcnica-de-pesquisas-in-app" icon="code" cta="Ver artigo" horizontal="false">
+  Para exibir a pesquisa como pop-up nativo dentro do app, sem abrir um link.
+</Card>
