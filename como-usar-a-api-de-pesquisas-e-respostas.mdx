@@ -61,10 +61,10 @@ curl -X POST "https://api.amplifique.me/partners/cf" \
   Use `transactionId` para rastrear qual evento originou cada pesquisa — útil para cruzar respostas com dados do seu sistema (ex: número do pedido, ID do ticket).
 </Callout>
 
-**Precisa retornar um link em vez de disparar?** Use `channel: "wa-link"` — a resposta incluirá uma URL curta que você pode embutir em e-mails transacionais, notificações ou mensagens do seu próprio sistema.
+**Precisa retornar um link em vez de disparar?** Use `channel: "link"` — a resposta incluirá uma URL curta que você pode embutir em e-mails transacionais, notificações ou mensagens do seu próprio sistema.
 
 ```bash
--d '{ "name": "João", "email": "joao@empresa.com", "channel": "wa-link" }'
+-d '{ "name": "João", "email": "joao@empresa.com", "channel": "link" }'
 ```
 
 ```json
