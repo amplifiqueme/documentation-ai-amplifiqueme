@@ -67,7 +67,7 @@
                   },
                   "channel": {
                     "type": "string",
-                    "description": "*Opcional* — Canal de envio. Opções: `sms`, `email`, `wa-api`. Para receber apenas o link no retorno, envie `wa-link`.",
+                    "description": "*Opcional* — Canal de envio. Opções: `sms`, `email`, `wa-api`. Para receber apenas o link no retorno, envie `link`.",
                     "example": "email"
                   },
                   "customerId": {
@@ -114,7 +114,7 @@
                       }
                     }
                   },
-                  "wa-link": {
+                  "link": {
                     "value": {
                       "_id": "62eabd08db91f8fba6ff2159",
                       "customer": {
@@ -165,7 +165,7 @@
                       }
                     },
                     {
-                      "title": "wa-link",
+                      "title": "link",
                       "type": "object",
                       "properties": {
                         "_id": {
