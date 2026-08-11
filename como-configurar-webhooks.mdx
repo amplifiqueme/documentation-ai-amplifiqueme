@@ -10,6 +10,7 @@ Os **Webhooks** da Amplifique.me funcionam na direção inversa das integraçõe
 Use Webhooks para:
 - Registrar respostas de pesquisa no seu CRM ou ERP em tempo real
 - Disparar automações internas quando um Detrator responde
+- Recuperar respondentes que abandonaram a pesquisa no meio
 - Alimentar dashboards e ferramentas de BI com dados de CX ao vivo
 
 ---
@@ -18,7 +19,12 @@ Use Webhooks para:
 
 | Evento | Quando é disparado |
 |---|---|
-| `cf_response` | Nova resposta de pesquisa de experiência do cliente recebida |
+| `cf_response` | Nova resposta de pesquisa **finalizada** pelo respondente |
+| `cf_response_incomplete` | Resposta **em andamento ou abandonada** — há perguntas respondidas, mas o respondente parou sem enviar |
+
+<Callout kind="tip">
+  O `cf_response_incomplete` é opt-in e entrega um snapshot parcial, que pode ser seguido de um `cf_response` para a mesma resposta. Veja a [referência completa do evento](/webhook-cf-response-incomplete) antes de habilitar.
+</Callout>
 
 ---
 
@@ -82,12 +88,14 @@ Use Webhooks para:
           "internal_name": "select_7"
         }
       ],
+      "finalized": true,
       "channel": "Link",
       "origin": "Link1",
       "created_at": "2021-09-16T17:48:50.035Z",
       "sent_at": "2021-09-16T17:48:50.033Z",
       "opened_at": "2021-09-16T17:48:50.667Z",
       "finalized_at": "2021-09-16T17:49:07.410Z",
+      "last_interaction_at": "2021-09-16T17:49:07.410Z",
       "_survey": "ID_DA_PESQUISA"
     }
   }
@@ -118,6 +126,7 @@ Use Webhooks para:
 | `sent_at` | Quando a pesquisa foi enviada ao respondente |
 | `opened_at` | Quando o respondente abriu a pesquisa |
 | `finalized_at` | Quando a resposta foi finalizada |
+| `last_interaction_at` | Última interação do respondente com a pesquisa |
 
 ---
 
@@ -126,7 +135,7 @@ Use Webhooks para:
 <Steps>
 
 <Step title="Prepare seu endpoint receptor">
-  Crie um endpoint na sua aplicação que aceite requisições `POST` com body em JSON. O endpoint deve retornar `HTTP 200` para confirmar o recebimento.
+  Crie um endpoint na sua aplicação que aceite requisições `POST` com body em JSON. O endpoint deve retornar `HTTP 200` (ou `201`) para confirmar o recebimento — qualquer outro status é tratado como falha e gera retentativas.
 </Step>
 
 <Step title="Acesse Configurações → Webhooks na plataforma">
@@ -134,7 +143,7 @@ Use Webhooks para:
 </Step>
 
 <Step title="Selecione os eventos e salve">
-  Selecione o evento `cf_response` e salve. A Amplifique.me começará a notificar seu endpoint a cada nova resposta recebida.
+  Marque os eventos que esse endpoint deve receber — `cf_response`, `cf_response_incomplete` ou ambos — e salve. A Amplifique.me passa a notificar seu endpoint a cada ocorrência.
 </Step>
 
 <Step title="Teste com uma resposta real">
@@ -154,11 +163,19 @@ Use Webhooks para:
 <ExpandableGroup>
 
 <Expandable title="Webhooks são disparados para respostas parciais (não finalizadas)?">
-  Não. O evento `cf_response` é disparado apenas quando a resposta é **finalizada** — quando o respondente conclui e envia a pesquisa. Respostas parciais ou interrompidas não geram webhook.
+  Sim, se você habilitar o evento `cf_response_incomplete` no endpoint. Ele é enviado quando o respondente preencheu ao menos uma pergunta e ficou cerca de 10 minutos sem interagir, sem ter finalizado a pesquisa.
+
+  O evento `cf_response` continua sendo disparado **apenas** em respostas finalizadas. Endpoints que não marcarem o novo evento seguem recebendo somente as respostas concluídas, sem nenhuma mudança.
+
+  Veja a [referência do `cf_response_incomplete`](/webhook-cf-response-incomplete) para o payload e os cuidados ao consumir.
 </Expandable>
 
 <Expandable title="Há retry automático se meu endpoint retornar erro?">
   Sim. São até **8 tentativas** por evento, com backoff exponencial começando em 1 minuto (1, 2, 4, 8, 16, 32 e 64 minutos), o que cobre aproximadamente 2 horas. Veja a [visão geral dos Webhooks](/webhooks) para os detalhes da política de retentativas e da desativação automática de endpoints.
+</Expandable>
+
+<Expandable title="Posso receber os dois eventos no mesmo endpoint?">
+  Sim. Marque ambos ao configurar o webhook. Nesse caso, uma mesma resposta pode gerar um `cf_response_incomplete` e, depois, um `cf_response` — os dois com o mesmo `cf_response._id`. Faça *upsert* por esse ID e use o campo `finalized` para saber o estado atual.
 </Expandable>
 
 <Expandable title="Posso filtrar webhooks por pesquisa específica?">
