@@ -42,12 +42,19 @@ Use Webhooks para registrar respostas no seu CRM em tempo real, abrir um ticket 
 | Evento | Quando é disparado |
 |---|---|
 | `cf_response` | Uma resposta de pesquisa foi **finalizada** pelo respondente |
+| `cf_response_incomplete` | Uma resposta ficou **em andamento ou abandonada** — há respostas preenchidas, mas o respondente parou sem enviar |
 
 Você escolhe quais eventos cada endpoint recebe ao configurá-lo. Um endpoint só recebe os eventos que você marcou.
 
-<Card title="Payload do evento cf_response" icon="code" href="/webhook-cf-response" cta="Ver estrutura completa" horizontal="true" target="_self">
-  Todos os campos do JSON, tipos de pergunta e formatos de data.
-</Card>
+<Columns cols="2">
+  <Card title="Payload do cf_response" icon="code" href="/webhook-cf-response" cta="Ver estrutura" horizontal="false" target="_self">
+    Resposta finalizada: todos os campos, tipos de pergunta e formatos de data.
+  </Card>
+
+  <Card title="Payload do cf_response_incomplete" icon="code" href="/webhook-cf-response-incomplete" cta="Ver estrutura" horizontal="false" target="_self">
+    Resposta não finalizada: quando dispara, o que muda no payload e como consumir com segurança.
+  </Card>
+</Columns>
 
 ---
 
@@ -227,7 +234,7 @@ Na tela do webhook na plataforma você acompanha cada tentativa de entrega, com 
 </Expandable>
 
 <Expandable title="Não dependa da ordem de chegada">
-  Com retentativas em paralelo, um evento que falhou pode chegar depois de um evento mais recente que teve sucesso na primeira tentativa. Use os campos de data do payload (`finalized_at`, `created_at`) para ordenar, nunca a ordem de recebimento.
+  Com retentativas em paralelo, um evento que falhou pode chegar depois de um evento mais recente que teve sucesso na primeira tentativa. Use os campos de data do payload (`finalized_at`, `last_interaction_at`, `created_at`) para ordenar, nunca a ordem de recebimento.
 </Expandable>
 
 <Expandable title="Monitore o contador de erros do seu endpoint">
@@ -246,8 +253,4 @@ Na tela do webhook na plataforma você acompanha cada tentativa de entrega, com 
 
 <Card title="Como configurar Webhooks?" icon="lucide-webhook" href="/como-configurar-webhooks" cta="Ver passo a passo" horizontal="true" target="_self">
   Passo a passo para criar seu primeiro webhook na plataforma.
-</Card>
-
-<Card title="Payload do cf_response" icon="code" href="/webhook-cf-response" cta="Ver estrutura" horizontal="true" target="_self">
-  Referência completa dos campos do evento de nova resposta.
 </Card>
