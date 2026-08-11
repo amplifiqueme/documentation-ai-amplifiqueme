@@ -1,0 +1,156 @@
+---
+title: "Resposta não finalizada"
+description: "Nome do evento: cf_response_incomplete. Notifica respostas em andamento ou abandonadas — quem começou a responder a pesquisa e parou sem enviar."
+---
+
+O evento **`cf_response_incomplete`** avisa quando alguém começou a responder uma pesquisa e parou sem enviar. Serve para recuperação de abandono, follow-up e para identificar um detrator antes mesmo de ele concluir.
+
+É o complemento do [`cf_response`](/webhook-cf-response), que só dispara quando a resposta é finalizada.
+
+<Callout kind="warning">
+  Este evento entrega um **snapshot parcial**, não um estado final. A mesma resposta pode ser finalizada depois e gerar um `cf_response`. Trate os dois eventos como atualizações do mesmo registro — veja [Como consumir com segurança](#como-consumir-com-segurança).
+</Callout>
+
+---
+
+## Quando é disparado
+
+O disparo acontece quando as três condições são verdadeiras:
+
+1. O respondente respondeu **ao menos uma pergunta**
+2. Passaram cerca de **10 minutos** desde a última interação dele
+3. A resposta **ainda não foi finalizada**
+
+<Callout kind="tip">
+  Quem apenas abre o link e fecha sem responder nada **não** gera evento. É preciso haver pelo menos uma pergunta respondida.
+</Callout>
+
+### Se a pessoa voltar a responder
+
+A janela de espera é fixa. Se o respondente continuar preenchendo depois de o evento ter saído, uma nova janela se abre e um **novo evento** é enviado com o snapshot atualizado.
+
+Na prática: alguem que leva 25 minutos preenchendo pode gerar mais de um `cf_response_incomplete` ao longo do caminho, e depois um `cf_response` ao concluir. Todos carregam o **mesmo `_id`**.
+
+<Callout kind="warning">
+  Um evento pode ser enviado poucos segundos antes de a pessoa finalizar a pesquisa. Descartamos o evento quando a finalização acontece **antes** do disparo, mas não quando ela acontece logo depois — nesse caso você recebe o parcial e, em seguida, o `cf_response`.
+</Callout>
+
+---
+
+## Como habilitar
+
+Nas configurações do webhook na plataforma, marque o evento `cf_response_incomplete`. É opt-in: endpoints que não marcarem esse evento continuam recebendo apenas o que já recebiam.
+
+<Callout kind="tip">
+  Respostas incompletas são bem mais numerosas que finalizadas. Antes de habilitar em produção, confirme que seu endpoint aguenta o volume adicional — lembrando que falhas repetidas podem levar à [desativação automática do endpoint](/webhooks#desativação-automática-de-endpoints).
+</Callout>
+
+---
+
+## Payload
+
+A estrutura é **idêntica à do `cf_response`** — mesma chave `cf_response` no corpo, mesmos campos. O que distingue os dois é o `event_type` e o campo `finalized`.
+
+```json
+{
+  "event": {
+    "event_type": "cf_response_incomplete",
+    "customer": {
+      "name": "Nome do Respondente",
+      "email": "email@respondente.com",
+      "phone": "Telefone do Respondente",
+      "custom_fields": {
+        "cpf": "Campo Customizado CPF"
+      },
+      "company": "Nome da Empresa",
+      "customerId": "ID interno do contato",
+      "_business": "ID_DA_UNIDADE"
+    },
+    "cf_response": {
+      "responses": [
+        {
+          "answer": "3",
+          "question": "Em uma escala de 0 a 10, qual é a probabilidade de você recomendar a Empresa?",
+          "type": "nps",
+          "internal_name": "nps_1"
+        },
+        {
+          "question": "O que podemos melhorar?",
+          "type": "text",
+          "internal_name": "text_2"
+        }
+      ],
+      "finalized": false,
+      "finalized_at": null,
+      "last_interaction_at": "2026-08-11T14:22:10.115Z",
+      "channel": "Link",
+      "origin": "Link1",
+      "created_at": "2026-08-11T14:05:50.035Z",
+      "sent_at": "2026-08-11T14:05:50.033Z",
+      "opened_at": "2026-08-11T14:20:02.667Z",
+      "_survey": "ID_DA_PESQUISA",
+      "surveyName": "NPS Agosto",
+      "internalId": "ID interno da resposta",
+      "custom_fields": {},
+      "ai": {},
+      "_id": "ID_UNICO_DA_RESPOSTA"
+    }
+  }
+}
+```
+
+### Campos que se comportam de forma diferente do `cf_response`
+
+| Campo | Comportamento no evento parcial |
+|---|---|
+| `finalized` | Sempre `false`. No `cf_response` vem `true` |
+| `finalized_at` | Vazio — a resposta ainda não foi concluída |
+| `last_interaction_at` | Momento da última interação do respondente. É a referência para saber o quanto o snapshot está "fresco" |
+| `ai` | Vem **vazio**. A análise por IA só roda depois da finalização |
+| `responses[].answer` | **A chave é omitida** nas perguntas ainda não respondidas |
+
+<Callout kind="warning">
+  O array `responses` sempre lista **todas** as perguntas da pesquisa, respondidas ou não. Nas que ainda não foram respondidas, a chave `answer` simplesmente não aparece no JSON — ela não vem como `null` nem como string vazia. No seu código, verifique a presença da chave em vez de comparar com vazio.
+</Callout>
+
+Os demais campos (`channel`, `origin`, `created_at`, `sent_at`, `opened_at`, `custom_fields`, `_survey`, `surveyName`, `internalId`, `_id`) e a estrutura de `customer` seguem exatamente a [referência do `cf_response`](/webhook-cf-response).
+
+---
+
+## Como consumir com segurança
+
+<Steps>
+
+<Step title="Use o _id como chave e faça upsert">
+  `event.cf_response._id` é estável: o mesmo valor chega no parcial e depois no `cf_response`. Use-o como chave primária no seu lado e sempre **atualize** o registro em vez de inserir um novo.
+</Step>
+
+<Step title="Trate finalized como a fonte de verdade">
+  Não dependa do `event_type` para saber o estado do registro. Grave o campo `finalized` — quando ele virar `true`, a resposta está concluída.
+</Step>
+
+<Step title="Ordene por data, nunca por ordem de chegada">
+  Com retentativas, um evento antigo pode chegar depois de um mais recente. Compare `last_interaction_at` (ou `finalized_at`, quando presente) antes de sobrescrever dados que você já tem.
+</Step>
+
+<Step title="Não dispare ações irreversíveis no parcial">
+  Evite usar este evento para acionar algo que não dá para desfazer — como enviar um cupom de desculpas por uma nota baixa. A pessoa pode estar no meio do preenchimento e mudar a nota antes de concluir.
+</Step>
+
+</Steps>
+
+<Callout kind="tip">
+  Para agir sobre intenção de abandono sem risco de agir cedo demais, combine os dois eventos: use o `cf_response_incomplete` para **registrar** e priorizar internamente, e o `cf_response` para **acionar** as automações voltadas ao cliente.
+</Callout>
+
+---
+
+## Próximos passos
+
+<Card title="Visão geral dos Webhooks" icon="lucide-webhook" href="/webhooks" cta="Ver visão geral" horizontal="true" target="_self">
+  Assinatura HMAC, retentativas com backoff e desativação automática de endpoints.
+</Card>
+
+<Card title="Payload do cf_response" icon="code" href="/webhook-cf-response" cta="Ver estrutura" horizontal="true" target="_self">
+  Referência completa do evento de resposta finalizada.
+</Card>
