@@ -545,6 +545,10 @@
               {
                 "title": "cf_response (Nova Resposta)",
                 "path": "webhook-cf-response"
+              },
+              {
+                "title": "cf_response_incomplete (Resposta não finalizada)",
+                "path": "webhook-cf-response-incomplete"
               }
             ]
           }
