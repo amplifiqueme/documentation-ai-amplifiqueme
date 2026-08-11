@@ -81,7 +81,7 @@ Uma única vez por resposta, no momento em que ela é finalizada. Vale para todo
       "created_at": "2026-08-11T17:48:50.035Z",
       "sent_at": "2026-08-11T17:48:50.033Z",
       "opened_at": "2026-08-11T17:48:50.667Z",
-      "channel": "Link",
+      "channel": "Link/QRCode",
       "origin": "Link1",
       "_survey": "ID_DA_PESQUISA",
       "surveyName": "NPS Agosto",
@@ -185,17 +185,23 @@ Quando o respondente grava um áudio numa pergunta aberta, o campo `answer` traz
 
 ## Valores de `channel`
 
-| Valor | Canal |
+| Valor | Significado |
 |---|---|
 | `SMS` | Envio por SMS |
 | `E-mail` | Envio por e-mail |
-| `WhatsApp` | WhatsApp |
-| `Link` | Link público ou QR Code |
-| `InApp` | Pop-up dentro do seu sistema |
-| `QR Code` | QR Code |
+| `Link Identificado` | Link com o contato já identificado — inclui o envio manual via WhatsApp |
+| `Link/QRCode` | Link público, QR Code ou totem |
+| `In-App` | Pop-up exibido dentro do seu sistema |
+| `WhatsApp API` | WhatsApp Oficial (API da Meta) |
+| `WhatsApp Flows` | Pesquisa nativa dentro do WhatsApp |
+| `Importação` | Resposta trazida pelo importador de planilhas |
 
-<Callout kind="tip">
-  Trate `channel` de forma tolerante: canais adicionados no futuro podem trazer valores ainda não listados aqui, ou vazios. Nunca use este campo como chave de um `switch` sem caso padrão.
+<Callout kind="info">
+  O valor `Importação` não aparece em fluxo normal, já que respostas importadas não disparam webhook. Ele só surge se um evento for reenviado manualmente para uma resposta que veio de importação.
+</Callout>
+
+<Callout kind="warning">
+  Trate `channel` de forma tolerante. Os rótulos acompanham a nomenclatura da plataforma e podem ser ajustados quando um canal é renomeado, além de novos canais surgirem com o tempo. Se a sua integração precisa de estabilidade absoluta, prefira derivar a lógica de `origin` ou dos seus próprios campos customizados, e nunca use `channel` num `switch` sem caso padrão.
 </Callout>
 
 ---
