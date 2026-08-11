@@ -1,93 +1,241 @@
 ---
-title: Nova Reposta
-description: 'Nome do evento: cf_response'
+title: "Nova Resposta"
+description: "Nome do evento: cf_response. Notifica cada resposta de pesquisa finalizada pelo respondente, com todas as perguntas, dados do contato e metadados de envio."
 ---
-```json
-{  
-  "event": {  
-    "event_type": "cf_response", // Tipo do Evento
-    "customer": {  
-      "name": "Nome do Respondente",  // Nome do Respondente
-      "email": "E-mail do Respondente",  // E-mail do Respondente
-      "phone": "Telefone do Respondente",  // Telefone do Respondente
-      "custom_fields": {   // Campos customizados pertencentes aos contatos
-        "cpf": "Campo Customizado CPF", 
-      },  
-      "company": "Nome da Empresa", // Nome da empresa que o Respondente pertence
-      "_business": "AAAAAAAAAAAAAAAAAAAAAA"  // ID da Unidade que o contato pertence
-    },  
-    "cf_response": {  // Dados relacionados com a resposta
-      "responses": [  
-        {  
-          "answer": "10",  // Resposta da pergunta
-          "question": "Em uma escala de 0 a 10, qual é a probabilidade de você recomendar a Empresa Teste para um amigo, familiar ou conhecido?", // Texto base da pergunta  
-          "type": "nps",  // Tipo da Pergunta
-          "internal_name": "nps_1"  // Identificador único da pergunta dentro da Pesquisa
-        },  
-        {  
-          "answer": "7",  // Resposta da pergunta
-          "question": "A empresa X facilitou a resolução do meu problema? Clique na opção que mais representa sua opinião:",   // Texto base da pergunta  
-          "type": "ces",  // Tipo da Pergunta
-          "internal_name": "ces_3"  // Identificador único da pergunta dentro da Pesquisa
-        },  
-        {  
-          "answer": "4",  // Resposta da pergunta
-          "question": "O quão satisfeito você está com o serviço prestado pela Empresa X? Selecione a opção que mais representa sua opinião:",  // Texto base da pergunta  
-          "type": "csat",  // Tipo da Pergunta
-          "internal_name": "csat_2"  // Identificador único da pergunta dentro da Pesquisa
-        },  
-        {  
-          "answer": "Opção 1",  // Resposta da pergunta
-          "question": "Texto da pergunta",  // Texto base da pergunta  
-          "type": "unique",  // Tipo da Pergunta
-          "internal_name": "unique_4"  // Identificador único da pergunta dentro da Pesquisa
-        },  
-        {  
-          "answer": "Opção 1,Opção 2",  // Resposta da pergunta
-          "question": "Texto da pergunta",  // Texto base da pergunta  
-          "type": "multiple",  // Tipo da Pergunta
-          "internal_name": "multiple_5"  // Identificador único da pergunta dentro da Pesquisa
-        },  
-        {  
-          "answer": "teste",  // Resposta da pergunta
-          "question": "Texto da pergunta",  // Texto base da pergunta  
-          "type": "text",  // Tipo da Pergunta
-          "internal_name": "text_6"  // Identificador único da pergunta dentro da Pesquisa
-        },  
-        {  
-          "answer": "Opção 1",  // Resposta da pergunta
-          "question": "Texto da pergunta",  // Texto base da pergunta  
-          "type": "select",  // Tipo da Pergunta
-          "internal_name": "select_7"  // Identificador único da pergunta dentro da Pesquisa
-        },  
-        {  
-          "answer": "Opção 1",  // Resposta da pergunta
-          "question": "Texto da pergunta",  // Texto base da pergunta  
-          "type": "unique",  // Tipo da Pergunta
-          "internal_name": "unique_8"  // Identificador único da pergunta dentro da Pesquisa
-        }  
-      ],  
-      "channel": "Link", // Canal da resposta ('SMS', 'E-mail', 'WhatsApp', 'Link', 'InApp', 'QR Code')
-      "origin": "Link1", // Origem da resposta (parâmetro no modo API, InApp ou Link/QR-Code) 
-      "created_at": "2021-09-16T17:48:50.035Z",  // Data de solicitação
-      "sent_at": "2021-09-16T17:48:50.033Z",   // Data de envio da solicitação
-      "opened_at": "2021-09-16T17:48:50.667Z",   // Data de abertura da pesquisa
-      "finalized_at": "2021-09-16T17:49:07.410Z",  //Data de finalização da pesquisa
-      "_survey": "AAAAAAAAAAAAAAAAAAAAAA", // ID da Pesquisa
-      "_id": "AAAAAAAAAAAAAAAAAAAAAA", // ID Único da Resposta
-      "custom_fields": {   // Campos customizados pertencentes a resposta
-        "cpf": "Campo Customizado CPF", 
-      },  
-    }  
-  }  
-}
 
+O evento **`cf_response`** é enviado toda vez que um respondente **finaliza** uma pesquisa — quando ele conclui e envia. É o evento principal de Webhooks da Amplifique.me.
+
+Se você também precisa saber de quem começou e não terminou, veja o [`cf_response_incomplete`](/webhook-cf-response-incomplete).
+
+---
+
+## Quando é disparado
+
+Uma única vez por resposta, no momento em que ela é finalizada. Vale para todos os canais (E-mail, SMS, WhatsApp, Link/QR Code, In-App) e todas as metodologias (NPS, CSAT, CES, Likert, customizadas).
+
+<Callout kind="info">
+  Respostas **importadas** pelo importador de planilhas não geram este evento — apenas respostas coletadas pelos canais da plataforma.
+</Callout>
+
+---
+
+## Payload
+
+```json
+{
+  "event": {
+    "event_type": "cf_response",
+    "customer": {
+      "name": "João da Silva",
+      "email": "joao@empresa.com",
+      "phone": "5511999999999",
+      "company": "Empresa do Contato",
+      "customerId": "ID-EXTERNO-DO-CONTATO",
+      "custom_fields": {
+        "cpf": "00000000000"
+      },
+      "_business": "ID_DA_UNIDADE"
+    },
+    "cf_response": {
+      "responses": [
+        {
+          "answer": "10",
+          "question": "Em uma escala de 0 a 10, qual é a probabilidade de você recomendar a Empresa para um amigo?",
+          "type": "nps",
+          "internal_name": "nps_1"
+        },
+        {
+          "answer": "4",
+          "question": "O quão satisfeito você está com o serviço prestado?",
+          "type": "csat",
+          "internal_name": "csat_2"
+        },
+        {
+          "answer": "7",
+          "question": "A empresa facilitou a resolução do meu problema?",
+          "type": "ces",
+          "internal_name": "ces_3"
+        },
+        {
+          "answer": "Opção 1",
+          "question": "Qual opção descreve melhor sua experiência?",
+          "type": "unique",
+          "internal_name": "unique_4"
+        },
+        {
+          "answer": "Opção 1,Opção 2",
+          "question": "Quais pontos foram positivos?",
+          "type": "multiple",
+          "internal_name": "multiple_5"
+        },
+        {
+          "answer": "O atendimento foi excelente",
+          "question": "Quer deixar um comentário?",
+          "type": "text",
+          "internal_name": "text_6"
+        }
+      ],
+      "finalized": true,
+      "finalized_at": "2026-08-11T17:49:07.410Z",
+      "last_interaction_at": "2026-08-11T17:49:07.410Z",
+      "created_at": "2026-08-11T17:48:50.035Z",
+      "sent_at": "2026-08-11T17:48:50.033Z",
+      "opened_at": "2026-08-11T17:48:50.667Z",
+      "channel": "Link",
+      "origin": "Link1",
+      "_survey": "ID_DA_PESQUISA",
+      "surveyName": "NPS Agosto",
+      "internalId": "ID-EXTERNO-DA-RESPOSTA",
+      "custom_fields": {
+        "loja": "Filial SP"
+      },
+      "ai": {},
+      "_id": "ID_UNICO_DA_RESPOSTA"
+    }
+  }
+}
 ```
 
-<Card title="Como configurar um webhook?" icon="lucide-webhook" href="/como-configurar-webhooks" cta="Ver passo a passo" horizontal="true" target="_self">
-  Leia o conteúdo sobre como configurar um webhook.
-</Card>
+---
 
-<Card title="Visão geral dos Webhooks" icon="code" href="/webhooks" cta="Ver visão geral" horizontal="true" target="_self">
-  Retentativas, backoff, validação de assinatura e desativação de endpoints.
+## Campos de `customer`
+
+| Campo | Descrição |
+|---|---|
+| `name` | Nome do respondente |
+| `email` | E-mail do respondente |
+| `phone` | Telefone do respondente |
+| `company` | Nome da empresa vinculada ao contato. String vazia se não houver |
+| `customerId` | Seu identificador externo do contato, se informado na criação |
+| `custom_fields` | Campos customizados **do contato** |
+| `_business` | ID da unidade a que o contato pertence |
+
+<Callout kind="info">
+  Em pesquisas **anônimas**, os campos de identificação vêm vazios. Os dados são registrados no momento do envio — alterações posteriores no cadastro do contato não mudam o que já foi entregue.
+</Callout>
+
+---
+
+## Campos de `cf_response`
+
+| Campo | Descrição |
+|---|---|
+| `responses` | Array com **todas** as perguntas da pesquisa (veja abaixo) |
+| `finalized` | `true` neste evento |
+| `finalized_at` | Quando a resposta foi concluída e enviada |
+| `last_interaction_at` | Última interação do respondente |
+| `created_at` | Quando a solicitação foi criada |
+| `sent_at` | Quando a pesquisa foi enviada ao respondente |
+| `opened_at` | Quando o respondente abriu a pesquisa |
+| `channel` | Canal pelo qual a resposta chegou |
+| `origin` | Origem da resposta: nome do link/QR Code, In-App ou API |
+| `_survey` | ID da pesquisa |
+| `surveyName` | Título da pesquisa |
+| `internalId` | Seu identificador externo da resposta, se informado |
+| `custom_fields` | Campos customizados **da resposta**. Se vazios, caem para os do contato |
+| `ai` | Análise por IA — veja a ressalva abaixo |
+| `_id` | ID único da resposta. Use como chave de deduplicação |
+
+<Callout kind="warning">
+  **O campo `ai` geralmente chega vazio.** O webhook é disparado assim que a resposta é finalizada, enquanto a análise por IA roda em segundo plano e leva mais alguns instantes. Como o evento **não é reenviado** quando a análise conclui, não dependa deste campo. Para obter sentimento, tópicos e resumo, consulte a resposta via [API de Listar Respostas](/api-reference/listar-respostas) depois.
+</Callout>
+
+---
+
+## Estrutura de `responses`
+
+Cada item do array representa uma pergunta da pesquisa:
+
+| Campo | Descrição |
+|---|---|
+| `internal_name` | Identificador da pergunta. **Use este campo** para mapear no seu sistema — é estável |
+| `question` | Texto da pergunta como foi exibido ao respondente |
+| `type` | Tipo da pergunta |
+| `answer` | Resposta dada. String, exceto em matriz |
+| `matrixData` | Presente **apenas** em perguntas do tipo `matrix`, com a estrutura completa da matriz |
+
+<Callout kind="tip">
+  Mapeie sempre pelo `internal_name`, nunca pelo texto de `question` nem pela posição no array. O texto da pergunta pode ser editado na plataforma e varia quando a pesquisa usa múltiplos idiomas ou variáveis de personalização.
+</Callout>
+
+### Tipos de pergunta
+
+| `type` | Tipo | Formato de `answer` |
+|---|---|---|
+| `nps` | Net Promoter Score | `"0"` a `"10"` |
+| `csat` | Customer Satisfaction Score | `"1"` a `"5"` |
+| `ces` | Customer Effort Score | `"1"` a `"7"` |
+| `likert` | Escala Likert | Número conforme a escala configurada |
+| `like` | Like / Dislike | Valor booleano em texto |
+| `text` | Pergunta aberta | Texto livre |
+| `unique` | Escolha única | Texto da opção escolhida |
+| `multiple` | Múltipla escolha | Opções separadas por vírgula |
+| `select` | Lista suspensa | Texto da opção escolhida |
+| `matrix` | Matriz de opções | Objeto, também disponível em `matrixData` |
+
+<Callout kind="warning">
+  Em **múltipla escolha**, as opções vêm concatenadas numa única string separada por vírgula (`"Opção 1,Opção 2"`), não como array. Se o texto de alguma opção contiver vírgula, o split simples produz resultado incorreto — evite vírgulas nos rótulos das opções.
+</Callout>
+
+### Respostas por áudio
+
+Quando o respondente grava um áudio numa pergunta aberta, o campo `answer` traz a **transcrição automática** em texto, como qualquer resposta escrita. O arquivo de áudio em si não vai no payload — ele fica disponível na resposta dentro da plataforma.
+
+---
+
+## Valores de `channel`
+
+| Valor | Canal |
+|---|---|
+| `SMS` | Envio por SMS |
+| `E-mail` | Envio por e-mail |
+| `WhatsApp` | WhatsApp |
+| `Link` | Link público ou QR Code |
+| `InApp` | Pop-up dentro do seu sistema |
+| `QR Code` | QR Code |
+
+<Callout kind="tip">
+  Trate `channel` de forma tolerante: canais adicionados no futuro podem trazer valores ainda não listados aqui, ou vazios. Nunca use este campo como chave de um `switch` sem caso padrão.
+</Callout>
+
+---
+
+## Boas práticas
+
+<ExpandableGroup>
+
+<Expandable title="Deduplique por _id">
+  O mesmo evento pode chegar mais de uma vez — por timeout, retentativa ou reprocessamento manual. Use `event.cf_response._id` como chave e faça *upsert* em vez de *insert*.
+</Expandable>
+
+<Expandable title="Nem toda pesquisa tem NPS">
+  Não assuma a presença de um tipo específico de pergunta. Percorra o array `responses` e trate cada `type` que você reconhece, ignorando os demais — assim novos tipos de pergunta não quebram sua integração.
+</Expandable>
+
+<Expandable title="Perguntas puladas não têm answer">
+  Se a pergunta era opcional, foi pulada ou não foi exibida por uma condicional, a chave `answer` não aparece no JSON — não vem `null` nem string vazia. Verifique a presença da chave antes de ler o valor.
+</Expandable>
+
+<Expandable title="Valide a assinatura antes de confiar no payload">
+  Todo webhook vem assinado nos headers `ampl-signature` e `ampl-time`. Veja [como validar](/webhooks#como-validar-a-assinatura) — sem isso, qualquer um que descubra a URL do seu endpoint pode enviar dados falsos.
+</Expandable>
+
+</ExpandableGroup>
+
+---
+
+## Próximos passos
+
+<Columns cols="2">
+  <Card title="Visão geral dos Webhooks" icon="lucide-webhook" href="/webhooks" cta="Ver visão geral" horizontal="false" target="_self">
+    Assinatura HMAC, retentativas com backoff e desativação automática de endpoints.
+  </Card>
+
+  <Card title="Resposta não finalizada" icon="code" href="/webhook-cf-response-incomplete" cta="Ver evento" horizontal="false" target="_self">
+    O evento `cf_response_incomplete`, para quem começou a responder e parou.
+  </Card>
+</Columns>
+
+<Card title="Como configurar um webhook?" icon="lucide-webhook" href="/como-configurar-webhooks" cta="Ver passo a passo" horizontal="true" target="_self">
+  Passo a passo para criar e habilitar eventos no seu endpoint.
 </Card>
