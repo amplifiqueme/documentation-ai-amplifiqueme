@@ -1,15 +1,18 @@
 ---
-title: "Como personalizar links com parâmetros?"
-description: "Passe dados de identificação (nome, e-mail, telefone) e campos customizados diretamente na URL da pesquisa, sem precisar que o respondente os preencha manualmente. Funciona para pesquisas via Link, QR Code e integrações customizadas."
+title: Como personalizar links com parâmetros?
+description: >
+  Passe dados de identificação (nome, e-mail, telefone) e campos customizados
+  diretamente na URL da pesquisa, sem precisar que o respondente os preencha
+  manualmente. Funciona para pesquisas via Link, QR Code e integrações
+  customizadas. O campo customizado deve ser criado nas configurações da conta.
 ---
-
 ## Visão geral
 
 O link de pesquisa da Amplifique.me aceita **parâmetros de URL** que permitem pré-identificar o respondente e enviar campos customizados automaticamente. Isso elimina o passo de preenchimento de dados e permite rastrear informações contextuais da resposta.
 
 O padrão base do link é:
 
-```
+```typescript
 https://surveys.amplifique.me/survey/{ID_DA_PESQUISA}?ref={Nome_do_Link}
 ```
 
@@ -17,13 +20,13 @@ https://surveys.amplifique.me/survey/{ID_DA_PESQUISA}?ref={Nome_do_Link}
 
 ## Parâmetros de identificação do contato
 
-| Campo | Parâmetro | Formato / Exemplo |
-|---|---|---|
-| Celular | `phone` | `55DD9XXXXXXXX` (ex: `5511999999999`) |
-| E-mail | `email` | `email@example.com` |
-| Nome | `name` | `Fulano da Silva` |
+| Campo   | Parâmetro | Formato / Exemplo                     |
+| ------- | --------- | ------------------------------------- |
+| Celular | `phone`   | `55DD9XXXXXXXX` (ex: `5511999999999`) |
+| E-mail  | `email`   | `email@example.com`                   |
+| Nome    | `name`    | `Fulano da Silva`                     |
 
-<Callout kind="info">
+<Callout kind="info" collapsed="false">
   Se apenas o nome for enviado (sem e-mail ou telefone), a pesquisa ainda solicitará ao respondente que informe ao menos um dos dois para identificação.
 </Callout>
 
@@ -34,7 +37,8 @@ https://surveys.amplifique.me/survey/{ID_DA_PESQUISA}?ref={Nome_do_Link}
 Campos customizados também podem ser passados via URL — tanto em pesquisas identificadas quanto anônimas.
 
 **Padrão:**
-```
+
+```typescript
 customFields[NOME_INTERNO_DO_CAMPO]=VALOR
 ```
 
@@ -51,17 +55,20 @@ customFields[NOME_INTERNO_DO_CAMPO]=VALOR
 ## Exemplos práticos
 
 **Apenas o celular:**
-```
+
+```typescript
 https://surveys.amplifique.me/survey/646ca2c79118f9ca6952578c?ref=Link1&phone=5511999999999
 ```
 
 **Apenas um campo customizado:**
-```
+
+```typescript
 https://surveys.amplifique.me/survey/646ca2c79118f9ca6952578c?ref=Link1&customFields[tipo_cliente]=master
 ```
 
 **Múltiplos campos + celular:**
-```
+
+```typescript
 https://surveys.amplifique.me/survey/646ca2c79118f9ca6952578c?ref=Link1&customFields[tipo_cliente]=master&phone=5511999999999&customFields[id_usuario]=12345
 ```
 
@@ -70,25 +77,23 @@ https://surveys.amplifique.me/survey/646ca2c79118f9ca6952578c?ref=Link1&customFi
 ## Perguntas frequentes
 
 <ExpandableGroup>
+  <Expandable title="Campos customizados passados via URL são salvos no cadastro do contato?" default-open="false">
+    Sim. Os valores enviados via parâmetro são registrados tanto na resposta quanto no perfil do contato na plataforma, se o campo customizado já estiver criado nas configurações da conta.
+  </Expandable>
 
-<Expandable title="Campos customizados passados via URL são salvos no cadastro do contato?">
-  Sim. Os valores enviados via parâmetro são registrados tanto na resposta quanto no perfil do contato na plataforma, se o campo customizado já estiver criado nas configurações da conta.
-</Expandable>
+  <Expandable title="Posso usar parâmetros de URL em pesquisas anônimas?" default-open="false">
+    Sim. Campos customizados (`customFields`) funcionam tanto em pesquisas identificadas quanto anônimas. Parâmetros de identificação (`name`, `email`, `phone`) só fazem sentido em pesquisas identificadas.
+  </Expandable>
 
-<Expandable title="Posso usar parâmetros de URL em pesquisas anônimas?">
-  Sim. Campos customizados (`customFields`) funcionam tanto em pesquisas identificadas quanto anônimas. Parâmetros de identificação (`name`, `email`, `phone`) só fazem sentido em pesquisas identificadas.
-</Expandable>
-
-<Expandable title="Qual é o número máximo de campos customizados que posso passar na URL?">
-  Não há um limite rígido documentado, mas URLs muito longas podem ser truncadas por alguns servidores ou clientes de e-mail. Para muitos campos, considere usar a API de disparo ao invés de parâmetros de URL.
-</Expandable>
-
+  <Expandable title="Qual é o número máximo de campos customizados que posso passar na URL?" default-open="false">
+    Não há um limite rígido documentado, mas URLs muito longas podem ser truncadas por alguns servidores ou clientes de e-mail. Para muitos campos, considere usar a API de disparo ao invés de parâmetros de URL.
+  </Expandable>
 </ExpandableGroup>
 
 ---
 
 ## Próximo passo
 
-<Card title="Documentação da API Amplifique.me" icon="code" href="/api" cta="Ver artigo">
+<Card title="Documentação da API Amplifique.me" href="/api" icon="code" cta="Ver artigo" horizontal="false">
   Acesse a documentação completa da API para disparos programáticos e integrações customizadas.
 </Card>
