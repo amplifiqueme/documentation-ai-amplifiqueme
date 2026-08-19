@@ -1,0 +1,127 @@
+---
+title: Como filtrar envios e lembretes na aba Solicitações?
+description: >-
+  Entenda os dois novos controles da aba Solicitações: o seletor Mostrar (Envios
+  Originais, Apenas Lembretes Automáticos e Originais + Lembretes Automáticos) e
+  a escolha entre Data da Solicitação e Data do Envio.
+---
+## O que mudou
+
+Antes, a aba **Solicitações** tinha um único botão que alternava entre *Apenas Envios* e *Reenvios (Lembrete Automático)*. Esse botão fazia duas coisas ao mesmo tempo: mudava o que a lista exibia **e** trocava, por baixo dos panos, a data usada no filtro de período — sem deixar você escolher.
+
+Agora são dois controles independentes no topo da tela:
+
+- **Mostrar** — define o que cada linha da lista representa.
+
+- **Base de data** — define se o período filtra pela data da solicitação ou pela data em que cada envio saiu.
+
+---
+
+## O seletor "Mostrar"
+
+| Opção                                 | Cada linha é                              | Canais sem envio | Card principal        |
+| ------------------------------------- | ----------------------------------------- | ---------------- | --------------------- |
+| **Envios Originais** *(padrão)*       | uma solicitação, com o seu primeiro envio | Aparecem         | Total de Solicitações |
+| **Apenas Lembretes Automáticos**      | um lembrete automático (reenvio)          | Não aparecem     | Total de Lembretes    |
+| **Originais + Lembretes Automáticos** | um envio — o original ou cada lembrete    | Não aparecem     | Total de Envios       |
+
+### Envios Originais
+
+É a visão padrão e a que responde "quantas pesquisas eu solicitei?". Cada solicitação vira **uma única linha**, com o primeiro envio dela — mesmo que depois tenham saído três lembretes.
+
+É também a única opção que inclui os canais que não geram envio: **link, QR Code, In-App e importações**. Por isso ela tem um card exclusivo, **Solicitações Sem Envio**, com o total desses casos.
+
+### Apenas Lembretes Automáticos
+
+Mostra só os reenvios feitos pela regra de Lembrete Automático. Cada lembrete é uma linha, e uma solicitação que gerou dois lembretes aparece duas vezes.
+
+Solicitações que **não** geraram lembrete simplesmente não aparecem — use esta visão para medir o alcance e a taxa de erro dos lembretes isoladamente.
+
+### Originais + Lembretes Automáticos
+
+Mostra tudo que foi disparado: o envio original **e** cada lembrete, um por linha. É a visão que responde "quantas mensagens saíram?".
+
+<Callout kind="info" collapsed="false">
+  Nas duas visões por envio (**Apenas Lembretes** e **Originais + Lembretes**) os canais que não geram disparo — link, QR Code, In-App e importações — não aparecem na lista, porque não existe envio para contar.
+</Callout>
+
+---
+
+## As duas bases de data
+
+Quando você escolhe **Apenas Lembretes Automáticos** ou **Originais + Lembretes Automáticos**, surge um segundo seletor à esquerda do período:
+
+| Base                    | O período filtra por                   | Consequência                                                               |
+| ----------------------- | -------------------------------------- | -------------------------------------------------------------------------- |
+| **Data do Envio**       | a data em que cada envio saiu          | Um lembrete de hoje entra, mesmo que a solicitação seja antiga             |
+| **Data da Solicitação** | a data em que a solicitação foi criada | Traz todos os envios dela, inclusive os que saíram depois do fim do período |
+
+### Exemplo prático
+
+Filtro de período: **01/08 a 31/08**.
+
+**Caso 1 — solicitação dentro do período, lembrete depois.** Solicitação criada em **05/08**, lembrete enviado em **10/09**:
+
+- **Data da Solicitação** → aparecem os **dois** envios (a solicitação está no período, então tudo que ela gerou vem junto)
+
+- **Data do Envio** → aparece só o envio de **05/08**
+
+**Caso 2 — solicitação antes do período, lembrete dentro.** Solicitação criada em **28/07**, lembrete enviado em **02/08**:
+
+- **Data da Solicitação** → **nada aparece** (a solicitação é de julho)
+
+- **Data do Envio** → aparece o lembrete de **02/08**
+
+<Callout kind="tip" collapsed="false">
+  Para acompanhar a operação do dia a dia — "o que saiu essa semana" — use **Data do Envio**. Para fechar um período — "tudo que foi solicitado em agosto" — use **Data da Solicitação**.
+</Callout>
+
+### Por que a escolha some em "Envios Originais"
+
+Em **Envios Originais** o período sempre usa a **Data da Solicitação**, e o seletor nem aparece.
+
+O motivo é prático: o primeiro envio sai praticamente junto com a solicitação — mais de 99,9% deles em menos de um minuto. Escolher entre as duas datas não mudaria número nenhum na tela, então a opção foi retirada em vez de virar mais um controle sem efeito.
+
+---
+
+## O que mais muda na tela
+
+- **O card principal muda de nome e de conta**: Total de Solicitações, Total de Lembretes ou Total de Envios, conforme a opção escolhida.
+
+- **O card Solicitações Sem Envio** só existe em Envios Originais.
+
+- **Os cards e a lista andam sempre juntos**: ambos usam o mesmo escopo e a mesma base de data, então o total dos cards bate com o total da listagem.
+
+- **A coluna Reenvio** indica se aquele registro foi um reenvio e em qual tentativa — por exemplo, *"Reenviado na 2ª tentativa em 02/08/2026 09:14"*. É exatamente o mesmo critério usado pela opção **Apenas Lembretes Automáticos**.
+
+- **A exportação segue a seleção** da tela: escopo, base de data e filtros aplicados.
+
+---
+
+## Perguntas frequentes
+
+<ExpandableGroup>
+  <Expandable title="Somei 'Envios Originais' com 'Apenas Lembretes' e não bateu com 'Originais + Lembretes'. Por quê?" default-open="false">
+    As duas visões usam critérios ligeiramente diferentes para decidir o que é original e o que é reenvio, e em casos raros um envio pode ser contado nas duas ou em nenhuma. A diferença é mínima: numa medição com 339 mil envios em 48 dias, deu **1 envio de diferença**. Para o número oficial de mensagens disparadas, use sempre **Originais + Lembretes Automáticos**.
+  </Expandable>
+
+  <Expandable title="Apareceu 'Esta visualização não está disponível com o filtro X'. O que faço?" default-open="false">
+    Alguns filtros ainda não são compatíveis com as novas combinações de escopo e data. Remova o filtro indicado na mensagem ou volte para **Envios Originais**.
+  </Expandable>
+
+  <Expandable title="Uma solicitação com três lembretes ocupa quantas linhas?" default-open="false">
+    Depende da opção: **1** em Envios Originais (só a solicitação), **3** em Apenas Lembretes Automáticos (um por lembrete) e **4** em Originais + Lembretes Automáticos (o envio original mais os três lembretes).
+  </Expandable>
+
+  <Expandable title="Por que uma pesquisa respondida por link não aparece quando escolho 'Originais + Lembretes'?" default-open="false">
+    Porque link, QR Code, In-App e importações não geram disparo — não há envio para listar. Essas solicitações aparecem em **Envios Originais** e estão contabilizadas no card **Solicitações Sem Envio**.
+  </Expandable>
+</ExpandableGroup>
+
+---
+
+## Próximo passo
+
+<Card title="Como visualizar e filtrar respostas?" href="/como-visualizar-e-filtrar-respostas" icon="inbox" cta="Ver artigo" horizontal="false">
+  Veja como acompanhar as respostas recebidas, usar filtros avançados e entender os status de envio.
+</Card>
