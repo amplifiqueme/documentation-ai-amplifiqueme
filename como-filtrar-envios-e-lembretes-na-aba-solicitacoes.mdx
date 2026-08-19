@@ -19,7 +19,7 @@ Agora são dois controles independentes no topo da tela:
 
 ## O seletor "Mostrar"
 
-| Opção                                 | Cada linha é                              | Canais sem envio | Card principal        |
+| Opção                                 | Cada linha é                              | Canais sem envio | Indicador do topo     |
 | ------------------------------------- | ----------------------------------------- | ---------------- | --------------------- |
 | **Envios Originais** *(padrão)*       | uma solicitação, com o seu primeiro envio | Aparecem         | Total de Solicitações |
 | **Apenas Lembretes Automáticos**      | um lembrete automático (reenvio)          | Não aparecem     | Total de Lembretes    |
@@ -29,7 +29,7 @@ Agora são dois controles independentes no topo da tela:
 
 É a visão padrão e a que responde "quantas pesquisas eu solicitei?". Cada solicitação vira **uma única linha**, com o primeiro envio dela — mesmo que depois tenham saído três lembretes.
 
-É também a única opção que inclui os canais que não geram envio: **link, QR Code, In-App e importações**. Por isso ela tem um card exclusivo, **Solicitações Sem Envio**, com o total desses casos.
+É também a única opção que inclui os canais que não geram envio: **link, QR Code, In-App e importações**. Por isso ela tem um indicador exclusivo, **Solicitações Sem Envio**, com o total desses casos.
 
 ### Apenas Lembretes Automáticos
 
@@ -49,7 +49,7 @@ Mostra tudo que foi disparado: o envio original **e** cada lembrete, um por linh
 
 ## As duas bases de data
 
-Quando você escolhe **Apenas Lembretes Automáticos** ou **Originais + Lembretes Automáticos**, surge um segundo seletor à esquerda do período:
+O seletor de data aparece à esquerda do período quando você escolhe **Apenas Lembretes Automáticos** ou **Originais + Lembretes Automáticos**. Em **Envios Originais** o período sempre usa a Data da Solicitação.
 
 | Base                    | O período filtra por                   | Consequência                                                               |
 | ----------------------- | -------------------------------------- | -------------------------------------------------------------------------- |
@@ -76,21 +76,15 @@ Filtro de período: **01/08 a 31/08**.
   Para acompanhar a operação do dia a dia — "o que saiu essa semana" — use **Data do Envio**. Para fechar um período — "tudo que foi solicitado em agosto" — use **Data da Solicitação**.
 </Callout>
 
-### Por que a escolha some em "Envios Originais"
-
-Em **Envios Originais** o período sempre usa a **Data da Solicitação**, e o seletor nem aparece.
-
-O motivo é prático: o primeiro envio sai praticamente junto com a solicitação — mais de 99,9% deles em menos de um minuto. Escolher entre as duas datas não mudaria número nenhum na tela, então a opção foi retirada em vez de virar mais um controle sem efeito.
-
 ---
 
 ## O que mais muda na tela
 
-- **O card principal muda de nome e de conta**: Total de Solicitações, Total de Lembretes ou Total de Envios, conforme a opção escolhida.
+- **O primeiro indicador do topo muda de nome e de conta**: Total de Solicitações, Total de Lembretes ou Total de Envios, conforme a opção escolhida.
 
-- **O card Solicitações Sem Envio** só existe em Envios Originais.
+- **O indicador Solicitações Sem Envio** só existe em Envios Originais.
 
-- **Os cards e a lista andam sempre juntos**: ambos usam o mesmo escopo e a mesma base de data, então o total dos cards bate com o total da listagem.
+- **Os indicadores do topo e a lista andam sempre juntos**: ambos usam o mesmo escopo e a mesma base de data, então o total do topo bate com o total da listagem.
 
 - **A coluna Reenvio** indica se aquele registro foi um reenvio e em qual tentativa — por exemplo, *"Reenviado na 2ª tentativa em 02/08/2026 09:14"*. É exatamente o mesmo critério usado pela opção **Apenas Lembretes Automáticos**.
 
@@ -114,7 +108,7 @@ O motivo é prático: o primeiro envio sai praticamente junto com a solicitaçã
   </Expandable>
 
   <Expandable title="Por que uma pesquisa respondida por link não aparece quando escolho 'Originais + Lembretes'?" default-open="false">
-    Porque link, QR Code, In-App e importações não geram disparo — não há envio para listar. Essas solicitações aparecem em **Envios Originais** e estão contabilizadas no card **Solicitações Sem Envio**.
+    Porque link, QR Code, In-App e importações não geram disparo — não há envio para listar. Essas solicitações aparecem em **Envios Originais** e estão contabilizadas no indicador **Solicitações Sem Envio**.
   </Expandable>
 </ExpandableGroup>
 
