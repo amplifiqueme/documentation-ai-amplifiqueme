@@ -30,44 +30,67 @@ O editor de pesquisas WhatsApp Flows é dividido em **5 etapas**, exibidas na ba
     <Callout kind="alert" collapsed="false">
       O WhatsApp Flows **não suporta condicionais**. As perguntas são exibidas de forma linear, na ordem em que foram criadas. Não é possível exibir perguntas diferentes conforme a nota.
     </Callout>
+
+    <Image src="https://cdn.amplifique.me/central-de-ajuda/cce32c719e32ccb1b4ed3d0a71a73e9d.png" width="1920" height="869" />
   </Step>
 
   <Step title="Passo 2 — Mensagem" title-type="p">
     Configure a **Mensagem de Solicitação** — enviada por WhatsApp ao contato pedindo que ele responda à pesquisa. O conteúdo passa por análise da Meta antes de poder ser enviado.
 
     - **Imagem de Cabeçalho** (opcional) — exibida acima do texto da mensagem; tamanho recomendado **1024×576**
+
     - **Idioma do Modelo** — Português, Espanhol ou Inglês
+
     - **Corpo da Mensagem** — texto enviado no WhatsApp; use **Adicionar Variável** para personalizar (ex.: `{{customername}}`). Limite de 640 caracteres.
+
     - **Rodapé da Mensagem** (opcional) — ex.: "Esta é uma mensagem automática."
+
+    <Image src="https://cdn.amplifique.me/central-de-ajuda/a025d98aff05dcb4597205997cbbcdf9.png" width="1920" height="869" />
   </Step>
 
   <Step title="Passo 3 — Envio" title-type="p">
     Defina como as respostas serão coletadas e os lembretes de reenvio.
 
     - **Identificação das Respostas:**
+
       - **Identificada** — as respostas conterão os dados do contato que recebeu a pesquisa no WhatsApp
+
       - **Anônima** — nenhuma resposta poderá ser associada a um contato, mesmo ao disparar pela base de contatos cadastrados
+
     - **Lembrete Automático** — reenvia a pesquisa automaticamente para quem ainda não respondeu. É **obrigatório criar pelo menos um lembrete**. Opcionalmente, ative **Pular Finais de Semana** para contar apenas dias úteis.
 
     <Callout kind="alert" collapsed="false">
       A escolha entre **Identificada** e **Anônima** **não pode mais ser alterada depois de publicar** a pesquisa.
     </Callout>
+
+    <Image src="https://cdn.amplifique.me/central-de-ajuda/aaa11279814052a75e339b9568ce7281.png" width="1920" height="869" />
   </Step>
 
   <Step title="Passo 4 — Configurações" title-type="p">
     - **Automações** — gatilhos baseados em parâmetros da pesquisa para executar ações automaticamente (ex.: e-mail interno, criar ticket no Fechamento de Loop). Rodam na ordem em que aparecem na tela.
+
     - **Tags** — defina um conjunto de tags padrão; as respostas serão categorizadas automaticamente conforme esse conjunto.
+
     - **Limite de Respostas** — ao atingir o limite, a pesquisa é desativada automaticamente e o contador é zerado.
+
     - **Evitar Fadiga de Pesquisa** — define um intervalo (em dias) para não pesquisar o mesmo contato repetidamente. Opções: **Forçar Envio Quando o Contato Não Responder** e **Impedir Respostas Duplicadas**.
+
     - **Identificação da Pesquisa** — **Nome da Pesquisa** e **Descrição** (opcional), de uso interno; não aparecem para os participantes.
+
+    <Image src="https://cdn.amplifique.me/central-de-ajuda/094e9ca6fee5202c4b542ae914a9fa98.png" width="1920" height="869" />
   </Step>
 
   <Step title="Passo 5 — Publicação" title-type="p">
     - **Status de Aprovação da Meta** — acompanhe o status da **Pesquisa** e do **Modelo** (ficam "em Rascunho" enquanto não publicados). A mensagem e a imagem precisam ser aprovadas pela Meta.
+
     - **Próximos Passos** — depois da aprovação, prepare o envio:
+
       - **Importar Contatos** — suba sua base por planilha para enviar a pesquisa por e-mail, SMS ou WhatsApp
+
       - **Enviar ou Agendar** — escolha os contatos na tela de Contatos para disparar na hora ou agendar para depois
+
       - **Criar Campos Customizados** — guarde dados do seu negócio junto de cada contato
+
       - **Integrações** — conecte a Amplifique.me aos seus sistemas por API ou webhook
 
     Clique em **Publicar**. A pesquisa ficará com status **Publicando** enquanto aguarda aprovação da Meta.
@@ -75,11 +98,14 @@ O editor de pesquisas WhatsApp Flows é dividido em **5 etapas**, exibidas na ba
     **Status possíveis após a submissão:**
 
     - **Ativa** — aprovada e pronta para envio
+
     - **Rejeitada** — o modelo não foi aprovado; revise o conteúdo e tente novamente
 
     <Callout kind="tip" collapsed="false">
       Textos genéricos e sem imagens tendem a ser aprovados mais rapidamente. Imagens e textos com linguagem comercial muito direta podem gerar rejeição ou demora na aprovação.
     </Callout>
+
+    <Image src="https://cdn.amplifique.me/central-de-ajuda/07b06ba4733545d14c0ba6a2b85b370d.png" width="1920" height="869" />
   </Step>
 </Steps>
 
@@ -114,4 +140,3 @@ O editor de pesquisas WhatsApp Flows é dividido em **5 etapas**, exibidas na ba
 <Card title="Como habilitar respostas por áudio?" href="/como-habilitar-respostas-por-udio" icon="mic" cta="Ver artigo" horizontal="false">
   Permita que respondentes gravem áudios como resposta em perguntas abertas, com transcrição automática.
 </Card>
-
