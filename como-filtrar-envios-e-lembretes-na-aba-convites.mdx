@@ -1,0 +1,123 @@
+---
+title: Como filtrar envios e lembretes na aba Convites?
+description: >-
+  Entenda os dois controles da aba Convites: o seletor Mostrar (Convites, Apenas
+  Lembretes Automáticos e Todos os Envios) e a escolha entre Data do Convite e
+  Data do Envio.
+---
+## Visão geral
+
+A aba **Convites** tem dois controles independentes no topo da tela:
+
+- **Mostrar** — define o que cada linha da lista representa.
+
+- **Base de data** — define se o período filtra pela data do convite ou pela data em que cada envio saiu.
+
+<Callout kind="tip" collapsed="false">
+  Se convite e envio ainda soam parecidos, comece por [Envio ou Convite? Entenda a diferença](/envio-ou-convite).
+</Callout>
+
+---
+
+## O seletor "Mostrar"
+
+| Opção                            | Cada linha é                          | Canais sem envio | Indicador do topo  |
+| -------------------------------- | ------------------------------------- | ---------------- | ------------------ |
+| **Convites** *(padrão)*          | um convite, com o seu primeiro envio  | Aparecem         | Total de Convites  |
+| **Apenas Lembretes Automáticos** | um lembrete automático (reenvio)      | Não aparecem     | Total de Lembretes |
+| **Todos os Envios**              | um envio — o inicial ou cada lembrete | Não aparecem     | Total de Envios    |
+
+### Convites
+
+É a visão padrão e a que responde "quantas pessoas eu convidei?". Cada convite vira **uma única linha**, com o primeiro envio dele — mesmo que depois tenham saído três lembretes.
+
+É também a única opção que inclui os canais que não geram envio: **link, QR Code, In-App e importações**. Por isso ela tem um indicador exclusivo, **Convites Sem Envio**, com o total desses casos.
+
+### Apenas Lembretes Automáticos
+
+Mostra só os reenvios feitos pela regra de Lembrete Automático. Cada lembrete é uma linha, e um convite que gerou dois lembretes aparece duas vezes.
+
+Convites que **não** geraram lembrete simplesmente não aparecem — use esta visão para medir o alcance e a taxa de erro dos lembretes isoladamente.
+
+### Todos os Envios
+
+Mostra tudo que foi disparado: o envio inicial **e** cada lembrete, um por linha. É a visão que responde "quantas mensagens saíram?".
+
+<Callout kind="info" collapsed="false">
+  Nas duas visões por envio (**Apenas Lembretes** e **Todos os Envios**) os canais que não geram disparo — link, QR Code, In-App e importações — não aparecem na lista, porque não existe envio para contar.
+</Callout>
+
+---
+
+## As duas bases de data
+
+O seletor de data aparece à esquerda do período quando você escolhe **Apenas Lembretes Automáticos** ou **Todos os Envios**. Em **Convites** o período sempre usa a Data do Convite.
+
+| Base                | O período filtra por              | Consequência                                                                |
+| ------------------- | --------------------------------- | --------------------------------------------------------------------------- |
+| **Data do Envio**   | a data em que cada envio saiu     | Um lembrete de hoje entra, mesmo que o convite seja antigo                   |
+| **Data do Convite** | a data em que o convite foi criado | Traz todos os envios dele, inclusive os que saíram depois do fim do período |
+
+### Exemplo prático
+
+Filtro de período: **01/08 a 31/08**.
+
+**Caso 1 — convite dentro do período, lembrete depois.** Convite criado em **05/08**, lembrete enviado em **10/09**:
+
+- **Data do Convite** → aparecem os **dois** envios (o convite está no período, então tudo que ele gerou vem junto)
+
+- **Data do Envio** → aparece só o envio de **05/08**
+
+**Caso 2 — convite antes do período, lembrete dentro.** Convite criado em **28/07**, lembrete enviado em **02/08**:
+
+- **Data do Convite** → **nada aparece** (o convite é de julho)
+
+- **Data do Envio** → aparece o lembrete de **02/08**
+
+<Callout kind="tip" collapsed="false">
+  Para acompanhar a operação do dia a dia — "o que saiu essa semana" — use **Data do Envio**. Para fechar um período — "todo mundo que foi convidado em agosto" — use **Data do Convite**.
+</Callout>
+
+---
+
+## Como o resto da tela acompanha
+
+- **O primeiro indicador do topo muda de nome e de conta**: Total de Convites, Total de Lembretes ou Total de Envios, conforme a opção escolhida.
+
+- **O indicador Convites Sem Envio** só existe na visão Convites.
+
+- **Os indicadores do topo e a lista andam sempre juntos**: ambos usam o mesmo escopo e a mesma base de data, então o total do topo bate com o total da listagem.
+
+- **A coluna Reenvio** indica se aquele registro foi um reenvio e em qual etapa — por exemplo, *"Reenviado na 2ª tentativa em 02/08/2026 09:14"*. É exatamente o mesmo critério usado pela opção **Apenas Lembretes Automáticos**.
+
+- **A exportação segue a seleção** da tela: escopo, base de data e filtros aplicados.
+
+---
+
+## Perguntas frequentes
+
+<ExpandableGroup>
+  <Expandable title="Somei 'Convites' com 'Apenas Lembretes' e não bateu com 'Todos os Envios'. Por quê?" default-open="false">
+    As duas visões usam critérios ligeiramente diferentes para decidir o que é envio inicial e o que é reenvio, e em casos raros um envio pode ser contado nas duas ou em nenhuma. A diferença é irrelevante no total. Para o número oficial de mensagens disparadas, use sempre **Todos os Envios**.
+  </Expandable>
+
+  <Expandable title="Apareceu 'Esta visualização não está disponível com o filtro X'. O que faço?" default-open="false">
+    Alguns filtros ainda não são compatíveis com as novas combinações de escopo e data. Remova o filtro indicado na mensagem ou volte para **Convites**.
+  </Expandable>
+
+  <Expandable title="Um convite com três lembretes ocupa quantas linhas?" default-open="false">
+    Depende da opção: **1** em Convites (só o convite), **3** em Apenas Lembretes Automáticos (um por lembrete) e **4** em Todos os Envios (o envio inicial mais os três lembretes).
+  </Expandable>
+
+  <Expandable title="Por que uma pesquisa respondida por link não aparece quando escolho 'Todos os Envios'?" default-open="false">
+    Porque link, QR Code, In-App e importações não geram disparo — não há envio para listar. Esses convites aparecem na visão **Convites** e estão contabilizados no indicador **Convites Sem Envio**.
+  </Expandable>
+</ExpandableGroup>
+
+---
+
+## Próximo passo
+
+<Card title="Como visualizar e filtrar respostas?" href="/como-visualizar-e-filtrar-respostas" icon="inbox" cta="Ver artigo" horizontal="false">
+  Veja como acompanhar as respostas recebidas, usar filtros avançados e entender os status de envio.
+</Card>
