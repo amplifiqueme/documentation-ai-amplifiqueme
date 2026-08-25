@@ -1,13 +1,17 @@
 ---
 title: O que significam as métricas do painel?
 description: >-
-  Entenda o que cada indicador do painel mede: Respostas Recebidas, Respondentes
-  Únicos, Total de Solicitações, Total de Pessoas Abordadas, Taxa de Respostas e
-  Taxa de Engajamento — e como cada um é calculado.
+  Entenda o que cada indicador do painel mede: Respostas Recebidas, Pessoas que
+  Responderam, Convites, Pessoas Convidadas, Taxa de Resposta por Convite e Taxa
+  de Resposta por Pessoa — e como cada um é calculado.
 ---
 ## Visão geral
 
-Os cards de métrica dos painéis exibem além da nota (NPS, CSAT, etc.) uma série de **indicadores de volume e engajamento**. Entender o que cada um representa ajuda a interpretar corretamente o alcance e a qualidade das suas pesquisas.
+Os cards de métrica dos painéis exibem, além da nota (NPS, CSAT, etc.), uma série de **indicadores de volume e de alcance**. Entender o que cada um representa ajuda a interpretar corretamente o alcance e a qualidade das suas pesquisas.
+
+<Callout kind="tip" collapsed="false">
+  Duas palavras aparecem em quase todos os indicadores: **convite** é a pesquisa disponibilizada para uma pessoa, e **envio** é cada mensagem daquele convite. A diferença está explicada em [Envio ou Convite?](/envio-ou-convite).
+</Callout>
 
 ---
 
@@ -15,20 +19,24 @@ Os cards de métrica dos painéis exibem além da nota (NPS, CSAT, etc.) uma sé
 
 <Image src="https://cdn.amplifique.me/central-de-ajuda/9ed1209049bd347a069b4032dfa02dd7.png" width="419" height="418" />
 
-| Indicador                      | O que mede                                                                                                                                            |
-| ------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Respostas Recebidas**        | Total de pessoas que responderam a pesquisa até o final (todas as perguntas obrigatórias respondidas e botão de enviar clicado)                       |
-| **Respondentes Únicos**        | Total de respostas deduplicadas — se a mesma pessoa respondeu duas vezes, conta como 1                                                                |
-| **Total de Solicitações**      | Total de disparos realizados (independente do status) + pessoas que abriram o link e preencheram os dados de identificação em pesquisas identificadas |
-| **Total de Pessoas Abordadas** | Total de pessoas pesquisadas de forma deduplicada — se uma pessoa foi pesquisada duas vezes, conta como 1                                             |
-| **Taxa de Respostas**          | Respostas recebidas ÷ Total de solicitações                                                                                                           |
-| **Taxa de Engajamento**        | Respostas únicas ÷ Total de pessoas abordadas (exclui duplicatas de ambos os lados)                                                                   |
+| Indicador                        | O que mede                                                                                                             |
+| -------------------------------- | ---------------------------------------------------------------------------------------------------------------------- |
+| **Respostas Recebidas**          | Convites que receberam resposta no período                                                                             |
+| **Pessoas que Responderam**      | Pessoas distintas que responderam — se a mesma pessoa respondeu dois convites, conta como 1                            |
+| **Convites**                     | Pesquisas enviadas ou exibidas para uma pessoa no período. Lembrete automático não gera convite novo                    |
+| **Pessoas Convidadas**           | Pessoas distintas que receberam convite — se a mesma pessoa foi convidada duas vezes, conta como 1                      |
+| **Taxa de Resposta por Convite** | Respostas Recebidas ÷ Convites                                                                                         |
+| **Taxa de Resposta por Pessoa**  | Pessoas que Responderam ÷ Pessoas Convidadas                                                                           |
 
 <Callout kind="info" collapsed="false">
-  A diferença entre **Taxa de Respostas** e **Taxa de Engajamento** está na deduplicação. A taxa de respostas conta todos os disparos e todas as respostas, inclusive de um mesmo contato mais de uma vez. A taxa de engajamento considera apenas interações únicas por pessoa — é mais precisa para avaliar o alcance real da pesquisa.
+  A diferença entre as duas taxas está no que entra na conta. A **taxa por convite** conta todos os convites e todas as respostas, inclusive de um mesmo contato mais de uma vez. A **taxa por pessoa** considera apenas pessoas distintas — é mais precisa para avaliar o alcance real da pesquisa.
+
+  Uma pesquisa mensal enviada para a mesma pessoa 12 vezes no ano, respondida 3 vezes, dá 25% por convite e 100% por pessoa.
 </Callout>
 
----
+<Callout kind="tip" collapsed="false">
+  Em **link, QR Code e In-App** o convite é contado quando a pessoa abre a pesquisa — quem nunca abriu não entra na conta. E em link ou QR Code sem identificação do contato não há como contar pessoas, então os indicadores por pessoa ficam vazios.
+</Callout>
 
 ---
 
@@ -53,8 +61,16 @@ A Amplifique.me oferece visões de painel em diferentes módulos além do Painel
 ## Perguntas frequentes
 
 <ExpandableGroup>
-  <Expandable title="Uma pessoa que abriu o e-mail mas não respondeu entra no Total de Solicitações?" default-open="false">
-    Sim —  Entra no Total de Solicitações mesmo sem finalizar a resposta.
+  <Expandable title="Uma pessoa que abriu o e-mail mas não respondeu entra em Convites?" default-open="false">
+    Sim. O convite é contado quando a pesquisa é enviada, respondida ou não.
+  </Expandable>
+
+  <Expandable title="Lembrete automático aumenta o número de Convites?" default-open="false">
+    Não. O lembrete é mais um envio do mesmo convite. Para contar mensagens disparadas, use a aba **Convites** com a opção **Todos os Envios**.
+  </Expandable>
+
+  <Expandable title="Não vejo os indicadores por pessoa no meu painel. Por quê?" default-open="false">
+    Os indicadores por pessoa — Pessoas Convidadas, Pessoas que Responderam e Taxa de Resposta por Pessoa — são liberados por conta. Fale com o suporte pelo chat da plataforma para habilitá-los.
   </Expandable>
 
   <Expandable title="Posso ver as métricas de uma pesquisa sem criar um painel?" default-open="false">
@@ -62,11 +78,10 @@ A Amplifique.me oferece visões de painel em diferentes módulos além do Painel
   </Expandable>
 </ExpandableGroup>
 
-/
+---
 
 ## Próximo passo
 
 <Card title="Como usar a nuvem de palavras?" href="/como-usar-a-nuvem-de-palavras" icon="cloud" cta="Ver artigo" horizontal="false" target="_self">
   Identifique os termos mais recorrentes nas respostas abertas e filtre as respostas diretamente pela nuvem.
 </Card>
-
