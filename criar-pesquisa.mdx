@@ -1,255 +1,211 @@
 ---
-title: Como criar uma pesquisa?
+title: Como criar uma pesquisa na Amplifique.me?
 description: >-
-  Guia completo para criar pesquisas na Amplifique.me: configurar nome, tipo de
-  identificação, canais, aparência, perguntas, condicionais, agradecimento,
-  automações e realizar o teste antes de publicar.
+  Guia completo do construtor de pesquisas: monte perguntas, configure
+  condicionais, personalize o visual, escolha os canais de envio, defina
+  automações e publique.
+slug: como-criar-uma-pesquisa
 ---
 ## Visão geral
 
-O construtor de pesquisas da Amplifique.me é organizado em **6 passos sequenciais**. Você configura cada etapa em ordem e ao final realiza o teste antes de ativar para o público.
+O construtor de pesquisas da Amplifique.me guia você por 5 passos: montar as perguntas, personalizar o visual, escolher os canais de envio, configurar as automações e distribuir. Ao final, sua pesquisa fica pronta para envio por e-mail, SMS, WhatsApp, link, QR Code ou InApp.
 
 <Callout kind="info" collapsed="false">
-  Acesse em `Pesquisas e Respostas → aba Pesquisas → Criar pesquisa`.
+  Para acessar o construtor, vá ao menu lateral em **Pesquisas** e clique em **Criar pesquisa**. Se você tem o **WhatsApp Flows** contratado, verá também a opção de criar uma pesquisa via WhatsApp Flows. Este guia cobre a criação de uma pesquisa padrão.
 </Callout>
 
-<Image src="https://cdn.amplifique.me/central-de-ajuda/367f4ce3b789b90f789bd668e0a9b7f0.png" width="652" height="312" style="width: 652px; height: auto; cursor: pointer;" />
-
 ---
 
-## Passo 1 — Coleta
+## Passo 1: Montar as perguntas
+
+Ao iniciar, você pode escolher um dos modelos prontos ou começar uma pesquisa do zero. O construtor abre com a área de edição à esquerda e uma **pré-visualização** ao vivo à direita.
 
 <Steps>
-  <Step title="Defina o nome da pesquisa" title-type="p">
-    Campo obrigatório. Use um nome interno claro para facilitar a identificação futura (ex: `NPS Julho`, `CSAT Onboarding`, `CES Suporte`).
+  <Step title="Adicione suas perguntas" title-type="p">
+    Escolha o tipo de pergunta (NPS, texto aberto, CSAT, entre outros) e clique em **Adicionar**. Cada pergunta adicionada aparece na pré-visualização à direita e abre as opções de edição no canto direito.
   </Step>
 
-  <Step title="Escolha o tipo de identificação" title-type="p">
-    - **Identificada** — você saberá quem respondeu e poderá fechar o loop individualmente
+  <Step title="Edite o texto e o título do bloco" title-type="p">
+    Clique no texto para editá-lo. Você pode aplicar **negrito** selecionando a palavra desejada, ajustar o texto e adicionar um **título ao bloco**.
+  </Step>
 
-    - **Anônima 100%** — nenhuma informação do respondente é registrada
+  <Step title="Use variáveis para personalizar" title-type="p">
+    A opção de **variáveis** permite deixar a pergunta mais personalizada. Por exemplo, ao inserir a variável de **primeiro nome**, a pesquisa buscará automaticamente o nome do contato para quem você está enviando.
+  </Step>
 
-    - **Rastreamento de participação** — a plataforma registra que o contato respondeu, sem vincular a resposta aos dados pessoais
-
-    <Image src="https://cdn.amplifique.me/central-de-ajuda/af4e25218d823e38aef0c613bf8130f5.png" width="1274" height="468" alt="" />
+  <Step title="Ajuste as opções de cada tipo de pergunta" title-type="p">
+    Cada tipo tem configurações próprias. No NPS, você pode ativar a **escala colorida** e editar os textos das extremidades (ex: "pouco provável" e "muito provável"). Em perguntas de texto, é possível marcar como **obrigatória**, exibir o **botão pular pergunta**, **limitar caracteres**, **permitir resposta com áudio** e **analisar a resposta com IA**. No CSAT, você pode desativar a escala numérica e ativar a **escala customizada** com corações, estrelas ou carinhas.
 
     <Callout kind="tip" collapsed="false">
-      Pesquisas anônimas são mais comuns em contextos internos como RH e clima organizacional.
+      Cada pergunta tem um **ID da pergunta**, usado em integrações ou na exportação de respostas quando você precisa desse identificador.
     </Callout>
   </Step>
 
-  <Step title="Selecione os canais de coleta" title-type="p">
-    Escolha os canais que deseja usar. A configuração detalhada de cada canal é feita no **Passo 4**.
-
-    <Image src="https://cdn.amplifique.me/central-de-ajuda/d042ed2f32105ccb3c13b10ba75ec06c.png" width="1250" height="514" />
-
-    | Canal              | Descrição                                      |
-    | ------------------ | ---------------------------------------------- |
-    | **E-mail**         | Envio direto ao contato com link personalizado |
-    | **SMS**            | Envio via mensagem de texto (requer saldo)     |
-    | **In-App**         | Pop-up incorporado via script no seu sistema   |
-    | **Link / QR Code** | Link público ou QR para divulgação aberta      |
-    | **WhatsApp**       | WhatsApp Oficial (API Meta)                    |
+  <Step title="Crie condicionais entre perguntas" title-type="p">
+    É possível exibir uma pergunta apenas em determinadas condições. Por exemplo: mostrar uma pergunta aberta somente quando o NPS estiver entre **0 e 6** (detratores). Configure o critério e clique em **Criar condicional** — o construtor sinaliza quais perguntas possuem condicionais.
   </Step>
 </Steps>
 
 ---
 
-## Passo 2 — Aparência e Perguntas
+## Consentimento e agradecimento
 
-### 2.1 Aparência e configurações iniciais
+Ainda no primeiro passo, após montar as perguntas você configura o consentimento e a mensagem final.
 
-Configure a identidade visual antes de montar as perguntas:
+**Consentimento** — se você adicionou perguntas com resposta em áudio, pode ativar a solicitação de **consentimento para gravação de voz**, exibindo uma autorização ao contato.
 
-<Image src="https://cdn.amplifique.me/central-de-ajuda/7fac8601dc590c360a78e3bce62564ef.png" width="406" height="472" style="width: 406px; height: auto; cursor: pointer; margin: 0 auto;" />
+**Agradecimento** — a plataforma já traz uma mensagem padrão que você pode editar, incluir variáveis ou substituir por um **redirecionamento para uma página externa** (seu site, por exemplo). Também é possível criar **condicionais na mensagem de agradecimento**: exibir um texto diferente conforme a nota — por exemplo, uma mensagem específica para quem respondeu entre 0 e 6.
 
-- **Logo** — adicione o logotipo da empresa (tamanhos: pequeno, médio, grande). Recomendamos fundo transparente.
+---
 
-- **Informações de LGPD** — campo opcional para texto de aviso com link externo.
-
-- **Modo de exibição** — *Individual* (uma pergunta por tela, maior taxa de resposta) ou *Completo* (todas as perguntas em uma única página).
-
-- **Barra de progresso** — exibe indicativo visual de avanço.
-
-- **Idioma da interface** — Português, Inglês ou Espanhol (altera apenas botões e mensagens fixas, não as perguntas).
-
-- **Cor primária** — insira o código hexadecimal da sua marca e pressione Enter.
-
-### 2.2 Adicionando perguntas
+## Passo 2: Visual da pesquisa
 
 <Steps>
-  <Step title="Adicione perguntas clicando em '+'" title-type="p">
-    Tipos disponíveis: NPS, CSAT, CES, Única Escolha, Múltipla Escolha, Texto Aberto, Like/Dislike, Matriz, Likert, entre outros.
-
-    <Image src="https://cdn.amplifique.me/central-de-ajuda/80fb10061f29e8e223bb3b3d764a5b7b.png" width="1306" height="632" />
+  <Step title="Logo e cores" title-type="p">
+    Adicione a **logo** e escolha o tamanho (pequeno, médio ou grande) — ou deixe sem logo. Defina a **cor principal** (digitando o código ou escolhendo uma das opções) e a **cor do texto**.
   </Step>
 
-  <Step title="Defina o identificador da pergunta" title-type="p">
-    O nome interno é o identificador técnico da pergunta (ex: `nps_test`, `comentario_detrator`).
+  <Step title="Modo de visualização" title-type="p">
+    Escolha entre exibir **uma pergunta por vez** ou **todas as perguntas de uma vez** (exceto as que possuem condicional, que só aparecem quando o critério é atendido).
+  </Step>
 
-    <Callout kind="danger" collapsed="false">
-      O nome interno **não pode ser alterado após a pesquisa ser publicada**, pois está vinculado às respostas e relatórios. Escolha com cuidado e use nomes descritivos.
+  <Step title="Opções adicionais" title-type="p">
+    Você pode ativar a **barra de progresso** e a **barra de idioma**.
+
+    <Callout kind="alert" collapsed="false">
+      A barra de idioma traduz apenas os **botões fixos da plataforma** — ela não traduz o texto das suas perguntas. Para uma pesquisa em outro idioma, você precisa escrever o texto nesse idioma e então ativar a opção.
     </Callout>
   </Step>
 
-  <Step title="Configure cada pergunta no painel lateral" title-type="p">
-    Ao clicar em uma pergunta, ela abre no painel esquerdo para edição. Você pode:
-
-    <Image src="https://cdn.amplifique.me/central-de-ajuda/b19e0abc47dbe7a93fc8d28979eb61b3.png" width="1994" height="914" />
-
-    - Editar o texto e adicionar variáveis como `{{nome}}`
-
-    - Alterar cores e escala (NPS)
-
-    - Ativar análise por IA (para perguntas abertas)
-
-    - Tornar a pergunta obrigatória
-
-    - Habilitar botão "Ignorar pergunta"
-
-    - Limitar caracteres em campos de texto
-
-    Após editar, clique em **Finalizar**.
+  <Step title="LGPD" title-type="p">
+    Há um campo para inserir um **texto de LGPD** e a opção de adicionar um **link** que redireciona o contato para uma página com as informações de privacidade.
   </Step>
 </Steps>
 
-### 2.3 Condicionais&#x20;
+---
 
-Condicionais são regras que definem quais perguntas aparecem com base na resposta anterior.
+## Passo 3: Canais de envio
 
-**Regras importantes:**
+Aqui você define se a pesquisa será **identificada** ou **anônima** e ativa os canais de disparo.
 
-- A condicional parte sempre da pergunta de cima para a de baixo
+<ExpandableGroup>
+  <Expandable title="E-mail" default-open="false">
+    Traz um modelo pronto com cabeçalho e logo. Você edita o texto, adiciona imagens e links, define o **nome da empresa** e o **e-mail de resposta** (para onde vão as respostas caso o contato responda). É possível **mostrar a métrica principal direto no e-mail** — ao clicar na nota, o contato é redirecionado já para a segunda pergunta. Também dá para editar o rodapé, mostrar ou ocultar a logo e trocar a **imagem de cabeçalho** (respeitando a altura máxima em pixels).
+  </Expandable>
 
-- Só é possível usar **uma regra "mostrar pergunta"** por pergunta — usar duas causará conflito
+  <Expandable title="SMS" default-open="false">
+    Edite o conteúdo do canal SMS conforme necessário.
+  </Expandable>
 
-**Passo a passo:**
+  <Expandable title="InApp" default-open="false">
+    Para exibir a pesquisa dentro do seu próprio sistema. Você pode **adicionar regras** de exibição (por exemplo, exibir apenas em URLs que contenham determinado caminho), definir a **posição** na tela (canto ou centro), configurar **intervalos** (quando mostrar novamente após ser exibida, rejeitada ou respondida parcialmente) e a **porcentagem da base** que verá a pesquisa. Consulte a documentação técnica do InApp para a implementação.
+  </Expandable>
 
-1. Clique na pergunta que será exibida condicionalmente
+  <Expandable title="Link / QR Code" default-open="false">
+    Ative para gerar link e QR Code. Na **página de identificação** você edita o texto e define quais dados solicitar. Para pesquisas identificadas, **e-mail ou telefone é obrigatório**; em pesquisas 100% anônimas, nenhum dado é solicitado. Você pode exigir nome completo, telefone e adicionar **campos customizados** (como cidade, estado ou loja) — criando o campo ali mesmo. Útil para uso em QR Code na loja ou envio de link por WhatsApp.
+  </Expandable>
 
-<Image src="https://cdn.amplifique.me/central-de-ajuda/2b68cd0ed00db4250749894624ce993c.png" width="1994" height="914" />
+  <Expandable title="WhatsApp" default-open="false">
+    Disponível se você tiver o WhatsApp contratado. Permite selecionar o **template** desejado ou criar um novo template.
+  </Expandable>
+</ExpandableGroup>
 
-1. Clique em **Criar nova condicional**
+### Lembrete automático
 
-2. Selecione a pergunta base (ex: `nps_test`)
-
-3. Escolha a regra: *Entre*, *Igual a*, *Menor que*
-
-4. Clique em **Salvar**
-
-**Exemplo clássico de NPS:**
-
-| Nota   | Condição    | Pergunta exibida           |
-| ------ | ----------- | -------------------------- |
-| 10     | Igual a 10  | "O que mais gostou?"       |
-| 9      | Igual a 9   | "O que faltou para um 10?" |
-| 7 ou 8 | Entre 7 e 8 | "Onde podemos melhorar?"   |
-| 0 a 6  | Entre 0 e 6 | "Onde falhamos?"           |
-
-### 2.4 Condicionais por blocos
-
-Use blocos quando quiser adicionar **mais de uma pergunta por perfil de nota** ou separar melhor as respostas nos relatórios.
-
-1. Duplique ou crie perguntas de textos separadas para cada perfil (ex: `texto_detratores`, `texto_neutros`, `texto_promotores`)
-
-2. Para cada pergunta, crie uma condicional apontando para o intervalo correspondente
-
-3. Cada pergunta do bloco deve ter sua própria condicional com a mesma lógica base
+Você pode configurar o reenvio automático da pesquisa para **quem ainda não respondeu**. Defina após quantos dias reenviar e por qual canal (o primeiro canal de disparo ou via e-mail). Há também a opção de **pular o final de semana** na contagem dos dias.
 
 ---
 
-## Passo 3 — Agradecimento
-
-Configure o que o respondente verá após finalizar a pesquisa:
-
-- **Mensagem de agradecimento** — texto editável com suporte a variáveis (ex: `Obrigado, {{primeiro_nome}}!`)
-
-- **Redirecionar para página externa** — envie o respondente para um URL ao finalizar
-
-- **Animação de confete** — exibida para notas máximas em NPS, CSAT, CES e Likert
-
-- **Condicionais de agradecimento** — mensagens diferentes por faixa de nota (ex: NPS 0–6 → "Vamos levar seu feedback à diretoria")
-
-  <Image src="https://cdn.amplifique.me/central-de-ajuda/3be28cc5a2d5b7f21a1bdfa2d2f6020d.png" width="1016" height="612" />
-
----
-
-## Passo 4 — Configuração dos Canais
-
-Configure cada canal selecionado no Passo 1:
-
-- **E-mail** — remetente, assunto, e-mail de resposta, layout com variáveis/imagens/logo, métrica no corpo do e-mail, botão e rodapé
-
-- **WhatsApp Web** — texto pré-preenchido para envio manual 1:1
-
-- **SMS** — texto editável com preview; suporte a 1:1 e em massa
-
-- **Link / QR Code** — página pública com campos obrigatórios (e-mail ou telefone), título, texto, QR por unidade/ponto de atendimento
-
-- **In-App** — script para embutir no sistema, com configuração de quando e com que frequência exibir
-
----
-
-## Passo 5 — Configurações Finais
-
-- **Automações** — crie regras para acionar ações automáticas ao receber uma resposta: enviar e-mail para a equipe, adicionar/remover tags, criar ticket no Fechamento de Loop, solicitar avaliação de Reputação Online
-
-- **Tags&#x20;**— configure palavras-chave para categorizar automaticamente as respostas abertas
-
-- **Fadiga de pesquisa** — defina intervalo de dias, limite total de envios, opt-out, consentimento e regras para evitar duplicados
-
-- **Lembrete automático** — reenvios automáticos programados (ex: +5 dias, +10 dias sem resposta)
-
----
-
-## Passo 6 — Testar e Enviar
-
-Antes de ativar para o público, teste a pesquisa:
+## Passo 4: Configurações
 
 <Steps>
-  <Step title="Pré-visualize pelo QR/Link" title-type="p">
-    Nos três pontos da pesquisa → **Pré-visualizar**. Abre em nova aba e permite testar perguntas, condicionais, animações e agradecimento.
+  <Step title="Automações" title-type="p">
+    Crie regras que disparam ações com base nas respostas, etiquetas ou empresa do contato. Exemplos comuns:
+
+    - Se o NPS for menor que 7, **enviar um e-mail para a equipe**
+    - Se a análise de sentimento da IA for negativa, **criar um ticket** no Fechamento de Loop, definindo fluxo, responsável, prazo de vencimento, categoria, modelo de e-mail e prioridade (que pode ser definida automaticamente pela IA)
+
+    <Callout kind="tip" collapsed="false">
+      Você pode criar várias automações na mesma pesquisa. Na implementação, a equipe da Amplifique.me pode ajudar a desenhar as automações conforme o seu caso de uso.
+    </Callout>
   </Step>
 
-  <Step title="Teste o link público" title-type="p">
-    No Passo 4, copie o link e abra no navegador. Preencha os campos e responda com notas diferentes para verificar as condicionais.
+  <Step title="Tags" title-type="p">
+    Crie tags para o sistema identificar palavras específicas nas respostas (ex: "atendimento") e permitir filtrar por elas depois. A IA já faz isso automaticamente na maioria dos casos, mas você pode adicionar palavras muito específicas manualmente.
   </Step>
 
-  <Step title="Teste o envio por e-mail" title-type="p">
-    Em **Enviar Pesquisa → E-mail**, envie para si mesmo. Confira variáveis, layout, botão e comportamento das condicionais.
+  <Step title="Limite de respostas" title-type="p">
+    Defina um limite máximo de respostas. Ao atingir o limite, a pesquisa é desativada e para de coletar respostas. Há a opção de **reiniciar o limite no final do mês**, que reativa a pesquisa automaticamente no novo mês sem você precisar reativá-la manualmente.
   </Step>
 
-  <Step title="Valide e ative" title-type="p">
-    Com todos os canais e condicionais validados, a pesquisa está pronta para ser enviada ao público.
+  <Step title="Evitar fadiga de pesquisa" title-type="p">
+    Funciona como uma quarentena: o sistema bloqueia o envio da mesma pesquisa para um contato que já a recebeu dentro do intervalo definido (por exemplo, 90 dias). Se um contato dentro desse intervalo estiver em uma nova lista de envio, o disparo para ele é bloqueado automaticamente. Você define a quantidade de dias e pode desativar a fadiga caso queira que a pesquisa sempre seja enviada.
+  </Step>
+
+  <Step title="Impedir respostas duplicadas" title-type="p">
+    Evita que o mesmo contato responda a mesma pesquisa mais de uma vez quando ela foi enviada por múltiplos canais. Se o contato respondeu por WhatsApp e depois clicar no link do e-mail, verá uma mensagem informando que já respondeu recentemente.
+  </Step>
+
+  <Step title="Personalização de link e nome da pesquisa" title-type="p">
+    Personalize o texto que aparece no link (ex: "Pesquisa de satisfação") e defina o **nome da pesquisa** (a descrição é opcional).
+  </Step>
+</Steps>
+
+---
+
+## Passo 5: Distribuição
+
+No último passo você pode testar a pesquisa (incluindo o InApp) e, após publicar, importar contatos, enviar ou agendar, criar campos customizados e acessar as integrações.
+
+<Steps>
+  <Step title="Crie o link de distribuição" title-type="p">
+    Dê um nome ao link. Se a pesquisa roda em um totem ou tablet na loja, ative o **modo quiosque** e defina após quantos segundos a pesquisa reinicia para o próximo respondente.
+  </Step>
+
+  <Step title="Publique a pesquisa" title-type="p">
+    Ao publicar, ficam disponíveis as opções de **importar contatos** (subir uma planilha), **enviar ou agendar** (leva à tela de Contatos para selecionar quem receberá), **criar campos customizados** e acessar **integrações**.
 
     <Callout kind="success" collapsed="false">
-      Pesquisa criada e testada! Agora você pode enviar em massa ou configurar a automação de envio.
+      Pesquisa publicada e pronta para uso! Você pode copiar o link, baixar o QR Code ou arquivar o link (que para de funcionar ao ser arquivado).
     </Callout>
   </Step>
 </Steps>
+
+---
+
+## Editar uma pesquisa depois de criada
+
+Na lista de pesquisas, clique nos três pontos (`⋯`) ao lado da pesquisa para **editar**, **visualizar painel** ou **exportar**.
 
 ---
 
 ## Perguntas frequentes
 
 <ExpandableGroup>
-  <Expandable title="Posso adicionar um novo canal após a pesquisa já estar publicada?" default-open="false">
-    Sim. Você pode editar a pesquisa e adicionar novos canais a qualquer momento
+  <Expandable title="Qual a diferença entre 'uma pergunta por vez' e 'todas as perguntas'?" default-open="false">
+    No modo "uma pergunta por vez", o contato avança pergunta a pergunta. No modo "todas as perguntas", ele vê tudo de uma vez — exceto as perguntas com condicional, que só aparecem quando o critério é atendido.
   </Expandable>
 
-  <Expandable title="O que é o lembrete automático e como difere do reenvio manual?" default-open="false">
-    O lembrete automático é um reenvio automático programado para contatos que não responderam após X dias. O lembrete automático é configurado no Passo 5 e opera de forma autônoma.
+  <Expandable title="A barra de idioma traduz minha pesquisa inteira?" default-open="false">
+    Não. Ela traduz apenas os botões fixos da plataforma. O texto das perguntas precisa ser escrito no idioma desejado por você.
   </Expandable>
 
-  <Expandable title="Uma pesquisa pode ter condicionais baseadas em múltipla escolha?" default-open="false">
-    Sim. As condicionais funcionam também com Múltipla Escolha, Like/Dislike e CSAT — não apenas com NPS. Por exemplo: se o respondente selecionou "Não gostei" numa múltipla escolha, mostrar uma pergunta de justificativa.
+  <Expandable title="O que é o modo quiosque?" default-open="false">
+    É o modo para pesquisas que rodam em totem ou tablet na loja. A pesquisa reinicia automaticamente após o tempo definido, ficando pronta para o próximo respondente.
+  </Expandable>
+
+  <Expandable title="Como funciona o impedimento de respostas duplicadas?" default-open="false">
+    Se você envia a mesma pesquisa por vários canais e o contato responde por um deles, ao tentar responder por outro canal ele verá uma mensagem informando que já respondeu recentemente — evitando duplicidade.
   </Expandable>
 </ExpandableGroup>
 
----
+## Tutorial em vídeo
+
+<Video uid="136e80d2-f742-4930-95f3-954fe0c79858" src="https://www.loom.com/embed/d56e08bfb97a43f6ab703fc991efe6c1" render-type="iframe" width="672" height="378" controls="true" allow-full-screen="true" style="width: 672px; height: auto; cursor: pointer;" />
 
 ## Próximo passo
 
-<Card title="Como visualizar e filtrar respostas?" href="/como-visualizar-e-filtrar-respostas" icon="inbox" cta="Ver artigo" horizontal="false">
-  Saiba como acompanhar as respostas recebidas, usar filtros avançados e monitorar o status dos envios.
+<Card title="Como importar contatos em massa?" href="/importar-contatos-em-massa" icon="lucide-upload" cta="Ver artigo" horizontal="false">
+  Veja como subir sua base de contatos via planilha para começar a enviar suas pesquisas.
 </Card>
+

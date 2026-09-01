@@ -19,7 +19,7 @@ Os **tokens de API** são gerados dentro da Amplifique.me e usados para autentic
 
 <Steps>
   <Step title="Acesse Integrações → API" title-type="p">
-    No menu lateral, clique nos **três pontos (****`⋯`****)** → **Integrações** → **API**.
+    No menu lateral, clique em **Integrações** → **API**.
   </Step>
 
   <Step title="Clique em Criar token" title-type="p">
@@ -34,9 +34,7 @@ Os **tokens de API** são gerados dentro da Amplifique.me e usados para autentic
     Exemplos:
 
     - `ActiveCampaign - Novo Lead - Pesquisa CSAT`
-
     - `Zendesk - Fechamento de Ticket - NPS Suporte`
-
     - `Tiny ERP - Pedido Faturado - CSAT Pós-Compra`
   </Step>
 
@@ -48,7 +46,6 @@ Os **tokens de API** são gerados dentro da Amplifique.me e usados para autentic
     Se quiser que o envio aconteça com um intervalo após o gatilho, configure:
 
     - **Atraso em minutos/horas** — útil para enviar a pesquisa horas após o atendimento, por exemplo
-
     - **Horário específico** — agenda o disparo para um período do dia
 
     <Callout kind="tip" collapsed="false">
@@ -59,7 +56,7 @@ Os **tokens de API** são gerados dentro da Amplifique.me e usados para autentic
   <Step title="Salve e copie a URL gerada" title-type="p">
     Após salvar, a URL do webhook estará disponível no formato:
 
-    ```
+    ```typescript
     https://integration.services.amplifique.me/{sistema}/cf/webhook?access_token=Bearer+SEU_TOKEN
     ```
 
@@ -78,11 +75,8 @@ Os **tokens de API** são gerados dentro da Amplifique.me e usados para autentic
 Para monitorar os envios realizados via token:
 
 1. Acesse **Integrações → API → Ver integrações → Ir ao painel**
-
 2. Cada token exibe o histórico de requisições recebidas
-
 3. Clique no ícone de **olho** ao lado do token para ver erros de requisição
-
 4. Clique no nome de um contato para ver os dados completos enviados na requisição
 
 ---
@@ -114,3 +108,4 @@ Para monitorar os envios realizados via token:
 <Card title="Como funcionam as integrações?" href="/como-funcionam-as-integraes" icon="plug" cta="Ver artigo" horizontal="false">
   Veja a lista de integrações disponíveis e o funcionamento geral do disparo automático de pesquisas.
 </Card>
+

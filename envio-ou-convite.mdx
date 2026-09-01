@@ -1,0 +1,83 @@
+---
+title: Envio ou Convite? Entenda a diferença
+description: >-
+  Convite é a pesquisa disponibilizada para uma pessoa. Envio é cada mensagem
+  daquele convite — o disparo inicial e cada lembrete automático. Entenda os
+  dois conceitos e como eles aparecem nas métricas.
+---
+## Três palavras, três coisas diferentes
+
+| Palavra     | O que é                                                                     |
+| ----------- | --------------------------------------------------------------------------- |
+| **Pessoa**  | O contato. Pode receber vários convites ao longo do tempo.                   |
+| **Convite** | A pesquisa disponibilizada para uma pessoa, uma vez.                         |
+| **Envio**   | Cada mensagem daquele convite: o disparo inicial e cada lembrete automático. |
+
+---
+
+## Um convite, vários envios
+
+Você envia uma pesquisa de NPS para a Maria na segunda. Ela não responde, e a regra de Lembrete Automático reenvia na quarta e na sexta:
+
+```text
+1 CONVITE para a Maria
+  ├─ Envio inicial ......... segunda
+  ├─ 1º lembrete ........... quarta
+  └─ 2º lembrete ........... sexta
+```
+
+Isso conta como **1 convite** e **3 envios**. Lembrete automático nunca cria um convite novo — ele é mais uma mensagem do mesmo convite.
+
+<Callout kind="info" collapsed="false">
+  Se a Maria receber outra pesquisa no mês seguinte, aí sim são 2 convites para 1 pessoa.
+</Callout>
+
+---
+
+## Canais que não têm envio
+
+Link, QR Code, In-App e importação de respostas não disparam mensagem. Nesses canais o convite é contado **no momento em que a pessoa abre a pesquisa** — não existe envio para contar, e por isso eles nunca aparecem nas visões por envio nem geram lembrete automático.
+
+---
+
+## Como isso aparece nas métricas
+
+| Métrica                          | Conta                                        | Onde                            |
+| -------------------------------- | -------------------------------------------- | ------------------------------- |
+| **Convites**                     | Convites do período                          | Painel e Visão Geral            |
+| **Pessoas Convidadas**           | Pessoas distintas convidadas                 | Painel e Visão Geral            |
+| **Taxa de Resposta por Convite** | Respostas ÷ convites                         | Painel e Visão Geral            |
+| **Taxa de Resposta por Pessoa**  | Pessoas que responderam ÷ pessoas convidadas | Painel e Visão Geral            |
+| **Taxa de Resposta por Envio**   | Respostas ÷ envios daquela etapa             | Tabela do Lembrete Automático   |
+
+A taxa por convite e a taxa por pessoa respondem perguntas diferentes. Uma pesquisa mensal enviada para a mesma pessoa 12 vezes no ano, respondida 3 vezes, dá **25% por convite** e **100% por pessoa**: um quarto dos convites virou resposta, e todas as pessoas convidadas responderam pelo menos uma vez.
+
+---
+
+## Perguntas frequentes
+
+<ExpandableGroup>
+  <Expandable title="Somei os envios e deu mais que os convites. Está errado?" default-open="false">
+    Não. Um convite com dois lembretes tem três envios. O total de envios é sempre maior ou igual ao de convites.
+  </Expandable>
+
+  <Expandable title="Uma pessoa que não respondeu entra em Convites?" default-open="false">
+    Sim. O convite é contado quando a pesquisa é enviada ou exibida, respondida ou não.
+  </Expandable>
+
+  <Expandable title="Envio que falhou conta?" default-open="false">
+    Conta como envio. Na tabela do Lembrete Automático, um e-mail que voltou ou um número inválido entram na coluna Envios e no denominador da taxa daquela etapa — então parte de uma taxa baixa pode ser entrega que não aconteceu.
+  </Expandable>
+
+  <Expandable title="Onde vejo convite e envio separados?" default-open="false">
+    Em `Pesquisas e Respostas → Convites`, no seletor **Mostrar**: a opção **Convites** dá uma linha por convite, e **Todos os Envios** dá uma linha por mensagem.
+  </Expandable>
+</ExpandableGroup>
+
+---
+
+## Próximo passo
+
+<Card title="O que significam as métricas do painel?" href="/o-que-significam-as-mtricas-do-painel" icon="bar-chart-2" cta="Ver artigo" horizontal="false" target="_self">
+  Veja o que cada indicador do painel mede e como é calculado.
+</Card>

@@ -6,7 +6,7 @@ slug: nova-logica-metricas-painel
 
 ## Visão geral
 
-Hoje, o card de métrica do painel mistura três tipos de dados diferentes — respostas de pergunta, respostas de pesquisa e solicitações — todos filtrados pela **mesma data**. Isso pode gerar números que parecem inconsistentes entre si. Esta página explica por que isso acontece, o que está mudando e como interpretar os novos cards.
+Hoje, o card de métrica do painel mistura três tipos de dados diferentes — respostas de pergunta, respostas de pesquisa e convites — todos filtrados pela **mesma data**. Isso pode gerar números que parecem inconsistentes entre si. Esta página explica por que isso acontece, o que está mudando e como interpretar os novos cards.
 
 <Callout kind="info">
   Esta mudança não altera os dados da sua pesquisa — apenas **organiza onde e como cada métrica é calculada**, tornando os números mais precisos e fáceis de interpretar.
@@ -22,15 +22,15 @@ Atualmente, o card do painel aplica um único filtro de data para calcular tudo:
 |---|---|
 | Nota e distribuição (promotores/neutros/detratores) | Data da **resposta** |
 | Total de respostas da pergunta | Data da **resposta** |
-| Total de solicitações | Data da **solicitação** |
-| Taxa de resposta | Data da **solicitação** |
+| Total de convites | Data do **convite** |
+| Taxa de resposta por convite | Data do **convite** |
 
 Quando tudo é filtrado pela mesma data, o resultado pode parecer estranho. Veja um exemplo real:
 
 **Filtro: "Este mês"**
 - O card mostra **50 Promotores, 20 Neutros e 10 Detratores** → 80 respostas na pergunta (correto: filtrado pela data da resposta)
 - Mas o card também mostra **100 respostas** no total da pesquisa (10 contatos não responderam essa pergunta específica — também filtrado pela data da resposta, então está certo)
-- E o card mostra **50 solicitações** com **taxa de resposta de 100%** — mas esse número está errado, porque a taxa foi calculada usando a data da **resposta**, não da **solicitação**. Isso "esconde" solicitações que foram enviadas este mês mas ainda não foram respondidas.
+- E o card mostra **50 convites** com **taxa de resposta de 100%** — mas esse número está errado, porque a taxa foi calculada usando a data da **resposta**, não do **convite**. Isso "esconde" convites que saíram este mês mas ainda não foram respondidos.
 
 O resultado final pode ser **enganoso**: os números parecem consistentes entre si, mas não refletem o que realmente aconteceu no período.
 
@@ -45,15 +45,15 @@ A correção é simples no conceito: **cada métrica passa a ser calculada na su
     Nota, promotores, neutros, detratores e quantidade de respostas **daquela pergunta específica**. Filtrado pela **data da resposta**.
   </Card>
   <Card title="Métrica da Pesquisa" icon="lucide-clipboard-list">
-    Solicitações, número de respostas, taxa de resposta e engajamento da **pesquisa como um todo**. Filtrado pela **data da solicitação**.
+    Convites, número de respostas, taxa de resposta por convite e taxa de resposta por pessoa da **pesquisa como um todo**. Filtrado pela **data do convite**.
   </Card>
 </Columns>
 
 <Callout kind="tip">
-  A lógica é simples: **não é possível calcular taxa de resposta olhando apenas para a data da resposta** — você precisa saber quantas solicitações foram feitas no período para ter uma taxa real.
+  A lógica é simples: **não é possível calcular taxa de resposta olhando apenas para a data da resposta** — você precisa saber quantos convites saíram no período para ter uma taxa real.
 </Callout>
 
-Essa mesma lógica passa a valer também na tela de **Análise e Resultados → Visão Geral**, que passará a usar a data da solicitação como filtro padrão para as métricas gerais — tornando a visão geral consistente com o novo card de Métrica da Pesquisa.
+Essa mesma lógica passa a valer também na tela de **Análise e Resultados → Visão Geral**, que passará a usar a data do convite como filtro padrão para as métricas gerais — tornando a visão geral consistente com o novo card de Métrica da Pesquisa.
 
 ---
 
@@ -65,10 +65,10 @@ Com a separação, é esperado que os números dos dois cards **não fechem exat
 
 | Card | O que aparece | Por quê |
 |---|---|---|
-| **Métrica da Pesquisa** (filtro: este mês) | 10 respostas, 20 solicitações | Conta apenas o que foi **solicitado** este mês |
-| **Métrica da Pergunta** (filtro: este mês) | 11 respostas | Conta o que foi **respondido** este mês — incluindo 1 resposta de uma solicitação enviada em um mês anterior |
+| **Métrica da Pesquisa** (filtro: este mês) | 10 respostas, 20 convites | Conta apenas os convites que saíram este mês |
+| **Métrica da Pergunta** (filtro: este mês) | 11 respostas | Conta o que foi **respondido** este mês — incluindo 1 resposta de um convite enviado em um mês anterior |
 
-Esse tipo de diferença é esperado e **reflete a realidade**: a pesquisa foi solicitada num momento e respondida em outro. Antes, esses dois eventos ficavam misturados em uma única métrica, o que escondia esse comportamento.
+Esse tipo de diferença é esperado e **reflete a realidade**: o convite saiu num momento e a resposta veio em outro. Antes, esses dois eventos ficavam misturados em uma única métrica, o que escondia esse comportamento.
 
 ---
 
@@ -86,7 +86,7 @@ Sim. Existe uma configuração na conta para **ativar ou desativar** o novo mode
 
 <ExpandableGroup>
   <Expandable title="Por que a taxa de resposta podia passar de 100% no modelo antigo?">
-    Porque a taxa era calculada com o total de respostas do período (filtrado pela data da resposta) dividido pelo total de solicitações do mesmo período (também filtrado pela data da resposta, e não da solicitação). Em pesquisas com respostas tardias, isso podia gerar uma taxa superior à real.
+    Porque a taxa era calculada com o total de respostas do período (filtrado pela data da resposta) dividido pelo total de convites do mesmo período (também filtrado pela data da resposta, e não do convite). Em pesquisas com respostas tardias, isso podia gerar uma taxa superior à real.
   </Expandable>
 
   <Expandable title="Os dados históricos serão recalculados?">
@@ -94,7 +94,7 @@ Sim. Existe uma configuração na conta para **ativar ou desativar** o novo mode
   </Expandable>
 
   <Expandable title="Isso afeta o AmpliScore ou a nota NPS/CSAT/CES?">
-    Não. A nota e a distribuição de promotores, neutros e detratores continuam sendo calculadas da mesma forma — pela data da resposta. O que muda é como a taxa de resposta e o total de solicitações são exibidos, agora na Métrica da Pesquisa.
+    Não. A nota e a distribuição de promotores, neutros e detratores continuam sendo calculadas da mesma forma — pela data da resposta. O que muda é como a taxa de resposta e o total de convites são exibidos, agora na Métrica da Pesquisa.
   </Expandable>
 
   <Expandable title="Onde posso ativar ou desativar esse novo cálculo?">
