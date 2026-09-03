@@ -302,6 +302,10 @@
             "group": "Configurações",
             "pages": [
               {
+                "title": "Requisitos do sistema: navegadores e versões suportadas",
+                "path": "requisitos-do-sistema"
+              },
+              {
                 "title": "Limpar cache do navegador",
                 "path": "limparcachenavegador"
               },
