@@ -1,0 +1,178 @@
+---
+title: Como ativar o Login Federado com Microsoft Entra ID?
+description: >-
+  Requisitos, dados necessários e passo a passo para que sua equipe entre na
+  Amplifique.me com a conta corporativa Microsoft, e o que continua sendo
+  gerenciado dentro da plataforma.
+---
+## Visão geral
+
+Com o Login Federado ativo, sua equipe entra na Amplifique.me clicando em **Entrar com Microsoft** e usando a mesma conta corporativa que já usa no Microsoft 365 — sem senha específica da plataforma.
+
+<Callout kind="info" collapsed="false">
+  A integração cuida **apenas da autenticação**: ela confirma que a pessoa é quem diz ser. Quem tem acesso, com qual nível de permissão e a quais unidades continua sendo definido dentro da Amplifique.me, em `Configurações (⚙️) → Usuários`.
+</Callout>
+
+Na prática:
+
+| Continua na Amplifique.me                                  | Passa a ser do Microsoft Entra ID                  |
+| ---------------------------------------------------------- | -------------------------------------------------- |
+| Criar e remover usuários                                   | Validar a identidade de quem está entrando         |
+| Nível de acesso (Proprietário, Administrador, Analista...) | Exigência de MFA e políticas de acesso condicional |
+| Unidades que cada usuário enxerga                          | Bloqueio imediato de contas desligadas             |
+| Permissões do Fechamento de Loop                           | Senha e sua recuperação                            |
+
+Não existe sincronização automática de usuários ou de grupos: criar uma conta no Entra ID **não** cria o usuário na Amplifique.me.
+
+---
+
+## Pré-requisitos
+
+<Callout kind="alert" collapsed="false">
+  Ao ativar o Login Federado, **todos** os usuários da conta passam a entrar somente pela Microsoft. O login com e-mail e senha deixa de funcionar para todo mundo, sem exceção.
+</Callout>
+
+Antes de começar, confirme com o seu time de TI:
+
+- Um **tenant do Microsoft Entra ID** ativo (o plano gratuito incluído no Microsoft 365 atende)
+- Uma pessoa com papel de **Administrador Global** ou **Administrador de Aplicativos na Nuvem** no Entra ID, para autorizar o aplicativo
+- O **ID do Locatário (Tenant ID)** do diretório
+- Um **domínio de e-mail corporativo** verificado no Entra ID — por exemplo, `suaempresa.com.br`
+- Que o e-mail cadastrado de cada usuário na Amplifique.me seja **exatamente igual** ao nome principal de usuário (UPN) dele no Entra ID
+
+---
+
+## Passo a passo
+
+<Steps>
+  <Step title="Localize o ID do Locatário" title-type="p">
+    Acesse o [centro de administração do Microsoft Entra](https://entra.microsoft.com) com uma conta administradora e vá em **Identidade → Visão geral**.
+
+    Copie o valor de **ID do Locatário** (também aparece como *ID do Diretório (locatário)* no portal do Azure). É um código no formato `00000000-0000-0000-0000-000000000000`.
+  </Step>
+
+  <Step title="Defina o domínio corporativo" title-type="p">
+    Escolha o domínio de e-mail que a equipe usa para entrar — o mesmo que aparece depois do `@` nas contas do Entra ID.
+
+    <Callout kind="tip" collapsed="false">
+      É possível configurar **um domínio por conta**. Se a sua empresa usa mais de um domínio de e-mail, avise o time de suporte antes da ativação para avaliarmos o cenário.
+    </Callout>
+  </Step>
+
+  <Step title="Solicite a ativação ao suporte" title-type="p">
+    Entre em contato com o time de suporte da Amplifique.me informando:
+
+    - **ID do Locatário** copiado no passo 1
+    - **Domínio corporativo** definido no passo 2
+    - A confirmação de que todos os usuários atuais da conta já usam e-mails desse domínio
+
+    Confirmada a ativação, o login por senha é desativado para a conta.
+  </Step>
+
+  <Step title="Autorize o aplicativo no Entra ID" title-type="p">
+    Com uma conta **administradora** do Entra ID, acesse [app.amplifique.me/login](https://app.amplifique.me/login) e clique em **Entrar com Microsoft**.
+
+    A Microsoft exibirá a tela de permissões solicitadas. Marque a opção **Consentir em nome da sua organização** e confirme.
+
+    <Callout kind="info" collapsed="false">
+      O consentimento é registrado no diretório mesmo que o administrador não tenha usuário na Amplifique.me. Nesse caso, logo após autorizar, ele verá uma mensagem de erro de autenticação — é esperado e não afeta a autorização concedida.
+    </Callout>
+  </Step>
+
+  <Step title="Valide com um usuário real" title-type="p">
+    Peça a um usuário já cadastrado na plataforma que acesse [app.amplifique.me/login](https://app.amplifique.me/login) e clique em **Entrar com Microsoft**.
+
+    <Callout kind="success" collapsed="false">
+      Se ele cair direto no painel, a configuração está concluída. Avise a equipe que o acesso passa a ser sempre por esse botão.
+    </Callout>
+  </Step>
+</Steps>
+
+---
+
+## Permissões solicitadas na tela da Microsoft
+
+| Permissão                                 | Para que serve                                                       |
+| ----------------------------------------- | -------------------------------------------------------------------- |
+| **Entrar (`openid`)**                     | Confirmar a identidade e o locatário de origem de quem está entrando |
+| **Ler o perfil do usuário (`User.Read`)** | Ler nome e e-mail corporativo para localizar o usuário na plataforma |
+
+São permissões **somente de leitura** e restritas ao perfil de quem está entrando. A integração não lê e-mails, arquivos, calendários ou conversas do Teams, e não cria, altera nem remove nada no seu diretório.
+
+---
+
+## Como fica o gerenciamento de usuários
+
+O fluxo de `Configurações (⚙️) → Usuários` continua igual, com três diferenças:
+
+- **O e-mail precisa ser do domínio configurado.** Convites para outros domínios são recusados.
+- **Não é enviado e-mail de convite.** O usuário já é criado com acesso liberado e entra direto clicando em **Entrar com Microsoft** — não há senha para criar.
+- **O convite em massa fica indisponível.** Os usuários devem ser adicionados individualmente.
+
+Níveis de acesso, unidades e permissões do Fechamento de Loop seguem sendo definidos na tela de Usuários, como em qualquer outra conta.
+
+<Callout kind="alert" collapsed="false">
+  **No desligamento de um colaborador:** bloquear a conta no Entra ID já impede a entrada na plataforma imediatamente. Ainda assim, remova o usuário também em `Configurações → Usuários` para tirá-lo da lista de acessos e das atribuições internas.
+</Callout>
+
+---
+
+## Verificação em duas etapas
+
+Com o Login Federado ativo, a verificação em duas etapas da Amplifique.me não é solicitada — a exigência de MFA, os métodos aceitos e as regras de acesso condicional passam a ser os que sua empresa já definiu no Entra ID.
+
+---
+
+## Diagnóstico de problemas comuns
+
+| Mensagem ou sintoma                                                | Causa provável                                                                  | O que fazer                                                                   |
+| ------------------------------------------------------------------ | ------------------------------------------------------------------------------- | ----------------------------------------------------------------------------- |
+| *"Essa conta exige autenticação utilizando o Login Federado..."*   | O usuário tentou entrar com e-mail e senha                                      | Usar o botão **Entrar com Microsoft**                                         |
+| *"Erro de autenticação com Login Federado Microsoft Entra ID"*     | O usuário não existe ou está inativo na plataforma                              | Cadastrá-lo em `Configurações → Usuários`                                     |
+| *"Erro de autenticação com Login Federado Microsoft Entra ID"*     | O e-mail na plataforma é diferente do UPN no Entra ID                           | Ajustar o cadastro para o mesmo endereço usado no Entra ID                    |
+| *"Erro de autenticação com Login Federado Microsoft Entra ID"*     | A pessoa entrou com conta pessoal Microsoft ou de outra organização             | Repetir usando a conta corporativa do locatário configurado                   |
+| *"Este e-mail não pertence ao domínio da empresa"* ao convidar     | O endereço é de um domínio diferente do configurado                             | Convidar com um e-mail do domínio corporativo                                 |
+| *"Não é possível convidar usuários em massa..."*                   | Convite em massa não está disponível com Login Federado                         | Convidar os usuários individualmente                                          |
+| A Microsoft pede aprovação de um administrador                     | A política de consentimento do locatário exige aprovação para novos aplicativos | Um administrador do Entra ID deve realizar o passo 4 ou aprovar a solicitação |
+
+---
+
+## Perguntas frequentes
+
+<ExpandableGroup>
+  <Expandable title="Posso manter o login por senha como alternativa?" default-open="false">
+    Não. A ativação vale para a conta inteira: a partir dela, todos os usuários entram pela Microsoft.
+  </Expandable>
+
+  <Expandable title="Usuários criados no Entra ID aparecem automaticamente na plataforma?" default-open="false">
+    Não. Não há provisionamento automático nem sincronização de grupos. Cada usuário precisa ser cadastrado em `Configurações → Usuários`, e é lá que o nível de acesso e as unidades são definidos.
+  </Expandable>
+
+  <Expandable title="Dá para usar grupos do Entra ID para definir permissões?" default-open="false">
+    Não. Os grupos do Entra ID não são lidos pela plataforma — as permissões são definidas por usuário, dentro da Amplifique.me.
+  </Expandable>
+
+  <Expandable title="A integração funciona com mais de um domínio de e-mail?" default-open="false">
+    A configuração aceita um domínio por conta. Se sua empresa usa vários, fale com o time de suporte antes de ativar.
+  </Expandable>
+
+  <Expandable title="Outros provedores de identidade são suportados?" default-open="false">
+    No momento, o Login Federado está disponível apenas para o Microsoft Entra ID.
+  </Expandable>
+
+  <Expandable title="É possível voltar atrás depois de ativar?" default-open="false">
+    Sim. Entre em contato com o time de suporte para desativar o Login Federado — os usuários voltam a entrar com e-mail e senha, definindo uma nova senha pelo fluxo de recuperação.
+  </Expandable>
+
+  <Expandable title="O que acontece com os tokens de API e webhooks?" default-open="false">
+    Nada muda. Integrações que usam tokens de API continuam funcionando normalmente, independentemente do Login Federado.
+  </Expandable>
+</ExpandableGroup>
+
+---
+
+## Próximo passo
+
+<Card title="Como convidar e gerenciar usuários?" href="/como-convidar-e-gerenciar-usurios" icon="lucide-users" cta="Ver artigo" horizontal="false">
+  Veja como adicionar pessoas à conta, definir níveis de acesso e controlar as unidades que cada usuário enxerga.
+</Card>

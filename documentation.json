@@ -340,6 +340,10 @@
               {
                 "title": "Como convidar e gerenciar usuários?",
                 "path": "como-convidar-e-gerenciar-usurios"
+              },
+              {
+                "title": "Como ativar o Login Federado com Microsoft Entra ID?",
+                "path": "login-federado-microsoft-entra-id"
               }
             ]
           },
