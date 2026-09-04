@@ -38,7 +38,7 @@ Antes de começar, confirme com o seu time de TI:
 - Uma pessoa com papel de **Administrador Global** ou **Administrador de Aplicativos na Nuvem** no Entra ID, para autorizar o aplicativo
 - O **ID do Locatário (Tenant ID)** do diretório
 - Um **domínio de e-mail corporativo** verificado no Entra ID — por exemplo, `suaempresa.com.br`
-- Que o e-mail cadastrado de cada usuário na Amplifique.me seja **exatamente igual** ao nome principal de usuário (UPN) dele no Entra ID
+- Que o e-mail cadastrado de cada usuário na Amplifique.me seja o **nome principal de usuário (UPN)** ou o **e-mail corporativo** dele no Entra ID — qualquer um dos dois é aceito no login
 
 ---
 
@@ -125,21 +125,25 @@ Com o Login Federado ativo, a verificação em duas etapas da Amplifique.me não
 
 ## Diagnóstico de problemas comuns
 
-| Mensagem ou sintoma                                                | Causa provável                                                                  | O que fazer                                                                   |
-| ------------------------------------------------------------------ | ------------------------------------------------------------------------------- | ----------------------------------------------------------------------------- |
-| *"Essa conta exige autenticação utilizando o Login Federado..."*   | O usuário tentou entrar com e-mail e senha                                      | Usar o botão **Entrar com Microsoft**                                         |
-| *"Erro de autenticação com Login Federado Microsoft Entra ID"*     | O usuário não existe ou está inativo na plataforma                              | Cadastrá-lo em `Configurações → Usuários`                                     |
-| *"Erro de autenticação com Login Federado Microsoft Entra ID"*     | O e-mail na plataforma é diferente do UPN no Entra ID                           | Ajustar o cadastro para o mesmo endereço usado no Entra ID                    |
-| *"Erro de autenticação com Login Federado Microsoft Entra ID"*     | A pessoa entrou com conta pessoal Microsoft ou de outra organização             | Repetir usando a conta corporativa do locatário configurado                   |
-| *"Este e-mail não pertence ao domínio da empresa"* ao convidar     | O endereço é de um domínio diferente do configurado                             | Convidar com um e-mail do domínio corporativo                                 |
-| *"Não é possível convidar usuários em massa..."*                   | Convite em massa não está disponível com Login Federado                         | Convidar os usuários individualmente                                          |
-| A Microsoft pede aprovação de um administrador                     | A política de consentimento do locatário exige aprovação para novos aplicativos | Um administrador do Entra ID deve realizar o passo 4 ou aprovar a solicitação |
+| Mensagem ou sintoma                                              | Causa provável                                                                         | O que fazer                                                                   |
+| ---------------------------------------------------------------- | -------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------- |
+| *"Essa conta exige autenticação utilizando o Login Federado..."* | O usuário tentou entrar com e-mail e senha                                             | Usar o botão **Entrar com Microsoft**                                         |
+| *"Erro de autenticação com Login Federado Microsoft Entra ID"*   | O usuário não existe ou está inativo na plataforma                                     | Cadastrá-lo em `Configurações → Usuários`                                     |
+| *"Erro de autenticação com Login Federado Microsoft Entra ID"*   | O e-mail na plataforma não corresponde nem ao UPN nem ao e-mail da pessoa no Entra ID  | Ajustar o cadastro para um dos dois endereços                                 |
+| *"Erro de autenticação com Login Federado Microsoft Entra ID"*   | A pessoa entrou com conta pessoal Microsoft ou de outra organização                    | Repetir usando a conta corporativa do locatário configurado                   |
+| *"Este e-mail não pertence ao domínio da empresa"* ao convidar   | O endereço é de um domínio diferente do configurado                                    | Convidar com um e-mail do domínio corporativo                                 |
+| *"Não é possível convidar usuários em massa..."*                 | Convite em massa não está disponível com Login Federado                                | Convidar os usuários individualmente                                          |
+| A Microsoft pede aprovação de um administrador                   | A política de consentimento do locatário exige aprovação para novos aplicativos        | Um administrador do Entra ID deve realizar o passo 4 ou aprovar a solicitação |
 
 ---
 
 ## Perguntas frequentes
 
 <ExpandableGroup>
+  <Expandable title="O UPN das contas é diferente do e-mail das pessoas. Funciona?" default-open="false">
+    Sim. No login, são aceitos tanto o nome principal de usuário (UPN) quanto o e-mail corporativo registrado no Entra ID. Basta que o endereço cadastrado na Amplifique.me seja um dos dois — não precisa ser exatamente o UPN.
+  </Expandable>
+
   <Expandable title="Posso manter o login por senha como alternativa?" default-open="false">
     Não. A ativação vale para a conta inteira: a partir dela, todos os usuários entram pela Microsoft.
   </Expandable>
