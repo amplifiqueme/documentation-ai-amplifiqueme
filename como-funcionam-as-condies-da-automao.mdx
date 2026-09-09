@@ -1,30 +1,100 @@
 ---
 title: Como funcionam as condições da automação?
 description: >-
-  Entenda o que cada condição do Criador de Automações faz — Contém, É igual
-  a, Está preenchido, Maior que, entre outras — com exemplos práticos de
-  quando a automação dispara ou não.
+  Entenda o que cada condição de uma automação de pesquisa faz — Contém, É igual
+  a, Está preenchido, Maior que, entre outras — e como combinar condições em
+  conjuntos com E e OU.
 ---
 
 ## Visão geral
 
-Toda automação é composta por conjuntos de condições (o **SE**) e uma ação disparada quando essas condições são satisfeitas (o **ENTÃO**). Cada condição compara um campo — uma **Pergunta**, um dado do **Contato**, uma **Etiqueta**, etc. — a um valor, usando um operador.
+As automações ficam dentro da pesquisa, no passo **Configurações**, na seção **Automações**.
+
+Cada automação tem duas partes: as **condições** (o **SE**) e a **ação** (o **ENTÃO**). Quando chega uma resposta que satisfaz as condições, a ação acontece — abrir um ticket, avisar a equipe por e-mail, adicionar uma etiqueta no contato ou pedir uma avaliação online.
+
+Uma condição é montada em quatro escolhas, da esquerda para a direita:
+
+| Escolha | O que é |
+|---|---|
+| Tipo de informação | Contato, Pergunta, Dados da Resposta ou Análise da AI |
+| Campo | qual dado dentro daquele tipo (uma pergunta da pesquisa, a etiqueta do contato, o canal...) |
+| Operador | como o campo vai ser comparado (Contém, É igual a, Maior que...) |
+| Valor | com o que ele vai ser comparado |
+
+---
+
+## O que você pode usar como condição
+
+| Tipo de informação | O que dá para verificar |
+|---|---|
+| **Contato** | Etiqueta, Empresa e os campos customizados do contato |
+| **Pergunta** | a resposta de qualquer pergunta da pesquisa |
+| **Dados da Resposta** | Canal, Origem, Autorizou Contato e os campos customizados da resposta |
+| **Análise da AI** | Sentimento, Severidade, Tipo do Feedback e Tópico do Feedback |
 
 <Callout kind="tip" collapsed="false">
-  As opções de operador disponíveis mudam conforme o tipo de campo selecionado na condição. Campos de **texto ou lista** (Contato, Etiqueta, pergunta de texto) mostram operadores de correspondência de texto. Campos **numéricos** (nota de uma pergunta NPS/CSAT/CES, campo customizado numérico) mostram operadores de comparação numérica.
+  **Análise da AI** só fica disponível quando pelo menos uma pergunta da pesquisa está com a Análise de AI ativada.
 </Callout>
 
 ---
 
-## Condições de texto
+## Conjuntos, E e OU
 
-Disponíveis para campos como **Contato**, **Etiqueta** e perguntas de texto.
+As condições ficam dentro de **conjuntos**. Isso permite montar regras do tipo "detrator **e** cliente VIP" ou "veio pelo WhatsApp **ou** pelo e-mail".
 
-### Contém / Não contém
+**Dentro de um conjunto**, quem manda é o **Operador do Conjunto**:
 
-O **"Contém"** procura o texto que você digitou exatamente como está, dentro do valor do campo — igual ao Ctrl+F do navegador. Ele não procura palavras soltas nem em outra ordem.
+- **E** — todas as condições do conjunto precisam ser verdadeiras.
+- **OU** — basta uma delas ser verdadeira.
 
-Você não precisa se preocupar com maiúsculas, minúsculas, acentos ou espaços no início e no fim: para o sistema, "SÃO PAULO", "sao paulo" e "São Paulo" são a mesma coisa.
+A primeira condição aparece marcada com **SE**; as seguintes mostram **E** ou **OU**, conforme o que você escolheu.
+
+**Entre conjuntos**, quem manda é o seletor no topo da tela:
+
+- **Se todos os conjuntos forem verdadeiros** — a ação só acontece quando cada conjunto der verdadeiro.
+- **Se qualquer um dos conjuntos for verdadeiro** — basta um conjunto dar verdadeiro.
+
+**Exemplo:** para tratar só o detrator que é cliente VIP, use **Se todos os conjuntos forem verdadeiros** com:
+
+- **Conjunto 1:** a nota da pergunta NPS é menor ou igual a 6
+- **Conjunto 2:** a Etiqueta do contato é igual a `Cliente VIP`
+
+Use **Adicionar Condição** para incluir uma condição no conjunto e **Novo Conjunto** para começar outro. Cada conjunto aceita até 10 condições, e a automação aceita até 10 conjuntos.
+
+---
+
+## Quais operadores aparecem em cada campo
+
+Os operadores mudam conforme o campo escolhido:
+
+| Campo | Operadores disponíveis |
+|---|---|
+| Perguntas de nota (NPS, CSAT, CES, Likert) | É igual a, Não é igual a, Maior que, Menor que, Maior ou igual a, Menor ou igual a, Está preenchido, Não está preenchido |
+| Pergunta Aberta | Contém, Não contém, Está preenchido, Não está preenchido |
+| Única Escolha e Caixa de Seleção | Contém, Não contém, É igual a, Não é igual a, Está preenchido, Não está preenchido |
+| Múltipla Escolha e Like/Dislike | É igual a, Não é igual a, Está preenchido, Não está preenchido |
+| Etiqueta e Empresa | É igual a, Não é igual a, Está preenchido, Não está preenchido |
+| Campos customizados e Origem | Contém, Não contém, É igual a, Não é igual a, Está preenchido, Não está preenchido |
+| Canal e Autorizou Contato | É igual a, Não é igual a |
+| Sentimento, Severidade e Tipo do Feedback | É igual a, Não é igual a, Está preenchido, Não está preenchido |
+| Tópico do Feedback | Contém, Não contém, É igual a, Não é igual a, Está preenchido, Não está preenchido |
+
+---
+
+## Como preencher o valor
+
+- No **Contém** e no **Não contém**, o valor é uma caixa de texto: você digita um trecho por condição. Para procurar dois trechos diferentes, crie duas condições com **OU**.
+- Nos demais operadores, o valor é uma lista. Em boa parte dos campos dá para escolher **mais de um valor**: a condição fica valendo como "qualquer um destes". Por exemplo, `Etiqueta é igual a Cliente VIP, Contrato Anual` dispara para quem tem uma das duas etiquetas. Já `Não é igual a` com dois valores só dispara para quem não tem nenhuma delas.
+- Nas perguntas de nota, você escolhe um valor só.
+- **Está preenchido** e **Não está preenchido** não pedem valor.
+
+---
+
+## Contém / Não contém
+
+O **Contém** procura o texto que você digitou, exatamente como está, dentro do valor do campo — igual ao Ctrl+F do navegador. Ele não procura palavras soltas nem em outra ordem.
+
+Você não precisa se preocupar com maiúsculas, minúsculas, acentos ou espaços no início e no fim: para o sistema, `SÃO PAULO`, `sao paulo` e `São Paulo` são a mesma coisa.
 
 **Exemplo 1 — não funciona:**
 
@@ -33,7 +103,7 @@ Você não precisa se preocupar com maiúsculas, minúsculas, acentos ou espaço
 | Valor configurado na automação | `PA 97 - DIGITAL` |
 | Valor recebido | `97-PA- ATENDIMENTO DIGITAL` |
 
-O trecho `PA 97 - DIGITAL` não existe dentro do valor recebido. As palavras estão lá, mas em outra ordem e com "ATENDIMENTO" no meio. Para uma pessoa a informação é a mesma, mas é a busca por trecho exato que garante que a automação dispare só no caso que você quis — se a ordem e a pontuação fossem ignoradas, valores diferentes que por acaso repetissem as mesmas palavras também acionariam a automação.
+O trecho `PA 97 - DIGITAL` não existe dentro do valor recebido. As palavras estão lá, mas em outra ordem e com "ATENDIMENTO" no meio.
 
 **Exemplo 2 — funciona:**
 
@@ -44,39 +114,45 @@ O trecho `PA 97 - DIGITAL` não existe dentro do valor recebido. As palavras est
 
 Aqui funciona, porque `ATENDIMENTO DIGITAL` está inteiro e na mesma ordem dentro do valor recebido. Tudo o que vem antes ou depois do trecho é ignorado — o que também significa que `ATENDIMENTO DIGITAL PJ` acionaria essa mesma automação.
 
-O **"Não contém"** funciona como o oposto: a automação dispara quando o trecho configurado **não** é encontrado dentro do valor recebido, seguindo as mesmas regras de busca exata (sem diferenciar maiúsculas, acentos ou espaços nas pontas).
+O **Não contém** é o oposto: dispara quando o trecho digitado **não** é encontrado dentro do valor recebido, seguindo as mesmas regras.
 
 <Callout kind="alert" collapsed="false">
-  **Atenção aos campos de múltipla escolha:** quando o campo customizado guarda uma lista de opções em vez de um texto livre, o "Contém" (e o "Não contém") funcionam de outra forma: comparam o que você digitou com **cada opção da lista**, exigindo que seja igual à opção **inteira**, não a um pedaço dela. Nesse caso, `ATENDIMENTO DIGITAL` não encontraria a opção `123 - ATENDIMENTO DIGITAL`. Em campos assim, digite o valor completo da opção, exatamente como ele aparece cadastrado.
+  **Campos que guardam mais de um valor** — um campo customizado com várias opções marcadas, uma pergunta de Caixa de Seleção, o Tópico do Feedback — funcionam de outra forma no Contém: cada valor é comparado inteiro, e não por trecho. Nesse caso `ATENDIMENTO DIGITAL` não encontra a opção `123 - ATENDIMENTO DIGITAL`; digite a opção completa.
 </Callout>
 
-### É igual a / Não é igual a
+---
 
-O **"É igual a"** exige que o campo inteiro corresponda ao valor configurado — não basta conter um trecho, o valor recebido precisa ser idêntico do início ao fim (sempre ignorando maiúsculas/minúsculas, acentos e espaços nas pontas, do mesmo jeito que o "Contém").
+## É igual a / Não é igual a
 
-**Exemplo:** com o valor configurado `São Paulo`, um contato com o campo `São Paulo` dispara a automação, mas um contato com `São Paulo Capital` não — mesmo o `São Paulo` estando "dentro" desse valor. É essa a diferença em relação ao "Contém": ele aceita trecho, o "É igual a" exige o campo inteiro.
+O **É igual a** exige que o campo corresponda inteiro ao valor configurado — não basta conter um trecho. Maiúsculas, acentos e espaços no início e no fim continuam sem importar.
 
-O **"Não é igual a"** dispara sempre que o valor do campo for diferente do configurado — incluindo quando o campo está vazio, já que "vazio" também não corresponde ao valor esperado.
+**Exemplo:** com o valor configurado `São Paulo`, um contato com o campo `São Paulo` dispara a automação, mas um contato com `São Paulo Capital` não — mesmo o `São Paulo` estando "dentro" desse valor. É essa a diferença em relação ao Contém: ele aceita trecho, o **É igual a** exige o campo inteiro.
 
-### Está preenchido / Não está preenchido
+Em campos que guardam mais de um valor — etiquetas do contato, uma pergunta de Múltipla Escolha, os tópicos da AI — a comparação é feita valor por valor, e a condição dispara quando **qualquer um** deles for igual. Um contato com as etiquetas `Cliente VIP` e `Inadimplente` satisfaz `Etiqueta é igual a Cliente VIP`.
+
+O **Não é igual a** dispara sempre que o valor do campo for diferente do configurado — incluindo quando o campo está vazio, já que "vazio" também não corresponde ao valor esperado. Em campos com mais de um valor, ele dispara só quando nenhum deles corresponde.
+
+---
+
+## Está preenchido / Não está preenchido
 
 Não comparam com nenhum valor digitado — apenas verificam se o campo tem alguma informação:
 
-- **Está preenchido:** dispara quando o campo tiver qualquer valor, seja ele qual for. Útil para condições como "o contato tem e-mail cadastrado" ou "a pergunta foi respondida".
+- **Está preenchido:** dispara quando o campo tiver qualquer valor, seja ele qual for. Útil para condições como "o contato tem e-mail cadastrado" ou "a pergunta foi respondida". Uma nota 0 conta como preenchida.
 - **Não está preenchido:** dispara quando o campo estiver vazio. Útil para casos como "o contato ainda não tem vendedor atribuído".
 
 ---
 
-## Condições numéricas
+## Maior que, Menor que e as notas
 
-Disponíveis para campos numéricos, como a nota de uma pergunta NPS, CSAT ou CES, ou um campo customizado numérico. Além do **É igual a**, **Não é igual a**, **Está preenchido** e **Não está preenchido** (que funcionam da mesma forma descrita acima, comparando o número em vez do texto), esses campos ganham operadores de comparação:
+Esses operadores aparecem nas perguntas de nota — NPS, CSAT, CES e Likert:
 
 | Operador | Dispara quando... |
 |---|---|
-| **Maior que** | o valor recebido é estritamente maior que o configurado |
-| **Menor que** | o valor recebido é estritamente menor que o configurado |
-| **Maior ou igual a** | o valor recebido é maior que o configurado, ou igual a ele |
-| **Menor ou igual a** | o valor recebido é menor que o configurado, ou igual a ele |
+| **Maior que** | a nota recebida é maior que a configurada |
+| **Menor que** | a nota recebida é menor que a configurada |
+| **Maior ou igual a** | a nota recebida é maior que a configurada, ou igual a ela |
+| **Menor ou igual a** | a nota recebida é menor que a configurada, ou igual a ela |
 
 **Exemplo:** para separar respondentes de uma pergunta NPS (nota de 0 a 10) por perfil:
 
@@ -87,8 +163,30 @@ A diferença entre "Maior que" e "Maior ou igual a" (e entre "Menor que" e "Meno
 
 ---
 
+## Quando a resposta não tem aquele dado
+
+Uma pergunta pode ficar sem resposta e um campo do contato pode estar em branco. Nesses casos:
+
+- **Não é igual a**, **Não contém** e **Não está preenchido** dão verdadeiro. Se a automação deve valer só para quem respondeu, junte no mesmo conjunto, com **E**, uma condição de **Está preenchido**.
+- **Maior que**, **Menor que**, **Maior ou igual a** e **Menor ou igual a** nunca disparam sem nota.
+
+<Callout kind="alert" collapsed="false">
+  É o motivo mais comum de uma automação parecer que disparou "sem motivo": a condição era negativa e a pessoa simplesmente pulou a pergunta.
+</Callout>
+
+---
+
+## Quando as condições são avaliadas
+
+- Só quando a pessoa **finaliza** a pesquisa. Uma resposta em andamento ou abandonada não dispara nada.
+- Uma única vez por resposta, e só para as respostas recebidas **depois** de a automação ser salva. Respostas anteriores não são reprocessadas.
+- Se a automação tem alguma condição de **Análise da AI**, ela espera a análise da resposta terminar.
+- Quando a pesquisa tem várias automações, elas são avaliadas na ordem em que aparecem na lista.
+
+---
+
 ## Próximo passo
 
 <Card title="Como criar uma pesquisa?" href="/criar-pesquisa" icon="list-checks" cta="Ver artigo" horizontal="false">
-  Veja onde o Criador de Automações se encaixa dentro dos passos de criação de uma pesquisa.
+  Veja onde as Automações se encaixam dentro dos passos de criação de uma pesquisa.
 </Card>
