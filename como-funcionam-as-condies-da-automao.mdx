@@ -1,0 +1,94 @@
+---
+title: Como funcionam as condições da automação?
+description: >-
+  Entenda o que cada condição do Criador de Automações faz — Contém, É igual
+  a, Está preenchido, Maior que, entre outras — com exemplos práticos de
+  quando a automação dispara ou não.
+---
+
+## Visão geral
+
+Toda automação é composta por conjuntos de condições (o **SE**) e uma ação disparada quando essas condições são satisfeitas (o **ENTÃO**). Cada condição compara um campo — uma **Pergunta**, um dado do **Contato**, uma **Etiqueta**, etc. — a um valor, usando um operador.
+
+<Callout kind="tip" collapsed="false">
+  As opções de operador disponíveis mudam conforme o tipo de campo selecionado na condição. Campos de **texto ou lista** (Contato, Etiqueta, pergunta de texto) mostram operadores de correspondência de texto. Campos **numéricos** (nota de uma pergunta NPS/CSAT/CES, campo customizado numérico) mostram operadores de comparação numérica.
+</Callout>
+
+---
+
+## Condições de texto
+
+Disponíveis para campos como **Contato**, **Etiqueta** e perguntas de texto.
+
+### Contém / Não contém
+
+O **"Contém"** procura o texto que você digitou exatamente como está, dentro do valor do campo — igual ao Ctrl+F do navegador. Ele não procura palavras soltas nem em outra ordem.
+
+Você não precisa se preocupar com maiúsculas, minúsculas, acentos ou espaços no início e no fim: para o sistema, "SÃO PAULO", "sao paulo" e "São Paulo" são a mesma coisa.
+
+**Exemplo 1 — não funciona:**
+
+| | |
+|---|---|
+| Valor configurado na automação | `PA 97 - DIGITAL` |
+| Valor recebido | `97-PA- ATENDIMENTO DIGITAL` |
+
+O trecho `PA 97 - DIGITAL` não existe dentro do valor recebido. As palavras estão lá, mas em outra ordem e com "ATENDIMENTO" no meio. Para uma pessoa a informação é a mesma, mas é a busca por trecho exato que garante que a automação dispare só no caso que você quis — se a ordem e a pontuação fossem ignoradas, valores diferentes que por acaso repetissem as mesmas palavras também acionariam a automação.
+
+**Exemplo 2 — funciona:**
+
+| | |
+|---|---|
+| Valor configurado na automação | `ATENDIMENTO DIGITAL` |
+| Valor recebido | `123 - ATENDIMENTO DIGITAL` |
+
+Aqui funciona, porque `ATENDIMENTO DIGITAL` está inteiro e na mesma ordem dentro do valor recebido. Tudo o que vem antes ou depois do trecho é ignorado — o que também significa que `ATENDIMENTO DIGITAL PJ` acionaria essa mesma automação.
+
+O **"Não contém"** funciona como o oposto: a automação dispara quando o trecho configurado **não** é encontrado dentro do valor recebido, seguindo as mesmas regras de busca exata (sem diferenciar maiúsculas, acentos ou espaços nas pontas).
+
+<Callout kind="alert" collapsed="false">
+  **Atenção aos campos de múltipla escolha:** quando o campo customizado guarda uma lista de opções em vez de um texto livre, o "Contém" (e o "Não contém") funcionam de outra forma: comparam o que você digitou com **cada opção da lista**, exigindo que seja igual à opção **inteira**, não a um pedaço dela. Nesse caso, `ATENDIMENTO DIGITAL` não encontraria a opção `123 - ATENDIMENTO DIGITAL`. Em campos assim, digite o valor completo da opção, exatamente como ele aparece cadastrado.
+</Callout>
+
+### É igual a / Não é igual a
+
+O **"É igual a"** exige que o campo inteiro corresponda ao valor configurado — não basta conter um trecho, o valor recebido precisa ser idêntico do início ao fim (sempre ignorando maiúsculas/minúsculas, acentos e espaços nas pontas, do mesmo jeito que o "Contém").
+
+**Exemplo:** com o valor configurado `São Paulo`, um contato com o campo `São Paulo` dispara a automação, mas um contato com `São Paulo Capital` não — mesmo o `São Paulo` estando "dentro" desse valor. É essa a diferença em relação ao "Contém": ele aceita trecho, o "É igual a" exige o campo inteiro.
+
+O **"Não é igual a"** dispara sempre que o valor do campo for diferente do configurado — incluindo quando o campo está vazio, já que "vazio" também não corresponde ao valor esperado.
+
+### Está preenchido / Não está preenchido
+
+Não comparam com nenhum valor digitado — apenas verificam se o campo tem alguma informação:
+
+- **Está preenchido:** dispara quando o campo tiver qualquer valor, seja ele qual for. Útil para condições como "o contato tem e-mail cadastrado" ou "a pergunta foi respondida".
+- **Não está preenchido:** dispara quando o campo estiver vazio. Útil para casos como "o contato ainda não tem vendedor atribuído".
+
+---
+
+## Condições numéricas
+
+Disponíveis para campos numéricos, como a nota de uma pergunta NPS, CSAT ou CES, ou um campo customizado numérico. Além do **É igual a**, **Não é igual a**, **Está preenchido** e **Não está preenchido** (que funcionam da mesma forma descrita acima, comparando o número em vez do texto), esses campos ganham operadores de comparação:
+
+| Operador | Dispara quando... |
+|---|---|
+| **Maior que** | o valor recebido é estritamente maior que o configurado |
+| **Menor que** | o valor recebido é estritamente menor que o configurado |
+| **Maior ou igual a** | o valor recebido é maior que o configurado, ou igual a ele |
+| **Menor ou igual a** | o valor recebido é menor que o configurado, ou igual a ele |
+
+**Exemplo:** para separar respondentes de uma pergunta NPS (nota de 0 a 10) por perfil:
+
+- **Menor que 7** → dispara para as notas 0 a 6 (detratores)
+- **Maior ou igual a 9** → dispara para as notas 9 e 10 (promotores)
+
+A diferença entre "Maior que" e "Maior ou igual a" (e entre "Menor que" e "Menor ou igual a") é só o limite: use a versão "ou igual a" quando o próprio valor configurado também deve satisfazer a condição.
+
+---
+
+## Próximo passo
+
+<Card title="Como criar uma pesquisa?" href="/criar-pesquisa" icon="list-checks" cta="Ver artigo" horizontal="false">
+  Veja onde o Criador de Automações se encaixa dentro dos passos de criação de uma pesquisa.
+</Card>
