@@ -410,6 +410,10 @@
             "expandable": false,
             "pages": [
               {
+                "title": "Não encontra um recurso? Veja os nomes antigos e novos da plataforma",
+                "path": "onde-ficou-esse-recurso-nomes-e-mudancas-da-plataforma"
+              },
+              {
                 "title": "FAQ técnico: In-App e sincronização de dados",
                 "path": "faq-tcnico-in-app-e-sincronizao-de-dados"
               },
