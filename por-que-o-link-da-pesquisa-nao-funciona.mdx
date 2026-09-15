@@ -1,0 +1,136 @@
+---
+title: Por que o link da minha pesquisa não funciona (ou o e-mail nem chegou)?
+description: >-
+  Guia de diagnóstico para quando um respondente diz que não recebeu a pesquisa
+  ou que o link não abre: identifique se o problema é de entrega, spam, limite
+  de respostas ou link arquivado.
+slug: link-pesquisa-nao-funciona
+---
+## Visão geral
+
+"O cliente disse que não recebeu a pesquisa" e "o link dá erro" são dois problemas diferentes, com causas diferentes. Este guia ajuda a identificar rapidamente qual se aplica ao seu caso antes de abrir um chamado.
+
+<Callout kind="info" collapsed="false">
+  Comece perguntando ao respondente: **"você recebeu a mensagem?"** A resposta já separa o problema em dois grupos.
+</Callout>
+
+---
+
+## Primeiro: entrega ou acesso?
+
+<Columns cols="2">
+  <Card title="\"Nunca recebi nada\"" icon="lucide-mail-x" horizontal="false">
+    O problema é de **entrega** — a mensagem não chegou. Veja as causas 1 e 2 abaixo.
+  </Card>
+
+  <Card title="\"Recebi, mas o link não abre ou dá erro\"" icon="lucide-link-2-off" horizontal="false">
+    O problema é de **acesso** — a mensagem chegou, mas algo impede a resposta. Veja as causas 3, 4 e 5 abaixo.
+  </Card>
+</Columns>
+
+---
+
+## Causa 1: o e-mail não foi entregue (bounce)
+
+Se o envio aparece como **"Envio com Erro"** em `Pesquisas e Respostas → Solicitações`, o provedor de e-mail do destinatário recusou a mensagem — na grande maioria das vezes porque o endereço está errado ou não existe mais.
+
+<Card title="O que significam os erros de envio por e-mail" href="/o-que-significam-os-erros-de-envio-por-e-mail" icon="lucide-mail-warning" cta="Ver artigo" horizontal="false" target="_self">
+  Entenda bounce, lista de supressão e como corrigir o e-mail na origem.
+</Card>
+
+---
+
+## Causa 2: a mensagem foi entregue, mas caiu no spam
+
+Se o envio **não** aparece com erro em Solicitações, a mensagem foi entregue — só não chegou à caixa de entrada. Isso é comum quando a pesquisa é enviada pelo domínio padrão da plataforma (`noreply@amplifique.me`), porque provedores corporativos costumam ser mais rigorosos com remetentes que não são do próprio domínio da empresa.
+
+<Steps>
+  <Step title="Peça para o respondente checar a caixa de spam/lixo eletrônico" title-type="p">
+    Se encontrar, oriente a marcar como "não é spam" — isso ajuda a entregabilidade dos próximos envios para aquele domínio também.
+  </Step>
+
+  <Step title="Configure um domínio customizado de e-mail" title-type="p">
+    Enviando pelo domínio da própria empresa (com SPF, DKIM e DMARC configurados), a reputação de envio melhora e a chance de cair em spam cai bastante — principalmente para clientes corporativos com filtros mais agressivos.
+  </Step>
+</Steps>
+
+<Card title="Como configurar domínio customizado de e-mail?" href="/como-configurar-domnio-customizado-de-e-mail" icon="lucide-shield-check" cta="Ver artigo" horizontal="false" target="_self">
+  Recurso pago que melhora a entregabilidade e evita que os envios caiam em spam.
+</Card>
+
+---
+
+## Causa 3: a pesquisa atingiu o limite de respostas configurado
+
+Se a pesquisa tem um **limite de respostas** definido nas suas configurações, ao atingir esse número ela é desativada automaticamente — e quem tentar acessar o link vê a mensagem **"pesquisa desativada"**, mesmo que a pesquisa pareça estar ativa à primeira vista.
+
+<Card title="Limite de Respostas: como controlar quantas respostas sua pesquisa recebe" href="/limite-de-respostas" icon="lucide-gauge" cta="Ver artigo" horizontal="false" target="_self">
+  Veja como o limite funciona e como configurar o reinício automático mensal.
+</Card>
+
+---
+
+## Causa 4: a conta atingiu o limite do plano (franquia mensal)
+
+Esse é diferente da causa 3: aqui o limite não é de uma pesquisa específica, é da **conta inteira** (ou de uma unidade, em contas com múltiplas unidades). Quando a franquia mensal do plano acaba, **todas** as pesquisas daquela unidade são paralisadas ao mesmo tempo, e os respondentes veem a mesma mensagem de **"pesquisa desativada"**.
+
+<Callout kind="tip" collapsed="false">
+  Se várias pesquisas diferentes começaram a apresentar o mesmo problema ao mesmo tempo, é mais provável que seja esta causa (limite da conta) do que a causa 3 (limite de uma pesquisa isolada).
+</Callout>
+
+<Card title="Como monitorar e gerenciar o limite de respostas?" href="/como-monitorar-e-gerenciar-o-limite-de-respostas" icon="lucide-bar-chart-2" cta="Ver artigo" horizontal="false" target="_self">
+  Acompanhe o saldo mensal e veja o que fazer ao atingir o limite.
+</Card>
+
+---
+
+## Causa 5: o link foi arquivado
+
+Links de distribuição de pesquisa são **arquivados em vez de excluídos** quando a pesquisa correspondente é removida ou substituída. Um link arquivado **deixa de funcionar** para quem tentar acessá-lo — mesmo que ele esteja salvo numa planilha antiga, num e-mail encaminhado ou impresso num QR Code físico.
+
+<Callout kind="alert" collapsed="false">
+  Se o link em questão foi copiado há muito tempo ou veio de uma pesquisa que foi recriada/duplicada, confirme se a pesquisa original ainda existe antes de investigar outras causas.
+</Callout>
+
+---
+
+## Diagnóstico rápido
+
+| O respondente diz que... | Causa provável | Onde confirmar |
+| --- | --- | --- |
+| Nunca recebeu nenhuma mensagem | Bounce (e-mail errado) | `Solicitações` → filtrar por "Envio com Erro" |
+| Recebeu, mas não achou na caixa de entrada | Caiu no spam | Pedir para checar spam/lixo eletrônico |
+| O link abre e diz "pesquisa desativada" | Limite de respostas (da pesquisa ou da conta) | Configurações da pesquisa e `Configurações → Unidade → Limites de Uso` |
+| O link dá erro ou página não encontrada | Link arquivado | Confirmar se a pesquisa original ainda existe |
+
+---
+
+## Nenhuma dessas causas resolveu?
+
+Se você já descartou as cinco causas acima e o problema persiste, abra um chamado com o suporte da Amplifique.me informando: o link exato usado, o horário em que o respondente tentou acessar e um print da mensagem de erro (se houver). Isso agiliza a investigação do time técnico.
+
+---
+
+## Perguntas frequentes
+
+<ExpandableGroup>
+  <Expandable title="Como sei se o problema é bounce ou spam?" default-open="false">
+    Confira `Pesquisas e Respostas → Solicitações`. Se o envio aparece como "Envio com Erro", foi bounce — a mensagem nem saiu da Amplifique.me para o provedor do destinatário. Se o envio aparece como entregue com sucesso, mas o cliente não encontra a mensagem, o mais provável é ter caído em spam.
+  </Expandable>
+
+  <Expandable title="O link funcionava e parou de funcionar do nada. O que mudou?" default-open="false">
+    As causas mais comuns nesse cenário são a pesquisa ter atingido o limite de respostas configurado (causa 3), a conta ter atingido a franquia mensal do plano (causa 4), ou a pesquisa original ter sido excluída/recriada, arquivando o link antigo (causa 5).
+  </Expandable>
+
+  <Expandable title="Configurar domínio customizado garante que nunca mais vai cair em spam?" default-open="false">
+    Reduz bastante a chance, mas não existe garantia absoluta — cada provedor de e-mail (Gmail, Outlook, servidores corporativos) tem seus próprios critérios de filtragem, que também levam em conta o conteúdo da mensagem e o histórico do domínio.
+  </Expandable>
+</ExpandableGroup>
+
+---
+
+## Próximo passo
+
+<Card title="O que significam os erros de envio por e-mail" href="/o-que-significam-os-erros-de-envio-por-e-mail" icon="lucide-mail-warning" cta="Ver artigo" horizontal="false" target="_self">
+  Se o caso for de bounce, este artigo mostra como corrigir a base de contatos na origem.
+</Card>
