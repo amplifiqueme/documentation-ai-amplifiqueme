@@ -1,0 +1,123 @@
+---
+title: Como calcular média ponderada em perguntas Likert e Matriz?
+description: >-
+  Defina o valor de cada nota da Escala Likert ou de cada coluna da Matriz de
+  Opções para que painéis, Análise e Resultados, Detalhamento e exportações
+  mostrem a média ponderada.
+---
+## Visão geral
+
+Na **Escala Likert**, a média é calculada com a própria nota: quem marca 4 soma 4. Com a opção **Calcular Média Ponderada**, você escolhe o valor de cada nota — por exemplo, transformar uma escala de 1 a 5 em 0, 25, 50, 75 e 100 para ler o resultado de 0 a 100.
+
+Na **Matriz de Opções**, as colunas são textos (como "Ruim", "Bom", "Ótimo") e por isso não têm média. Com a opção ligada, você dá um valor a cada coluna e a plataforma passa a calcular uma média para cada linha da matriz.
+
+| Pergunta | Exemplo de configuração | Resultado |
+| --- | --- | --- |
+| **Escala Likert** de 1 a 5 | Nota 1 = 0, Nota 2 = 25, Nota 3 = 50, Nota 4 = 75, Nota 5 = 100 | Média de 0 a 100 |
+| **Matriz de Opções** | Ruim = 1, Regular = 2, Bom = 3, Ótimo = 4, Não se aplica = sem valor | Média de 1 a 4 em cada linha, sem contar quem marcou "Não se aplica" |
+
+<Callout kind="info" collapsed="false">
+  A pesquisa continua igual para quem responde. Os valores só mudam o cálculo exibido para a sua equipe.
+</Callout>
+
+---
+
+## Como ativar a média ponderada
+
+<Steps>
+  <Step title="Abra a pergunta no construtor" title-type="p">
+    Em **Pesquisas**, edite a pesquisa e selecione a pergunta de **Escala Likert** ou de **Matriz de Opções**. As opções da pergunta abrem no canto direito.
+
+    <Callout kind="alert" collapsed="false">
+      Na Escala Likert, escolha a **Escala** antes. Na Matriz de Opções, cadastre ao menos uma coluna. Enquanto isso não for feito, a opção aparece desabilitada — passe o mouse sobre ela para ver o motivo.
+    </Callout>
+  </Step>
+
+  <Step title="Ligue Calcular Média Ponderada" title-type="p">
+    Ative a chave **Calcular Média Ponderada**. Aparece a lista de notas (Likert) ou de colunas (Matriz), cada uma com um campo de valor.
+
+    Se a pesquisa já recebeu respostas, a plataforma pede confirmação na janela **Ativar Pontuação**. Se a pesquisa faz parte de um **grupo de pesquisas**, ela precisa ser removida do grupo para você alterar os pesos.
+
+    <Callout kind="danger" collapsed="false">
+      📸 **PRINT A INSERIR:** construtor de pesquisa com uma pergunta de Escala Likert selecionada, mostrando no painel da direita a chave **Calcular Média Ponderada** ligada e a lista "Nota 1" a "Nota 5" com os valores preenchidos (ex.: 0, 25, 50, 75, 100).
+    </Callout>
+  </Step>
+
+  <Step title="Defina o valor de cada nota ou coluna" title-type="p">
+    - **Escala Likert:** cada nota já vem preenchida com o próprio número. Troque apenas o que quiser mudar.
+    - **Matriz de Opções:** colunas cujo texto é um número (como "1" a "5") já vêm preenchidas com esse número; as demais vêm vazias. **Coluna sem valor não entra no cálculo, nem no total** — use para opções como "Não se aplica".
+
+    O valor zero conta normalmente no cálculo. Valores negativos também são aceitos.
+
+    <Callout kind="danger" collapsed="false">
+      📸 **PRINT A INSERIR:** construtor com uma pergunta de Matriz de Opções selecionada, mostrando a chave **Calcular Média Ponderada** ligada, as colunas com valores (ex.: Ruim = 1 … Ótimo = 4) e uma coluna "Não se aplica" com o campo vazio, junto com o aviso "Coluna sem valor não entra no cálculo, nem no total".
+    </Callout>
+  </Step>
+
+  <Step title="Salve a pesquisa" title-type="p">
+    Ao salvar, a média ponderada passa a aparecer em todas as telas listadas abaixo.
+
+    <Callout kind="alert" collapsed="false">
+      Os pesos valem para **todo o histórico**. Alterar um peso recalcula as médias já exibidas em painéis, relatórios e exportações, inclusive de respostas antigas.
+    </Callout>
+  </Step>
+</Steps>
+
+---
+
+## Onde a média ponderada aparece
+
+| Tela | O que você vê |
+| --- | --- |
+| **Painel — card de Escala Likert** | O número principal passa a ser a média ponderada, com a legenda **Média Ponderada**. Passe o mouse sobre o número para ver o **peso de cada nota**. |
+| **Painel — card de Matriz de Opções** | A média ponderada da linha exibida. Use as setas do card para trocar de linha. Passe o mouse sobre o número para ver o **peso de cada coluna**; colunas sem valor aparecem como "não pontua". |
+| **Painel — Gráfico de Acompanhamento** | A evolução da Escala Likert mês a mês usa a média ponderada. |
+| **Análise e Resultados — Escala Likert** | O resultado da pergunta aparece como **Média Ponderada**. |
+| **Análise e Resultados — Matriz de Opções** | O gráfico **Média Ponderada por Pergunta**, com a faixa de valores e a opção de ordenar as linhas, e a coluna **Média Ponderada** na tabela da matriz, com a linha **Total**. |
+| **Detalhamento** | A Escala Likert é detalhada pela média ponderada. A Matriz de Opções passa a aparecer em **Pergunta para Visualização**, com o seletor **Linha da Matriz** para escolher qual linha detalhar. |
+
+<Callout kind="danger" collapsed="false">
+  📸 **PRINT A INSERIR:** card de Matriz de Opções no painel com a média ponderada em destaque e o popover **Peso de cada coluna** aberto (mouse sobre o número), mostrando uma coluna como "não pontua".
+</Callout>
+
+<Callout kind="danger" collapsed="false">
+  📸 **PRINT A INSERIR:** Análise e Resultados de uma pergunta de Matriz de Opções mostrando o gráfico **Média Ponderada por Pergunta** e, abaixo, a tabela com a coluna **Média Ponderada** e a linha **Total**.
+</Callout>
+
+<Callout kind="danger" collapsed="false">
+  📸 **PRINT A INSERIR:** aba Detalhamento com uma pergunta de Matriz de Opções selecionada, mostrando o seletor **Linha da Matriz** na barra lateral e as barras com a média de cada grupo.
+</Callout>
+
+---
+
+## Perguntas frequentes
+
+<ExpandableGroup>
+  <Expandable title="Quem responde a pesquisa vê os pesos?" default-open="false">
+    Não. A pesquisa continua exatamente igual para o respondente. Os valores só mudam o cálculo exibido na plataforma.
+  </Expandable>
+
+  <Expandable title="Posso mudar os pesos depois que a pesquisa recebeu respostas?" default-open="false">
+    Sim. Os pesos valem para todo o histórico: ao salvar, painéis, Análise e Resultados, Detalhamento e exportações passam a mostrar a média recalculada com os novos valores, incluindo as respostas antigas.
+  </Expandable>
+
+  <Expandable title="O que acontece se eu desligar a média ponderada?" default-open="false">
+    A Escala Likert volta a calcular a média pela própria nota, e a Matriz de Opções deixa de ter média por linha. Os valores preenchidos ficam guardados: se você ligar a opção de novo, eles voltam.
+  </Expandable>
+
+  <Expandable title="Por que não consigo ligar a opção em uma pesquisa que está em um grupo de pesquisas?" default-open="false">
+    Pesquisas agrupadas precisam ter a mesma estrutura, e os pesos fazem parte dela. Para alterar os pesos, a plataforma pede para remover a pesquisa do grupo.
+  </Expandable>
+
+  <Expandable title="Adicionei uma coluna nova na matriz. Ela entra na média?" default-open="false">
+    Só depois que você der um valor a ela. Se o texto da coluna for um número, o valor já vem preenchido; caso contrário, o campo fica vazio e a coluna não entra no cálculo.
+  </Expandable>
+</ExpandableGroup>
+
+---
+
+## Próximo passo
+
+<Card title="Como criar indicadores personalizados nas perguntas?" href="/como-criar-indicadores-personalizados" icon="lucide-sigma" cta="Ver artigo" horizontal="false">
+  Mostre o percentual ou a quantidade de um grupo de respostas, como "Satisfeitos" ou "Notas 9 e 10".
+</Card>

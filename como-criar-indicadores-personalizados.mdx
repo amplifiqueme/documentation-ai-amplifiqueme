@@ -1,0 +1,153 @@
+---
+title: Como criar indicadores personalizados nas perguntas?
+description: >-
+  Crie na própria pergunta indicadores como "Satisfeitos" ou "Notas 9 e 10" e
+  acompanhe o percentual ou a quantidade em Análise e Resultados, nos cards do
+  painel e no Detalhamento.
+---
+## Visão geral
+
+Um **indicador personalizado** mostra o percentual ou a quantidade de um grupo de respostas de uma pergunta. Exemplos:
+
+- **Satisfeitos** — quem marcou "Ótimo" ou "Bom", sobre o total de respostas
+- **Notas 9 e 10** — quem deu nota 9 ou 10 em uma pergunta de NPS
+- **Pediram contato** — quantas pessoas marcaram a opção "Quero ser contatado"
+
+O indicador é criado na própria pergunta, no construtor da pesquisa. Depois disso ele aparece em **Análise e Resultados**, pode ser destacado em um **card do painel** e pode ser usado no **Detalhamento**.
+
+Disponível para perguntas de **Única Escolha**, **Múltipla Escolha**, **Caixa de Seleção**, **NPS**, **CSAT**, **CES** e **Escala Likert**. Uma mesma pergunta pode ter vários indicadores.
+
+---
+
+## Como criar um indicador
+
+<Steps>
+  <Step title="Abra a pergunta no construtor" title-type="p">
+    Em **Pesquisas**, edite a pesquisa e selecione a pergunta. As opções da pergunta abrem no canto direito.
+  </Step>
+
+  <Step title="Adicione o indicador" title-type="p">
+    No bloco **Indicadores**, clique em **Adicionar** e dê um nome ao indicador (até 40 caracteres), como "Satisfeitos". É esse nome que aparece nas telas de resultado.
+  </Step>
+
+  <Step title="Marque o que entra na conta" title-type="p">
+    Em **Opções Contadas** (ou **Notas Contadas**, em NPS, CSAT, CES e Escala Likert), marque as opções ou notas que formam o indicador. É preciso marcar ao menos uma.
+  </Step>
+
+  <Step title="Escolha por quanto dividir" title-type="p">
+    Em **Dividir Por**, escolha a base do percentual:
+
+    | Opção | Disponível em | O que entra na base |
+    | --- | --- | --- |
+    | **Total de respostas** | Única Escolha, Caixa de Seleção, NPS, CSAT, CES e Escala Likert | Todas as respostas da pergunta |
+    | **Quem respondeu** | Múltipla Escolha | O número de pessoas que responderam a pergunta |
+    | **Total de seleções** | Múltipla Escolha | A soma de todas as opções marcadas por todas as pessoas |
+    | **Apenas as opções que eu escolher** / **Apenas as notas que eu escolher** | Todos os tipos | Só as opções ou notas que você marcar em **Opções do Divisor** / **Notas do Divisor** |
+
+    <Callout kind="tip" collapsed="false">
+      Use **Apenas as opções que eu escolher** para tirar da base respostas como "Não sei" ou "Não se aplica".
+    </Callout>
+  </Step>
+
+  <Step title="Escolha como exibir" title-type="p">
+    Em **Exibir Como**, escolha **Percentual** (ex.: 70%, com "140 de 200" ao lado) ou **Quantidade** (ex.: 140).
+  </Step>
+
+  <Step title="Salve a pesquisa" title-type="p">
+    O indicador passa a aparecer nas telas de resultado. Ele é calculado sobre **todo o histórico**: alterar um indicador muda o valor exibido também para as respostas antigas. Em cada tela, o valor segue o período e os filtros aplicados.
+
+    <Callout kind="danger" collapsed="false">
+      📸 **PRINT A INSERIR:** construtor com uma pergunta de Única Escolha selecionada, mostrando o bloco **Indicadores** com um indicador preenchido: nome "Satisfeitos", **Opções Contadas** com "Ótimo" e "Bom" marcados, **Dividir Por** em "Total de respostas" e **Exibir Como** em "Percentual".
+    </Callout>
+  </Step>
+</Steps>
+
+### Exemplo de cálculo
+
+Uma pergunta de Única Escolha recebeu 200 respostas: Ótimo (80), Bom (60), Ruim (50) e Não sei (10).
+
+| Indicador | Opções contadas | Dividir por | Exibir como | Resultado |
+| --- | --- | --- | --- | --- |
+| Satisfeitos | Ótimo + Bom | Total de respostas | Percentual | 140 de 200 = **70%** |
+| Satisfeitos (sem "Não sei") | Ótimo + Bom | Apenas Ótimo, Bom e Ruim | Percentual | 140 de 190 = **73,7%** |
+| Insatisfeitos | Ruim | Total de respostas | Quantidade | **50** |
+
+---
+
+## Onde o indicador aparece
+
+### Análise e Resultados
+
+Ao abrir a pergunta em **Análise e Resultados**, cada indicador ganha um card no topo, com o selo **Indicador personalizado**, o valor e, no percentual, a conta "X de Y".
+
+Passe o mouse sobre o número para ver a regra do indicador: quais opções ou notas são somadas e por quanto o resultado é dividido.
+
+<Callout kind="danger" collapsed="false">
+  📸 **PRINT A INSERIR:** Análise e Resultados de uma pergunta com dois indicadores, mostrando os cards no topo com o selo **Indicador personalizado** e o popover da regra aberto em um deles (mouse sobre o número), com "Soma quem respondeu" e "Dividido por".
+</Callout>
+
+### Cards do painel
+
+Ao criar um card — ou em **Editar Card**, no menu `⋮` de um card existente —, chegue ao passo **Nomeie o Card** e escolha o indicador em **Indicador em Destaque**. Vale para cards de NPS, CSAT, CES, Escala Likert, Única Escolha, Múltipla Escolha e Caixa de Seleção.
+
+Se a pergunta ainda não tem indicadores, o campo aparece desabilitado; passe o mouse sobre ele para ver a orientação.
+
+- **Cards de Única Escolha, Múltipla Escolha e Caixa de Seleção:** o indicador aparece em destaque no topo do card, acima da distribuição das opções.
+- **Cards de NPS, CSAT, CES e Escala Likert:** o indicador aparece em um quadro ao lado de **Respostas Recebidas**.
+
+Nos dois casos, passar o mouse sobre o número do indicador mostra a regra.
+
+<Callout kind="danger" collapsed="false">
+  📸 **PRINT A INSERIR:** janela de criação de card no passo **Nomeie o Card**, com o campo **Indicador em Destaque** aberto mostrando "Nenhum" e os indicadores da pergunta.
+</Callout>
+
+<Callout kind="danger" collapsed="false">
+  📸 **PRINT A INSERIR:** painel com um card de Única Escolha mostrando o indicador em destaque no topo e, ao lado, um card de NPS com o indicador no quadro ao lado de **Respostas Recebidas**.
+</Callout>
+
+### Detalhamento
+
+- Perguntas de **Única Escolha**, **Múltipla Escolha** e **Caixa de Seleção** que têm indicadores aparecem em **Pergunta para Visualização**.
+- Quando há mais de uma métrica disponível, a barra lateral mostra o seletor **Métrica**. Em NPS, CSAT, CES e Escala Likert, ele traz a métrica da própria pergunta e os indicadores; nas perguntas de escolha, traz os indicadores. Com um único indicador, ele é usado direto, sem seletor.
+- As barras mostram o percentual ou a quantidade, conforme o **Exibir Como** do indicador.
+- O total de cada grupo soma as contagens e as bases dos subgrupos. Exemplo: "9 de 10" em um subgrupo e "1 de 90" em outro dão **10 de 100 = 10%** no total.
+- Ao abrir o Detalhamento a partir de um card do painel, é usado o **Indicador em Destaque** daquele card.
+- Em **Exportar**, a planilha traz o indicador em colunas próprias: no percentual, "Nome do indicador (%)", **Contagem** e **Base**; na quantidade, uma coluna com o nome do indicador.
+
+<Callout kind="danger" collapsed="false">
+  📸 **PRINT A INSERIR:** aba Detalhamento com uma pergunta de NPS selecionada, mostrando o seletor **Métrica** aberto na barra lateral (com "NPS" e os indicadores) e as barras de cada grupo com o percentual do indicador.
+</Callout>
+
+---
+
+## Perguntas frequentes
+
+<ExpandableGroup>
+  <Expandable title="Por que o percentual do indicador passou de 100%?" default-open="false">
+    Isso acontece em **Múltipla Escolha** com **Dividir Por** em **Quem respondeu**: cada pessoa pode marcar mais de uma das opções contadas, então a soma pode ser maior que o número de pessoas. Para ver a participação das opções entre todas as marcações, use **Total de seleções**.
+  </Expandable>
+
+  <Expandable title="O que acontece com o indicador se eu renomear uma opção?" default-open="false">
+    O indicador — e as condicionais da pesquisa — passam a usar o novo nome automaticamente. Se a pesquisa já recebeu respostas, as respostas antigas continuam registradas com o nome anterior e aparecem separadas nos relatórios, então deixam de entrar na conta do indicador.
+  </Expandable>
+
+  <Expandable title="E se eu excluir uma opção usada no indicador?" default-open="false">
+    Ela é retirada do indicador automaticamente.
+  </Expandable>
+
+  <Expandable title="Posso criar indicadores em perguntas de Matriz de Opções ou Like/Dislike?" default-open="false">
+    Não. Na Matriz de Opções, use a média ponderada para ter um resultado por linha.
+  </Expandable>
+
+  <Expandable title="Quem responde a pesquisa vê os indicadores?" default-open="false">
+    Não. Os indicadores só aparecem nas telas de resultado da plataforma.
+  </Expandable>
+</ExpandableGroup>
+
+---
+
+## Próximo passo
+
+<Card title="Como calcular média ponderada em perguntas Likert e Matriz?" href="/como-calcular-media-ponderada" icon="lucide-scale" cta="Ver artigo" horizontal="false">
+  Defina o valor de cada nota ou coluna para que a média seja calculada com os pesos que você escolher.
+</Card>

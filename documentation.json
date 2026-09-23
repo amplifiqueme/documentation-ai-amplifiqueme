@@ -215,6 +215,14 @@
               {
                 "title": "Como analisar resultados?",
                 "path": "como-analisar-resultados"
+              },
+              {
+                "title": "Como calcular média ponderada em perguntas Likert e Matriz?",
+                "path": "como-calcular-media-ponderada"
+              },
+              {
+                "title": "Como criar indicadores personalizados nas perguntas?",
+                "path": "como-criar-indicadores-personalizados"
               }
             ]
           },
