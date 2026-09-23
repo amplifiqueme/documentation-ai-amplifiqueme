@@ -11,10 +11,10 @@ Na **Escala Likert**, a média é calculada com a própria nota: quem marca 4 so
 
 Na **Matriz de Opções**, as colunas são textos (como "Ruim", "Bom", "Ótimo") e por isso não têm média. Com a opção ligada, você dá um valor a cada coluna e a plataforma passa a calcular uma média para cada linha da matriz.
 
-| Pergunta | Exemplo de configuração | Resultado |
-| --- | --- | --- |
-| **Escala Likert** de 1 a 5 | Nota 1 = 0, Nota 2 = 25, Nota 3 = 50, Nota 4 = 75, Nota 5 = 100 | Média de 0 a 100 |
-| **Matriz de Opções** | Ruim = 1, Regular = 2, Bom = 3, Ótimo = 4, Não se aplica = sem valor | Média de 1 a 4 em cada linha, sem contar quem marcou "Não se aplica" |
+| Pergunta                   | Exemplo de configuração                                              | Resultado                                                            |
+| -------------------------- | -------------------------------------------------------------------- | -------------------------------------------------------------------- |
+| **Escala Likert** de 1 a 5 | Nota 1 = 0, Nota 2 = 25, Nota 3 = 50, Nota 4 = 75, Nota 5 = 100      | Média de 0 a 100                                                     |
+| **Matriz de Opções**       | Ruim = 1, Regular = 2, Bom = 3, Ótimo = 4, Não se aplica = sem valor | Média de 1 a 4 em cada linha, sem contar quem marcou "Não se aplica" |
 
 <Callout kind="info" collapsed="false">
   A pesquisa continua igual para quem responde. Os valores só mudam o cálculo exibido para a sua equipe.
@@ -38,9 +38,7 @@ Na **Matriz de Opções**, as colunas são textos (como "Ruim", "Bom", "Ótimo")
 
     Se a pesquisa já recebeu respostas, a plataforma pede confirmação na janela **Ativar Pontuação**. Se a pesquisa faz parte de um **grupo de pesquisas**, ela precisa ser removida do grupo para você alterar os pesos.
 
-    <Callout kind="danger" collapsed="false">
-      📸 **PRINT A INSERIR:** construtor de pesquisa com uma pergunta de Escala Likert selecionada, mostrando no painel da direita a chave **Calcular Média Ponderada** ligada e a lista "Nota 1" a "Nota 5" com os valores preenchidos (ex.: 0, 25, 50, 75, 100).
-    </Callout>
+    <Image src="https://cdn.amplifique.me/central-de-ajuda/52fe7030631f5b7a6b7d55760f2aa4fc.png" width="1079" height="364" alt="Calcular Média Ponderada ligado em uma pergunta de Escala Likert, com o valor de cada nota" />
   </Step>
 
   <Step title="Defina o valor de cada nota ou coluna" title-type="p">
@@ -49,9 +47,7 @@ Na **Matriz de Opções**, as colunas são textos (como "Ruim", "Bom", "Ótimo")
 
     O valor zero conta normalmente no cálculo. Valores negativos também são aceitos.
 
-    <Callout kind="danger" collapsed="false">
-      📸 **PRINT A INSERIR:** construtor com uma pergunta de Matriz de Opções selecionada, mostrando a chave **Calcular Média Ponderada** ligada, as colunas com valores (ex.: Ruim = 1 … Ótimo = 4) e uma coluna "Não se aplica" com o campo vazio, junto com o aviso "Coluna sem valor não entra no cálculo, nem no total".
-    </Callout>
+    <Image src="https://cdn.amplifique.me/central-de-ajuda/915d208b3189114f6e8ccbcf94ef9a0e.png" width="1085" height="422" alt="Calcular Média Ponderada ligado em uma pergunta de Matriz de Opções, com a coluna Não se aplica sem valor" />
   </Step>
 
   <Step title="Salve a pesquisa" title-type="p">
@@ -67,26 +63,22 @@ Na **Matriz de Opções**, as colunas são textos (como "Ruim", "Bom", "Ótimo")
 
 ## Onde a média ponderada aparece
 
-| Tela | O que você vê |
-| --- | --- |
-| **Painel — card de Escala Likert** | O número principal passa a ser a média ponderada, com a legenda **Média Ponderada**. Passe o mouse sobre o número para ver o **peso de cada nota**. |
-| **Painel — card de Matriz de Opções** | A média ponderada da linha exibida. Use as setas do card para trocar de linha. Passe o mouse sobre o número para ver o **peso de cada coluna**; colunas sem valor aparecem como "não pontua". |
-| **Painel — Gráfico de Acompanhamento** | A evolução da Escala Likert mês a mês usa a média ponderada. |
-| **Análise e Resultados — Escala Likert** | O resultado da pergunta aparece como **Média Ponderada**. |
-| **Análise e Resultados — Matriz de Opções** | O gráfico **Média Ponderada por Pergunta**, com a faixa de valores e a opção de ordenar as linhas, e a coluna **Média Ponderada** na tabela da matriz, com a linha **Total**. |
-| **Detalhamento** | A Escala Likert é detalhada pela média ponderada. A Matriz de Opções passa a aparecer em **Pergunta para Visualização**, com o seletor **Linha da Matriz** para escolher qual linha detalhar. |
+| Tela                                        | O que você vê                                                                                                                                                                                                                                               |
+| ------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Painel — card de Escala Likert**          | O número principal passa a ser a média ponderada, com a legenda **Média Ponderada**. Passe o mouse sobre o número para ver a **Composição da Média** (peso × respostas de cada nota) e o **Peso de Cada Nota**.                                             |
+| **Painel — card de Matriz de Opções**       | A média ponderada da linha exibida. Use as setas do card para trocar de linha. Passe o mouse sobre o número para ver a **Composição da Média** (peso × respostas de cada coluna) e o **Peso de Cada Coluna**; colunas sem valor aparecem como "não pontua". |
+| **Painel — Gráfico de Acompanhamento**      | A evolução da Escala Likert mês a mês usa a média ponderada.                                                                                                                                                                                                |
+| **Análise e Resultados — Escala Likert**    | O resultado da pergunta aparece como **Média Ponderada**.                                                                                                                                                                                                   |
+| **Análise e Resultados — Matriz de Opções** | O gráfico **Média Ponderada por Pergunta**, com a faixa de valores e a opção de ordenar as linhas, e a coluna **Média Ponderada** na tabela da matriz, com a linha **Total**.                                                                               |
+| **Detalhamento**                            | A Escala Likert é detalhada pela média ponderada. A Matriz de Opções passa a aparecer em **Pergunta para Visualização**, com o seletor **Linha da Matriz** para escolher qual linha detalhar.                                                               |
 
 <Callout kind="danger" collapsed="false">
-  📸 **PRINT A INSERIR:** card de Matriz de Opções no painel com a média ponderada em destaque e o popover **Peso de cada coluna** aberto (mouse sobre o número), mostrando uma coluna como "não pontua".
+  📸 **PRINT A INSERIR:** card de Matriz de Opções no painel com a média ponderada em destaque e o popover aberto (mouse sobre o número), mostrando a **Composição da Média**, o **Peso de Cada Coluna** e uma coluna como "não pontua".
 </Callout>
 
-<Callout kind="danger" collapsed="false">
-  📸 **PRINT A INSERIR:** Análise e Resultados de uma pergunta de Matriz de Opções mostrando o gráfico **Média Ponderada por Pergunta** e, abaixo, a tabela com a coluna **Média Ponderada** e a linha **Total**.
-</Callout>
+<Image src="https://cdn.amplifique.me/central-de-ajuda/4025ce06dda83733ded644e4aec3989c.png" width="2494" height="880" alt="Gráfico Média Ponderada por Pergunta em Análise e Resultados de uma Matriz de Opções" />
 
-<Callout kind="danger" collapsed="false">
-  📸 **PRINT A INSERIR:** aba Detalhamento com uma pergunta de Matriz de Opções selecionada, mostrando o seletor **Linha da Matriz** na barra lateral e as barras com a média de cada grupo.
-</Callout>
+<Image src="https://cdn.amplifique.me/central-de-ajuda/482010fda05049f67dcc86d75099fb98.png" width="3300" height="1304" alt="Detalhamento de uma Matriz de Opções com o seletor Linha da Matriz e a média ponderada de cada vendedor" />
 
 ---
 
@@ -121,3 +113,4 @@ Na **Matriz de Opções**, as colunas são textos (como "Ruim", "Bom", "Ótimo")
 <Card title="Como criar indicadores personalizados nas perguntas?" href="/como-criar-indicadores-personalizados" icon="lucide-sigma" cta="Ver artigo" horizontal="false">
   Mostre o percentual ou a quantidade de um grupo de respostas, como "Satisfeitos" ou "Notas 9 e 10".
 </Card>
+
