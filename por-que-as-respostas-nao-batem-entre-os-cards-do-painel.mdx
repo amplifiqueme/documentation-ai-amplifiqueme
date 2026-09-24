@@ -1,0 +1,86 @@
+---
+title: Por que o número de respostas não bate entre os cards do painel?
+description: >-
+  Entenda por que o card de Métricas de Pesquisas e o card de Métricas de
+  Perguntas podem mostrar quantidades diferentes de respostas no mesmo período.
+slug: respostas-diferentes-entre-cards-do-painel
+---
+## Visão geral
+
+No Painel Principal, o card de **Métricas de Pesquisas** e o card de **Métricas de Perguntas** mostram o campo **Respostas Recebidas**. Com o mesmo filtro de período, os dois números podem ser diferentes — e isso é esperado.
+
+A diferença vem da data que cada card usa para decidir o que entra no período:
+
+<Columns cols="2">
+  <Card title="Métricas de Pesquisas" icon="lucide-clipboard-list" horizontal="false">
+    Filtra pela **data do convite**. Mostra os convites enviados no período e quantos deles foram respondidos, não importa quando a resposta chegou.
+  </Card>
+
+  <Card title="Métricas de Perguntas" icon="lucide-message-circle-question" horizontal="false">
+    Filtra pela **data da resposta**. Mostra as respostas recebidas no período, não importa quando o convite foi enviado.
+  </Card>
+</Columns>
+
+<Callout kind="info" collapsed="false">
+  Quando o cliente responde no mesmo período em que recebeu o convite, a resposta aparece nos dois cards. Quando responde num período posterior, ela entra no card de Métricas de Pesquisas no período do convite e no card de Métricas de Perguntas no período da resposta.
+</Callout>
+
+---
+
+## Exemplo
+
+Considere três respostas de uma mesma pesquisa:
+
+| Resposta   | Data do convite | Data da resposta |
+| ---------- | --------------- | ---------------- |
+| Resposta 1 | 10/08           | 15/09            |
+| Resposta 2 | 10/08           | 15/08            |
+| Resposta 3 | 10/09           | 15/09            |
+
+### Painel filtrado em agosto
+
+| Card                      | O que aparece                                                              | Quais respostas entram                                      |
+| ------------------------- | -------------------------------------------------------------------------- | ----------------------------------------------------------- |
+| **Métricas de Pesquisas** | Convites: 2 · Respostas Recebidas: 2 · Taxa de Resposta por Convite: 100%  | Respostas 1 e 2 — os dois convites foram enviados em agosto |
+| **Métricas de Perguntas** | Respostas Recebidas: 1                                                     | Resposta 2 — a única respondida em agosto                   |
+
+### Painel filtrado em setembro
+
+| Card                      | O que aparece                                                              | Quais respostas entram                                  |
+| ------------------------- | -------------------------------------------------------------------------- | ------------------------------------------------------- |
+| **Métricas de Pesquisas** | Convites: 1 · Respostas Recebidas: 1 · Taxa de Resposta por Convite: 100%  | Resposta 3 — o único convite enviado em setembro        |
+| **Métricas de Perguntas** | Respostas Recebidas: 2                                                     | Respostas 1 e 3 — as duas foram respondidas em setembro |
+
+A Resposta 1 aparece no card de Métricas de Pesquisas em **agosto** (quando o convite saiu) e no card de Métricas de Perguntas em **setembro** (quando o cliente respondeu). Ela não se perde nem é contada duas vezes: cada card a mostra no período que corresponde à sua data.
+
+---
+
+## Outro motivo para a diferença: perguntas não respondidas
+
+O card de Métricas de Perguntas conta só as respostas **daquela pergunta**. Se o cliente respondeu a pesquisa mas pulou a pergunta, ou se a pergunta não foi exibida para ele, essa resposta entra no card de Métricas de Pesquisas e não entra no card de Métricas de Perguntas.
+
+---
+
+## Perguntas frequentes
+
+<ExpandableGroup>
+  <Expandable title="Qual dos dois números está certo?" default-open="false">
+    Os dois. O card de Métricas de Pesquisas responde "dos convites enviados neste período, quantos foram respondidos?". O card de Métricas de Perguntas responde "quantas respostas chegaram neste período?".
+  </Expandable>
+
+  <Expandable title="Por que o número de um mês já fechado mudou no card de Métricas de Pesquisas?" default-open="false">
+    Porque um convite enviado naquele mês foi respondido depois. A resposta é contada no mês do convite, então o número de respostas e a taxa de resposta daquele mês sobem conforme as respostas atrasadas chegam.
+  </Expandable>
+
+  <Expandable title="Em períodos longos a diferença diminui?" default-open="false">
+    Sim. Quanto maior o período filtrado, maior a chance de o convite e a resposta caírem dentro dele, e mais próximos ficam os dois números.
+  </Expandable>
+</ExpandableGroup>
+
+---
+
+## Leia também
+
+<Card title="O que significam as métricas do painel?" href="/o-que-significam-as-mtricas-do-painel" icon="lucide-bar-chart-2" cta="Ver artigo" horizontal="false">
+  Veja o detalhamento de cada indicador disponível nos cards do painel.
+</Card>
