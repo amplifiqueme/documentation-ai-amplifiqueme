@@ -1,9 +1,10 @@
 ---
 title: O que significam as métricas do painel?
 description: >-
-  Entenda o que cada indicador do painel mede: Respostas Recebidas, Pessoas que
-  Responderam, Convites, Pessoas Convidadas, Taxa de Resposta por Convite e Taxa
-  de Resposta por Pessoa — e como cada um é calculado.
+  Entenda o que cada indicador do painel mede: Convites Respondidos, Respostas
+  Recebidas nesta Pergunta, Pessoas que Responderam, Convites, Pessoas
+  Convidadas, Taxa de Resposta por Convite e Taxa de Resposta por Pessoa — e
+  como cada um é calculado.
 ---
 ## Visão geral
 
@@ -19,12 +20,17 @@ Os cards de métrica dos painéis exibem, além da nota (NPS, CSAT, etc.), uma s
 
 | Indicador                        | O que mede                                                                                           |
 | -------------------------------- | ---------------------------------------------------------------------------------------------------- |
-| **Respostas Recebidas**          | Convites que receberam resposta no período                                                           |
+| **Convites Respondidos**         | Convites feitos no período que já foram respondidos, mesmo que a resposta tenha chegado depois       |
+| **Respostas Recebidas nesta Pergunta** | Respostas que a pergunta do card recebeu no período                                            |
 | **Pessoas que Responderam**      | Pessoas distintas que responderam — se a mesma pessoa respondeu dois convites, conta como 1          |
 | **Convites**                     | Pesquisas enviadas ou exibidas para uma pessoa no período. Lembrete automático não gera convite novo |
 | **Pessoas Convidadas**           | Pessoas distintas que receberam convite — se a mesma pessoa foi convidada duas vezes, conta como 1   |
-| **Taxa de Resposta por Convite** | Respostas Recebidas ÷ Convites                                                                       |
+| **Taxa de Resposta por Convite** | Convites Respondidos ÷ Convites                                                                      |
 | **Taxa de Resposta por Pessoa**  | Pessoas que Responderam ÷ Pessoas Convidadas                                                         |
+
+<Callout kind="alert" collapsed="false">
+  **Convites Respondidos** (card de Métricas de Pesquisas) conta pela data do convite. **Respostas Recebidas nesta Pergunta** (card de Métricas de Perguntas) conta pela data da resposta. Por isso os dois números podem ser diferentes no mesmo período. Veja exemplos em [Por que o número de respostas não bate entre os cards do painel?](/por-que-as-respostas-nao-batem-entre-os-cards-do-painel).
+</Callout>
 
 <Callout kind="info" collapsed="false">
   A diferença entre as duas taxas está no que entra na conta. A **taxa por convite** conta todos os convites e todas as respostas, inclusive de um mesmo contato mais de uma vez. A **taxa por pessoa** considera apenas pessoas distintas — é mais precisa para avaliar o alcance real da pesquisa.
@@ -59,6 +65,10 @@ A Amplifique.me oferece visões de painel em diferentes módulos além do Painel
 ## Perguntas frequentes
 
 <ExpandableGroup>
+  <Expandable title="Por que Convites Respondidos e Respostas Recebidas nesta Pergunta mostram números diferentes?" default-open="false">
+    Porque cada um conta por uma data diferente: o primeiro pela data do convite e o segundo pela data da resposta. Quando o cliente responde num período diferente do convite, a resposta aparece em períodos diferentes em cada card. O passo a passo está em [Por que o número de respostas não bate entre os cards do painel?](/por-que-as-respostas-nao-batem-entre-os-cards-do-painel).
+  </Expandable>
+
   <Expandable title="Uma pessoa que abriu o e-mail mas não respondeu entra em Convites?" default-open="false">
     Sim. O convite é contado quando a pesquisa é enviada, respondida ou não.
   </Expandable>
