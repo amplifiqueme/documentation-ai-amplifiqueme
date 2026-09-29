@@ -17,11 +17,33 @@ O Fechamento de Loop tem um sistema de permissões em dois níveis: o **nível n
 
 ## Níveis de permissão
 
-| Nível             | O que pode fazer                                                                                                   |
-| ----------------- | ------------------------------------------------------------------------------------------------------------------ |
-| **Administrador** | Acesso completo: criar, editar e excluir fluxos; visualizar e operar todos os tickets do módulo                    |
-| **Analista**      | Analisar dados do módulo; criar, editar e excluir tickets nos fluxos em que foi incluído por um Administrador      |
-| **Agente**        | Criar, operar e editar apenas os tickets em que é o responsável ou seguidor. Precisa ter acesso explícito ao fluxo |
+| Nível             | Resumo                                                                                                                     |
+| ----------------- | -------------------------------------------------------------------------------------------------------------------------- |
+| **Administrador** | Acesso completo: cria, edita e exclui fluxos e pastas, vê todos os fluxos da conta e opera todos os tickets                |
+| **Analista**      | Gerencia os tickets e acompanha os painéis do módulo, apenas nos fluxos em que foi incluído. Não altera a estrutura dos fluxos |
+| **Agente**        | Opera apenas os tickets em que é o responsável ou seguidor, nos fluxos em que foi incluído                                 |
+| **Nenhum**        | Não acessa o módulo                                                                                                        |
+
+### O que cada nível pode fazer
+
+| Ação                                                                  | Administrador | Analista | Agente | Nenhum |
+| --------------------------------------------------------------------- | ------------- | -------- | ------ | ------ |
+| Entrar no módulo, ver fluxos e abrir tickets                          | ✅             | ✅        | ✅      | ❌      |
+| Painéis **Operacional** e **Geral**                                   | ✅             | ✅        | ❌      | ❌      |
+| **Exportar** fluxo                                                    | ✅             | ✅        | ❌      | ❌      |
+| **Trocar o responsável** do ticket                                    | ✅             | ✅        | ❌      | ❌      |
+| **Arquivar/desarquivar** ticket                                       | ✅             | ✅        | ❌      | ❌      |
+| **Mover ticket** para outro fluxo                                     | ✅             | ✅        | ❌      | ❌      |
+| **Editar tickets em lote**                                            | ✅             | ✅        | ❌      | ❌      |
+| **Criar fluxo**                                                       | ✅             | ❌        | ❌      | ❌      |
+| **Editar fluxo**                                                      | ✅             | ❌        | ❌      | ❌      |
+| **Excluir fluxo**                                                     | ✅             | ❌        | ❌      | ❌      |
+| **Clonar e reiniciar** fluxo                                          | ✅             | ❌        | ❌      | ❌      |
+| **Pastas** (criar, renomear, excluir) e **Ações em Massa** (mover, tirar da pasta) | ✅ | ❌ | ❌ | ❌ |
+
+<Callout kind="info" collapsed="false">
+  O Administrador vê todos os fluxos da conta. Analista e Agente veem apenas os fluxos em que foram incluídos, e o Agente vê só os tickets em que é responsável ou seguidor. Pelo mesmo motivo, o Analista só consegue mover tickets entre fluxos em que está incluído.
+</Callout>
 
 ---
 
@@ -55,7 +77,7 @@ O Fechamento de Loop tem um sistema de permissões em dois níveis: o **nível n
 
 ## Como adicionar um usuário a um fluxo específico
 
-Ter o nível de acesso não é suficiente para Agentes — eles também precisam ser adicionados a cada fluxo em que irão operar.
+Ter o nível de acesso não é suficiente para Analistas e Agentes: eles também precisam ser adicionados a cada fluxo em que irão operar.
 
 <Steps>
   <Step title="Acesse o fluxo desejado" title-type="p">
@@ -80,7 +102,7 @@ Ter o nível de acesso não é suficiente para Agentes — eles também precisam
 | Problema                                         | Causa provável                      | Solução                                     |
 | ------------------------------------------------ | ----------------------------------- | ------------------------------------------- |
 | Usuário não vê o módulo Fechamento de Loop       | Sem nível atribuído                 | Definir nível em `Configurações → Usuários` |
-| Fluxo não aparece para o Agente                  | Usuário não foi adicionado ao fluxo | Editar fluxo e adicionar o usuário          |
+| Fluxo não aparece para o Analista ou Agente      | Usuário não foi adicionado ao fluxo | Editar fluxo e adicionar o usuário          |
 | Usuário não consegue editar a estrutura do fluxo | Nível é Analista ou Agente          | Elevar para Administrador se necessário     |
 
 ---
@@ -89,11 +111,11 @@ Ter o nível de acesso não é suficiente para Agentes — eles também precisam
 
 <ExpandableGroup>
   <Expandable title="Um usuário pode ter níveis diferentes em fluxos diferentes?" default-open="false">
-    O nível é definido por usuário na plataforma, não por fluxo. O que varia por fluxo é se ele tem **acesso** ou não. Um Agente tem acesso apenas aos tickets dos fluxos em que foi incluído.
+    O nível é definido por usuário na plataforma, não por fluxo. O que varia por fluxo é se ele tem **acesso** ou não. Analistas e Agentes têm acesso apenas aos fluxos em que foram incluídos.
   </Expandable>
 
   <Expandable title="O Analista pode criar fluxos?" default-open="false">
-    Não. Criação, edição e exclusão de fluxos são exclusivas do Administrador. O Analista pode criar e gerenciar tickets dentro dos fluxos em que foi incluído.
+    Não. Criar, editar, excluir, clonar e reiniciar fluxos são ações exclusivas do Administrador, assim como gerenciar pastas. O Analista pode criar e gerenciar tickets dentro dos fluxos em que foi incluído.
   </Expandable>
 
   <Expandable title="Posso remover um usuário de um fluxo sem alterar seu nível de acesso?" default-open="false">
