@@ -43,6 +43,10 @@ Você pode importar toda a sua base de contatos de uma vez, sem digitar um por u
     <Callout kind="alert" collapsed="false">
       O arquivo pode ter no máximo **5.000 linhas** por importação. Para bases maiores, divida em múltiplos arquivos e importe em sequência. No Excel, salve como **CSV UTF-8**. No Google Sheets, use `Arquivo → Fazer download → CSV`.
     </Callout>
+
+    <Callout kind="tip" collapsed="false">
+      Seu Excel não mostra a opção **CSV UTF-8**? Isso é comum em versões anteriores a 2016. Veja como resolver em **Perguntas frequentes**, no fim deste artigo.
+    </Callout>
   </Step>
 
   <Step title="Adicione etiquetas aos contatos importados (opcional)" title-type="p">
@@ -73,6 +77,24 @@ Você pode importar toda a sua base de contatos de uma vez, sem digitar um por u
 
   <Expandable title="Posso importar campos customizados na planilha?" default-open="false">
     Sim! Campos customizados criados em `Configurações → Campos Customizados` aparecem automaticamente como colunas disponíveis no modelo CSV. Basta preencher normalmente.
+  </Expandable>
+
+  <Expandable title="Meu Excel não tem a opção CSV UTF-8. O que faço?" default-open="false">
+    Em versões mais antigas do Excel (normalmente anteriores a 2016), a opção **CSV UTF-8 (delimitado por vírgulas)** pode não aparecer. Sem ela, acentos como "ã", "é" e "ç" chegam corrompidos na importação. Há duas formas de resolver:
+
+    **Opção 1: converter pelo Bloco de Notas do Windows**
+
+    1. No Excel, salve a planilha como **CSV (separado por vírgulas)**.
+    2. Abra esse arquivo `.csv` no **Bloco de Notas** (clique com o botão direito no arquivo → `Abrir com` → `Bloco de Notas`).
+    3. Vá em `Arquivo → Salvar como`.
+    4. No campo **Codificação**, escolha **UTF-8** ou **UTF-8 com BOM**.
+    5. Salve como um novo arquivo ou substitua o existente.
+
+    Pronto: os acentos ficam corretos e o arquivo pode ser importado normalmente na plataforma.
+
+    **Opção 2: usar o Google Sheets**
+
+    Importe a planilha no [Google Sheets](https://sheets.google.com) e baixe em `Arquivo → Fazer download → Valores separados por vírgula (.csv)`. O Google Sheets já exporta em UTF-8, sem nenhuma configuração extra.
   </Expandable>
 
   <Expandable title="O que significa o status Importação com erros?" default-open="false">
