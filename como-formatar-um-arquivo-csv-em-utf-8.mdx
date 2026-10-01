@@ -36,7 +36,7 @@ A Amplifique.me exige que arquivos de importação estejam no formato **CSV UTF-
     <Image src="https://cdn.amplifique.me/central-de-ajuda/7e63e6657dcdff8150561be50c42df5f.png" width="558" height="369" />
 
     <Callout kind="tip" collapsed="false">
-      Se não encontrar a opção CSV UTF-8, verifique se o Excel está atualizado. Versões anteriores ao Excel 2016 podem não ter essa opção — nesse caso, use o Google Sheets como alternativa.
+      Se não encontrar a opção CSV UTF-8, verifique se o Excel está atualizado. Versões anteriores ao Excel 2016 podem não ter essa opção — nesse caso, converta o arquivo pelo Bloco de Notas ou use o Google Sheets (veja **Perguntas frequentes**, no fim deste artigo).
     </Callout>
   </Step>
 </Steps>
@@ -83,7 +83,21 @@ A Amplifique.me exige que arquivos de importação estejam no formato **CSV UTF-
   </Expandable>
 
   <Expandable title="Por que o Excel às vezes não mostra a opção CSV UTF-8?" default-open="false">
-    A opção CSV UTF-8 foi introduzida no Excel 2016. Versões anteriores não a incluem. Nesse caso, use o Google Sheets como alternativa — ele exporta em UTF-8 por padrão.
+    A opção CSV UTF-8 foi introduzida no Excel 2016. Versões anteriores não a incluem. Sem ela, acentos como "ã", "é" e "ç" chegam corrompidos na importação. Há duas formas de resolver:
+
+    **Opção 1: converter pelo Bloco de Notas do Windows**
+
+    1. No Excel, salve a planilha como **CSV (separado por vírgulas)**.
+    2. Abra esse arquivo `.csv` no **Bloco de Notas** (clique com o botão direito no arquivo → `Abrir com` → `Bloco de Notas`).
+    3. Vá em `Arquivo → Salvar como`.
+    4. No campo **Codificação**, escolha **UTF-8** ou **UTF-8 com BOM**.
+    5. Salve como um novo arquivo ou substitua o existente.
+
+    Pronto: os acentos ficam corretos e o arquivo pode ser importado normalmente na plataforma.
+
+    **Opção 2: usar o Google Sheets**
+
+    Importe a planilha no Google Sheets e faça o download em CSV, conforme a seção **No Google Sheets** acima. Ele já exporta em UTF-8 por padrão.
   </Expandable>
 
   <Expandable title="Posso usar ponto e vírgula como separador em vez de vírgula?" default-open="false">
@@ -98,4 +112,3 @@ A Amplifique.me exige que arquivos de importação estejam no formato **CSV UTF-
 <Card title="Como importar contatos em massa via planilha" href="https://amplifiqueme.documentationai.com/importar-contatos-em-massa" icon="upload" cta="Ver artigo" horizontal="false" target="_self">
   Com o arquivo formatado corretamente, siga o passo a passo completo para importar seus contatos.
 </Card>
-
