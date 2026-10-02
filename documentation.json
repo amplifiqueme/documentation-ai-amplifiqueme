@@ -19,7 +19,7 @@
         "icon": "help-circle",
         "groups": [
           {
-            "group": "Como começar",
+            "group": "Como Começar",
             "pages": [
               {
                 "title": "Bem-vindo à Amplifique.me",
@@ -244,7 +244,7 @@
             ]
           },
           {
-            "group": "Fechamento de loop",
+            "group": "Fechamento de Loop",
             "pages": [
               {
                 "title": "Como configurar níveis de acesso no Fechamento de Loop?",
@@ -685,7 +685,7 @@
     "page-actions": []
   },
   "initialRoute": "",
-  "logo-dark": "https://blob-cdn.documentation.ai/org-228168c3-baff-41c0-9e3d-a927017afd0f/doc-dc08e65a-c672-46a6-8e86-3eb57bb5df19/1773349457302-eewvc2r74u7-logo_amplifiqueme.svg?q=85&fm=auto&auto=compress%2Cformat",
-  "logo-light": "https://blob-cdn.documentation.ai/org-228168c3-baff-41c0-9e3d-a927017afd0f/doc-dc08e65a-c672-46a6-8e86-3eb57bb5df19/1773349457302-eewvc2r74u7-logo_amplifiqueme.svg?q=85&fm=auto&auto=compress%2Cformat",
-  "favicon": "https://blob-cdn.documentation.ai/org-228168c3-baff-41c0-9e3d-a927017afd0f/doc-dc08e65a-c672-46a6-8e86-3eb57bb5df19/1773349388755-157xpryvhl4-favicon.png?q=85&fm=auto&auto=compress%2Cformat"
+  "logo-dark": "https://blob-cdn.documentation.ai/org-228168c3-baff-41c0-9e3d-a927017afd0f/doc-dc08e65a-c672-46a6-8e86-3eb57bb5df19/1790950668443-a2qlid5izd9-Logo-White.svg?rasterize-bypass=true",
+  "logo-light": "https://blob-cdn.documentation.ai/org-228168c3-baff-41c0-9e3d-a927017afd0f/doc-dc08e65a-c672-46a6-8e86-3eb57bb5df19/1790950303051-594ctlv451t-Logo.svg?rasterize-bypass=true",
+  "favicon": "https://blob-cdn.documentation.ai/org-228168c3-baff-41c0-9e3d-a927017afd0f/doc-dc08e65a-c672-46a6-8e86-3eb57bb5df19/1790950287025-nr7bnfd00a-FAVICON-3.png?fm=auto&auto=compress%2Cformat"
 }
