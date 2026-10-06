@@ -29,7 +29,6 @@ Clique em qualquer linha da aba Respostas para abrir os detalhes completos. Cada
 - Respostas abertas de texto
 - Dados técnicos e metadados (navegador, plataforma, tempo de resposta)
 - Campos customizados da resposta e do contato
-- Status da resposta (enviada, em fadiga, erro)
 - Análise por IA (se habilitada) — sentimento, tipo de feedback, tópicos e resumo
 
 <Callout kind="info" collapsed="false">
@@ -48,12 +47,16 @@ Clique em qualquer linha da aba Respostas para abrir os detalhes completos. Cada
 
 Filtre as respostas por:
 
-- Nome da pesquisa
-- Nome do contato
+- Pesquisa, unidade, canal e origem
+- Dados do contato (nome, e-mail, telefone, empresa) e etiquetas
 - Campos customizados (da resposta ou do contato)
-- Etiquetas
+- Nota (NPS, CSAT, CES, Likert ou Like/Dislike)
+- Texto da resposta, ou se a resposta possui texto, áudio, anotações ou ticket
+- Possui resposta (separa quem respondeu de quem só recebeu o convite)
+- Status do envio (Enviado, Pendente, Erro)
+- Resolvidas ou não resolvidas
+- Análise por IA (sentimento, tipo de feedback, severidade, tópicos)
 - Data de envio ou data de resposta
-- Status (respondido, pendente, erro)
 
 **Exemplo:** filtrar respostas com o campo `Loja = Filial SP` ou buscar pelo nome `João da Silva`.
 
@@ -123,8 +126,8 @@ Se o envio foi feito por integração:
     Sim. Os filtros são acumulativos — você pode combinar campo customizado, data de resposta e status para uma segmentação precisa.
   </Expandable>
 
-  <Expandable title="O que significa uma resposta com status 'em fadiga'?" default-open="false">
-    Fadiga indica que o contato recebeu a pesquisa mas está no período de intervalo configurado nas regras de fadiga da pesquisa, impedindo um novo envio por enquanto.
+  <Expandable title="O que são os contatos 'em fadiga' na Fila de envios?" default-open="false">
+    São contatos que **não receberam** o envio porque ainda estão dentro do período de quarentena, o intervalo mínimo entre disparos para o mesmo contato, configurado em `Configurações → Pesquisas`. Como o envio não acontece, esses contatos não geram resposta nem aparecem na aba Respostas por causa desse disparo.
   </Expandable>
 
   <Expandable title="Como sei se a IA analisou uma resposta?" default-open="false">
