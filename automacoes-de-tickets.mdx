@@ -1,0 +1,101 @@
+---
+title: Automações de tickets
+description: >-
+  Configure na pesquisa uma automação que cria tickets no Fechamento de Loop
+  sozinha, com fluxo, responsável, vencimento, categoria, e-mail automático
+  para o cliente e prioridade definida por IA.
+---
+## Visão geral
+
+Em vez de abrir cada ticket na mão, você pode configurar uma **automação** na pesquisa: quando chega uma resposta que atende à condição (por exemplo, NPS menor que 7), o ticket é criado sozinho no fluxo escolhido, já com a resposta vinculada.
+
+<Callout kind="info" collapsed="false">
+  A automação é configurada **dentro da pesquisa**, não no módulo Fechamento de Loop. O fluxo de destino precisa existir antes. Veja [Criar fluxos](/criar-fluxos).
+</Callout>
+
+---
+
+## Como criar a automação
+
+<Steps>
+  <Step title="Edite a pesquisa" title-type="p">
+    No menu lateral, vá em `Pesquisas e Respostas → Pesquisas`. Nos três pontos (`⋯`) da pesquisa, clique em **Editar Pesquisa**.
+  </Step>
+
+  <Step title="Vá até o passo Configurações" title-type="p">
+    Avance até o passo **4 — Configurações**. Na seção **Automações**, clique em **Adicionar Nova Automação**.
+  </Step>
+
+  <Step title="Defina a condição" title-type="p">
+    Na linha **SE**, escolha o que vai disparar o ticket. O mais comum é usar a nota de uma pergunta, por exemplo: **NPS menor que 7** (detratores, notas de 0 a 6).
+
+    Também dá para usar dados do contato (etiqueta, empresa, campos customizados), dados da resposta (canal, origem) e a análise de IA (sentimento, severidade, tipo e tópico do feedback). Use **Adicionar Condição** e **Novo Conjunto** para combinar várias condições.
+  </Step>
+
+  <Step title="Escolha a ação Criar Ticket no Fechamento de Loop" title-type="p">
+    Em **Executar**, selecione **Criar Ticket no Fechamento de Loop** e configure o ticket:
+
+    | Campo                                         | O que fazer                                                                                                  |
+    | --------------------------------------------- | ------------------------------------------------------------------------------------------------------------ |
+    | **Fluxo**                                     | Obrigatório. O fluxo onde o ticket vai cair                                                                   |
+    | **Usuário Responsável (opcional)**            | Só aparecem usuários incluídos no fluxo escolhido                                                             |
+    | **Dias para o Vencimento do Ticket (opcional)** | Prazo do ticket em dias (ex.: 20)                                                                           |
+    | **Categorias do Ticket (opcional)**           | Uma categoria fixa ou uma variável, como a origem da resposta ou o tipo e o tópico apontados pela IA          |
+    | **Modelo de E-mail (opcional)**               | Envia um modelo de e-mail para o cliente assim que o ticket é criado                                          |
+    | **Prioridade do Ticket (opcional)**           | Baixa, Média, Alta ou **Automática (por AI)**                                                                 |
+  </Step>
+
+  <Step title="Dê um nome e crie a automação" title-type="p">
+    Preencha o **Nome da Automação** e clique em **Criar Automação**. Depois, salve a pesquisa.
+
+    A partir daí, cada resposta que atender à condição gera um ticket no fluxo, em `Fechamento de Loop → Fluxos`.
+  </Step>
+</Steps>
+
+---
+
+## E-mail automático para o cliente
+
+Ao escolher um **Modelo de E-mail** na automação, o cliente recebe esse e-mail assim que o ticket é criado, sem ninguém precisar entrar no ticket para enviar. Se ele responder, a conversa continua dentro do ticket.
+
+Os modelos são os mesmos usados no envio de e-mail pelo ticket. Veja [Funções dos tickets](/funcoes-dos-tickets).
+
+---
+
+## Prioridade automática por IA
+
+Com a prioridade **Automática (por AI)**, a IA lê o que a pessoa escreveu e define se o ticket é de prioridade **Alta**, **Média** ou **Baixa**.
+
+<Callout kind="alert" collapsed="false">
+  A prioridade por IA só funciona se a pesquisa tiver uma pergunta aberta com análise de IA habilitada.
+</Callout>
+
+---
+
+## Perguntas frequentes
+
+<ExpandableGroup>
+  <Expandable title="Posso ter mais de uma automação na mesma pesquisa?" default-open="false">
+    Sim. Por exemplo, uma para detratores e outra para promotores, cada uma mandando para um fluxo diferente.
+  </Expandable>
+
+  <Expandable title="A automação cria tickets para respostas antigas?" default-open="false">
+    Não. Ela vale só para as respostas que chegarem depois de a automação ser criada.
+  </Expandable>
+
+  <Expandable title="Por que o usuário que quero não aparece como responsável?" default-open="false">
+    Ele não está incluído no fluxo escolhido. Um Administrador do Fechamento de Loop precisa editar o fluxo e incluí-lo em **Usuários com acesso ao Fluxo**.
+  </Expandable>
+
+  <Expandable title="Como sei que a automação funcionou?" default-open="false">
+    Responda a pesquisa com uma nota dentro da condição e confira se o ticket apareceu no fluxo, em `Fechamento de Loop → Fluxos`.
+  </Expandable>
+</ExpandableGroup>
+
+---
+
+## Próximo passo
+
+<Card title="Operacional e análise histórica" href="/fechamento-de-loop-operacional-e-analise-historica" icon="bar-chart-2" cta="Ver artigo" horizontal="false">
+  Acompanhe os tickets em aberto e a evolução da tratativa ao longo do tempo.
+</Card>

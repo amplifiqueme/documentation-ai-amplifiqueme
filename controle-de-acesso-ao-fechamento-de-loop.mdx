@@ -1,0 +1,109 @@
+---
+title: Controle de acesso ao Fechamento de Loop
+description: >-
+  Antes de usar o Fechamento de Loop, defina o nível de cada usuário no módulo
+  (Administrador, Analista ou Agente) e entenda o que cada um enxerga e pode
+  fazer nos fluxos e tickets.
+---
+## Visão geral
+
+O primeiro passo para usar o Fechamento de Loop é conferir se o seu usuário tem acesso ao módulo. Esse acesso é definido por um **nível próprio do Fechamento de Loop**, separado do nível do usuário na plataforma.
+
+<Callout kind="alert" collapsed="false">
+  Sem um nível no Fechamento de Loop, o usuário **não acessa o módulo**: não vê fluxos, tickets nem tratativas, mesmo que seja Proprietário ou Administrador da plataforma.
+</Callout>
+
+---
+
+## Como definir o nível de um usuário
+
+<Steps>
+  <Step title="Acesse a lista de usuários" title-type="p">
+    No menu lateral, vá em `Configurações → Organização → Usuários`.
+  </Step>
+
+  <Step title="Edite o usuário" title-type="p">
+    Na linha do usuário, clique nos três pontos (`⋯`) → **Editar Usuário**. A janela mostra o e-mail e o **Nível de Usuário** dele na plataforma.
+  </Step>
+
+  <Step title="Escolha o nível do Fechamento de Loop" title-type="p">
+    No campo **Nível no Fechamento de Loop**, selecione **Administrador**, **Analista** ou **Agente**. Com **Nenhum**, o usuário não acessa o módulo.
+  </Step>
+
+  <Step title="Salve as alterações" title-type="p">
+    Clique em **Salvar Alterações**. O novo nível vale a partir desse momento.
+  </Step>
+</Steps>
+
+---
+
+## O que cada nível pode fazer
+
+| Nível             | Resumo                                                                                                                           |
+| ----------------- | -------------------------------------------------------------------------------------------------------------------------------- |
+| **Administrador** | Acesso completo ao módulo: vê todos os fluxos da conta, cria, edita e exclui fluxos e opera todos os tickets                      |
+| **Analista**      | Gerencia os tickets apenas dos fluxos em que foi incluído por um Administrador. Não altera a estrutura dos fluxos                 |
+| **Agente**        | Vê e opera apenas os tickets atribuídos a ele (como responsável ou seguidor), nos fluxos em que foi incluído                     |
+| **Nenhum**        | Não acessa o módulo                                                                                                              |
+
+| Ação                                                                                 | Administrador | Analista | Agente | Nenhum |
+| ------------------------------------------------------------------------------------ | ------------- | -------- | ------ | ------ |
+| Entrar no módulo, ver fluxos e abrir tickets                                         | ✅             | ✅        | ✅      | ❌      |
+| Painéis **Operacional** e **Geral**                                                  | ✅             | ✅        | ❌      | ❌      |
+| **Exportar** fluxo                                                                   | ✅             | ✅        | ❌      | ❌      |
+| **Trocar o responsável** do ticket                                                   | ✅             | ✅        | ❌      | ❌      |
+| **Arquivar/desarquivar** ticket                                                      | ✅             | ✅        | ❌      | ❌      |
+| **Mover ticket** para outro fluxo                                                    | ✅             | ✅        | ❌      | ❌      |
+| **Editar tickets em lote**                                                           | ✅             | ✅        | ❌      | ❌      |
+| **Criar, editar e excluir** fluxo                                                    | ✅             | ❌        | ❌      | ❌      |
+| **Clonar e reiniciar** fluxo                                                         | ✅             | ❌        | ❌      | ❌      |
+| **Pastas** (criar, renomear, excluir) e **Ações em Massa** (mover, tirar da pasta)   | ✅             | ❌        | ❌      | ❌      |
+
+<Callout kind="info" collapsed="false">
+  O Administrador vê todos os fluxos da conta. Analista e Agente só veem os fluxos em que foram incluídos, e o Agente só vê, dentro deles, os tickets atribuídos a ele. Por isso o Analista só consegue mover tickets entre fluxos em que está incluído.
+</Callout>
+
+Excluir uma anotação de ticket não depende do nível: somente quem criou a anotação consegue excluí-la.
+
+---
+
+## Nível e acesso ao fluxo são coisas diferentes
+
+Para Analistas e Agentes, ter o nível não basta: eles também precisam ser **incluídos em cada fluxo** em que vão trabalhar. Isso é feito por um Administrador, na configuração do fluxo.
+
+| Problema                                         | Causa provável                      | Solução                                                          |
+| ------------------------------------------------ | ----------------------------------- | ---------------------------------------------------------------- |
+| Usuário não vê o módulo Fechamento de Loop       | Sem nível no Fechamento de Loop     | Definir o nível em `Configurações → Organização → Usuários`      |
+| Fluxo não aparece para o Analista ou Agente      | Usuário não foi incluído no fluxo   | Um Administrador edita o fluxo e inclui o usuário                |
+| Agente não vê um ticket do fluxo                 | Ticket não está atribuído a ele     | Atribuir o ticket ao Agente como responsável ou seguidor         |
+| Usuário não consegue editar a estrutura do fluxo | Nível é Analista ou Agente          | Elevar para Administrador, se fizer sentido                      |
+
+---
+
+## Perguntas frequentes
+
+<ExpandableGroup>
+  <Expandable title="O nível do Fechamento de Loop depende do nível na plataforma?" default-open="false">
+    Não. São dois níveis independentes, definidos na mesma tela de edição do usuário. Um Administrador da plataforma sem nível no Fechamento de Loop não acessa o módulo, e um usuário Apenas Leitura na plataforma pode ser Agente no Fechamento de Loop.
+  </Expandable>
+
+  <Expandable title="Um usuário pode ter níveis diferentes em fluxos diferentes?" default-open="false">
+    Não. O nível é um só por usuário. O que muda de fluxo para fluxo é se ele foi incluído ou não.
+  </Expandable>
+
+  <Expandable title="O Analista pode criar fluxos?" default-open="false">
+    Não. Criar, editar, excluir, clonar e reiniciar fluxos, além de gerenciar pastas, são ações exclusivas do Administrador. O Analista trabalha nos tickets dos fluxos em que foi incluído.
+  </Expandable>
+
+  <Expandable title="Posso tirar alguém de um fluxo sem mudar o nível dele?" default-open="false">
+    Sim. Edite o fluxo e remova o usuário. O nível dele continua o mesmo, mas ele deixa de ver aquele fluxo.
+  </Expandable>
+</ExpandableGroup>
+
+---
+
+## Próximo passo
+
+<Card title="Como criar e configurar um fluxo?" href="/como-criar-e-configurar-um-fluxo" icon="git-branch" cta="Ver artigo" horizontal="false">
+  Com os níveis definidos, crie o fluxo e inclua as pessoas que vão trabalhar nele.
+</Card>

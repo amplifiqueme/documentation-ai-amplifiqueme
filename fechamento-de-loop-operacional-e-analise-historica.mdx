@@ -1,0 +1,108 @@
+---
+title: Operacional e análise histórica
+description: >-
+  Acompanhe os tickets do Fechamento de Loop pela tela Operacional (atrasados,
+  em aberto, por status, prioridade e responsável) e pela Análise Histórica
+  (gerados, taxa de fechamento, evolução e tempo de resolução), exporte o fluxo
+  e resolva problemas de visibilidade.
+---
+## Visão geral
+
+Além dos fluxos, o menu `Fechamento de Loop` tem duas telas de análise de dados:
+
+- **Operacional**: o retrato do momento, para controlar o que está em aberto agora.
+- **Análise Histórica**: a evolução dos tickets ao longo de um período.
+
+<Callout kind="info" collapsed="false">
+  As duas telas estão disponíveis para os níveis **Administrador** e **Analista** do Fechamento de Loop. O Analista vê os dados dos fluxos em que foi incluído. Veja [Controle de acesso ao Fechamento de Loop](/controle-de-acesso-ao-fechamento-de-loop).
+</Callout>
+
+---
+
+## Operacional
+
+Em **Fluxo Selecionado**, escolha ver todos os fluxos ou um só. A tela mostra:
+
+| Card                                  | O que mostra                                                                                    |
+| ------------------------------------- | ----------------------------------------------------------------------------------------------- |
+| **Atrasados**                         | Tickets em aberto com o vencimento passado                                                      |
+| **Tickets Em Aberto**                 | Tickets que ainda não foram fechados                                                            |
+| **Tickets Fechados**                  | Tickets já fechados                                                                             |
+| **Tempo Médio de Resolução (TTR)**    | Quanto tempo, em média, um ticket leva para ser fechado                                         |
+| **Por Status**                        | Quantos tickets estão em Pendente, Em Andamento e Fechado                                       |
+| **Por Prioridade (Tickets em Aberto)** | Quantos tickets em aberto são de prioridade Alta, Média e Baixa                                |
+| **Tickets em Aberto por Responsável** | Para cada responsável: em aberto, atrasados e quantos por prioridade                            |
+
+Clique em uma linha ou célula para ver a lista dos tickets correspondentes e abrir cada um. Os cards de lista têm um botão para baixar os dados.
+
+---
+
+## Análise Histórica
+
+Use os filtros **Data** e **Fluxo Selecionado**, e **Adicionar Filtro** se precisar de outros. A tela mostra:
+
+| Card                               | O que mostra                                                            |
+| ---------------------------------- | ----------------------------------------------------------------------- |
+| **Tickets Gerados**                | Quantos tickets foram criados no período                                |
+| **Taxa de Fechamento**             | Percentual dos tickets gerados que já foram fechados                    |
+| **Tickets Fechados**               | Quantos tickets foram fechados no período                               |
+| **Tempo Médio de Resolução (TTR)** | Tempo médio até o fechamento                                            |
+| **Evolução**                       | Abertos e fechados ao longo do tempo. Em **Período**, mude a granularidade (ex.: Mensal) |
+| **Evolução por Categoria**         | A mesma evolução, separada por categoria                                |
+| **Por Fluxo** e **Por Categoria**  | Os números divididos por fluxo e por categoria                          |
+| **Por Responsável**                | Quantos tickets cada responsável recebeu e resolveu, e o tempo de resolução |
+| **Tempo Médio por Status**         | Quanto tempo os tickets passaram, em média, em cada status              |
+
+---
+
+## Exportar o fluxo
+
+<Steps>
+  <Step title="Abra o menu do fluxo" title-type="p">
+    Em `Fechamento de Loop → Fluxos`, clique nos três pontos (`⋯`) do fluxo.
+  </Step>
+
+  <Step title="Exporte" title-type="p">
+    Clique em **Exportar Fluxo**. Tudo o que está no fluxo é exportado em planilha, para você analisar no Excel.
+  </Step>
+</Steps>
+
+No mesmo menu ficam **Ver Fluxo**, **Editar Fluxo**, **Clonar Fluxo**, **Reiniciar Fluxo** e **Excluir Fluxo**. Editar, clonar, reiniciar e excluir são exclusivos do nível Administrador. Exportar está disponível para Administrador e Analista.
+
+---
+
+## Alguém não está vendo o fluxo ou os tickets?
+
+Confira estes dois pontos:
+
+<Steps>
+  <Step title="O usuário está incluído no fluxo?" title-type="p">
+    Nos três pontos (`⋯`) do fluxo, clique em **Editar Fluxo** e veja se a pessoa está em **Usuários com acesso ao Fluxo**. Se não estiver, inclua e salve.
+  </Step>
+
+  <Step title="Qual é o nível dela no Fechamento de Loop?" title-type="p">
+    Um **Agente** abre o fluxo, mas só vê os tickets atribuídos a ele. O fluxo pode ter 50 tickets e o Agente ver só os que estão no nome dele. Se a pessoa precisa ver todos os tickets do fluxo, o nível dela tem que ser Analista ou Administrador.
+  </Step>
+</Steps>
+
+---
+
+## Perguntas frequentes
+
+<ExpandableGroup>
+  <Expandable title="O Agente vê o Operacional e a Análise Histórica?" default-open="false">
+    Não. Essas telas são para Administrador e Analista.
+  </Expandable>
+
+  <Expandable title="Posso ver os dados de um fluxo só?" default-open="false">
+    Sim. Nas duas telas, escolha o fluxo em **Fluxo Selecionado**.
+  </Expandable>
+</ExpandableGroup>
+
+---
+
+## Veja também
+
+<Card title="Controle de acesso ao Fechamento de Loop" href="/controle-de-acesso-ao-fechamento-de-loop" icon="shield" cta="Ver artigo" horizontal="false">
+  Confira o que cada nível do Fechamento de Loop enxerga e pode fazer.
+</Card>

@@ -1,0 +1,141 @@
+---
+title: Criar fluxos
+description: >-
+  Crie um fluxo no Fechamento de Loop do zero ou a partir de um modelo pronto,
+  defina quem tem acesso, o responsável padrão, o prazo de vencimento, as fases
+  e os checklists, e comece a criar tickets.
+---
+## Visão geral
+
+O **fluxo** organiza como os tickets são tratados no Fechamento de Loop: quem tem acesso, quem é o responsável padrão, qual o prazo e por quais fases o ticket passa até ser fechado.
+
+<Callout kind="info" collapsed="false">
+  Só quem tem nível **Administrador** no Fechamento de Loop cria fluxos. Veja como definir o nível em [Controle de acesso ao Fechamento de Loop](/controle-de-acesso-ao-fechamento-de-loop).
+</Callout>
+
+---
+
+## Como criar um fluxo
+
+<Steps>
+  <Step title="Abra os fluxos" title-type="p">
+    No menu lateral, vá em `Fechamento de Loop → Fluxos` e clique em **Criar Fluxo**, no topo da lista.
+  </Step>
+
+  <Step title="Escolha como começar" title-type="p">
+    - **Quero criar um fluxo do zero!**: você preenche tudo.
+    - **Quero escolher um modelo pronto!**: as informações e as fases já vêm preenchidas, e você só ajusta o que precisar.
+
+    Depois, clique em **Continuar**.
+  </Step>
+
+  <Step title="Preencha a aba Configuração do Fluxo" title-type="p">
+    - **Nome do Fluxo**: identifique o processo (ex.: "Detratores Pesquisa NPS").
+    - **Descrição do Fluxo**: opcional.
+    - **Usuários com acesso ao Fluxo**: quem vai trabalhar nesse fluxo.
+    - **Nome do Remetente do E-mail**: o nome que aparece nos e-mails enviados pelo fluxo, como o nome da empresa.
+    - **Responsável Padrão**: quem recebe os tickets novos do fluxo.
+    - **Padrão de dias para o vencimento dos Tickets**: prazo padrão dos tickets, contado a partir da criação (ex.: 30 dias).
+
+    <Callout kind="tip" collapsed="false">
+      O que cada pessoa incluída enxerga depende do nível dela no Fechamento de Loop:
+
+      - **Administrador** vê esse e todos os outros fluxos da conta.
+      - **Analista** vê só os fluxos em que foi incluído, como este.
+      - **Agente** vê só os tickets atribuídos a ele dentro do fluxo.
+    </Callout>
+  </Step>
+
+  <Step title="Configure a aba Fases" title-type="p">
+    As fases ficam organizadas em três status: **Pendente**, **Em Andamento** e **Fechado**. O fluxo já vem com uma fase em cada um:
+
+    | Status           | Fase padrão                  |
+    | ---------------- | ---------------------------- |
+    | **Pendente**     | Aguardando Encaminhamento    |
+    | **Em Andamento** | Em Progresso                 |
+    | **Fechado**      | Resolvido com Sucesso        |
+
+    Clique no **+** ao lado de um status para adicionar uma fase nele, por exemplo **Ligar para o cliente** em Em Andamento. Clique em uma fase para mudar o **Nome da Fase** ou para **Excluir Fase**.
+  </Step>
+
+  <Step title="Adicione um checklist às fases (opcional)" title-type="p">
+    Com uma fase selecionada:
+
+    1. Ative **Checklist Padrão da Fase**.
+    2. Em **Checklist**, digite cada item e aperte Enter (ex.: "Fazer triagem").
+    3. Se quiser, ative **Exigir Checklist Completo para Passar de Fase**: o ticket só sai dessa fase depois que todos os itens forem marcados.
+
+    O checklist aparece dentro de cada ticket que estiver naquela fase.
+
+    <Callout kind="alert" collapsed="false">
+      Avise a equipe quando o checklist for obrigatório: sem marcar todos os itens, ninguém consegue mover o ticket de fase.
+    </Callout>
+  </Step>
+
+  <Step title="Crie o fluxo" title-type="p">
+    Clique em **Criar Fluxo**. Ele aparece na lista de fluxos e já pode receber tickets.
+  </Step>
+</Steps>
+
+---
+
+## Visualizações do fluxo
+
+Ao abrir um fluxo, você escolhe como ver os tickets:
+
+- **Kanban**: uma coluna por fase, com os tickets em cartões.
+- **Tabela**: os tickets em lista, com número, título, contato, responsável, datas, prioridade e fase atual.
+
+Tickets arquivados ficam ocultos. Para vê-los, ative **Mostrar Arquivados**.
+
+---
+
+## Como criar um ticket manual no fluxo
+
+O ticket manual é avulso, sem vínculo com uma resposta. Para criar um ticket ligado a uma resposta, veja [Funções dos tickets](/funcoes-dos-tickets#criar-um-ticket-a-partir-de-uma-resposta).
+
+<Steps>
+  <Step title="Clique em Criar Ticket" title-type="p">
+    Dentro do fluxo, clique em **Criar Ticket**.
+  </Step>
+
+  <Step title="Preencha os dados" title-type="p">
+    - **Assunto**: o título do ticket.
+    - **Contato**: para quem é a tratativa.
+    - **Descrição**: opcional.
+    - **Responsável**.
+    - **Categorias**: opcional. Você pode criar novas categorias ali mesmo.
+    - **Data de Vencimento**: opcional.
+    - **Prioridade**: Baixa, Média ou Alta. Vem como Média.
+  </Step>
+
+  <Step title="Salve" title-type="p">
+    Clique em **Criar Ticket**. O ticket aparece na primeira fase do fluxo, no Kanban e na Tabela.
+  </Step>
+</Steps>
+
+---
+
+## Perguntas frequentes
+
+<ExpandableGroup>
+  <Expandable title="Posso editar um fluxo depois de criado?" default-open="false">
+    Sim. Na lista de fluxos, clique nos três pontos (`⋯`) → **Editar Fluxo**, ou use o botão **Editar Fluxo** dentro do fluxo. Dá para mudar nome, usuários com acesso, responsável padrão, prazo e fases.
+  </Expandable>
+
+  <Expandable title="Por que um Analista ou Agente não vê o fluxo?" default-open="false">
+    Ele não foi incluído em **Usuários com acesso ao Fluxo**. Edite o fluxo e adicione o usuário. Só aparecem na lista usuários com nível no Fechamento de Loop.
+  </Expandable>
+
+  <Expandable title="Posso ter mais de um fluxo na conta?" default-open="false">
+    Sim. É comum separar fluxos por tipo de feedback, por equipe ou por região. Para organizar, use **Criar Pasta** na lista de fluxos.
+  </Expandable>
+</ExpandableGroup>
+
+---
+
+## Próximo passo
+
+<Card title="Funções dos tickets" href="/funcoes-dos-tickets" icon="ticket" cta="Ver artigo" horizontal="false">
+  Veja tudo o que dá para fazer dentro do ticket: seguidores, checklist, anotações, e-mail com IA, mover e arquivar.
+</Card>

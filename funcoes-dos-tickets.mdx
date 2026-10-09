@@ -1,0 +1,171 @@
+---
+title: Funções dos tickets
+description: >-
+  Conheça tudo o que dá para fazer dentro de um ticket do Fechamento de Loop:
+  fases, seguidores e notificações, categorias, anotações, e-mail com IA e
+  modelos, mover, arquivar, editar e mover em lote e criar tickets a partir de
+  uma resposta.
+---
+## Visão geral
+
+Ao clicar em um ticket no fluxo, ele abre em uma **nova guia** com todos os dados da tratativa e as ações para conduzi-la até o fim. Tudo o que acontece no ticket fica registrado no **Histórico**.
+
+<Callout kind="info" collapsed="false">
+  Algumas ações dependem do nível no Fechamento de Loop. Trocar o responsável, arquivar, mover para outro fluxo e editar ou mover em lote são para **Administrador** e **Analista**. Veja [Controle de acesso ao Fechamento de Loop](/controle-de-acesso-ao-fechamento-de-loop).
+</Callout>
+
+---
+
+## Como o ticket é organizado
+
+- **Barra de fases**, no topo: mostra as fases do fluxo e quantos dias o ticket passou em cada uma.
+- **Ações do Ticket**: **Mover Ticket** e **Arquivar Ticket**.
+- **Sobre o Ticket**: Assunto, Data de Criação, Data de Vencimento, Responsável, Seguidores, Fluxo, Descrição, Prioridade e Categoria.
+- **Contato Vinculado**: nome, e-mail e telefone do contato.
+- **Adicionar Anotação**, **Enviar E-mail** e **Telefone**: as ações de tratativa.
+- **Histórico**: tudo o que aconteceu no ticket. Use **Visualizando** para filtrar o que aparece.
+
+---
+
+## Dados do ticket
+
+Em **Sobre o Ticket** você pode editar o assunto, o responsável, a descrição, a prioridade e a categoria. Na categoria, escolha uma existente ou crie uma nova ali mesmo.
+
+---
+
+## Seguidores e notificações
+
+Clique no **+** ao lado de **Seguidores** para adicionar usuários que vão acompanhar o ticket.
+
+Quem é atribuído a um ticket ou é seguidor dele recebe uma notificação no sino, em **Notificações**, e por e-mail a cada atualização.
+
+Para escolher o que quer receber, abra as **preferências** dentro das notificações. Lá você liga ou desliga, por e-mail e na plataforma, avisos como vencimento de ticket e atualização de ticket, além de outros avisos da conta, como limite de pesquisas, geração de resumos e exportações.
+
+---
+
+## Mover o ticket entre fases
+
+Clique na fase desejada na **barra de fases**, no topo do ticket. Cada mudança fica registrada no histórico.
+
+<Callout kind="alert" collapsed="false">
+  Se a fase atual exigir checklist completo, marque todos os itens antes. Sem isso, o ticket não passa para a próxima fase.
+</Callout>
+
+Quando a tratativa termina, mova o ticket para uma fase do status **Fechado**, como **Resolvido com Sucesso**.
+
+---
+
+## Anotações
+
+Clique em **Adicionar Anotação** para registrar contexto interno. Marque um usuário com `@` para que ele seja notificado. A anotação fica no histórico e só quem a criou consegue excluí-la.
+
+---
+
+## Enviar e-mail para o cliente
+
+<Steps>
+  <Step title="Escreva o e-mail" title-type="p">
+    Clique em **Enviar E-mail**. O destinatário já vem preenchido com o e-mail do contato. Preencha o **Assunto** e o texto. A barra do editor tem formatação, variáveis e **anexos**.
+  </Step>
+
+  <Step title="Use a IA (opcional)" title-type="p">
+    Clique na varinha de IA, no começo da barra do editor. As opções são:
+
+    - **Gerar Resposta**: escreve uma resposta do zero. Você escolhe o tom e pode escrever um contexto para orientar a IA.
+    - **Reescrever Formalmente** e **Reescrever Amigavelmente**
+    - **Traduzir para...**
+    - **Reformular**
+    - **Corrigir Gramática e Ortografia**
+    - **Expandir Resposta**
+
+    Depois, use o texto como está ou edite antes de enviar.
+
+    <Callout kind="info" collapsed="false">
+      **Gerar Resposta** só funciona quando o ticket tem uma pergunta de texto respondida com análise de IA ligada, como nos tickets criados a partir de uma resposta. As outras opções precisam de algum texto já escrito no e-mail.
+    </Callout>
+  </Step>
+
+  <Step title="Use um modelo (opcional)" title-type="p">
+    Pela barra do editor, escolha um dos **modelos** prontos para preencher o e-mail automaticamente.
+  </Step>
+
+  <Step title="Envie" title-type="p">
+    Clique em **Enviar**. O e-mail fica registrado no histórico do ticket.
+  </Step>
+</Steps>
+
+---
+
+## Arquivar ou mover o ticket
+
+- **Arquivar Ticket**: tira o ticket da visualização do fluxo. Para vê-lo de novo, ative **Mostrar Arquivados** no fluxo.
+- **Mover Ticket**: leva o ticket para outro fluxo. Escolha o fluxo de destino e o responsável e confirme.
+
+---
+
+## Criar um ticket a partir de uma resposta
+
+<Steps>
+  <Step title="Abra a resposta" title-type="p">
+    Vá em `Pesquisas e Respostas → Respostas` e clique na resposta que precisa de tratativa.
+  </Step>
+
+  <Step title="Crie o ticket" title-type="p">
+    Na resposta, abra a aba **Fechamento de Loop** e clique em **Criar Ticket**. Preencha o assunto, o fluxo e o responsável e confirme.
+  </Step>
+
+  <Step title="Trate pelo ticket" title-type="p">
+    O ticket abre já com a nota da resposta. Clique nela para ver a resposta completa. A partir daí, você usa as mesmas funções de qualquer ticket, inclusive **Gerar Resposta** com IA, se a pesquisa tiver pergunta de texto com análise de IA.
+  </Step>
+</Steps>
+
+---
+
+## Editar ou mover tickets em lote
+
+<Steps>
+  <Step title="Selecione os tickets" title-type="p">
+    Dentro do fluxo, na visualização **Tabela**, marque os tickets.
+  </Step>
+
+  <Step title="Escolha a ação" title-type="p">
+    - **Editar em Lote**: altera um campo de todos de uma vez, como o **responsável**.
+    - **Mover em Lote**: leva todos para outro fluxo.
+  </Step>
+</Steps>
+
+Quem for atribuído aos tickets recebe a notificação na plataforma e por e-mail.
+
+---
+
+## Perguntas frequentes
+
+<ExpandableGroup>
+  <Expandable title="O cliente é avisado quando um ticket é aberto?" default-open="false">
+    Não. O ticket é interno. O cliente só recebe algo se a equipe enviar um e-mail pelo ticket, ou se a automação que criou o ticket tiver um modelo de e-mail.
+  </Expandable>
+
+  <Expandable title="Por que não consigo passar o ticket para a próxima fase?" default-open="false">
+    A fase exige checklist completo. Marque todos os itens e tente de novo.
+  </Expandable>
+
+  <Expandable title="Por que a opção Gerar Resposta está desabilitada?" default-open="false">
+    Ela precisa de uma pergunta de texto respondida com análise de IA ligada. Tickets manuais, sem resposta vinculada, não têm esse texto.
+  </Expandable>
+
+  <Expandable title="Posso parar de receber e-mail de atualização de ticket?" default-open="false">
+    Sim. Nas preferências das notificações, desligue o aviso de atualização de ticket por e-mail, na plataforma ou nos dois.
+  </Expandable>
+
+  <Expandable title="Posso excluir uma anotação de outra pessoa?" default-open="false">
+    Não. Só quem criou a anotação consegue excluí-la, qualquer que seja o nível.
+  </Expandable>
+</ExpandableGroup>
+
+---
+
+## Próximo passo
+
+<Card title="Automações de tickets" href="/automacoes-de-tickets" icon="zap" cta="Ver artigo" horizontal="false">
+  Faça os tickets serem criados sozinhos a partir das respostas das pesquisas.
+</Card>

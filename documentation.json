@@ -247,6 +247,26 @@
             "group": "Fechamento de Loop",
             "pages": [
               {
+                "title": "Controle de acesso ao Fechamento de Loop",
+                "path": "controle-de-acesso-ao-fechamento-de-loop"
+              },
+              {
+                "title": "Criar fluxos",
+                "path": "criar-fluxos"
+              },
+              {
+                "title": "Funções dos tickets",
+                "path": "funcoes-dos-tickets"
+              },
+              {
+                "title": "Automações de tickets",
+                "path": "automacoes-de-tickets"
+              },
+              {
+                "title": "Operacional e análise histórica",
+                "path": "fechamento-de-loop-operacional-e-analise-historica"
+              },
+              {
                 "title": "Como configurar níveis de acesso no Fechamento de Loop?",
                 "path": "como-configurar-nveis-de-acesso-no-fechamento-de-loop"
               },
