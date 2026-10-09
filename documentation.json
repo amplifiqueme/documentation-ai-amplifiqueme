@@ -247,23 +247,23 @@
             "group": "Fechamento de Loop",
             "pages": [
               {
-                "title": "Controle de acesso ao Fechamento de Loop",
+                "title": "Como controlar o acesso ao Fechamento de Loop?",
                 "path": "controle-de-acesso-ao-fechamento-de-loop"
               },
               {
-                "title": "Criar fluxos",
+                "title": "Como criar um fluxo no Fechamento de Loop?",
                 "path": "criar-fluxos"
               },
               {
-                "title": "Funções dos tickets",
+                "title": "Como trabalhar dentro de um ticket?",
                 "path": "funcoes-dos-tickets"
               },
               {
-                "title": "Automações de tickets",
+                "title": "Como criar tickets automaticamente pela pesquisa?",
                 "path": "automacoes-de-tickets"
               },
               {
-                "title": "Operacional e análise histórica",
+                "title": "Como acompanhar os tickets no Operacional e na Análise Histórica?",
                 "path": "fechamento-de-loop-operacional-e-analise-historica"
               },
               {
