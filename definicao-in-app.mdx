@@ -34,7 +34,7 @@ O Elemento aceita os seguintes parâmetros
 | identifier    | String (required)  | Identificador da unidade da organização.                                                                                                                                                                           |
 | debug         | Boolean (optional) | Caso seja enviado esse parâmetro irá habilitar a impressão de logs  no console do navegador.                                                                                                                       |
 | anonymous     | Boolean (optional) | Caso seja enviado esse parâmetro fará a pesquisa rodar em modo anônimo,  ignorando o método identify. Não recomendamos que seja chamado o método identify() nesse caso.                                            |
-| force         | Boolean (optional) | Caso seja enviado esse parâmetro irá forçar a mostrar uma pesquisa  desde que atinja o gatilho (ela irá ignorar demais regras de elegibilidade e fadigas das pesquisas) Use apenas para testes em desenvolvimento. |
+| force         | Boolean (optional) | Força a exibição de uma pesquisa que atinja o gatilho, ignorando os intervalos e as demais regras de elegibilidade da pesquisa. A Fadiga entre pesquisas no In-App, definida nas configurações da conta, continua valendo. Use apenas para testes em desenvolvimento. |
 
 ---
 
@@ -108,3 +108,5 @@ Este método deve ser chamado em pesquisas que estão com a configuração de **
 ```javascript
 window.Amplifiqueme.showSurvey("6984d2eaf8a5c3b2a91702d8") //EXEMPLO do ID: 6984d2eaf8a5c3b2a91702d8
 ```
+
+Nesse modo, a pesquisa aparece sempre que o método for chamado. As regras de exibição e os **Intervalos da Pesquisa** não se aplicam: intervalo para pesquisar novamente, prazo após rejeição, finalização de resposta em aberto, porcentagem de visitantes e dias de cadastro. Cada chamada abre uma resposta nova. A **Fadiga entre pesquisas no In-App**, nas configurações da conta, continua valendo. Se outra pesquisa já estiver na tela, a chamada é ignorada.
