@@ -1,6 +1,145 @@
 ---
 title: Notas de Atualização
 ---
+<Update label="2026.10" description="Outubro" tags={["Lançamento", "Em andamento"]}>
+  <Callout kind="info" collapsed="false">
+    Outubro ainda está em andamento: novas melhorias entram aqui conforme são lançadas. **Última atualização: 14/10/2026.**
+  </Callout>
+
+  ## 🧩 Filtros dos Cards Iguais aos das Análises
+
+  O filtro dos cards do **Painel** passou a ser o mesmo das telas de **Respostas** e **Análise e Resultados**, com os mesmos campos e condições. Ao clicar em **Ver Respostas** ou **Ver Detalhamento**, a tela abre com os filtros do card.
+
+  <Callout kind="info" collapsed="false">
+    Cards que já tinham filtros continuam no modelo antigo. Para passar para o novo, abra o filtro do card e clique em **Usar Novo Modelo de Filtros**.
+  </Callout>
+
+  ## ⭐ Avaliações do Google Mais Completas
+
+  - Avaliações novas aparecem **poucos minutos depois de publicadas** no Google.
+  - Quando a pessoa **edita a nota ou o texto** no Google, a mudança aparece na plataforma e a IA refaz a análise. A avaliação passa a valer pela data da edição e mostra **Editada**, com a data original ao passar o mouse.
+  - **Fotos e vídeos** anexados à avaliação aparecem na lista e no detalhe, e abrem em uma janela com navegação entre os arquivos.
+  - A resposta publicada pela plataforma mostra **Resposta em Análise** enquanto o Google analisa e **Resposta Recusada pelo Google** quando ele recusa.
+  - Quando um perfil perde o acesso ao Google, a tela de **Perfis** mostra **Reconexão necessária**. Para resolver, abra o menu do perfil e clique em **Reconectar ao Google**.
+
+  ## 🎫 Novos Painéis do Fechamento de Loop
+
+  - No painel **Operacional**, a tabela **Tickets em Aberto por Responsável** e a **Carga Atual por Fluxo** mostram os tickets em aberto separados em **Pendente** e **Em Andamento**, com os atrasados e as prioridades.
+  - Na **Análise Histórica**, a tabela **Por Responsável** mostra **Gerados**, **Fechados**, **% Fechamento** e **Tempo Médio de Resolução**, e o novo card **Tempo Médio por Fase** mostra quanto tempo os tickets fechados ficaram em cada fase.
+
+  ## 📁 Resumos em Pastas
+
+  - Na tela de **Resumos**, é possível organizar os resumos em **pastas**, mover vários de uma vez e escolher a pasta já ao gerar um resumo avulso, segmentado ou recorrente.
+  - O resumo pode ser gerado a partir de **5 respostas** no período.
+  - O resumo recorrente pode ser criado só com perfis do Google, sem nenhuma pesquisa.
+  - Na criação, a aba **Pesquisas Inclusas** vem primeiro e já selecionada.
+
+  ## 🗂️ Grupos de Pesquisas Editáveis
+
+  Em **Gerenciar Grupos de Pesquisas**, é possível incluir e remover pesquisas de um grupo que já existe. A primeira pesquisa do grupo aparece como **Principal**, e os textos das perguntas nas análises do grupo vêm dela.
+
+  ## 🧭 Menu Lateral Reorganizado
+
+  O topo do menu lateral mostra o logo da Amplifique.me, o rodapé mostra a empresa e a unidade em uso, e a **troca de unidade** passou para o menu da conta, em uma janela com busca.
+
+  ## 🚀 Outras melhorias…
+
+  - **Geral**
+    - Imagens e vídeos abrem em uma janela dentro da plataforma, com setas para navegar entre eles.
+    - Ao entrar de novo depois de ser desconectado, você volta para a tela em que estava.
+    - O painel de notificações abre ao lado do menu lateral recolhido.
+
+  - **Respostas**
+    - A opção **Mostrar Perguntas em Branco** vem desligada por padrão.
+
+  - **Integrações**
+    - Ao criar um token de API, a opção **Sobrescrever Dados (recomendado)** vem marcada por padrão.
+</Update>
+
+---
+
+<Update label="2026.9" description="Setembro" tags={["Lançamento"]}>
+  ## 🎫 Fechamento de Loop Mais Organizado
+
+  - Os **fluxos podem ser organizados em pastas**, do mesmo jeito que as pesquisas.
+  - No modo **Tabela** de um fluxo, selecione vários tickets e use **Mover em Lote** para levá-los a outro fluxo, mantendo o responsável atual ou escolhendo outro. Os tickets chegam com todo o histórico.
+  - As anotações de um ticket aceitam **arquivos de áudio**, que podem ser ouvidos ali mesmo.
+  - O gráfico **Evolução por Categoria** ganhou o **seletor de período** (diário, semanal, mensal…), sincronizado com o gráfico **Evolução**.
+
+  ## 🏷️ Categoria do Ticket Definida pela Resposta
+
+  Na ação de criar ticket das **Automações**, o campo **Categorias do Ticket** aceita, além de uma categoria fixa, uma **variável**: **Origem**, a resposta de uma pergunta de escolha única, **Tipo do Feedback** ou **Tópico do Feedback** da IA. O ticket nasce na categoria com o valor daquela resposta, e a categoria é criada automaticamente quando ainda não existe.
+
+  ## 📅 Respostas por Data do Convite
+
+  A tela de **Respostas** ganhou a opção **Período por**, para filtrar por **Data da Resposta** (padrão) ou por **Data do Convite**. A tabela mostra as duas datas em colunas separadas, e a exportação segue o período escolhido.
+
+  ## 🔎 Do Número para a Tela de Respostas
+
+  As tabelas que abrem ao clicar em números e gráficos de **Análise e Resultados** e dos **Insights** passam a mostrar as mesmas colunas da tela de **Respostas** e ganharam o botão **Abrir na Tela de Respostas**, que abre a tela em uma nova aba já com os filtros aplicados.
+
+  ## 📊 Card de Métricas de Pesquisas com um Clique
+
+  No menu **⋯** de um card de métrica, opções ou matriz, escolha **Criar Card de Pesquisas**. O novo card aparece ao lado, com as mesmas pesquisas e filtros, mostrando convites enviados, pessoas que responderam e a taxa de resposta.
+
+  ## 🖼️ Exportar Card como Imagem
+
+  A exportação de cards do painel como imagem está de volta, fiel ao card como ele aparece na tela. O arquivo recebe o nome do card.
+
+  ## 📥 Importações Mais Fáceis de Acompanhar
+
+  - Na tela de **Contatos**, é possível **filtrar por lote de importação**.
+  - A tela de **Importações** ganhou a coluna **Código**, para diferenciar importações da mesma data, e os botões **Ver Respostas** e **Ver Contatos**.
+  - A notificação de importação concluída diz o que foi importado, com data e hora.
+
+  ## ♿ Pesquisas Mais Acessíveis
+
+  A pesquisa respondida pelos seus clientes ficou mais fácil de usar com **leitores de tela e pelo teclado**: as escalas informam quantas opções existem, as matrizes anunciam a linha e a coluna de cada opção, os textos das pontas das escalas de 0 a 10 são lidos junto com a pergunta e todas as escolhas da pesquisa funcionam sem mouse.
+
+  ## 🚀 Outras melhorias…
+
+  - **Pesquisas**
+    - Dá para **reiniciar a pré-visualização** no Criador de Pesquisas.
+    - Quando a gravação de uma resposta por áudio é interrompida, o respondente é avisado e pode regravar.
+    - A opção **Solicitar Consentimento do Contato** passa a vir desligada em pesquisas novas e também aparece nas pesquisas **In-App**.
+    - O botão **Não quero mais receber essas comunicações** aparece em todas as perguntas da pesquisa.
+    - Quando a conexão do respondente cai, a pesquisa mostra uma mensagem própria com o botão **Tentar Novamente**.
+    - O campo de seleção do cadastro usa o texto configurado e respeita o idioma da pesquisa.
+    - O modo de identificação só fica travado depois da primeira resposta.
+
+  - **Painéis e Análise e Resultados**
+    - Painéis com muitos cards carregam mais rápido, e a **Visão Geral** dos **Insights** abre em poucos segundos mesmo em períodos longos.
+    - No **Ver Detalhamento** aberto a partir de um card, os campos escolhidos podem ser salvos em **Minhas Visualizações**.
+    - Um card duplicado aparece logo abaixo do card de origem.
+    - Na **Visão Geral**, os cards seguem a ordem Convites, Respostas Recebidas e Taxa de Resposta por Convite.
+    - Os **Tópicos Encontrados** dos **Insights** podem ser exportados em XLSX.
+
+  - **Convites**
+    - A tela separa os **Convites com Envio** (WhatsApp, E-mail e SMS) dos canais sem envio (Link, QR Code, In-App e Importação).
+    - Clicar em um convite abre os dados detalhados do envio e os campos customizados.
+
+  - **Fechamento de Loop**
+    - A resposta vinculada ao ticket mostra se o contato autorizou ser contatado.
+    - Categorias podem ser adicionadas em lote, uma por linha.
+    - O histórico de atividades do ticket carrega conforme você rola a lista.
+    - A janela de criação de ticket não fecha mais ao apertar Esc ou clicar fora dela.
+
+  - **Exportações**
+    - A geração começa logo após o clique em exportar.
+
+  - **Resumos**
+    - Um aviso aparece ao criar um resumo recorrente para uma pesquisa que já tem um.
+
+  - **WhatsApp**
+    - Ao excluir um template em uso, a plataforma lista as pesquisas afetadas e as desativa até que um novo template seja escolhido.
+
+  - **Geral**
+    - Os campos de e-mail aceitam vários endereços separados por vírgula.
+    - No menu do usuário, **Meu Perfil** virou **Configurações**, que abre com a seção **Organização** expandida.
+</Update>
+
+---
+
 <Update label="2026.2" description="Abril a Agosto" tags={["Lançamento"]}>
   A 2026.2 é a maior atualização que já lançamos: a plataforma inteira foi redesenhada, e várias telas mudaram de lugar, de nome ou de comportamento. Abaixo está tudo o que mudou.
 
