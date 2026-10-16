@@ -19,15 +19,35 @@ Em algumas empresas, o time de TI bloqueia endereços externos por padrão por q
 
 | Domínio | Finalidade |
 |---|---|
-| `ampl.me` | Links curtos usados nos disparos de pesquisa |
 | `amplifique.me` | Plataforma principal |
-| `url6939.amplifique.me` | Rastreamento de e-mails enviados |
+| `*.amplifique.me` | Subdomínios da plataforma: painel, pesquisas, imagens e arquivos, central de ajuda |
+| `ampl.me` e `*.ampl.me` | Links curtos usados nos envios de pesquisa |
 | `amplifiqueme.com` | Domínio institucional |
-| `amplifiqueme.com.br` | Domínio institucional (Brasil) |
-| `chat.amplifiqueme.com.br` | Canal de suporte via chat |
-| `*.amplifique.me` | Subdomínios da plataforma |
-| `*.amplifiqueme.com.br` | Subdomínios da plataforma (Brasil) |
-| `engager.whatsdrive.com.br` | Envios via WhatsApp |
+| `amplifiqueme.com.br` e `*.amplifiqueme.com.br` | Domínio institucional (Brasil) e chat de suporte (`chat.amplifiqueme.com.br`) |
+
+### Serviços carregados pela plataforma
+
+A plataforma usa alguns serviços externos que o navegador precisa acessar enquanto ela está aberta.
+
+| Domínio | Finalidade |
+|---|---|
+| `cdn.ably.com`, `*.ably.io` e `*.ably-realtime.com` | Atualização em tempo real da tela (tickets, envios e ações em lote) |
+| `connect.facebook.net` e `*.facebook.com` | Conexão do WhatsApp Oficial em **Configurações** |
+| `*.sentry.io` | Registro de erros da plataforma |
+| `*.mixpanel.com` | Análise de uso da plataforma |
+| `fonts.googleapis.com` e `fonts.gstatic.com` | Fontes da página de pesquisa |
+| `flagcdn.com` | Bandeiras do seletor de idioma na página de pesquisa |
+
+### E-mails
+
+Para o filtro de e-mail, libere os remetentes abaixo. Os e-mails saem pela Amazon SES.
+
+| Domínio | Finalidade |
+|---|---|
+| `amplifique.me` e `amplifiqueme.com.br` | Remetentes de convites, relatórios, alertas e pesquisas |
+| `loop.amplifique.me` | Respostas de tickets por e-mail |
+| `send.amplifique.me` | Domínio de envio (SPF) |
+| `amazonses.com` | Servidores de envio da Amazon SES |
 
 ### Ferramentas de comunicação e colaboração
 
@@ -37,7 +57,7 @@ Em algumas empresas, o time de TI bloqueia endereços externos por padrão por q
 | `tldv.io` | Gravação e transcrição de reuniões |
 | `meet.google.com` | Videoconferências |
 | `amplifiqueme.notion.site` | Documentos e materiais compartilhados |
-| `mixpanel.com` | Análise de uso da plataforma |
+| `api.whatsapp.com` e `wa.me` | Suporte via WhatsApp |
 
 <Callout kind="tip">
   Todas as ferramentas listadas são utilizadas por grandes empresas globais — incluindo Fortune 500 como Uber, Amazon e Netflix — e passam por critérios rigorosos de segurança e conformidade. Dúvidas sobre alguma delas? O suporte da Amplifique.me pode ajudar a esclarecer.
@@ -50,7 +70,7 @@ Em algumas empresas, o time de TI bloqueia endereços externos por padrão por q
 <ExpandableGroup>
 
 <Expandable title="Preciso liberar todos os domínios ou só alguns?">
-  Depende do que sua empresa usa. Para o funcionamento básico da plataforma e envio de pesquisas por e-mail, libere todos os domínios da seção "Plataforma Amplifique.me". Os domínios de ferramentas de comunicação são necessários para o relacionamento com o time da Amplifique.me (suporte, reuniões, onboarding).
+  Depende do que sua empresa usa. Para o funcionamento da plataforma e o recebimento dos e-mails, libere todos os domínios das seções "Plataforma Amplifique.me", "Serviços carregados pela plataforma" e "E-mails". Os domínios de ferramentas de comunicação são necessários para o relacionamento com o time da Amplifique.me (suporte, reuniões, onboarding).
 </Expandable>
 
 <Expandable title="O que significa o asterisco (*) nos domínios?">
