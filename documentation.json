@@ -712,6 +712,11 @@
       "source": "/como-automatizar-a-criao-de-tickets",
       "destination": "/automacoes-de-tickets",
       "statusCode": 301
+    },
+    {
+      "source": "/teste12",
+      "destination": "/integrao-com-activecampaign",
+      "statusCode": 301
     }
   ]
 }
