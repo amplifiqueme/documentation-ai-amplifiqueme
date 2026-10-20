@@ -144,8 +144,10 @@ A Amplifique.me possui 6 níveis de usuário. Cada nível define o que a pessoa 
 | Acessar Resumos / Filtrar Dados              | ✅            | ✅             | ✅        | ❌        | ✅              | ❌             |
 | Copiar / Renomear / Exportar / Enviar Resumo | ✅            | ✅             | ✅        | ❌        | ❌              | ❌             |
 | Arquivar/Desarquivar Resumo                  | ✅            | ✅             | ✅        | ❌        | ❌              | ❌             |
-| Criar Resumo                                 | ✅            | ✅             | ❌        | ❌        | ❌              | ❌             |
-| Gerenciar Resumos Recorrentes                | ✅            | ✅             | ❌        | ❌        | ❌              | ❌             |
+| Criar Resumo                                 | ✅            | ✅             | ✅*       | ❌        | ❌              | ❌             |
+| Gerenciar Resumos Recorrentes                | ✅            | ✅             | ✅*       | ❌        | ❌              | ❌             |
+
+\* O Analista só pode criar e gerenciar resumos em planos com IA inclusa. Em outros planos, os botões **Gerar Novo Resumo** e **Gerenciar Resumos Recorrentes** aparecem desabilitados.
 
 ### Fechamento de Loop
 
@@ -223,7 +225,7 @@ Se o objetivo é restringir completamente o acesso a determinados dados, use o n
   </Expandable>
 
   <Expandable title="Qual a diferença entre Administrador e Analista?" default-open="false">
-    O Administrador tem acesso operacional mais amplo: gerencia configurações da conta (domínio, WhatsApp, In-App, tags), acessa financeiro e pode criar resumos recorrentes no Insights. O Analista não acessa configurações da conta nem gerencia usuários, mas tem acesso completo a análises, pesquisas e respostas.
+    O Administrador tem acesso operacional mais amplo: gerencia configurações da conta (domínio, WhatsApp, In-App, tags), acessa financeiro e pode criar resumos recorrentes no Insights em qualquer plano (o Analista só cria resumos em planos com IA inclusa). O Analista não acessa configurações da conta nem gerencia usuários, mas tem acesso completo a análises, pesquisas e respostas.
   </Expandable>
 
   <Expandable title="Quem pode disparar Webhook manualmente em uma resposta?" default-open="false">
