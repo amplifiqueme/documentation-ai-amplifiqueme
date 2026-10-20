@@ -267,22 +267,6 @@
                 "path": "fechamento-de-loop-operacional-e-analise-historica"
               },
               {
-                "title": "Como configurar níveis de acesso no Fechamento de Loop?",
-                "path": "como-configurar-nveis-de-acesso-no-fechamento-de-loop"
-              },
-              {
-                "title": "Como automatizar a criação de tickets?",
-                "path": "como-automatizar-a-criao-de-tickets"
-              },
-              {
-                "title": "Como criar e gerenciar tickets manuais?",
-                "path": "como-criar-e-gerenciar-tickets-manuais"
-              },
-              {
-                "title": "Como criar e configurar um fluxo?",
-                "path": "como-criar-e-configurar-um-fluxo"
-              },
-              {
                 "title": "O que é o Fechamento de Loop?",
                 "path": "criar-fluxo"
               }
@@ -707,5 +691,27 @@
   "initialRoute": "",
   "logo-dark": "https://blob-cdn.documentation.ai/org-228168c3-baff-41c0-9e3d-a927017afd0f/doc-dc08e65a-c672-46a6-8e86-3eb57bb5df19/1790950668443-a2qlid5izd9-Logo-White.svg?rasterize-bypass=true",
   "logo-light": "https://blob-cdn.documentation.ai/org-228168c3-baff-41c0-9e3d-a927017afd0f/doc-dc08e65a-c672-46a6-8e86-3eb57bb5df19/1790950303051-594ctlv451t-Logo.svg?rasterize-bypass=true",
-  "favicon": "https://blob-cdn.documentation.ai/org-228168c3-baff-41c0-9e3d-a927017afd0f/doc-dc08e65a-c672-46a6-8e86-3eb57bb5df19/1790950287025-nr7bnfd00a-FAVICON-3.png?fm=auto&auto=compress%2Cformat"
+  "favicon": "https://blob-cdn.documentation.ai/org-228168c3-baff-41c0-9e3d-a927017afd0f/doc-dc08e65a-c672-46a6-8e86-3eb57bb5df19/1790950287025-nr7bnfd00a-FAVICON-3.png?fm=auto&auto=compress%2Cformat",
+  "redirects": [
+    {
+      "source": "/como-configurar-nveis-de-acesso-no-fechamento-de-loop",
+      "destination": "/controle-de-acesso-ao-fechamento-de-loop",
+      "statusCode": 301
+    },
+    {
+      "source": "/como-criar-e-configurar-um-fluxo",
+      "destination": "/criar-fluxos",
+      "statusCode": 301
+    },
+    {
+      "source": "/como-criar-e-gerenciar-tickets-manuais",
+      "destination": "/funcoes-dos-tickets",
+      "statusCode": 301
+    },
+    {
+      "source": "/como-automatizar-a-criao-de-tickets",
+      "destination": "/automacoes-de-tickets",
+      "statusCode": 301
+    }
+  ]
 }
