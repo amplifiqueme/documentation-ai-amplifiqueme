@@ -2,7 +2,7 @@
 title: Como usar a API de Pesquisas e Respostas?
 description: >-
   Entenda quando usar cada endpoint do grupo Pesquisas e Respostas — enviar
-  pesquisas via API, monitorar solicitações e extrair respostas para análise ou
+  pesquisas via API, monitorar convites e extrair respostas para análise ou
   integração com BI.
 ---
 ## Visão geral
@@ -90,11 +90,11 @@ POST https://api.amplifique.me/partners/cf/requests
 - Identificar pesquisas com erro de entrega (`source_status: ERROR`) para reenvio
 
 <Callout kind="info" collapsed="false">
-  **Solicitação ≠ Resposta.** Uma solicitação é criada quando a pesquisa é enviada. A resposta só existe se o contato preencheu. Use este endpoint para monitorar entrega; use Listar Respostas para analisar dados.
+  **Convite ≠ Resposta.** Um convite é criado quando a pesquisa é enviada. A resposta só existe se o contato preencheu. Use este endpoint para monitorar entrega; use Listar Respostas para analisar dados.
 </Callout>
 
 ```bash
-# Solicitações do último mês com status de entrega
+# Convites do último mês com status de entrega
 curl -X POST "https://api.amplifique.me/partners/cf/requests?start=01/04/2024&end=30/04/2024&limit=1000&page=0" \
   -H "Authorization: YOUR_API_KEY"
 ```

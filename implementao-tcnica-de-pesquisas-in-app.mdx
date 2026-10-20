@@ -3,7 +3,7 @@ title: Implementação técnica de pesquisas In-App
 description: >-
   Guia técnico para implementar pesquisas In-App 2.0 em aplicações web,
   frameworks híbridos e apps nativos. Inclui parâmetros de configuração, exemplo
-  de script e comportamento de solicitações.
+  de script e comportamento dos convites.
 ---
 ## Visão geral
 
@@ -96,19 +96,19 @@ Use a **API de In-App para sistemas legados** (v1.0). Documentação: [amplifiqu
 
 ## Funcionamento do In-App
 
-A exibição segue uma lógica de solicitação contínua, respeitando as regras de elegibilidade configuradas em cada pesquisa:
+A exibição segue uma lógica de convite contínuo, respeitando as regras de elegibilidade configuradas em cada pesquisa:
 
 1. Toda vez que o script é carregado, a plataforma verifica se o usuário atende às regras de exibição (tags, URL, campos customizados)
 
-2. Se elegível e sem solicitação ativa: cria uma nova solicitação
+2. Se elegível e sem convite ativo: cria um novo convite
 
-3. Se já existe solicitação ativa: a mesma é reaproveitada até o usuário responder ou rejeitar
+3. Se já existe convite ativo: ele é reaproveitado até o usuário responder ou rejeitar
 
 4. Se o usuário clicou no "X" (rejeitar): inicia o contador de "reperguntar após rejeição"
 
 5. Se o usuário respondeu parcialmente e saiu: o sistema tenta complementar a cada 12h durante o prazo de "solicitar finalização durante"
 
-6. Quando o prazo expira: a solicitação é marcada como expirada, a resposta fica como incompleta, e o usuário entra no intervalo de fadiga
+6. Quando o prazo expira: o convite é marcado como expirado, a resposta fica como incompleta, e o usuário entra no intervalo de fadiga
 
 ---
 

@@ -81,7 +81,7 @@ Contato acessa o sistema externo
 Resposta aparece nos relatórios da Amplifique.me
 ```
 
-**Opcional — Ignorar Pesquisa:** se o contato fechar a pesquisa sem responder, chame o endpoint **Ignorar Pesquisa** passando o `_id` do `surveyAnswer`. Isso registra o comportamento corretamente na plataforma em vez de deixar a solicitação em aberto.
+**Opcional — Ignorar Pesquisa:** se o contato fechar a pesquisa sem responder, chame o endpoint **Ignorar Pesquisa** passando o `_id` do `surveyAnswer`. Isso registra o comportamento corretamente na plataforma em vez de deixar o convite em aberto.
 
 ---
 
@@ -107,7 +107,7 @@ A referência técnica completa — endpoints, parâmetros, exemplos de request 
   </Expandable>
 
   <Expandable title="O que acontece se eu não chamar Ignorar Pesquisa quando o contato fechar sem responder?" default-open="false">
-    A solicitação ficará em aberto na plataforma, sem registro de que foi descartada. Isso pode afetar métricas de taxa de resposta. Recomenda-se sempre chamar o endpoint de Ignorar Pesquisa no evento de fechamento.
+    O convite ficará em aberto na plataforma, sem registro de que foi descartada. Isso pode afetar métricas de taxa de resposta. Recomenda-se sempre chamar o endpoint de Ignorar Pesquisa no evento de fechamento.
   </Expandable>
 
   <Expandable title="As respostas inseridas aparecem em qual canal nos relatórios?" default-open="false">
