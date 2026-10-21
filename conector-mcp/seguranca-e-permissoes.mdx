@@ -1,0 +1,96 @@
+---
+title: Segurança e permissões do Conector MCP
+description: >-
+  Como o Conector MCP protege o acesso à sua conta, o que cada nível de usuário
+  pode fazer pelo assistente de IA e como as ações ficam registradas.
+---
+## Visão geral
+
+O assistente de IA usa a Amplifique.me **com o seu usuário**. Tudo o que ele consulta ou altera passa pelas mesmas permissões que você tem na plataforma, e cada pedido é verificado no momento em que é feito.
+
+---
+
+## Quem controla o acesso
+
+<Columns cols="2">
+  <Card title="Na conta" icon="lucide-building-2" horizontal="false">
+    O Conector MCP só funciona em contas com o conector habilitado. A habilitação é feita pelo time de Sucesso do Cliente da Amplifique.me.
+  </Card>
+
+  <Card title="No usuário" icon="lucide-user-check" horizontal="false">
+    O Proprietário escolhe quem pode usar, na chave **Acesso ao Conector MCP** da edição do usuário ou em **Configurações → Conector MCP**.
+  </Card>
+</Columns>
+
+Ao retirar o acesso de um usuário, desativar o usuário ou clicar em **Desconectar** em **Configurações → Conector MCP**, as conexões são encerradas na hora.
+
+---
+
+## O que cada nível pode fazer
+
+O conector respeita o nível de acesso de cada usuário. Os níveis são os mesmos da plataforma: veja [Quais são os níveis de acesso e permissões?](/quais-so-os-nveis-de-acesso-e-permisses).
+
+| Pelo assistente, é possível… | Proprietário | Administrador | Analista | Operador | Apenas Leitura | Apenas Painel |
+| --- | --- | --- | --- | --- | --- | --- |
+| Ver a conta e as unidades | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| Consultar resultados e detalhamentos | ✅ | ✅ | ✅ | ❌ | ✅ | ❌ |
+| Ler respostas | ✅ | ✅ | ✅ | ❌ | ✅ | ❌ |
+| Consultar pesquisas, campos customizados, grupos e pastas | ✅ | ✅ | ✅ | ❌ | ✅ | ❌ |
+| Ver painéis | ✅ | ✅ | ✅ | ❌ | ✅ | ✅ |
+| Criar e alterar painéis | ✅ | ✅ | ✅ | ❌ | ❌ | ❌ |
+| Criar e alterar campos customizados | ✅ | ✅ | ✅ | ❌ | ❌ | ❌ |
+| Organizar grupos e pastas de pesquisa | ✅ | ✅ | ✅ | ❌ | ❌ | ❌ |
+| Criar e alterar resumos recorrentes de IA | ✅ | ✅ | ✅\* | ❌ | ❌ | ❌ |
+| Criar e alterar pesquisas e automações | ✅ | ✅ | ❌ | ❌ | ❌ | ❌ |
+| Organizar pastas de resumos de IA | ✅ | ✅ | ❌ | ❌ | ❌ | ❌ |
+| Gerenciar templates de WhatsApp | ✅ | ✅ | ❌ | ❌ | ❌ | ❌ |
+| Gerenciar categorias de ticket | ✅ | ✅ | ❌ | ❌ | ❌ | ❌ |
+
+\* O Analista só cria e altera resumos recorrentes em planos com IA inclusa.
+
+### Fechamento de Loop
+
+O Fechamento de Loop segue os níveis próprios do módulo (Administrador, Analista e Agente), como na plataforma:
+
+| Pelo assistente, é possível… | Administrador | Analista | Agente |
+| --- | --- | --- | --- |
+| Consultar, criar e alterar tickets | ✅ Em todos os fluxos da conta | ✅ Nos fluxos de que participa | ✅ Só tickets em que é responsável ou seguidor |
+| Deixar nota e responder o cliente por e-mail | ✅ | ✅ | ✅ |
+| Alterar tickets em lote e mover para outro fluxo | ✅ | ✅ | ❌ |
+| Criar e alterar fluxos | ✅ | ❌ | ❌ |
+
+---
+
+## Dados pessoais
+
+Usuários com **Esconder Dados Pessoais** ativado recebem nome, e-mail, telefone e campos sensíveis mascarados também pelo assistente, como na plataforma.
+
+<Callout kind="alert" collapsed="false">
+  As informações consultadas pelo conector são entregues ao assistente de IA que você está usando. Antes de conectar, confira as políticas de privacidade, retenção e uso de dados do assistente e as configurações de privacidade da sua conta nele.
+</Callout>
+
+---
+
+## Confirmações antes de agir
+
+Ações com efeito para fora ou difíceis de desfazer mostram primeiro um resumo e só acontecem depois que você confirma na conversa. Por exemplo:
+
+- enviar e-mail ao cliente por um ticket;
+- alterar vários tickets de uma vez ou movê-los para outro fluxo;
+- excluir categorias e modelos de e-mail do Fechamento de Loop, grupos de pesquisa, resumos recorrentes ou templates de WhatsApp.
+
+Confirmar não amplia permissões: mesmo depois da confirmação, a ação só acontece se o seu nível permitir.
+
+---
+
+## Registro das ações
+
+As ações feitas pelo Conector MCP ficam registradas com o usuário que fez o pedido e o aplicativo usado. As alterações aparecem nos históricos da plataforma do mesmo jeito que as feitas pela tela, no nome de quem pediu.
+
+---
+
+## Próximo passo
+
+<Card title="Requisitos técnicos" href="/conector-mcp/requisitos-tecnicos" icon="lucide-code" cta="Ver artigo" horizontal="false">
+  Endereço, transporte, autenticação e lista de ferramentas, para quem vai integrar.
+</Card>

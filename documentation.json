@@ -372,6 +372,35 @@
             ]
           },
           {
+            "group": "Conector MCP",
+            "pages": [
+              {
+                "title": "O que é o Conector MCP?",
+                "path": "conector-mcp/entenda-o-conector-mcp"
+              },
+              {
+                "title": "Como começar a usar o Conector MCP?",
+                "path": "conector-mcp/comece-a-usar"
+              },
+              {
+                "title": "Como conectar o Claude, ChatGPT, Gemini e Copilot?",
+                "path": "conector-mcp/integracoes"
+              },
+              {
+                "title": "O que dá para fazer com o Conector MCP?",
+                "path": "conector-mcp/o-que-voce-pode-fazer"
+              },
+              {
+                "title": "Segurança e permissões do Conector MCP",
+                "path": "conector-mcp/seguranca-e-permissoes"
+              },
+              {
+                "title": "Requisitos técnicos do Conector MCP",
+                "path": "conector-mcp/requisitos-tecnicos"
+              }
+            ]
+          },
+          {
             "group": "Técnicos e Devs",
             "pages": [
               {

@@ -1,0 +1,145 @@
+---
+title: Requisitos técnicos do Conector MCP
+description: >-
+  Endereço, transporte, autenticação OAuth e catálogo de ferramentas do
+  Conector MCP da Amplifique.me, para quem vai integrar um assistente ou
+  aplicação própria.
+---
+## Visão geral
+
+Esta página reúne os detalhes técnicos para quem vai conectar uma aplicação própria ou validar uma integração. Para conectar um assistente de mercado, veja [Integrações](/conector-mcp/integracoes).
+
+---
+
+## Referência rápida
+
+| Item | Valor |
+| --- | --- |
+| Endereço | `https://mcp.amplifique.me/mcp` |
+| Transporte | Streamable HTTP, sem sessão entre requisições |
+| Autenticação | OAuth 2.0 com código de autorização |
+| Descoberta | `/.well-known/oauth-protected-resource` no endereço do conector |
+| Capacidades | Tools, com interface visual em algumas ferramentas de respostas |
+| Prompts e Resources MCP | Não disponíveis |
+
+O conector não usa stdio nem o transporte SSE legado.
+
+---
+
+## Autenticação
+
+O acesso é sempre feito em nome de um usuário da Amplifique.me, com OAuth 2.0:
+
+- **Descoberta automática:** o endereço do conector informa o servidor de autorização. Os endpoints de autorização, token e cadastro de aplicativo vêm do documento de metadados desse servidor.
+- **Cadastro do aplicativo:** aplicativos se cadastram sozinhos pelo endpoint de cadastro dinâmico (RFC 7591).
+- **PKCE:** obrigatório, com o método `S256`, para aplicativos sem Client Secret.
+- **Client Secret:** usado pelas credenciais geradas para o Gemini Enterprise em **Configurações → Conector MCP**, enviado no corpo da requisição (`client_secret_post`) ou no cabeçalho Basic (`client_secret_basic`).
+- **Tokens:** o token de acesso vale 15 minutos e é renovado com o refresh token, que vale 30 dias e é trocado a cada renovação.
+
+### Escopos
+
+| Escopo | O que libera |
+| --- | --- |
+| `accounts:read` | Ver os dados da conta e das unidades |
+| `surveys:read` | Ler pesquisas, respostas, resultados, painéis e tickets |
+| `surveys:write` | Criar e editar pesquisas, painéis, resumos e tickets |
+| `custom_fields:read` | Ler campos customizados |
+| `custom_fields:write` | Criar e editar campos customizados |
+
+<Callout kind="info" collapsed="false">
+  O escopo define o que o aplicativo pode pedir. O que cada chamada pode fazer de fato depende também do nível de acesso do usuário e da liberação do Conector MCP para ele, verificados a cada chamada. Veja [Segurança e permissões](/conector-mcp/seguranca-e-permissoes).
+</Callout>
+
+---
+
+## Catálogo de ferramentas
+
+Depois de autenticar, a lista completa sai de `tools/list`, com a descrição e os parâmetros de cada ferramenta. Cada uma traz as anotações `readOnlyHint` e `destructiveHint`, para o assistente saber o que é só consulta.
+
+### Conta e filtros
+
+| Ferramenta | O que faz |
+| --- | --- |
+| `amp.me` | Mostra o usuário e a conta conectados |
+| `amp.businesses.list` | Lista as unidades |
+| `amp.filters.catalog` | Lista os filtros aceitos na conta, como na tela de Respostas |
+
+### Pesquisas
+
+| Ferramenta | O que faz |
+| --- | --- |
+| `amp.surveys.list` / `amp.surveys.get` | Lista e abre pesquisas |
+| `amp.surveys.create` / `amp.surveys.update` | Cria e altera pesquisas |
+| `amp.surveys.validate` | Confere se a pesquisa pode ir ao ar |
+| `amp.automations.guide` / `amp.automations.options` | Ajudam a montar automações da pesquisa |
+| `amp.survey_folders.list` / `amp.survey_folders.update` | Lista e organiza pastas de pesquisa |
+| `amp.survey_groups.list` / `.matching` / `.create` / `.update` / `.delete` | Gerencia grupos de pesquisa |
+| `amp.smart_tags.sets.list` | Lista os conjuntos de Smart Tags |
+
+### Respostas e resultados
+
+| Ferramenta | O que faz |
+| --- | --- |
+| `amp.answers.list` / `amp.answers.get` | Lista e abre respostas, só com os dados |
+| `amp.answers.show_list` / `amp.answers.show` | O mesmo conteúdo, exibido no visual da tela de Respostas nos assistentes que mostram interface |
+| `amp.metrics.overview` | Resultados de até 10 pesquisas, com comparação com o período anterior |
+| `amp.metrics.breakdown` | Detalhamento por grupo ou ao longo do tempo, incluindo convites e taxa de resposta |
+
+### Campos customizados
+
+| Ferramenta | O que faz |
+| --- | --- |
+| `amp.custom_fields.list` / `amp.custom_fields.sample_values` | Lista campos e amostra os valores gravados |
+| `amp.custom_fields.create` / `.update` / `.delete` | Cria, altera e exclui campos |
+
+### Painéis e resumos de IA
+
+| Ferramenta | O que faz |
+| --- | --- |
+| `amp.dashboards.list` / `.get` / `.create` / `.update` / `.duplicate` | Gerencia painéis e cards |
+| `amp.ai_summaries.recurring.list` / `.create` / `.update` / `.delete` | Gerencia resumos recorrentes de IA |
+| `amp.ai_summaries.folders.list` / `.update` | Organiza pastas de resumos |
+
+### Fechamento de Loop
+
+| Ferramenta | O que faz |
+| --- | --- |
+| `amp.tickets.list` / `amp.tickets.get` | Lista e abre tickets |
+| `amp.tickets.create` / `amp.tickets.update` | Cria e altera tickets: fase, responsável, prioridade, prazo, categorias, checklist e arquivamento |
+| `amp.tickets.add_note` | Adiciona nota interna |
+| `amp.tickets.send_email` | Responde o cliente por e-mail, com prévia e confirmação |
+| `amp.tickets.batch_update` / `amp.tickets.move_to_pipeline` | Alteração em lote e mudança de fluxo, com prévia e confirmação |
+| `amp.ticketing.pipelines.*` / `amp.ticketing.pipeline_folders.update` | Gerencia fluxos e pastas de fluxos |
+| `amp.ticketing.categories.*` / `amp.ticketing.email_templates.*` | Gerencia categorias e modelos de e-mail |
+
+### WhatsApp
+
+| Ferramenta | O que faz |
+| --- | --- |
+| `amp.whatsapp.meta_templates.list` / `.preview` / `.create` / `.delete` | Gerencia templates de WhatsApp da Meta |
+
+<Callout kind="info" collapsed="false">
+  Uma ferramenta aparecer em `tools/list` não quer dizer que o usuário pode usá-la: o nível de acesso é conferido quando a ferramenta é chamada.
+</Callout>
+
+---
+
+## Confirmações e resultados
+
+Ferramentas com efeito para fora ou difíceis de desfazer, como envio de e-mail e alterações em lote, respondem primeiro com uma prévia e só executam quando chamadas de novo com `confirm: true`.
+
+Alterações em lote de tickets rodam em segundo plano: a resposta informa quantos tickets entraram no lote, e o resultado de cada um aparece no ticket.
+
+As chamadas têm limite de frequência por usuário. Quando o limite é atingido, a resposta informa em quanto tempo tentar de novo.
+
+---
+
+## Para desenvolvedores
+
+Para uma primeira integração:
+
+1. conecte ao endereço do conector e conclua a autorização OAuth;
+2. chame `tools/list` e confira as ferramentas disponíveis para o usuário;
+3. comece por uma ferramenta de consulta, como `amp.surveys.list`;
+4. valide os parâmetros e o formato da resposta;
+5. só depois use ferramentas que alteram dados.

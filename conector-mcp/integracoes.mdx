@@ -1,0 +1,209 @@
+---
+title: Como conectar o Claude, ChatGPT, Gemini e Copilot?
+description: >-
+  Passo a passo para conectar a Amplifique.me ao Claude, ChatGPT, Gemini,
+  Gemini Enterprise, Microsoft Copilot e outros assistentes compatíveis com MCP.
+---
+## Visão geral
+
+O Conector MCP funciona com qualquer assistente de IA compatível com MCP. Abaixo está o passo a passo dos mais usados. Se o seu assistente não estiver na lista, veja [Outros assistentes](#outros-assistentes).
+
+Em todos os casos, você vai precisar do endereço do conector:
+
+```
+https://mcp.amplifique.me/mcp
+```
+
+<Callout kind="info" collapsed="false">
+  Antes de conectar, confirme que o seu usuário tem o **Acesso ao Conector MCP** liberado. Veja [Como começar a usar o Conector MCP](/conector-mcp/comece-a-usar).
+</Callout>
+
+---
+
+## Claude
+
+Disponível nos planos Pro, Max, Team e Enterprise do Claude.
+
+<Steps>
+  <Step title="Acesse Configurações → Conector MCP na Amplifique.me" title-type="p">
+    Na aba **Claude**, clique em **Conectar ao Claude**. O Claude abre com a configuração da Amplifique.me já preenchida.
+  </Step>
+
+  <Step title="Confira e adicione o conector" title-type="p">
+    Revise o nome e o endereço e clique em **Adicionar**.
+  </Step>
+
+  <Step title="Conecte e autorize" title-type="p">
+    Clique em **Conectar**, entre com o seu usuário da Amplifique.me e clique em **Autorizar**.
+  </Step>
+</Steps>
+
+<Callout kind="tip" collapsed="false">
+  Nos planos Team e Enterprise do Claude, o conector costuma ser adicionado por um administrador da organização no Claude. Depois disso, cada pessoa encontra a Amplifique.me na lista de conectores e só clica em **Conectar** para autorizar com o próprio usuário.
+</Callout>
+
+Para adicionar à mão, vá em **Configurações → Conectores** no Claude, clique em **Adicionar conector personalizado** e cole o endereço do conector.
+
+---
+
+## ChatGPT
+
+Disponível nos planos Plus, Pro, Business e Enterprise do ChatGPT, pelo navegador. É preciso ligar o **Modo desenvolvedor** nas configurações do ChatGPT.
+
+<Steps>
+  <Step title="Crie o app" title-type="p">
+    No ChatGPT, vá em **Configurações → Apps** e clique em **Criar**.
+  </Step>
+
+  <Step title="Preencha os dados da Amplifique.me" title-type="p">
+    - **Nome:** Amplifique.me
+    - **URL do MCP:** `https://mcp.amplifique.me/mcp`
+    - **Autenticação:** OAuth
+    - **Logo:** baixe a logo em **Configurações → Conector MCP**, na aba **ChatGPT**.
+  </Step>
+
+  <Step title="Crie e autorize" title-type="p">
+    Clique em **Criar**, entre com o seu usuário da Amplifique.me e clique em **Autorizar**.
+  </Step>
+</Steps>
+
+<Callout kind="info" collapsed="false">
+  Nos planos Business e Enterprise, um administrador do ChatGPT pode publicar o app para o workspace. Assim, as outras pessoas só precisam conectar e autorizar com o próprio usuário.
+</Callout>
+
+---
+
+## Gemini
+
+Para o Gemini no navegador (gemini.google.com).
+
+<Steps>
+  <Step title="Abra os apps personalizados" title-type="p">
+    No Gemini, vá em **Configurações → Apps conectados** e abra **Apps personalizados**.
+  </Step>
+
+  <Step title="Informe o endereço do conector" title-type="p">
+    Cole `https://mcp.amplifique.me/mcp` e clique em **Avançar**.
+  </Step>
+
+  <Step title="Autorize" title-type="p">
+    Entre com o seu usuário da Amplifique.me e clique em **Autorizar**.
+  </Step>
+</Steps>
+
+---
+
+## Gemini Enterprise
+
+O Gemini Enterprise pede credenciais OAuth próprias da sua conta. Elas são geradas pelo **Proprietário** na Amplifique.me e coladas por um administrador do Gemini Enterprise.
+
+<Steps>
+  <Step title="Gere as credenciais na Amplifique.me" title-type="p">
+    Em **Configurações → Conector MCP**, no bloco **Gemini Enterprise**, clique em **Gerar Credenciais**. A tela mostra o endereço do servidor MCP, o **Client ID**, o **Client Secret**, a **Authorization URL**, a **Token URL** e os **Scopes**, cada um com o botão **Copiar**.
+
+    <Callout kind="alert" collapsed="false">
+      O **Client Secret** aparece uma única vez. Copie antes de sair da tela. Se perder, exclua as credenciais e gere outras.
+    </Callout>
+  </Step>
+
+  <Step title="Adicione o servidor MCP no Gemini Enterprise" title-type="p">
+    Nas configurações do Gemini Enterprise, abra **Conectores**, adicione um servidor MCP personalizado e cole os valores gerados em cada campo.
+  </Step>
+
+  <Step title="Autorize" title-type="p">
+    Entre com o seu usuário da Amplifique.me e clique em **Autorizar**. Cada pessoa que for usar autoriza com o próprio usuário.
+  </Step>
+</Steps>
+
+As credenciais servem só para a conta da Amplifique.me que as gerou. Na lista do bloco **Gemini Enterprise**, você vê quem criou cada credencial e quando. Ao clicar em **Excluir**, o Gemini Enterprise configurado com ela perde o acesso na hora.
+
+---
+
+## Microsoft Copilot
+
+Para agentes criados no Microsoft Copilot Studio.
+
+<Steps>
+  <Step title="Adicione a ferramenta" title-type="p">
+    No seu agente, abra **Ferramentas → Adicionar ferramenta → Model Context Protocol**.
+  </Step>
+
+  <Step title="Preencha os dados do servidor" title-type="p">
+    - **Nome do servidor:** Amplifique.me
+    - **URL do servidor:** `https://mcp.amplifique.me/mcp`
+    - **Autenticação:** OAuth 2.0, com o tipo **Descoberta dinâmica**
+  </Step>
+
+  <Step title="Crie a conexão e autorize" title-type="p">
+    Crie uma nova conexão, entre com o seu usuário da Amplifique.me e clique em **Autorizar**. Depois, adicione a ferramenta ao agente.
+  </Step>
+</Steps>
+
+Quando o agente é publicado para a organização, cada pessoa que usar pode precisar autorizar com o próprio usuário da Amplifique.me.
+
+---
+
+## Outros assistentes
+
+Cursor, VS Code e qualquer outra ferramenta compatível com MCP podem se conectar. Nas configurações de MCP do seu assistente, adicione um servidor remoto com estes dados:
+
+| Item | Valor |
+| --- | --- |
+| Nome | Amplifique.me |
+| Endereço | `https://mcp.amplifique.me/mcp` |
+| Transporte | Streamable HTTP |
+| Autenticação | OAuth 2.0 |
+
+Se você está construindo uma integração própria, veja os [Requisitos técnicos](/conector-mcp/requisitos-tecnicos).
+
+### Pedir ajuda ao próprio assistente
+
+Se não souber onde configurar, copie o texto abaixo e cole no seu assistente:
+
+```
+Quero conectar a Amplifique.me a você usando MCP.
+
+Endereço do servidor: https://mcp.amplifique.me/mcp
+Transporte: Streamable HTTP
+Autenticação: OAuth
+
+Me diga onde adicionar esse servidor no aplicativo que estou usando. Se você conseguir configurar sozinho, configure. No fim, confirme se as ferramentas da Amplifique.me apareceram.
+```
+
+---
+
+## Problemas e soluções
+
+<ExpandableGroup>
+  <Expandable title="Aparece &quot;Seu usuário não tem acesso ao conector MCP&quot;" default-open="false">
+    O seu usuário ainda não tem o **Acesso ao Conector MCP** liberado, ou o conector não está habilitado na conta. Peça ao Proprietário da conta para ligar a chave **Acesso ao Conector MCP** na edição do seu usuário. Se a chave não aparecer para ele, o conector ainda não foi habilitado na conta: fale com o seu CS.
+  </Expandable>
+
+  <Expandable title="Aparece &quot;Este aplicativo foi configurado para outra conta da Amplifique.me&quot;" default-open="false">
+    Acontece no Gemini Enterprise quando as credenciais foram geradas em outra conta. Gere as credenciais na conta que você quer conectar e configure o Gemini Enterprise com elas.
+  </Expandable>
+
+  <Expandable title="A conexão parou de funcionar" default-open="false">
+    A conexão pode ter sido encerrada em **Configurações → Conector MCP**, ou o seu acesso ao conector foi retirado. Confira com o Proprietário da conta e conecte de novo pelo assistente.
+  </Expandable>
+
+  <Expandable title="O assistente não encontra as ferramentas da Amplifique.me" default-open="false">
+    Confira se o conector está ativado na conversa: alguns assistentes deixam os conectores desligados por padrão em cada conversa. Se continuar, remova o conector no assistente e adicione de novo.
+  </Expandable>
+
+  <Expandable title="O assistente diz que não pode fazer uma ação" default-open="false">
+    O conector segue o seu nível de acesso na Amplifique.me. Se o seu nível não permite a ação na plataforma, ela também não é feita pelo assistente. Veja [Segurança e permissões](/conector-mcp/seguranca-e-permissoes).
+  </Expandable>
+
+  <Expandable title="O assistente pede para confirmar antes de fazer algo" default-open="false">
+    Envios ao cliente, exclusões e alterações em lote primeiro mostram um resumo do que vai acontecer. Confira e confirme na conversa para o assistente seguir.
+  </Expandable>
+</ExpandableGroup>
+
+---
+
+## Próximo passo
+
+<Card title="O que você pode fazer" href="/conector-mcp/o-que-voce-pode-fazer" icon="lucide-sparkles" cta="Ver exemplos" horizontal="false">
+  Pedidos prontos para análise de resultados, respostas e Fechamento de Loop.
+</Card>
