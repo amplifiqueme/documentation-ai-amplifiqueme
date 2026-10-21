@@ -31,8 +31,8 @@ Com a conta habilitada, o **Proprietário** escolhe quem pode usar o conector:
 
   <Tab title="Todos de uma vez" icon="lucide-users">
     <Steps>
-      <Step title="Acesse Configurações → Conector MCP" title-type="p">
-        No bloco **Acesso dos Usuários**, você vê quantos usuários ativos já têm acesso.
+      <Step title="Acesse Configurações → Usuários" title-type="p">
+        No bloco **Acesso ao Conector MCP**, no topo da tela, você vê quantos usuários ativos já têm acesso.
       </Step>
 
       <Step title="Clique em Liberar para todos" title-type="p">
@@ -52,13 +52,13 @@ Quem recebe o acesso é avisado por notificação na plataforma e por e-mail.
 
 ## 2. Conecte o seu assistente
 
-Em **Configurações → Conector MCP**, a seção **Conectar um Agente** mostra o passo a passo para cada assistente e o endereço do conector:
+Em **Configurações → Conector MCP**, o cartão **Conectar um agente à Amplifique.me** tem uma aba para cada assistente (Claude, ChatGPT, Gemini, Copilot e Outros agentes), com o passo a passo e o endereço do conector:
 
 ```
 https://mcp.amplifique.me/mcp
 ```
 
-Cada assistente tem uma tela de configuração diferente. Veja as instruções detalhadas em [Integrações](/conector-mcp/integracoes).
+No Claude, o botão **Conectar ao Claude** já abre o Claude com a Amplifique.me preenchida. Para os outros assistentes, veja as instruções detalhadas em [Integrações](/conector-mcp/integracoes).
 
 ---
 
@@ -90,14 +90,13 @@ Veja mais exemplos em [O que você pode fazer](/conector-mcp/o-que-voce-pode-faz
 
 ---
 
-## Aplicativos conectados
+## Agentes conectados
 
-Em **Configurações → Conector MCP**, a tabela **Aplicativos Conectados** mostra os assistentes conectados, com a data da conexão e do último uso.
+Em **Configurações → Conector MCP**, cada aba mostra **conectado** ou **não conectado** para o seu usuário. Na aba de um assistente conectado, aparecem a data da conexão, o último uso e o botão **Desconectar**.
 
-- Cada usuário vê e desconecta as próprias conexões.
-- O **Proprietário** vê as conexões de todos os usuários da conta e pode desconectar qualquer uma.
+O **Proprietário** acompanha os agentes de toda a equipe em **Configurações → Usuários**: a coluna **Agentes Conectados** mostra o ícone de cada assistente conectado por usuário, e a opção **Desconectar Agentes**, no menu de ações do usuário, encerra as conexões dele. Na tela do Conector MCP, o link **Ver agentes conectados dos usuários** leva para lá.
 
-Ao clicar em **Desconectar**, o aplicativo perde o acesso na hora. Para voltar a usar, é preciso conectar de novo pelo assistente.
+Ao desconectar, o assistente perde o acesso na hora. Para voltar a usar, é preciso conectar de novo pelo assistente.
 
 <Callout kind="info" collapsed="false">
   Quando o acesso ao Conector MCP é retirado de um usuário, ou o usuário é desativado, todas as conexões dele são encerradas.
