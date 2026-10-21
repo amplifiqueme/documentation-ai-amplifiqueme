@@ -372,35 +372,6 @@
             ]
           },
           {
-            "group": "Conector MCP",
-            "pages": [
-              {
-                "title": "O que é o Conector MCP?",
-                "path": "conector-mcp/entenda-o-conector-mcp"
-              },
-              {
-                "title": "Como começar a usar o Conector MCP?",
-                "path": "conector-mcp/comece-a-usar"
-              },
-              {
-                "title": "Como conectar o Claude, ChatGPT, Gemini e Copilot?",
-                "path": "conector-mcp/integracoes"
-              },
-              {
-                "title": "O que dá para fazer com o Conector MCP?",
-                "path": "conector-mcp/o-que-voce-pode-fazer"
-              },
-              {
-                "title": "Segurança e permissões do Conector MCP",
-                "path": "conector-mcp/seguranca-e-permissoes"
-              },
-              {
-                "title": "Requisitos técnicos do Conector MCP",
-                "path": "conector-mcp/requisitos-tecnicos"
-              }
-            ]
-          },
-          {
             "group": "Técnicos e Devs",
             "pages": [
               {
@@ -627,6 +598,51 @@
           }
         ],
         "icon": "code"
+      },
+      {
+        "tab": "Conector MCP",
+        "icon": "plug",
+        "pages": [
+          {
+            "group": "Primeiros passos",
+            "pages": [
+              {
+                "title": "Visão geral",
+                "path": "conector-mcp/entenda-o-conector-mcp"
+              },
+              {
+                "title": "Comece a usar",
+                "path": "conector-mcp/comece-a-usar"
+              },
+              {
+                "title": "Integrações",
+                "path": "conector-mcp/integracoes"
+              }
+            ]
+          },
+          {
+            "group": "Na prática",
+            "pages": [
+              {
+                "title": "O que você pode fazer",
+                "path": "conector-mcp/o-que-voce-pode-fazer"
+              }
+            ]
+          },
+          {
+            "group": "Referência",
+            "pages": [
+              {
+                "title": "Segurança e permissões",
+                "path": "conector-mcp/seguranca-e-permissoes"
+              },
+              {
+                "title": "Requisitos técnicos",
+                "path": "conector-mcp/requisitos-tecnicos"
+              }
+            ]
+          }
+        ]
       },
       {
         "tab": "Novidades",
