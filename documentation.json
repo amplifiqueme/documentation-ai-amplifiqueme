@@ -600,6 +600,51 @@
         "icon": "code"
       },
       {
+        "tab": "Conector MCP",
+        "icon": "plug",
+        "pages": [
+          {
+            "group": "Primeiros passos",
+            "pages": [
+              {
+                "title": "Visão geral",
+                "path": "conector-mcp/entenda-o-conector-mcp"
+              },
+              {
+                "title": "Comece a usar",
+                "path": "conector-mcp/comece-a-usar"
+              },
+              {
+                "title": "Integrações",
+                "path": "conector-mcp/integracoes"
+              }
+            ]
+          },
+          {
+            "group": "Na prática",
+            "pages": [
+              {
+                "title": "O que você pode fazer",
+                "path": "conector-mcp/o-que-voce-pode-fazer"
+              }
+            ]
+          },
+          {
+            "group": "Referência",
+            "pages": [
+              {
+                "title": "Segurança e permissões",
+                "path": "conector-mcp/seguranca-e-permissoes"
+              },
+              {
+                "title": "Requisitos técnicos",
+                "path": "conector-mcp/requisitos-tecnicos"
+              }
+            ]
+          }
+        ]
+      },
+      {
         "tab": "Novidades",
         "icon": "clock",
         "pages": [
@@ -717,6 +762,11 @@
       "source": "/teste12",
       "destination": "/integrao-com-activecampaign",
       "statusCode": 301
+    }
+  ],
+  "customCss": [
+    {
+      "src": "styles/ocultar-conector-mcp.css"
     }
   ]
 }
