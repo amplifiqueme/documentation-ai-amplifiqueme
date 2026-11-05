@@ -17,6 +17,8 @@ Você pode importar toda a sua base de contatos de uma vez, sem digitar um por u
 
 ## Passo a passo
 
+<Video src="https://video-cdn.documentation.ai/org-228168c3-baff-41c0-9e3d-a927017afd0f/doc-dc08e65a-c672-46a6-8e86-3eb57bb5df19/1793887768239-4wgwbniw9cp-importar-contatos.mp4" render-type="video" poster="https://blob-cdn.documentation.ai/org-228168c3-baff-41c0-9e3d-a927017afd0f/doc-dc08e65a-c672-46a6-8e86-3eb57bb5df19/1793887784156-ao7vnksdlml-importar-contatos-poster.jpg?fm=auto&auto=compress%2Cformat" controls="true" allow-full-screen="true" />
+
 <Steps>
   <Step title="Acesse o módulo Contatos" title-type="p">
     No menu lateral esquerdo, clique em `👤 Contatos`. Em seguida, clique no botão `Importar Contatos` no topo da tela. Você também chega ao mesmo lugar por `Importações → Importar Contatos`.
@@ -39,6 +41,8 @@ Você pode importar toda a sua base de contatos de uma vez, sem digitar um por u
   <Step title="Faça o upload do arquivo" title-type="p">
     De volta à plataforma, arraste o arquivo para a área indicada ou clique nela para buscar o arquivo. O formato deve ser obrigatoriamente `CSV UTF-8 (delimitado por vírgulas)` para preservar a formatação correta dos dados.
 
+    Em seguida, na etapa **Mapeamento de Campos**, confira para qual campo vai cada coluna do arquivo. Os campos marcados com **Mapeado Automaticamente** devem ser revisados. Depois, clique em `Avançar`.
+
     <Callout kind="alert" collapsed="false">
       O arquivo pode ter no máximo **20MB** e **30.000 linhas** por importação. Para bases maiores, divida em múltiplos arquivos e importe em sequência. No Excel, salve como **CSV UTF-8**. No Google Sheets, use `Arquivo → Fazer download → CSV`.
     </Callout>
@@ -48,8 +52,10 @@ Você pode importar toda a sua base de contatos de uma vez, sem digitar um por u
     </Callout>
   </Step>
 
-  <Step title="Adicione etiquetas aos contatos importados (opcional)" title-type="p">
-    Antes de confirmar, você pode aplicar uma ou mais etiquetas a todos os contatos desse arquivo — por exemplo: `Cliente prime`, `Lead evento` ou qualquer outra classificação relevante.
+  <Step title="Confira a validação e adicione etiquetas" title-type="p">
+    Na etapa **Validação**, confira quantos contatos foram encontrados, duplicados, com erro e válidos.
+
+    Adicionar ao menos uma etiqueta é **obrigatório**: ela vai para todos os contatos desse arquivo — por exemplo: `Cliente prime`, `Lead evento` ou qualquer outra classificação relevante. Digite e aperte Enter, ou clique na sugestão com a data da importação.
 
     <Callout kind="tip" collapsed="false">
       As etiquetas facilitam filtrar contatos na hora de criar um disparo de pesquisa.
@@ -57,7 +63,7 @@ Você pode importar toda a sua base de contatos de uma vez, sem digitar um por u
   </Step>
 
   <Step title="Confirme e acompanhe o processamento" title-type="p">
-    Clique em `Iniciar importação`. Após concluir, você será redirecionado para a aba Contatos com a lista já filtrada pelos contatos recém-importados.
+    Clique em `Importar`. Após concluir, você será redirecionado para a aba Contatos com a lista já filtrada pelos contatos recém-importados.
 
     <Callout kind="success" collapsed="false">
       Seus contatos já estão disponíveis na lista e podem ser usados em disparos de pesquisa.
@@ -112,4 +118,3 @@ Você pode importar toda a sua base de contatos de uma vez, sem digitar um por u
 <Card title="Como disparar uma pesquisa para múltiplos contatos" href="/como-enviar-pesquisas-em-massa-para-mltiplos-contatos" icon="send" cta="Ver artigo" horizontal="false" target="_self">
   Agora que sua base está importada, aprenda a criar e enviar uma pesquisa em massa usando os contatos importados.
 </Card>
-
