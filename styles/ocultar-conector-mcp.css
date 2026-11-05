@@ -1,3 +1,4 @@
-a.whitespace-nowrap[href^="/conector-mcp/"] {
+a.whitespace-nowrap[href^="/conector-mcp/"],
+button:has(svg.lucide-plug) {
   display: none !important;
 }
