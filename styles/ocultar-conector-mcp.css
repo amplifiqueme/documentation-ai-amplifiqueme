@@ -1,0 +1,3 @@
+a.whitespace-nowrap[href^="/conector-mcp/"] {
+  display: none !important;
+}

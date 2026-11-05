@@ -763,5 +763,10 @@
       "destination": "/integrao-com-activecampaign",
       "statusCode": 301
     }
+  ],
+  "customCss": [
+    {
+      "src": "styles/ocultar-conector-mcp.css"
+    }
   ]
 }
