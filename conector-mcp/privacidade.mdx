@@ -1,0 +1,62 @@
+---
+title: Privacidade no Conector MCP
+description: >-
+  Quais dados o Conector MCP envia ao assistente de IA, o que fica registrado
+  na Amplifique.me e por quanto tempo.
+---
+## Visão geral
+
+Este aviso complementa a [Política de Privacidade da Amplifique.me](https://amplifique.me/politica-de-privacidade) e vale para o uso da plataforma por um assistente de IA conectado pelo Conector MCP, como Claude, ChatGPT, Gemini ou Copilot.
+
+O conector só devolve dados que o usuário conectado já pode ver na plataforma, com o mesmo nível de acesso. Quem tem **Esconder Dados Pessoais** ligado recebe nome, e-mail e telefone dos contatos mascarados, como na tela.
+
+Nos dados dos contatos e das respostas, a empresa cliente da Amplifique.me é a controladora, e a Amplifique.me atua como operadora.
+
+---
+
+## Dados que o conector envia ao assistente
+
+O conector só envia dados quando o assistente usa uma ferramenta para atender um pedido do usuário. Cada ferramenta devolve apenas as categorias abaixo que dizem respeito ao pedido.
+
+| Categoria | O que inclui |
+| --- | --- |
+| Usuário conectado | Nome, e-mail, nível de acesso e permissões no conector, nome e identificador da conta |
+| Equipe da conta | Nome dos usuários que aparecem como responsáveis por tickets, autores de anotações, membros de fluxos de Fechamento de Loop e usuários com acesso a painéis |
+| Contatos | Nome, e-mail, telefone e, quando o pedido cita, os campos customizados do contato ou da resposta, que podem incluir documentos como CPF ou CNPJ, se a conta os cadastrou |
+| Respostas de pesquisas | Pesquisa, unidade, data, canal, status, notas e respostas às perguntas, comentários, anotações internas, tags e a análise da IA (tipo, sentimento e tópicos) |
+| Tickets | Código, assunto, fase, prioridade, prazo, responsável, contato, anotações, e-mails trocados com o contato e histórico de atividades |
+| Resultados e resumos | Indicadores agregados (como NPS, CSAT e CES), detalhamentos por unidade, canal ou campo customizado e os resumos de IA gerados na conta |
+| Configuração da conta | Pesquisas, unidades, campos customizados, painéis, grupos e pastas, fluxos e modelos de e-mail de Fechamento de Loop e modelos de WhatsApp |
+| Identificadores técnicos | Identificadores internos dos registros, datas, o identificador da conversa (`conversation_id`) e mensagens de erro em texto explicando por que um pedido não foi atendido |
+
+O conector não envia senhas, tokens de acesso, dados de cartão nem dados de faturamento da conta. Painéis com link público informam apenas se têm senha, sem a senha.
+
+---
+
+## O que o assistente faz com esses dados
+
+Os dados enviados passam a ser tratados também pelo provedor do assistente escolhido pelo usuário (por exemplo, OpenAI, Anthropic, Google ou Microsoft), conforme a política de privacidade e os termos desse provedor e as configurações da conta do usuário nele. A Amplifique.me não controla o que o provedor guarda nem por quanto tempo.
+
+---
+
+## O que a Amplifique.me registra
+
+Para segurança, auditoria e suporte, cada uso do conector fica registrado com:
+
+- usuário, conta e unidade envolvidos;
+- aplicativo conectado e identificação do cliente usado por ele;
+- ferramenta usada, parâmetros enviados, resultado (sucesso, negado ou erro), quantidade de registros devolvidos e mensagem de erro;
+- a finalidade do pedido e o modelo de IA, informados pelo próprio assistente a cada chamada, e o identificador da conversa;
+- data e hora.
+
+Esses registros são apagados automaticamente após cerca de 4 meses. Comentários enviados pelo assistente sobre o funcionamento do conector ficam guardados para melhoria do produto.
+
+O conteúdo da conversa entre o usuário e o assistente não é enviado à Amplifique.me, apenas os pedidos que o assistente faz ao conector.
+
+---
+
+## Como encerrar o acesso
+
+O usuário pode desconectar um assistente a qualquer momento em **Configurações → Conector MCP**. O Proprietário pode tirar o acesso dos demais usuários em **Configurações → Usuários**. A desconexão encerra o acesso na hora.
+
+Para exercer os direitos previstos na LGPD ou tirar dúvidas, escreva para meajuda@amplifique.me.
