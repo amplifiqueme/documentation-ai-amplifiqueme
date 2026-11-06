@@ -639,6 +639,10 @@
               {
                 "title": "Requisitos técnicos",
                 "path": "conector-mcp/requisitos-tecnicos"
+              },
+              {
+                "title": "Privacidade",
+                "path": "conector-mcp/privacidade"
               }
             ]
           }
