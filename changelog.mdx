@@ -1,10 +1,26 @@
 ---
 title: Notas de Atualização
 ---
-<Update label="2026.11" description="Novembro" tags={["Lançamento", "Em andamento"]}>
+<Update label="2026.11" description="Novembro" tags={["Lançamento","Em andamento"]}>
   <Callout kind="info" collapsed="false">
-    Novembro ainda está em andamento: novas melhorias entram aqui conforme são lançadas. **Última atualização: 09/11/2026.**
+    Novembro ainda está em andamento: novas melhorias entram aqui conforme são lançadas. **Última atualização: 10/11/2026.**
   </Callout>
+
+  ## ⚖️ Média Ponderada na Escala Likert e na Matriz
+
+  <Video src="https://cdn.amplifique.me/central-de-ajuda/06d28ff361bc8d9be21279a480de7478.mp4" render-type="video" controls="true" allow-full-screen="true" title="Média ponderada nas pesquisas" />
+
+  - Nas perguntas de **Escala Likert** e **Matriz**, ligue **Calcular Média Ponderada** e defina quanto vale cada nota ou coluna. Coluna sem valor, como "Não se aplica", fica fora do cálculo.
+  - A média ponderada aparece nos painéis, em **Análise e Resultados**, no **Detalhamento** e nas exportações, inclusive para respostas antigas.
+  - Passo a passo em [Como calcular média ponderada em perguntas Likert e Matriz?](/como-calcular-media-ponderada).
+
+  ## 🎯 Indicadores Personalizados nas Perguntas
+
+  <Video src="https://cdn.amplifique.me/central-de-ajuda/7e907f792c146a9db3d89d959e877225.mp4" render-type="video" controls="true" allow-full-screen="true" title="Indicadores personalizados" />
+
+  - Crie na própria pergunta indicadores como **Satisfeitos** ou **Notas 9 e 10**, em percentual ou em quantidade.
+  - Cada indicador aparece no topo da pergunta em **Análise e Resultados**, pode ser destacado em um card do **Painel** pelo campo **Indicador em Destaque** e pode ser usado no **Detalhamento**.
+  - Funciona em perguntas de **NPS**, **CSAT**, **CES**, **Escala Likert**, **Única Escolha**, **Múltipla Escolha** e **Caixa de Seleção**. Passo a passo em [Como criar indicadores personalizados nas perguntas?](/como-criar-indicadores-personalizados).
 
   ## 📊 Resumos com Indicadores e Descrição
 
@@ -35,7 +51,6 @@ title: Notas de Atualização
 ---
 
 <Update label="2026.10" description="Outubro" tags={["Lançamento"]}>
-
   ## 🧩 Filtros dos Cards Iguais aos das Análises
 
   O filtro dos cards do **Painel** passou a ser o mesmo das telas de **Respostas** e **Análise e Resultados**, com os mesmos campos e condições. Ao clicar em **Ver Respostas** ou **Ver Detalhamento**, a tela abre com os filtros do card.
@@ -76,22 +91,17 @@ title: Notas de Atualização
 
   - **Fechamento de Loop**
     - Ao clicar em **Responder** em um e-mail do ticket, os outros participantes da conversa já vêm preenchidos nos campos de cópia.
-
   - **Usuários**
     - Na edição de um usuário com nível **Analista**, a opção **Bloquear Envios** impede que ele envie pesquisas e solicitações de avaliação para contatos.
-
   - **Geral**
     - Imagens e vídeos abrem em uma janela dentro da plataforma, com setas para navegar entre eles.
     - Ao entrar de novo depois de ser desconectado, você volta para a tela em que estava.
     - O painel de notificações abre ao lado do menu lateral recolhido.
-
   - **Pesquisas**
     - Nas condições das **Automações** com campos personalizados, ao clicar no valor aparecem sugestões dos valores que já existem nos contatos e nas respostas.
     - Nas **Automações** da pesquisa, é possível **pausar** e reativar cada automação, ou usar **Pausar Todas** e **Reativar Todas**.
-
   - **Respostas**
     - A opção **Mostrar Perguntas em Branco** vem desligada por padrão.
-
   - **Integrações**
     - Ao criar um token de API, a opção **Sobrescrever Dados (recomendado)** vem marcada por padrão.
 </Update>
@@ -146,33 +156,26 @@ title: Notas de Atualização
     - Quando a conexão do respondente cai, a pesquisa mostra uma mensagem própria com o botão **Tentar Novamente**.
     - O campo de seleção do cadastro usa o texto configurado e respeita o idioma da pesquisa.
     - O modo de identificação só fica travado depois da primeira resposta.
-
   - **Painéis e Análise e Resultados**
     - Painéis com muitos cards carregam mais rápido, e a **Visão Geral** dos **Insights** abre em poucos segundos mesmo em períodos longos.
     - No **Ver Detalhamento** aberto a partir de um card, os campos escolhidos podem ser salvos em **Minhas Visualizações**.
     - Um card duplicado aparece logo abaixo do card de origem.
     - Na **Visão Geral**, os cards seguem a ordem Convites, Respostas Recebidas e Taxa de Resposta por Convite.
     - Os **Tópicos Encontrados** dos **Insights** podem ser exportados em XLSX.
-
   - **Convites**
     - A tela separa os **Convites com Envio** (WhatsApp, E-mail e SMS) dos canais sem envio (Link, QR Code, In-App e Importação).
     - Clicar em um convite abre os dados detalhados do envio e os campos customizados.
-
   - **Fechamento de Loop**
     - A resposta vinculada ao ticket mostra se o contato autorizou ser contatado.
     - Categorias podem ser adicionadas em lote, uma por linha.
     - O histórico de atividades do ticket carrega conforme você rola a lista.
     - A janela de criação de ticket não fecha mais ao apertar Esc ou clicar fora dela.
-
   - **Exportações**
     - A geração começa logo após o clique em exportar.
-
   - **Resumos**
     - Um aviso aparece ao criar um resumo recorrente para uma pesquisa que já tem um.
-
   - **WhatsApp**
     - Ao excluir um template em uso, a plataforma lista as pesquisas afetadas e as desativa até que um novo template seja escolhido.
-
   - **Geral**
     - Os campos de e-mail aceitam vários endereços separados por vírgula.
     - No menu do usuário, **Meu Perfil** virou **Configurações**, que abre com a seção **Organização** expandida.
@@ -707,7 +710,7 @@ title: Notas de Atualização
 
   [Clique aqui](https://www.linkedin.com/feed/update/urn:li:activity:7336420353805537281/) para ver uma demonstração de como é a experiência de responder uma pesquisa.
 
-  Se você já possui WhatsApp configurado na [Amplifique.me](http://amplifique.me/) e tem interesse em participar do teste fechado, entre em contato através do e-mail **[meajuda@amplifique.me](mailto:meajuda@amplifique.me)** ou pelo chat da plataforma.
+  Se você já possui WhatsApp configurado na [Amplifique.me](http://amplifique.me/) e tem interesse em participar do teste fechado, entre em contato através do e-mail [**meajuda@amplifique.me**](mailto:meajuda@amplifique.me) ou pelo chat da plataforma.
 
   ## 🏷️ Melhorias nas Tags do Ticket do Fechamento de Loop
 
@@ -795,3 +798,4 @@ title: Notas de Atualização
   - O status do envio de um e-mail dentro de um ticket agora aparece ao lado do assunto.
   - Na tela de Análise e Resultados, agora é possível clicar nas barras do gráfico de Tags Inteligentes para ser redirecionado à tela de Respostas com os dados já filtrados.
 </Update>
+
