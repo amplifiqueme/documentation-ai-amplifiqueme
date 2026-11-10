@@ -4,11 +4,11 @@ description: >-
   Passo a passo para conectar a Amplifique.me ao Claude, ChatGPT, Gemini,
   Gemini Enterprise, Microsoft Copilot e outros assistentes compatíveis com MCP.
 ---
-## Visão geral
+## Conecte em poucos minutos
 
-O Conector MCP funciona com qualquer assistente de IA compatível com MCP. Abaixo está o passo a passo dos mais usados. Se o seu assistente não estiver na lista, veja [Outros assistentes](#outros-assistentes).
+Sem código e sem chave de API: você autoriza com o seu usuário da Amplifique.me e pode desconectar quando quiser.
 
-Em todos os casos, você vai precisar do endereço do conector:
+Em todos os assistentes, o endereço do conector é o mesmo:
 
 ```
 https://mcp.amplifique.me/mcp
@@ -18,78 +18,130 @@ https://mcp.amplifique.me/mcp
   Antes de conectar, confirme que o seu usuário tem o **Acesso ao Conector MCP** liberado. Veja [Como começar a usar o Conector MCP](/conector-mcp/comece-a-usar).
 </Callout>
 
----
+Escolha o seu assistente:
 
-## Claude
+<Tabs>
+  <Tab title="Claude">
+    Disponível nos planos Pro, Max, Team e Enterprise do Claude.
 
-Disponível nos planos Pro, Max, Team e Enterprise do Claude.
+    <Steps>
+      <Step title="Abra o Claude pela Amplifique.me" title-type="p">
+        Em **Configurações → Conector MCP**, na aba **Claude**, clique em **Conectar ao Claude**. O Claude abre com a Amplifique.me já preenchida.
+      </Step>
 
-<Steps>
-  <Step title="Acesse Configurações → Conector MCP na Amplifique.me" title-type="p">
-    Na aba **Claude**, clique em **Conectar ao Claude**. O Claude abre com a configuração da Amplifique.me já preenchida.
-  </Step>
+      <Step title="Adicione o conector" title-type="p">
+        Revise o nome e o endereço e clique em **Adicionar**.
+      </Step>
 
-  <Step title="Confira e adicione o conector" title-type="p">
-    Revise o nome e o endereço e clique em **Adicionar**.
-  </Step>
+      <Step title="Autorize e pergunte" title-type="p">
+        Clique em **Conectar**, entre com o seu usuário da Amplifique.me e clique em **Autorizar**. Pronto: é só fazer o primeiro pedido.
+      </Step>
+    </Steps>
 
-  <Step title="Conecte e autorize" title-type="p">
-    Clique em **Conectar**, entre com o seu usuário da Amplifique.me e clique em **Autorizar**.
-  </Step>
-</Steps>
+    Para adicionar à mão, vá em **Configurações → Conectores** no Claude, clique em **Adicionar conector personalizado** e cole o endereço do conector.
 
-<Callout kind="tip" collapsed="false">
-  Nos planos Team e Enterprise do Claude, o conector costuma ser adicionado por um administrador da organização no Claude. Depois disso, cada pessoa encontra a Amplifique.me na lista de conectores e só clica em **Conectar** para autorizar com o próprio usuário.
-</Callout>
+    <Callout kind="tip" collapsed="false">
+      Nos planos Team e Enterprise do Claude, o conector costuma ser adicionado por um administrador da organização no Claude. Depois disso, cada pessoa encontra a Amplifique.me na lista de conectores e só clica em **Conectar** para autorizar com o próprio usuário.
+    </Callout>
+  </Tab>
 
-Para adicionar à mão, vá em **Configurações → Conectores** no Claude, clique em **Adicionar conector personalizado** e cole o endereço do conector.
+  <Tab title="ChatGPT">
+    Disponível nos planos Plus, Pro, Business e Enterprise do ChatGPT, pelo navegador, com o **Modo desenvolvedor** ligado nas configurações do ChatGPT.
 
----
+    <Steps>
+      <Step title="Crie o app" title-type="p">
+        No ChatGPT, vá em **Configurações → Apps** e clique em **Criar**.
+      </Step>
 
-## ChatGPT
+      <Step title="Preencha os dados da Amplifique.me" title-type="p">
+        - **Nome:** Amplifique.me
+        - **URL do MCP:** `https://mcp.amplifique.me/mcp`
+        - **Autenticação:** OAuth
+        - **Logo:** baixe a logo em **Configurações → Conector MCP**, na aba **ChatGPT**.
+      </Step>
 
-Disponível nos planos Plus, Pro, Business e Enterprise do ChatGPT, pelo navegador. É preciso ligar o **Modo desenvolvedor** nas configurações do ChatGPT.
+      <Step title="Autorize e pergunte" title-type="p">
+        Clique em **Criar**, entre com o seu usuário da Amplifique.me e clique em **Autorizar**.
+      </Step>
+    </Steps>
 
-<Steps>
-  <Step title="Crie o app" title-type="p">
-    No ChatGPT, vá em **Configurações → Apps** e clique em **Criar**.
-  </Step>
+    <Callout kind="info" collapsed="false">
+      Nos planos Business e Enterprise, um administrador do ChatGPT pode publicar o app para o workspace. Assim, as outras pessoas só precisam conectar e autorizar com o próprio usuário.
+    </Callout>
+  </Tab>
 
-  <Step title="Preencha os dados da Amplifique.me" title-type="p">
-    - **Nome:** Amplifique.me
-    - **URL do MCP:** `https://mcp.amplifique.me/mcp`
-    - **Autenticação:** OAuth
-    - **Logo:** baixe a logo em **Configurações → Conector MCP**, na aba **ChatGPT**.
-  </Step>
+  <Tab title="Gemini">
+    Para o Gemini no navegador (gemini.google.com). Se a sua empresa usa o Gemini Enterprise, veja [Gemini Enterprise](#gemini-enterprise).
 
-  <Step title="Crie e autorize" title-type="p">
-    Clique em **Criar**, entre com o seu usuário da Amplifique.me e clique em **Autorizar**.
-  </Step>
-</Steps>
+    <Steps>
+      <Step title="Abra os apps personalizados" title-type="p">
+        No Gemini, vá em **Configurações → Apps conectados** e abra **Apps personalizados**.
+      </Step>
 
-<Callout kind="info" collapsed="false">
-  Nos planos Business e Enterprise, um administrador do ChatGPT pode publicar o app para o workspace. Assim, as outras pessoas só precisam conectar e autorizar com o próprio usuário.
-</Callout>
+      <Step title="Informe o endereço do conector" title-type="p">
+        Cole `https://mcp.amplifique.me/mcp` e clique em **Avançar**.
+      </Step>
 
----
+      <Step title="Autorize e pergunte" title-type="p">
+        Entre com o seu usuário da Amplifique.me e clique em **Autorizar**.
+      </Step>
+    </Steps>
+  </Tab>
 
-## Gemini
+  <Tab title="Copilot">
+    Para agentes criados no Microsoft Copilot Studio.
 
-Para o Gemini no navegador (gemini.google.com).
+    <Steps>
+      <Step title="Adicione a ferramenta" title-type="p">
+        No seu agente, abra **Ferramentas → Adicionar ferramenta → Model Context Protocol**.
+      </Step>
 
-<Steps>
-  <Step title="Abra os apps personalizados" title-type="p">
-    No Gemini, vá em **Configurações → Apps conectados** e abra **Apps personalizados**.
-  </Step>
+      <Step title="Preencha os dados do servidor" title-type="p">
+        - **Nome do servidor:** Amplifique.me
+        - **URL do servidor:** `https://mcp.amplifique.me/mcp`
+        - **Autenticação:** OAuth 2.0, com o tipo **Descoberta dinâmica**
+      </Step>
 
-  <Step title="Informe o endereço do conector" title-type="p">
-    Cole `https://mcp.amplifique.me/mcp` e clique em **Avançar**.
-  </Step>
+      <Step title="Crie a conexão e autorize" title-type="p">
+        Crie uma nova conexão, entre com o seu usuário da Amplifique.me e clique em **Autorizar**. Depois, adicione a ferramenta ao agente.
+      </Step>
+    </Steps>
 
-  <Step title="Autorize" title-type="p">
-    Entre com o seu usuário da Amplifique.me e clique em **Autorizar**.
-  </Step>
-</Steps>
+    Quando o agente é publicado para a organização, cada pessoa que usar pode precisar autorizar com o próprio usuário da Amplifique.me.
+  </Tab>
+
+  <Tab title="Outros">
+    Cursor, Manus, Perplexity, VS Code e qualquer outra ferramenta compatível com MCP podem se conectar.
+
+    <Steps>
+      <Step title="Adicione um servidor remoto" title-type="p">
+        Nas configurações de MCP do seu assistente, adicione um servidor remoto com o nome **Amplifique.me**.
+      </Step>
+
+      <Step title="Informe o endereço e a autenticação" title-type="p">
+        Endereço `https://mcp.amplifique.me/mcp`, transporte **Streamable HTTP** e autenticação **OAuth 2.0**.
+      </Step>
+
+      <Step title="Autorize e pergunte" title-type="p">
+        Entre com o seu usuário da Amplifique.me quando for pedido e clique em **Autorizar**.
+      </Step>
+    </Steps>
+
+    Se não souber onde configurar, copie o texto abaixo e cole no seu assistente:
+
+    ```
+    Quero conectar a Amplifique.me a você usando MCP.
+
+    Endereço do servidor: https://mcp.amplifique.me/mcp
+    Transporte: Streamable HTTP
+    Autenticação: OAuth
+
+    Me diga onde adicionar esse servidor no aplicativo que estou usando. Se você conseguir configurar sozinho, configure. No fim, confirme se as ferramentas da Amplifique.me apareceram.
+    ```
+
+    Se você está construindo uma integração própria, veja os [Requisitos técnicos](/conector-mcp/requisitos-tecnicos).
+  </Tab>
+</Tabs>
 
 ---
 
@@ -116,59 +168,6 @@ O Gemini Enterprise pede credenciais OAuth próprias da sua conta. Elas são ger
 </Steps>
 
 As credenciais servem só para a conta da Amplifique.me que as gerou. Em **Usa o Gemini Enterprise?**, você vê quem criou cada credencial e quando. Ao clicar em **Excluir**, o Gemini Enterprise configurado com ela perde o acesso na hora.
-
----
-
-## Microsoft Copilot
-
-Para agentes criados no Microsoft Copilot Studio.
-
-<Steps>
-  <Step title="Adicione a ferramenta" title-type="p">
-    No seu agente, abra **Ferramentas → Adicionar ferramenta → Model Context Protocol**.
-  </Step>
-
-  <Step title="Preencha os dados do servidor" title-type="p">
-    - **Nome do servidor:** Amplifique.me
-    - **URL do servidor:** `https://mcp.amplifique.me/mcp`
-    - **Autenticação:** OAuth 2.0, com o tipo **Descoberta dinâmica**
-  </Step>
-
-  <Step title="Crie a conexão e autorize" title-type="p">
-    Crie uma nova conexão, entre com o seu usuário da Amplifique.me e clique em **Autorizar**. Depois, adicione a ferramenta ao agente.
-  </Step>
-</Steps>
-
-Quando o agente é publicado para a organização, cada pessoa que usar pode precisar autorizar com o próprio usuário da Amplifique.me.
-
----
-
-## Outros assistentes
-
-Cursor, VS Code e qualquer outra ferramenta compatível com MCP podem se conectar. Nas configurações de MCP do seu assistente, adicione um servidor remoto com estes dados:
-
-| Item | Valor |
-| --- | --- |
-| Nome | Amplifique.me |
-| Endereço | `https://mcp.amplifique.me/mcp` |
-| Transporte | Streamable HTTP |
-| Autenticação | OAuth 2.0 |
-
-Se você está construindo uma integração própria, veja os [Requisitos técnicos](/conector-mcp/requisitos-tecnicos).
-
-### Pedir ajuda ao próprio assistente
-
-Se não souber onde configurar, copie o texto abaixo e cole no seu assistente:
-
-```
-Quero conectar a Amplifique.me a você usando MCP.
-
-Endereço do servidor: https://mcp.amplifique.me/mcp
-Transporte: Streamable HTTP
-Autenticação: OAuth
-
-Me diga onde adicionar esse servidor no aplicativo que estou usando. Se você conseguir configurar sozinho, configure. No fim, confirme se as ferramentas da Amplifique.me apareceram.
-```
 
 ---
 

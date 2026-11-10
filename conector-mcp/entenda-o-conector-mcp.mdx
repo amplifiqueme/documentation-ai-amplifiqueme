@@ -12,7 +12,7 @@ O **Conector MCP** liga a sua conta da Amplifique.me ao assistente de IA que voc
 MCP (Model Context Protocol) é um padrão aberto. Por isso, o conector funciona com qualquer assistente compatível: Claude, ChatGPT, Gemini, Microsoft Copilot, Cursor ou uma ferramenta própria da sua empresa.
 
 <Callout kind="info" collapsed="false">
-  O assistente acessa a Amplifique.me com o seu usuário e só faz o que o seu nível de acesso permite na plataforma. Conectar um assistente não cria permissões novas.
+  Você autoriza com o seu usuário da Amplifique.me: sem código, sem chave de API e com a opção de desconectar quando quiser. O assistente só faz o que o seu nível de acesso permite na plataforma.
 </Callout>
 
 ---
@@ -38,18 +38,26 @@ De forma simplificada:
 <Columns cols="2">
   <Card title="Analisar resultados" href="/conector-mcp/o-que-voce-pode-fazer#acompanhar-resultados" icon="lucide-bar-chart-2" horizontal="false">
     NPS, CSAT, CES e demais indicadores, comparação entre períodos e detalhamento por unidade, pesquisa, canal ou campo customizado.
+
+    *“Compare o NPS de setembro com o de agosto, por unidade.”*
   </Card>
 
   <Card title="Ler respostas" href="/conector-mcp/o-que-voce-pode-fazer#entender-o-que-os-clientes-estão-dizendo" icon="lucide-message-square-text" horizontal="false">
     Listar e abrir respostas com os mesmos filtros da tela de Respostas, incluindo comentários, tags e análise da IA.
+
+    *“Mostre os detratores desta semana que deixaram comentário.”*
   </Card>
 
   <Card title="Cuidar do Fechamento de Loop" href="/conector-mcp/o-que-voce-pode-fazer#cuidar-do-fechamento-de-loop" icon="lucide-ticket" horizontal="false">
     Consultar, criar e mover tickets, deixar notas, responder o cliente por e-mail e fazer alterações em lote.
+
+    *“Quais tickets estão atrasados? Deixe uma nota em cada um.”*
   </Card>
 
   <Card title="Configurar a conta" href="/conector-mcp/o-que-voce-pode-fazer#criar-e-ajustar-a-conta" icon="lucide-settings" horizontal="false">
     Criar e editar pesquisas, painéis, campos customizados, grupos de pesquisa, resumos recorrentes de IA e fluxos de Fechamento de Loop.
+
+    *“Crie um painel de CSAT por canal dos últimos 90 dias.”*
   </Card>
 </Columns>
 
@@ -68,6 +76,32 @@ Para usar o Conector MCP, você precisa de:
 <Callout kind="info" collapsed="false">
   Durante o período de beta, até 30 de novembro de 2026, o Conector MCP está disponível temporariamente para todos os clientes.
 </Callout>
+
+---
+
+## Perguntas frequentes
+
+<ExpandableGroup>
+  <Expandable title="O que é MCP?" default-open="false">
+    MCP (Model Context Protocol) é um padrão aberto para ligar assistentes de IA a outros sistemas. Com ele, o assistente consulta e altera a Amplifique.me a pedido seu, com a sua autorização.
+  </Expandable>
+
+  <Expandable title="Quem pode usar o Conector MCP?" default-open="false">
+    Contas com **Créditos de IA** contratados ou com um plano que já inclui IA. Durante o beta, até 30 de novembro de 2026, está disponível para todos os clientes. Na conta, o Proprietário tem acesso sempre e escolhe quais outros usuários podem usar.
+  </Expandable>
+
+  <Expandable title="Quais assistentes funcionam?" default-open="false">
+    Claude, ChatGPT, Gemini, Microsoft Copilot e qualquer outro assistente compatível com MCP, como Cursor, Manus e Perplexity. Veja o passo a passo em [Integrações](/conector-mcp/integracoes).
+  </Expandable>
+
+  <Expandable title="É seguro? Quem vê os meus dados?" default-open="false">
+    A conexão é autorizada com o seu usuário, e o assistente só alcança o que esse usuário alcança na plataforma. O que ele consulta é entregue ao assistente de IA que você está usando. Você pode desconectar a qualquer momento em **Configurações → Conector MCP**. Veja [Segurança e permissões](/conector-mcp/seguranca-e-permissoes) e o [Política de Privacidade do Conector MCP](/conector-mcp/privacidade).
+  </Expandable>
+
+  <Expandable title="O assistente pode alterar a minha conta sem eu pedir?" default-open="false">
+    Não. Ele só age quando você pede. Envios ao cliente, exclusões e alterações em lote ainda mostram um resumo antes e só acontecem depois que você confirma na conversa.
+  </Expandable>
+</ExpandableGroup>
 
 ---
 
