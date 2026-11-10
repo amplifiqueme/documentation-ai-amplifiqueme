@@ -82,6 +82,8 @@ Depois de autenticar, a lista completa sai de `tools/list`, com a descrição e 
 | --- | --- |
 | `amp.answers.list` / `amp.answers.get` | Lista e abre respostas, só com os dados |
 | `amp.answers.show_list` / `amp.answers.show` | O mesmo conteúdo, exibido no visual da tela de Respostas nos assistentes que mostram interface |
+| `amp.answers.update_custom_fields` | Altera campos customizados gravados em uma resposta |
+| `amp.answers.batch_update_custom_fields` | Altera campos customizados de várias respostas, com prévia e confirmação |
 | `amp.metrics.overview` | Resultados de até 10 pesquisas, com comparação com o período anterior |
 | `amp.metrics.breakdown` | Detalhamento por grupo ou ao longo do tempo, incluindo convites e taxa de resposta |
 
@@ -128,9 +130,9 @@ Depois de autenticar, a lista completa sai de `tools/list`, com a descrição e 
 
 ## Confirmações e resultados
 
-Ferramentas com efeito para fora ou difíceis de desfazer, como envio de e-mail e alterações em lote, respondem primeiro com uma prévia e só executam quando chamadas de novo com `confirm: true`.
+Ferramentas com efeito para fora ou difíceis de desfazer, como envio de e-mail e alterações em lote de tickets e respostas, respondem primeiro com uma prévia e só executam quando chamadas de novo com `confirm: true`.
 
-Alterações em lote de tickets rodam em segundo plano: a resposta informa quantos tickets entraram no lote, e o resultado de cada um aparece no ticket.
+Alterações em lote de tickets e de respostas rodam em segundo plano: a resposta informa quantos itens entraram no lote, e o resultado de cada um aparece no histórico do ticket ou da resposta.
 
 As chamadas têm limite de frequência por usuário. Quando o limite é atingido, a resposta informa em quanto tempo tentar de novo.
 
