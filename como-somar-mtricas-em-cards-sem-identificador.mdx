@@ -110,6 +110,12 @@ Se os números não estiverem corretos após a criação:
   <Expandable title="Posso misturar NPS e CSAT no mesmo Card?" default-open="false">
     Não. Cada Card de métrica deve conter perguntas do mesmo tipo (ex: somente NPS, ou somente CSAT) para que a soma faça sentido analítico.
   </Expandable>
+
+  <Expandable title="Posso somar várias perguntas de Matriz ou de Escala Likert no mesmo Card?" default-open="false">
+    Sim, desde que sigam o mesmo padrão. Em Matriz, todas as perguntas precisam ter as mesmas colunas e, se houver pesos, os mesmos pesos em cada coluna. Em Escala Likert, todas precisam ter a mesma escala e os mesmos pesos. Se você tentar salvar um Card com perguntas diferentes, ele não é salvo e a plataforma avisa que as perguntas são incompatíveis.
+
+    Num Card de Matriz com mais de uma pergunta, as respostas de todas as linhas são somadas por coluna, e o Card mostra uma única linha, **Todas as linhas**.
+  </Expandable>
 </ExpandableGroup>
 
 ---
