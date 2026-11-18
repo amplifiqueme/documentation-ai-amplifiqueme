@@ -2,23 +2,25 @@
 title: Como começar a usar o Conector MCP?
 description: >-
   Libere o acesso dos usuários, conecte o seu assistente de IA à Amplifique.me,
-  faça a primeira pergunta e gerencie os aplicativos conectados.
+  autorize com o seu usuário e faça a primeira pergunta.
 ---
-## Visão geral
+## Antes de começar
 
-Usar o Conector MCP tem três etapas: liberar o acesso, conectar o assistente e autorizar a conexão com a sua conta da Amplifique.me. Depois disso, é só conversar.
+Para conectar, você precisa de:
 
----
-
-## 1. Libere o acesso
-
-O Conector MCP está disponível para contas com **Créditos de IA** contratados ou com um plano que já inclui IA. Para contratar, fale com o seu CS.
+- uma conta da Amplifique.me com **Créditos de IA** contratados ou com um plano que já inclui IA. Para contratar, fale com o seu CS;
+- ser **Proprietário** da conta ou ter o **Acesso ao Conector MCP** liberado pelo Proprietário;
+- um assistente de IA compatível com MCP, como Claude, ChatGPT, Gemini, Microsoft Copilot ou Cursor.
 
 <Callout kind="info" collapsed="false">
   Durante o período de beta, até 30 de novembro de 2026, o Conector MCP está disponível temporariamente para todos os clientes.
 </Callout>
 
-Com o conector disponível na conta, o **Proprietário** já tem acesso e escolhe quais outros usuários podem usar o conector:
+---
+
+## 1. Libere o acesso
+
+O **Proprietário** já tem acesso e escolhe quais outros usuários podem usar o conector:
 
 <Tabs>
   <Tab title="Usuário a usuário" icon="lucide-user">
@@ -56,39 +58,51 @@ Quem recebe o acesso é avisado por notificação na plataforma e por e-mail.
 
 ## 2. Conecte o seu assistente
 
-Em **Configurações → Conector MCP**, o cartão **Conectar um agente à Amplifique.me** tem uma aba para cada assistente (Claude, ChatGPT, Gemini, Copilot e Outros agentes), com o passo a passo e o endereço do conector:
+Adicione a Amplifique.me ao assistente que você vai usar. O endereço do conector é sempre o mesmo:
 
 ```
 https://mcp.amplifique.me/mcp
 ```
 
-No Claude, o botão **Conectar ao Claude** já abre o Claude com a Amplifique.me preenchida. Para os outros assistentes, veja as instruções detalhadas em [Integrações](/conector-mcp/integracoes).
+Em **Configurações → Conector MCP**, o cartão **Conectar um agente à Amplifique.me** tem uma aba para cada assistente, com o passo a passo. No Claude, o botão **Conectar ao Claude** já abre o Claude com a Amplifique.me preenchida.
+
+O caminho muda de um assistente para outro. Veja o passo a passo de cada um em [Integrações](/conector-mcp/integracoes).
 
 ---
 
-## 3. Autorize a conexão
+## 3. Autorize com o seu usuário
 
 Ao conectar, o assistente abre a página **Autorizar** da Amplifique.me. Se você não estiver logado, entre com o seu usuário e senha da plataforma.
 
 A página mostra qual aplicativo está pedindo acesso, o que ele poderá fazer e com qual usuário você está conectando. Confira e clique em **Autorizar**. Para desistir, clique em **Cancelar**.
 
+A conexão fica ligada ao seu usuário. Por exemplo, se você é **Apenas Leitura**, o assistente consulta resultados e respostas, mas não altera pesquisas nem painéis. Conectar não cria permissões novas: o assistente usa as que você já tem, e elas são conferidas a cada pedido.
+
 <Callout kind="tip" collapsed="false">
-  A autorização é feita com o seu próprio usuário. Cada pessoa da equipe que for usar o conector autoriza a sua conta, e cada uma acessa só o que o próprio nível permite.
+  O e-mail que você usa no assistente não precisa ser o mesmo da Amplifique.me. Na página **Autorizar**, entre com o usuário da Amplifique.me que tem acesso à conta que você quer usar. Cada pessoa da equipe autoriza com o próprio usuário.
 </Callout>
+
+Se ficar na dúvida sobre qual usuário está conectado, pergunte ao assistente:
+
+> **Com qual usuário da Amplifique.me estou conectado?**
+
+Ele mostra o usuário e a conta da conexão. Se não for o esperado, desconecte e conecte de novo com o usuário certo.
 
 ---
 
-## 4. Faça a primeira pergunta
+## 4. Faça a primeira chamada
 
 Depois de autorizar, faça uma pergunta simples para confirmar que a conexão está funcionando:
 
-> Quais pesquisas estão ativas na minha conta?
+> **Quais pesquisas estão ativas na minha conta?**
 
 Se o assistente listar as suas pesquisas, está tudo certo. A partir daí, você pode perguntar coisas como:
 
-- Qual foi o NPS do último mês, por unidade?
-- Mostre as respostas de detratores desta semana com comentário.
-- Quais tickets do Fechamento de Loop estão atrasados?
+> **Qual foi o NPS do último mês, por unidade?**
+
+> **Mostre as respostas de detratores desta semana com comentário.**
+
+> **Quais tickets do Fechamento de Loop estão atrasados?**
 
 Veja mais exemplos em [O que você pode fazer](/conector-mcp/o-que-voce-pode-fazer).
 
@@ -96,9 +110,9 @@ Veja mais exemplos em [O que você pode fazer](/conector-mcp/o-que-voce-pode-faz
 
 ## Agentes conectados
 
-Em **Configurações → Conector MCP**, cada aba mostra **conectado** ou **não conectado** para o seu usuário. Na aba de um assistente conectado, aparecem a data da conexão, o último uso e o botão **Desconectar**.
+Em **Configurações → Conector MCP**, cada aba mostra **Conectado** ou **Não Conectado** para o seu usuário. Na aba de um assistente conectado, aparecem a data da conexão, o último uso e o botão **Desconectar**.
 
-O **Proprietário** acompanha os agentes de toda a equipe em **Configurações → Usuários**: a coluna **Agentes Conectados** mostra o ícone de cada assistente conectado por usuário, e a opção **Desconectar Agentes**, no menu de ações do usuário, encerra as conexões dele. Na tela do Conector MCP, o link **Ver agentes conectados dos usuários** leva para lá.
+O **Proprietário** acompanha os agentes de toda a equipe em **Configurações → Usuários**: a coluna **Agentes Conectados** mostra o ícone de cada assistente conectado por usuário, e a opção **Desconectar Agentes**, no menu de ações do usuário, encerra as conexões dele. Na tela do Conector MCP, o link **Ver Agentes Conectados dos Usuários** leva para lá.
 
 Ao desconectar, o assistente perde o acesso na hora. Para voltar a usar, é preciso conectar de novo pelo assistente.
 

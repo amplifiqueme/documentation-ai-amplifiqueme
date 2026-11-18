@@ -5,11 +5,17 @@ description: >-
   Gemini ou Copilot, para consultar resultados, respostas e tickets e fazer
   ajustes na conta conversando.
 ---
-## Visão geral
+<Callout kind="alert" collapsed="false">
+  **Antes de começar:** o Conector MCP está disponível para contas com **Créditos de IA** contratados ou com um plano que já inclui IA, e o seu usuário precisa ter o **Acesso ao Conector MCP** liberado. Durante o beta, até 30 de novembro de 2026, está disponível para todos os clientes.
+</Callout>
+
+## O que é o Conector MCP
 
 O **Conector MCP** liga a sua conta da Amplifique.me ao assistente de IA que você já usa no dia a dia. Em vez de abrir a plataforma para procurar um número, uma resposta ou um ticket, você pede ao assistente e ele busca na Amplifique.me para você.
 
-MCP (Model Context Protocol) é um padrão aberto. Por isso, o conector funciona com qualquer assistente compatível: Claude, ChatGPT, Gemini, Microsoft Copilot, Cursor ou uma ferramenta própria da sua empresa.
+Assim, você leva a Amplifique.me para os fluxos de trabalho que já usa, como conversas, ferramentas internas e automações, sem trocar de ferramenta.
+
+MCP (Model Context Protocol) é um padrão aberto. Por isso, o conector funciona com **qualquer assistente compatível**: Claude, ChatGPT, Gemini, Microsoft Copilot, Cursor ou uma ferramenta própria da sua empresa. Veja como conectar em [Integrações](/conector-mcp/integracoes).
 
 <Callout kind="info" collapsed="false">
   Você autoriza com o seu usuário da Amplifique.me: sem código, sem chave de API e com a opção de desconectar quando quiser. O assistente só faz o que o seu nível de acesso permite na plataforma.
@@ -27,9 +33,11 @@ Por exemplo, ao perguntar:
 
 O assistente consulta os resultados da pesquisa nos dois períodos, compara os números e explica o que mudou.
 
-De forma simplificada:
+<Callout kind="tip" collapsed="false">
+  Você faz um pedido → o assistente entende o que precisa → consulta ou altera a Amplifique.me → apresenta o resultado
+</Callout>
 
-**Você pede** → **o assistente entende** → **consulta ou altera a Amplifique.me** → **apresenta o resultado**
+Para entender como o assistente encontra as informações, faz alterações em lote e pede confirmação, veja [Como funciona](/conector-mcp/como-funciona).
 
 ---
 
@@ -65,20 +73,6 @@ Veja exemplos de pedidos prontos em [O que você pode fazer](/conector-mcp/o-que
 
 ---
 
-## Antes de começar
-
-Para usar o Conector MCP, você precisa de:
-
-- uma conta da Amplifique.me com **Créditos de IA** contratados ou com um plano que já inclui IA;
-- ser Proprietário da conta ou ter o **Acesso ao Conector MCP** liberado para o seu usuário pelo Proprietário;
-- um assistente de IA compatível com MCP.
-
-<Callout kind="info" collapsed="false">
-  Durante o período de beta, até 30 de novembro de 2026, o Conector MCP está disponível temporariamente para todos os clientes.
-</Callout>
-
----
-
 ## Perguntas frequentes
 
 <ExpandableGroup>
@@ -95,7 +89,7 @@ Para usar o Conector MCP, você precisa de:
   </Expandable>
 
   <Expandable title="É seguro? Quem vê os meus dados?" default-open="false">
-    A conexão é autorizada com o seu usuário, e o assistente só alcança o que esse usuário alcança na plataforma. O que ele consulta é entregue ao assistente de IA que você está usando. Você pode desconectar a qualquer momento em **Configurações → Conector MCP**. Veja [Segurança e permissões](/conector-mcp/seguranca-e-permissoes) e o [Política de Privacidade do Conector MCP](/conector-mcp/privacidade).
+    A conexão é autorizada com o seu usuário, e o assistente só alcança o que esse usuário alcança na plataforma. O que ele consulta é entregue ao assistente de IA que você está usando. Você pode desconectar a qualquer momento em **Configurações → Conector MCP**. Veja [Segurança e permissões](/conector-mcp/seguranca-e-permissoes) e a [Política de Privacidade do Conector MCP](/conector-mcp/privacidade).
   </Expandable>
 
   <Expandable title="O assistente pode alterar a minha conta sem eu pedir?" default-open="false">
