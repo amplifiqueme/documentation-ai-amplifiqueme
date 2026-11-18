@@ -1,0 +1,124 @@
+---
+title: Como funciona o Conector MCP?
+description: >-
+  Como o assistente de IA encontra as informações na Amplifique.me, faz
+  alterações em lote, pede confirmação e respeita as permissões do seu usuário.
+---
+## Contexto
+
+O assistente consulta a Amplifique.me conforme precisa das informações para atender o seu pedido.
+
+Algumas informações ele já recebe ao conectar, como o seu usuário, a conta e as unidades que você acessa. Outras ele busca com as ferramentas do conector. Por exemplo, para achar uma pesquisa pelo nome, ele primeiro lista as pesquisas e, a partir do resultado, encontra a que você citou.
+
+Assim, o assistente combina várias consultas para atender pedidos mais complexos. Ao pedir:
+
+> **Crie um ticket para cada detrator da unidade Centro desta semana que ainda não tem ticket.**
+
+O assistente pode precisar:
+
+1. encontrar a unidade Centro;
+2. listar as respostas de detratores da semana nessa unidade;
+3. separar as que ainda não têm ticket;
+4. mostrar a lista e pedir a sua confirmação, quando necessário;
+5. criar os tickets.
+
+---
+
+## Descoberta de informações
+
+Você não precisa informar todos os detalhes. Quando falta uma informação, o assistente procura na Amplifique.me antes de continuar.
+
+Ao pedir:
+
+> **Qual foi o NPS da pesquisa de pós-venda em outubro?**
+
+O assistente procura a pesquisa pelo nome, confere qual métrica ela usa e só então busca o resultado do período.
+
+Por isso, você pode pedir usando **o que você conhece da sua operação**, como o nome da pesquisa, da unidade ou do fluxo, sem saber IDs ou nomes internos.
+
+<Callout kind="tip" collapsed="false">
+  Se houver mais de uma pesquisa ou unidade com nomes parecidos, o assistente pode perguntar qual você quer. Ser específico no pedido economiza essa volta.
+</Callout>
+
+---
+
+## Operações em lote
+
+Algumas ações podem ser feitas em vários itens de uma vez:
+
+- alterar fase, responsável, prioridade, prazo ou categorias de vários tickets;
+- mover vários tickets para outro fluxo;
+- preencher ou apagar campos customizados de várias respostas.
+
+Ao pedir, por exemplo:
+
+> **Passe para a Ana todos os tickets do fluxo Detratores que estão sem responsável.**
+
+O assistente seleciona os tickets pelos mesmos filtros da plataforma e faz a alteração de uma vez, em vez de um pedido por ticket.
+
+Cada lote vai até **5.000 itens** e roda em segundo plano. O assistente informa quantos itens entraram no lote, e o resultado de cada um aparece no histórico do ticket ou da resposta. Uma falha em um item não desfaz os outros.
+
+<Callout kind="tip" collapsed="false">
+  Ao trabalhar com muitos itens, descreva bem o que quer selecionar: pesquisa, unidade, período, fase, responsável ou campo customizado.
+</Callout>
+
+---
+
+## Confirmações
+
+Ações com efeito para fora ou difíceis de desfazer **não acontecem no primeiro pedido**. O conector devolve antes um resumo do que vai mudar, e o assistente mostra esse resumo e pede a sua confirmação. Isso vale para:
+
+- enviar e-mail ao cliente por um ticket;
+- alterar vários tickets ou respostas de uma vez e mover tickets para outro fluxo;
+- excluir itens, como categorias, modelos de e-mail, grupos de pesquisa, resumos recorrentes ou templates de WhatsApp;
+- gerar um resumo de IA avulso.
+
+Por exemplo, ao pedir:
+
+> **Responda por e-mail o cliente do ticket 1234 agradecendo o retorno.**
+
+O assistente mostra o texto e para quem vai, e só envia depois que você confirmar na conversa.
+
+<Callout kind="alert" collapsed="false">
+  Confirmar não amplia permissões. Mesmo depois da confirmação, a ação só acontece se o seu nível de acesso permitir.
+</Callout>
+
+---
+
+## Resultados e estados
+
+Depois de uma consulta ou alteração, o assistente mostra o resultado. Algumas ações terminam na hora; outras são processadas em segundo plano, como as alterações em lote e os resumos de IA avulsos.
+
+**Se uma ação ainda está em processamento, não a considere concluída.** Peça ao assistente para conferir antes de repetir:
+
+> **Confira se os tickets do lote que você alterou já estão com a Ana.**
+
+Os números seguem as mesmas regras da plataforma. Convites e taxa de resposta contam pela data do convite, como na **Visão Geral**; o resultado de cada pergunta conta pela data da resposta, como na aba **Resultados**.
+
+---
+
+## Limitações
+
+**1. Nem tudo da plataforma está no conector**
+
+O conector cobre resultados, respostas, pesquisas, painéis, campos customizados, resumos de IA, Fechamento de Loop e templates de WhatsApp. Envio de pesquisas, contatos, Reputação Online e exportações continuam só na plataforma.
+
+**2. Cada ação tem seus limites**
+
+Lotes vão até 5.000 itens, as listagens são paginadas e a comparação de resultados vai até 10 pesquisas por pedido. Há também um limite de pedidos por minuto para cada usuário. Quando uma seleção passa de 5.000 itens, o conector recusa o lote inteiro, e o assistente precisa refazer o pedido com filtros mais específicos, como um período menor ou uma unidade.
+
+**3. O conector não conhece o resto da sua empresa**
+
+O assistente vê o que está na Amplifique.me. Informações de outros sistemas, como CRM ou ERP, precisam vir de você ou de outro conector.
+
+**4. O acesso depende do seu usuário**
+
+Conectar um assistente não amplia o que você já pode fazer na Amplifique.me. Veja [Segurança e permissões](/conector-mcp/seguranca-e-permissoes).
+
+---
+
+## Próximo passo
+
+<Card title="O que você pode fazer" href="/conector-mcp/o-que-voce-pode-fazer" icon="lucide-sparkles" cta="Ver exemplos" horizontal="false">
+  Pedidos prontos para análise de resultados, respostas e Fechamento de Loop.
+</Card>

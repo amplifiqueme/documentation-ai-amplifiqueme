@@ -621,6 +621,10 @@
               {
                 "title": "Integrações",
                 "path": "conector-mcp/integracoes"
+              },
+              {
+                "title": "Como funciona",
+                "path": "conector-mcp/como-funciona"
               }
             ]
           },

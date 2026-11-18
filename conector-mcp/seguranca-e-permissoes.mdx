@@ -1,12 +1,16 @@
 ---
 title: Segurança e permissões do Conector MCP
 description: >-
-  Como o Conector MCP protege o acesso à sua conta, o que cada nível de usuário
-  pode fazer pelo assistente de IA e como as ações ficam registradas.
+  Autenticação, permissões por nível de acesso, tipos de ação e registros que
+  protegem o acesso do seu assistente de IA à Amplifique.me.
 ---
-## Visão geral
+## Autenticação e autorização
 
-O assistente de IA usa a Amplifique.me **com o seu usuário**. Tudo o que ele consulta ou altera passa pelas mesmas permissões que você tem na plataforma, e cada pedido é verificado no momento em que é feito.
+O acesso ao Conector MCP passa por duas verificações. A **autenticação** identifica quem está conectado, e a **autorização** define o que essa conexão pode consultar ou alterar.
+
+A conexão é sempre feita **com o seu usuário da Amplifique.me**, por OAuth: você entra na página **Autorizar** da Amplifique.me, e o assistente nunca recebe a sua senha. A partir daí, cada pedido é conferido com as permissões que o seu usuário tem naquele momento.
+
+Isso significa que **conectar um assistente não amplia permissões**: ele só faz o que você já pode fazer na plataforma. Se o seu nível mudar, o conector acompanha na hora.
 
 ---
 
@@ -14,7 +18,7 @@ O assistente de IA usa a Amplifique.me **com o seu usuário**. Tudo o que ele co
 
 <Columns cols="2">
   <Card title="Na conta" icon="lucide-building-2" horizontal="false">
-    O Conector MCP só funciona em contas com o conector habilitado. A habilitação é feita pelo time de Sucesso do Cliente da Amplifique.me.
+    O Conector MCP funciona em contas com **Créditos de IA** contratados ou com um plano que já inclui IA. Durante o beta, até 30 de novembro de 2026, está disponível para todos os clientes.
   </Card>
 
   <Card title="No usuário" icon="lucide-user-check" horizontal="false">
@@ -23,6 +27,26 @@ O assistente de IA usa a Amplifique.me **com o seu usuário**. Tudo o que ele co
 </Columns>
 
 Ao retirar o acesso de um usuário, desativar o usuário ou desconectar um agente, as conexões são encerradas na hora.
+
+---
+
+## Tipos de ação
+
+As ferramentas do conector são classificadas pelo efeito que têm. A classificação ajuda a entender o impacto de cada pedido:
+
+**Consulta:** só lê informações, sem mudar nada. Por exemplo, resultados, respostas, tickets e painéis.
+
+**Alteração:** cria ou muda algo na conta. Por exemplo, criar uma pesquisa, mover um ticket de fase ou ajustar um painel.
+
+**Envio ao cliente:** manda uma mensagem para fora da Amplifique.me, como responder o cliente por e-mail num ticket.
+
+**Exclusão e lote:** apaga algo ou altera muitos itens de uma vez, ações difíceis de desfazer.
+
+Envios ao cliente, exclusões e lotes mostram antes um resumo e pedem a sua confirmação. Veja [Confirmações](/conector-mcp/como-funciona#confirmações).
+
+<Callout kind="alert" collapsed="false">
+  A confirmação acontece na conversa com o assistente e não substitui a autorização: mesmo depois de confirmar, a ação só acontece se o seu nível de acesso permitir.
+</Callout>
 
 ---
 
@@ -43,6 +67,7 @@ O conector respeita o nível de acesso de cada usuário. Os níveis são os mesm
 | Organizar grupos e pastas de pesquisa | ✅ | ✅ | ✅ | ❌ | ❌ | ❌ |
 | Gerar resumos de IA avulsos e criar ou alterar recorrentes | ✅ | ✅ | ✅\* | ❌ | ❌ | ❌ |
 | Criar e alterar pesquisas e automações | ✅ | ✅ | ❌ | ❌ | ❌ | ❌ |
+| Alterar campos customizados das respostas, uma a uma ou em lote | ✅ | ✅ | ❌ | ❌ | ❌ | ❌ |
 | Organizar pastas de resumos de IA | ✅ | ✅ | ❌ | ❌ | ❌ | ❌ |
 | Gerenciar templates de WhatsApp | ✅ | ✅ | ❌ | ❌ | ❌ | ❌ |
 | Gerenciar categorias de ticket | ✅ | ✅ | ❌ | ❌ | ❌ | ❌ |
@@ -62,31 +87,23 @@ O Fechamento de Loop segue os níveis próprios do módulo (Administrador, Anali
 
 ---
 
-## Dados pessoais
+## Proteção das informações
 
-Usuários com **Esconder Dados Pessoais** ativado recebem nome, e-mail, telefone e campos sensíveis mascarados também pelo assistente, como na plataforma.
+Usuários com **Esconder Dados Pessoais** ativado recebem nome, e-mail, telefone e campos sensíveis mascarados também pelo assistente, como na plataforma. Senhas, credenciais e dados de pagamento nunca são entregues ao assistente.
 
 <Callout kind="alert" collapsed="false">
-  As informações consultadas pelo conector são entregues ao assistente de IA que você está usando. Antes de conectar, confira as políticas de privacidade, retenção e uso de dados do assistente e as configurações de privacidade da sua conta nele.
+  **Atenção ao tratamento de dados pelo seu assistente de IA.** As informações consultadas pelo conector são entregues ao assistente que você está usando para atender o seu pedido. Antes de conectar, confira as políticas de privacidade, retenção e uso de dados do assistente e as configurações de privacidade da sua conta nele. A Amplifique.me controla o acesso dentro do conector; o tratamento pelo assistente segue as regras do serviço que você escolheu.
 </Callout>
 
----
-
-## Confirmações antes de agir
-
-Ações com efeito para fora ou difíceis de desfazer mostram primeiro um resumo e só acontecem depois que você confirma na conversa. Por exemplo:
-
-- enviar e-mail ao cliente por um ticket;
-- alterar vários tickets de uma vez ou movê-los para outro fluxo;
-- excluir categorias e modelos de e-mail do Fechamento de Loop, grupos de pesquisa, resumos recorrentes ou templates de WhatsApp.
-
-Confirmar não amplia permissões: mesmo depois da confirmação, a ação só acontece se o seu nível permitir.
+Veja os detalhes na [Política de Privacidade do Conector MCP](/conector-mcp/privacidade).
 
 ---
 
-## Registro das ações
+## Registro e auditoria
 
-As ações feitas pelo Conector MCP ficam registradas com o usuário que fez o pedido e o aplicativo usado. As alterações aparecem nos históricos da plataforma do mesmo jeito que as feitas pela tela, no nome de quem pediu.
+As alterações feitas pelo conector aparecem nos históricos da plataforma do mesmo jeito que as feitas pela tela, **no nome de quem pediu**.
+
+Além disso, a Amplifique.me registra cada uso do conector: usuário, aplicativo conectado, ação, resultado e data e hora. Esses registros servem para segurança, investigação de problemas e suporte, e são apagados automaticamente após cerca de 4 meses. O conteúdo da conversa entre você e o assistente não chega à Amplifique.me.
 
 ---
 
