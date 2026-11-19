@@ -47,7 +47,23 @@ Se o Claude listar as suas pesquisas, a conexão está funcionando.
 
 ## ChatGPT
 
-A Amplifique.me entra no ChatGPT como um **servidor MCP personalizado**.
+A Amplifique.me tem um plugin oficial no ChatGPT.
+
+[**Conectar ao ChatGPT**](https://chatgpt.com/plugins/plugin_asdk_app_6ae0157eac2c8191a92efdec3c09ee30)
+
+1. Abra a página da Amplifique.me no ChatGPT pelo link acima. Na Amplifique.me, o botão **Conectar ao ChatGPT** em **Configurações → Conector MCP**, aba **ChatGPT**, leva para o mesmo lugar.
+2. Clique em **Instalar plugin**.
+3. Entre com o seu usuário da Amplifique.me e clique em **Autorizar**.
+
+Cada pessoa autoriza com o próprio usuário da Amplifique.me, e o ChatGPT só alcança o que esse usuário já pode ver e fazer na plataforma.
+
+<Callout kind="info" collapsed="false">
+  Em workspaces ChatGPT Business e Enterprise, um administrador pode precisar liberar o plugin da Amplifique.me antes que as outras pessoas consigam conectá-lo.
+</Callout>
+
+### Configuração manual no ChatGPT
+
+Se a sua empresa prefere configurar o conector por conta própria, adicione a Amplifique.me como um **servidor MCP personalizado**.
 
 <Callout kind="info" collapsed="false">
   Servidores MCP personalizados funcionam no ChatGPT pela web, nos planos **Business** e **Enterprise/Edu**. No Business, só administradores e proprietários do workspace podem adicioná-los; no Enterprise/Edu, um administrador pode liberar outros membros. No plano Pro, o assistente só consulta informações, sem fazer alterações.
@@ -58,12 +74,12 @@ A Amplifique.me entra no ChatGPT como um **servidor MCP personalizado**.
    - **Nome:** `Amplifique.me`
    - **Conexão (URL do MCP):** `https://mcp.amplifique.me/mcp`
    - **Autenticação:** `OAuth`
-   - **Logo:** baixe em **Configurações → Conector MCP**, na aba **ChatGPT**. O ChatGPT aceita imagens de até 256×256 e 10 KB, e essa já está no tamanho certo.
+   - **Logo:** use a [logo da Amplifique.me](https://mcp.amplifique.me/icon-192.png), que já está no tamanho aceito pelo ChatGPT (até 256×256 e 10 KB).
 3. Leia o aviso de risco e marque **Entendo e quero continuar** (*I understand and want to continue*).
 4. Clique em **Criar como plugin** (*Create as a plugin*) e revise as ferramentas encontradas.
 5. Instale o plugin, entre com o seu usuário da Amplifique.me e clique em **Autorizar**.
 
-### Liberar para a equipe
+#### Liberar para a equipe
 
 Para as outras pessoas do workspace usarem, um administrador ou proprietário do ChatGPT publica o plugin no **Admin Console** (admin.openai.com), em **Plugins → Manage Legacy Apps → Drafts → Publish**. No Enterprise/Edu, dá para escolher na publicação quais ações ficam liberadas e quais grupos têm acesso. Depois disso, cada pessoa encontra a Amplifique.me em **Configurações → Plugins** e autoriza com o próprio usuário.
 
@@ -248,7 +264,7 @@ Depois de configurar, confirme se as ferramentas da Amplifique.me apareceram.
     O jeito de conectar muda conforme o assistente, o plano e as configurações da conta.
 
     - **No Claude,** use o botão **Conectar ao Claude** em **Configurações → Conector MCP**.
-    - **No ChatGPT,** adicione como servidor MCP personalizado, nos planos Business e Enterprise/Edu. Veja a [seção do ChatGPT](#chatgpt).
+    - **No ChatGPT,** instale o [plugin da Amplifique.me](https://chatgpt.com/plugins/plugin_asdk_app_6ae0157eac2c8191a92efdec3c09ee30). Em workspaces Business e Enterprise, um administrador pode precisar liberá-lo antes.
     - **No Gemini,** só o Gemini Enterprise (business.gemini.google) aceita conectores, com as credenciais geradas pelo Proprietário. Veja a [seção do Gemini Enterprise](#gemini-enterprise).
     - **No Copilot Studio,** o conector é uma ferramenta do agente.
     - **No Cursor, Codex e outros,** o conector entra nas configurações de servidores MCP do próprio assistente.
@@ -269,7 +285,7 @@ Depois de configurar, confirme se as ferramentas da Amplifique.me apareceram.
 
     1. Confirme que a conexão foi concluída.
     2. Veja se o conector está ligado na conversa: alguns assistentes deixam os conectores desligados por padrão em cada conversa.
-    3. Se o assistente tiver a opção de atualizar as ferramentas, use. No ChatGPT com plugin publicado, um administrador faz isso em **Action control → Refresh**.
+    3. Se o assistente tiver a opção de atualizar as ferramentas, use. No ChatGPT com servidor MCP personalizado publicado no workspace, um administrador faz isso em **Action control → Refresh**.
     4. Abra uma conversa nova e peça algo simples, como as pesquisas ativas.
     5. Se continuar, remova o conector no assistente e adicione de novo.
   </Expandable>
